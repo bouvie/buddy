@@ -44,7 +44,7 @@ const EMPTY: MetricCardData = {
 
 // ─── Meta ─────────────────────────────────────────────────────────────────────
 const meta: Meta<MetricCardComponent> = {
-  title: 'Design System / MetricCard',
+  title: 'Design System / Components / MetricCard',
   component: MetricCardComponent,
   tags: ['autodocs'],
   parameters: {

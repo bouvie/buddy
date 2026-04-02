@@ -40,7 +40,7 @@ const STATUS_ERROR: ListItemData = {
 
 // ─── Meta ─────────────────────────────────────────────────────────────────────
 const meta: Meta<ListItemComponent> = {
-  title: 'Design System / ListItem',
+  title: 'Design System / Components / ListItem',
   component: ListItemComponent,
   tags: ['autodocs'],
   parameters: {

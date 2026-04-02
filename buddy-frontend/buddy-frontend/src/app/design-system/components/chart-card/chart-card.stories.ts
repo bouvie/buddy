@@ -61,7 +61,7 @@ const EMPTY: ChartCardData = {
 
 // ─── Meta ─────────────────────────────────────────────────────────────────────
 const meta: Meta<ChartCardComponent> = {
-  title: 'Design System / ChartCard',
+  title: 'Design System / Components / ChartCard',
   component: ChartCardComponent,
   tags: ['autodocs'],
   decorators: [

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ChartCardComponent } from '../../design-system/components/organic/chart-card/chart-card.component';
+import { ChartCardComponent } from '../../design-system/components/chart-card/chart-card.component';
 import { HeartRateChartDirective } from './directives/heart-rate-chart.directive';
 import { SleepTimeChartDirective } from './directives/sleep-time-chart.directive';
 

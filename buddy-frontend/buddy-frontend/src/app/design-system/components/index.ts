@@ -64,4 +64,8 @@ export * from './dropdown/dropdown.types';
 export * from './empty-state/empty-state.component';
 export * from './empty-state/empty-state.types';
 
-export * from './organic/index';
+export * from './chart-card/chart-card.component';
+export * from './chart-card/chart-card.types';
+
+export * from './metric-card/metric-card.component';
+export * from './metric-card/metric-card.types';

@@ -4,7 +4,7 @@ import { delay, tap } from 'rxjs/operators';
 import type {
   ChartCardData,
   ChartDataPoint,
-} from '../../../design-system/components/organic/chart-card/chart-card.types';
+} from '../../../design-system/components/chart-card/chart-card.types';
 import { ChartCardComponent } from '../../../design-system';
 
 /** BPM moyens par heure sur 24h — à remplacer par un appel HTTP */

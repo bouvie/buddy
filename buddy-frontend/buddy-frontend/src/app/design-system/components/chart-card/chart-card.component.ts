@@ -8,8 +8,8 @@ import { NgxEchartsDirective } from 'ngx-echarts';
 
 import type { ChartCardVariant, ChartCardData, ChartDataPoint } from './chart-card.types';
 import { CHART_CARD_VARIANTS } from './chart-card.types';
-import { SkeletonComponent } from '../../skeleton/skeleton.component';
-import { K9_ECHARTS_THEME } from '../../../tokens/echarts-theme';
+import { SkeletonComponent } from '../skeleton/skeleton.component';
+import { K9_ECHARTS_THEME } from '../../tokens/echarts-theme';
 
 echarts.use([LineChart, BarChart, GridComponent, TooltipComponent, CanvasRenderer]);
 echarts.registerTheme('k9', K9_ECHARTS_THEME);

@@ -1,9 +1,17 @@
-import { Component, ChangeDetectionStrategy, input, output, signal, computed, effect } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  input,
+  output,
+  signal,
+  computed,
+  effect,
+} from '@angular/core';
 import type { ListItemVariant, ListItemData } from './list-item.types';
 import { LIST_ITEM_VARIANTS } from './list-item.types';
-import { ToggleComponent } from '../../toggle/toggle.component';
-import { ButtonComponent } from '../../button/button.component';
-import { SkeletonComponent } from '../../skeleton/skeleton.component';
+import { ToggleComponent } from '../toggle/toggle.component';
+import { ButtonComponent } from '../button/button.component';
+import { SkeletonComponent } from '../skeleton/skeleton.component';
 
 @Component({
   selector: 'app-list-item',
@@ -16,9 +24,9 @@ import { SkeletonComponent } from '../../skeleton/skeleton.component';
 export class ListItemComponent {
   readonly data = input<ListItemData | null>(null);
 
-  readonly toggled   = output<boolean>();
+  readonly toggled = output<boolean>();
   readonly navigated = output<void>();
-  readonly retried   = output<void>();
+  readonly retried = output<void>();
 
   readonly safeVariant = computed<ListItemVariant>(() => {
     const v = this.data()?.variant ?? 'text-value';
@@ -29,10 +37,10 @@ export class ListItemComponent {
     return v;
   });
 
-  readonly icon     = computed(() => this.data()?.icon     ?? 'fa-solid fa-circle');
-  readonly label    = computed(() => this.data()?.label    ?? '');
+  readonly icon = computed(() => this.data()?.icon ?? 'fa-solid fa-circle');
+  readonly label = computed(() => this.data()?.label ?? '');
   readonly sublabel = computed(() => this.data()?.sublabel ?? '');
-  readonly value    = computed(() => this.data()?.value    ?? '');
+  readonly value = computed(() => this.data()?.value ?? '');
 
   /**
    * État du toggle : initialisé depuis data().checked,

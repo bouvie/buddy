@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, input, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, computed, model } from '@angular/core';
 import type { EChartsOption } from 'echarts';
 import * as echarts from 'echarts/core';
 import { LineChart, BarChart } from 'echarts/charts';
@@ -16,7 +16,7 @@ echarts.registerTheme('k9', K9_ECHARTS_THEME);
 
 // Tokens sync depuis variables.css
 const PRIMARY = '#BACBB8';
-const BORDER  = '#434842';
+const BORDER = '#434842';
 
 @Component({
   selector: 'app-chart-card',
@@ -27,7 +27,7 @@ const BORDER  = '#434842';
   styleUrls: ['./chart-card.component.css'],
 })
 export class ChartCardComponent {
-  readonly data = input<ChartCardData | null>(null);
+  readonly data = model<ChartCardData | null>(null);
 
   readonly safeVariant = computed<ChartCardVariant>(() => {
     const v = this.data()?.variant ?? 'skeleton';
@@ -38,23 +38,23 @@ export class ChartCardComponent {
     return v;
   });
 
-  readonly title        = computed(() => this.data()?.title        ?? '');
-  readonly headerValue  = computed(() => this.data()?.headerValue  ?? '');
-  readonly unit         = computed(() => this.data()?.unit         ?? '');
-  readonly isLive       = computed(() => this.data()?.isLive       ?? false);
+  readonly title = computed(() => this.data()?.title ?? '');
+  readonly headerValue = computed(() => this.data()?.headerValue ?? '');
+  readonly unit = computed(() => this.data()?.unit ?? '');
+  readonly isLive = computed(() => this.data()?.isLive ?? false);
   readonly emptyMessage = computed(() => this.data()?.emptyMessage ?? 'Awaiting Data Feed');
-  readonly emptyIcon    = computed(() => this.data()?.emptyIcon    ?? 'fa-solid fa-chart-line');
+  readonly emptyIcon = computed(() => this.data()?.emptyIcon ?? 'fa-solid fa-chart-line');
 
-  readonly isChart = computed(() =>
-    this.safeVariant() === 'line-area' || this.safeVariant() === 'bar'
+  readonly isChart = computed(
+    () => this.safeVariant() === 'line-area' || this.safeVariant() === 'bar',
   );
 
   readonly chartOptions = computed<EChartsOption>(() => {
     const variant = this.safeVariant();
-    const points  = this.data()?.points ?? [];
+    const points = this.data()?.points ?? [];
 
     if (variant === 'line-area') return this._buildLineAreaOptions(points);
-    if (variant === 'bar')       return this._buildBarOptions(points);
+    if (variant === 'bar') return this._buildBarOptions(points);
     return {};
   });
 
@@ -63,13 +63,17 @@ export class ChartCardComponent {
       grid: { top: 8, right: 0, bottom: 0, left: 0, containLabel: false },
       xAxis: {
         type: 'category',
-        data: points.map(p => p.label),
-        axisLine: { show: false }, axisTick: { show: false }, axisLabel: { show: false },
+        data: points.map((p) => p.label),
+        axisLine: { show: false },
+        axisTick: { show: false },
+        axisLabel: { show: false },
         boundaryGap: false,
       },
       yAxis: {
         type: 'value',
-        axisLine: { show: false }, axisTick: { show: false }, axisLabel: { show: false },
+        axisLine: { show: false },
+        axisTick: { show: false },
+        axisLabel: { show: false },
         splitLine: { lineStyle: { color: BORDER, type: 'dashed' as const } },
       },
       tooltip: {
@@ -79,19 +83,21 @@ export class ChartCardComponent {
           return `${p.axisValue}<br/><b>${p.value}</b>`;
         },
       },
-      series: [{
-        type: 'line',
-        data: points.map(p => p.value),
-        smooth: true,
-        symbol: 'none',
-        lineStyle: { color: PRIMARY, width: 2 },
-        areaStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: `${PRIMARY}40` },
-            { offset: 1, color: `${PRIMARY}00` },
-          ]),
+      series: [
+        {
+          type: 'line',
+          data: points.map((p) => p.value),
+          smooth: true,
+          symbol: 'none',
+          lineStyle: { color: PRIMARY, width: 2 },
+          areaStyle: {
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              { offset: 0, color: `${PRIMARY}40` },
+              { offset: 1, color: `${PRIMARY}00` },
+            ]),
+          },
         },
-      }],
+      ],
     };
   }
 
@@ -100,12 +106,16 @@ export class ChartCardComponent {
       grid: { top: 0, right: 0, bottom: 0, left: 0, containLabel: false },
       xAxis: {
         type: 'category',
-        data: points.map(p => p.label),
-        axisLine: { show: false }, axisTick: { show: false }, axisLabel: { show: false },
+        data: points.map((p) => p.label),
+        axisLine: { show: false },
+        axisTick: { show: false },
+        axisLabel: { show: false },
       },
       yAxis: {
         type: 'value',
-        axisLine: { show: false }, axisTick: { show: false }, axisLabel: { show: false },
+        axisLine: { show: false },
+        axisTick: { show: false },
+        axisLabel: { show: false },
         splitLine: { show: false },
       },
       tooltip: {
@@ -115,12 +125,14 @@ export class ChartCardComponent {
           return `${p.axisValue}<br/><b>${p.value}</b>`;
         },
       },
-      series: [{
-        type: 'bar',
-        data: points.map(p => p.value),
-        barMaxWidth: 40,
-        itemStyle: { color: PRIMARY, borderRadius: [4, 4, 0, 0] },
-      }],
+      series: [
+        {
+          type: 'bar',
+          data: points.map((p) => p.value),
+          barMaxWidth: 40,
+          itemStyle: { color: PRIMARY, borderRadius: [4, 4, 0, 0] },
+        },
+      ],
     };
   }
 }

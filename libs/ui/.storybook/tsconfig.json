@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "paths": {
+      "@buddy/ui": ["../src/index.ts"]
+    }
+  },
+  "include": ["../src/**/*.stories.ts", "preview.ts", "main.ts"]
+}

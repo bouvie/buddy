@@ -1,0 +1,108 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "buddy-frontend",
+  "projectType": "application",
+  "sourceRoot": "apps/buddy-frontend/src",
+  "prefix": "app",
+  "tags": ["type:app", "scope:buddy"],
+  "implicitDependencies": ["ui"],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "browser": "apps/buddy-frontend/src/main.ts",
+        "outputPath": "dist/apps/buddy-frontend",
+        "tsConfig": "apps/buddy-frontend/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/buddy-frontend/public"
+          }
+        ],
+        "styles": [
+          "libs/ui/src/lib/tokens/variables.css",
+          "apps/buddy-frontend/src/styles.css"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "buddy-frontend:build:production"
+        },
+        "development": {
+          "buildTarget": "buddy-frontend:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{workspaceRoot}/coverage/apps/buddy-frontend"],
+      "options": {
+        "reportsDirectory": "../../coverage/apps/buddy-frontend"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/buddy-frontend/**/*.ts",
+          "apps/buddy-frontend/**/*.html"
+        ]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "configDir": "libs/ui/.storybook",
+        "browserTarget": "ui:build-storybook",
+        "compodoc": false,
+        "styles": [
+          "libs/ui/src/lib/tokens/variables.css",
+          "libs/ui/.storybook/tailwind.css"
+        ],
+        "port": 6006
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "options": {
+        "configDir": "libs/ui/.storybook",
+        "browserTarget": "ui:build-storybook",
+        "compodoc": false,
+        "styles": [
+          "libs/ui/src/lib/tokens/variables.css",
+          "libs/ui/.storybook/tailwind.css"
+        ],
+        "outputDir": "dist/storybook/ui"
+      }
+    }
+  }
+}

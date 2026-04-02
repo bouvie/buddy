@@ -1,1 +1,26 @@
+# Claude Code
 .claude/*
+
+# NX
+.nx/cache
+.nx/workspace-data
+
+# Node
+node_modules/
+**/node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+out-tsc/
+storybook-static/
+
+# Angular
+.angular/
+
+# Coverage
+coverage/
+
+# Environment
+.env
+.env.local

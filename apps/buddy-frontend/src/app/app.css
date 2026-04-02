@@ -1,0 +1,30 @@
+/**
+ * K9 Pro Application Styles
+ * Imports and global styling configuration
+ */
+
+/* Design System CSS Variables and Base Styles */
+
+
+/* Tailwind CSS (via tailwind.config.js) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Application Global Styles */
+
+:root {
+  /* Apply Manrope font family globally */
+  font-family: var(--k9-font-family);
+}
+
+body {
+  background-color: var(--k9-color-bg);
+  color: var(--k9-color-text);
+  transition: var(--k9-transition);
+}
+
+/* Ensure bottom nav bar doesn't cover content */
+main {
+  padding-bottom: 80px; /* Account for fixed bottom nav */
+}

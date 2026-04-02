@@ -14,54 +14,54 @@ echarts.use([LineChart, BarChart, GridComponent, TooltipComponent, CanvasRendere
 
 /** Énergie cinétique sur 10 relevés horaires — directive appKineticEnergyChart */
 const KINETIC_ENERGY_POINTS: ChartDataPoint[] = [
-  { label: '08:00', value: 820  },
-  { label: '09:00', value: 932  },
-  { label: '10:00', value: 901  },
-  { label: '11:00', value: 934  },
+  { label: '08:00', value: 820 },
+  { label: '09:00', value: 932 },
+  { label: '10:00', value: 901 },
+  { label: '11:00', value: 934 },
   { label: '12:00', value: 1290 },
   { label: '13:00', value: 1330 },
   { label: '14:00', value: 1320 },
   { label: '15:00', value: 1100 },
-  { label: '16:00', value: 890  },
+  { label: '16:00', value: 890 },
   { label: '17:00', value: 1240 },
 ];
 
 /** Intensité par intervalle d'entraînement — directive appIntervalIntensityChart */
 const INTERVAL_INTENSITY_POINTS: ChartDataPoint[] = [
-  { label: 'I1', value: 38  },
-  { label: 'I2', value: 64  },
+  { label: 'I1', value: 38 },
+  { label: 'I2', value: 64 },
   { label: 'I3', value: 102 },
-  { label: 'I4', value: 51  },
+  { label: 'I4', value: 51 },
   { label: 'I5', value: 122 },
-  { label: 'I6', value: 90  },
+  { label: 'I6', value: 90 },
 ];
 
 const LINE_AREA: ChartCardData = {
-  variant:     'line-area',
-  title:       'Kinetic Energy Trend',
+  variant: 'line-area',
+  title: 'Kinetic Energy Trend',
   headerValue: '1,240',
-  unit:        'kcal',
-  isLive:      true,
-  points:      KINETIC_ENERGY_POINTS,
+  unit: 'kcal',
+  isLive: true,
+  points: KINETIC_ENERGY_POINTS,
 };
 
 const BAR: ChartCardData = {
   variant: 'bar',
-  title:   'Interval Intensity',
-  points:  INTERVAL_INTENSITY_POINTS,
+  title: 'Interval Intensity',
+  points: INTERVAL_INTENSITY_POINTS,
 };
 
 const SKELETON: ChartCardData = { variant: 'skeleton' };
 
 const EMPTY: ChartCardData = {
-  variant:      'empty',
+  variant: 'empty',
   emptyMessage: 'Awaiting Data Feed',
-  emptyIcon:    'fa-solid fa-chart-line',
+  emptyIcon: 'fa-solid fa-chart-line',
 };
 
 // ─── Meta ─────────────────────────────────────────────────────────────────────
 const meta: Meta<ChartCardComponent> = {
-  title: 'Design System / Organic / ChartCard',
+  title: 'Design System / ChartCard',
   component: ChartCardComponent,
   tags: ['autodocs'],
   decorators: [

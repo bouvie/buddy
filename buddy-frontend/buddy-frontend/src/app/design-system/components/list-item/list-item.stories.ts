@@ -4,43 +4,43 @@ import type { ListItemData } from './list-item.types';
 
 // ─── Fixtures ────────────────────────────────────────────────────────────────
 const TOGGLE: ListItemData = {
-  variant:  'toggle',
-  icon:     'fa-solid fa-bell',
-  label:    'System Alerts',
+  variant: 'toggle',
+  icon: 'fa-solid fa-bell',
+  label: 'System Alerts',
   sublabel: 'Threshold monitoring',
-  checked:  false,
+  checked: false,
 };
 
 const NAVIGATION: ListItemData = {
-  variant:  'navigation',
-  icon:     'fa-solid fa-link',
-  label:    'Biometric Sync',
+  variant: 'navigation',
+  icon: 'fa-solid fa-link',
+  label: 'Biometric Sync',
   sublabel: 'Active connection stable',
 };
 
 const TEXT_VALUE: ListItemData = {
-  variant:  'text-value',
-  icon:     'fa-solid fa-microchip',
-  label:    'Core Firmware',
+  variant: 'text-value',
+  icon: 'fa-solid fa-microchip',
+  label: 'Core Firmware',
   sublabel: 'v2.4.0-stable',
-  value:    'Up to date',
+  value: 'Up to date',
 };
 
 const SKELETON: ListItemData = {
   variant: 'skeleton',
-  label:   '',
+  label: '',
 };
 
 const STATUS_ERROR: ListItemData = {
-  variant:  'status-error',
-  icon:     'fa-solid fa-triangle-exclamation',
-  label:    'Latency Spike',
+  variant: 'status-error',
+  icon: 'fa-solid fa-triangle-exclamation',
+  label: 'Latency Spike',
   sublabel: 'Check sensor alignment',
 };
 
 // ─── Meta ─────────────────────────────────────────────────────────────────────
 const meta: Meta<ListItemComponent> = {
-  title: 'Design System / Organic / ListItem',
+  title: 'Design System / ListItem',
   component: ListItemComponent,
   tags: ['autodocs'],
   parameters: {
@@ -50,7 +50,7 @@ const meta: Meta<ListItemComponent> = {
   argTypes: {
     data: {
       control: 'object',
-      description: 'ListItemData — alimenté par une directive dans l\'app',
+      description: "ListItemData — alimenté par une directive dans l'app",
     },
   },
   args: { data: TEXT_VALUE },
@@ -70,7 +70,13 @@ export const Default: Story = {
 export const AllVariants: Story = {
   render: () => ({
     imports: [ListItemComponent],
-    props: { toggle: TOGGLE, navigation: NAVIGATION, textValue: TEXT_VALUE, skeleton: SKELETON, statusError: STATUS_ERROR },
+    props: {
+      toggle: TOGGLE,
+      navigation: NAVIGATION,
+      textValue: TEXT_VALUE,
+      skeleton: SKELETON,
+      statusError: STATUS_ERROR,
+    },
     template: `
       <div style="display:flex;flex-direction:column;gap:8px;max-width:360px;padding:24px;background:var(--k9-color-bg)">
         <app-list-item [data]="toggle"></app-list-item>

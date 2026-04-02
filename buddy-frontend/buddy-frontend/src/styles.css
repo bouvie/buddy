@@ -1,0 +1,24 @@
+/**
+ * Global Styles - K9 Pro Design System
+ * 
+ * Imports design system CSS variables and utility classes
+ * All styles are definition in src/app/design-system/tokens/variables.css
+ */
+@import './app/design-system/tokens/variables.css';
+
+/* Base HTML/Body Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--k9-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  height: 100%;
+}

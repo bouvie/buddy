@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k9-space-sm);
+  width: 100%;
+}
+
+.form-field__label {
+  font-family: var(--k9-font-family);
+  font-size: var(--k9-font-size-caption);
+  font-weight: var(--k9-font-weight-bold);
+  letter-spacing: var(--k9-letter-spacing-caption);
+  text-transform: uppercase;
+  color: var(--k9-color-text-muted);
+}
+
+.form-field__label--required::after {
+  content: " *";
+  color: var(--k9-color-danger);
+}
+
+.form-field__error {
+  font-family: var(--k9-font-family);
+  font-size: var(--k9-font-size-caption);
+  color: var(--k9-color-danger);
+}
+
+.form-field__help {
+  font-family: var(--k9-font-family);
+  font-size: var(--k9-font-size-caption);
+  color: var(--k9-color-text-muted);
+}

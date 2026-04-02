@@ -1,0 +1,8 @@
+@for (i of countArray(); track i) {
+  <div
+    class="skeleton"
+    [class.skeleton--circle]="shape() === 'circle'"
+    [class.skeleton--rectangle]="shape() === 'rectangle'"
+    [class.skeleton--text]="shape() === 'text'"
+  ></div>
+}

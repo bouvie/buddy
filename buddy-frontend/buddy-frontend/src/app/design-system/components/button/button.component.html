@@ -1,0 +1,18 @@
+<button
+  [type]="type()"
+  [disabled]="disabled() || isLoading()"
+  class="btn"
+  [class.btn--sm]="safeSize() === 'sm'"
+  [class.btn--md]="safeSize() === 'md'"
+  [class.btn--lg]="safeSize() === 'lg'"
+  [class.btn--primary]="safeVariant() === 'primary'"
+  [class.btn--secondary]="safeVariant() === 'secondary'"
+  [class.btn--ghost]="safeVariant() === 'ghost'"
+  [class.btn--danger]="safeVariant() === 'danger'"
+  [class.btn--full-width]="fullWidth()"
+  (click)="!disabled() && !isLoading() && clicked.emit()"
+  [attr.aria-busy]="isLoading()"
+  [attr.aria-disabled]="disabled()"
+>
+  <ng-content></ng-content>
+</button>

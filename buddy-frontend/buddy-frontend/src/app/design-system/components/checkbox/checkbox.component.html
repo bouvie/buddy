@@ -1,0 +1,28 @@
+<div class="checkbox-wrapper">
+  <label class="checkbox-label" [class.checkbox-label--disabled]="disabled()">
+    <input
+      #checkboxInput
+      type="checkbox"
+      [id]="id()"
+      [checked]="checked()"
+      [disabled]="disabled()"
+      [indeterminate]="indeterminate()"
+      class="checkbox-input"
+      (change)="onCheckboxChange($event)"
+    />
+    <span class="checkbox-box" aria-hidden="true">
+      @if (checked()) {
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      } @else if (indeterminate()) {
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2.5 6h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      }
+    </span>
+    @if (label()) {
+      <span class="checkbox-text">{{ label() }}</span>
+    }
+  </label>
+</div>

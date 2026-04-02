@@ -1,0 +1,18 @@
+<div class="toggle-wrapper">
+  <button
+    type="button"
+    class="toggle-btn"
+    [class.toggle-btn--active]="checked()"
+    [disabled]="disabled()"
+    (click)="onToggleChange(!checked())"
+    role="switch"
+    [attr.aria-checked]="checked()"
+  >
+    <span class="toggle-slider"></span>
+  </button>
+  @if (label()) {
+    <span class="toggle-label" [class.toggle-label--disabled]="disabled()">
+      {{ label() }}
+    </span>
+  }
+</div>

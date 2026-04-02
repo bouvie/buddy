@@ -1,0 +1,29 @@
+@if (isOpen()) {
+  <div class="modal-backdrop" (click)="onBackdropClick($event)" role="dialog" aria-modal="true" [attr.aria-label]="title()">
+    <div
+      class="modal-panel"
+      [class.modal-panel--sm]="safeSize() === 'sm'"
+      [class.modal-panel--md]="safeSize() === 'md'"
+      [class.modal-panel--lg]="safeSize() === 'lg'"
+    >
+      @if (title() || dismissible()) {
+        <div class="modal__header">
+          @if (title()) {
+            <h2 class="modal__title">{{ title() }}</h2>
+          }
+          @if (dismissible()) {
+            <button type="button" class="modal__close" (click)="close()" aria-label="Fermer">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
+          }
+        </div>
+      }
+      <div class="modal__body">
+        <ng-content></ng-content>
+      </div>
+      <ng-content select="[modal-footer]"></ng-content>
+    </div>
+  </div>
+}

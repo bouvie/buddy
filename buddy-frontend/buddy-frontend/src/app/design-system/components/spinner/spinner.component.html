@@ -1,0 +1,18 @@
+<div
+  class="spinner-wrapper"
+  role="status"
+  [attr.aria-label]="label() || 'Chargement…'"
+>
+  <div
+    class="spinner"
+    [class.spinner--sm]="size() === 'sm'"
+    [class.spinner--md]="size() === 'md'"
+    [class.spinner--lg]="size() === 'lg'"
+    [class.spinner--primary]="variant() === 'primary'"
+    [class.spinner--secondary]="variant() === 'secondary'"
+    [class.spinner--white]="variant() === 'white'"
+  ></div>
+  @if (label()) {
+    <span class="spinner-label">{{ label() }}</span>
+  }
+</div>

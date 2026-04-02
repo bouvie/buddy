@@ -1,0 +1,136 @@
+:host {
+  display: inline-block;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--k9-font-weight-bold);
+  font-size: var(--k9-font-size-button);
+  line-height: var(--k9-line-height-button);
+  border-radius: var(--k9-radius-xl);
+  border: 1px solid transparent;
+  transition: var(--k9-transition-fast);
+  cursor: pointer;
+  font-family: var(--k9-font-family);
+  width: 100%;
+  letter-spacing: 0;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--k9-color-primary);
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.btn--sm {
+  height: 48px;
+  padding: 0 var(--k9-space-lg);
+  font-size: var(--k9-font-size-body);
+}
+
+.btn--md {
+  height: 64px;
+  padding: 0 var(--k9-space-xl);
+}
+
+.btn--lg {
+  height: 72px;
+  padding: 0 var(--k9-space-xxl);
+  font-size: var(--k9-font-size-body-large);
+}
+
+/* Full width */
+.btn--full-width {
+  width: 100%;
+}
+
+/* Primary */
+.btn--primary {
+  background-color: var(--k9-color-primary);
+  color: var(--k9-color-primary-text);
+  border-color: transparent;
+}
+
+.btn--primary:not(:disabled):hover {
+  box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.08);
+}
+
+.btn--primary:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.btn--primary:disabled {
+  background-color: var(--k9-color-surface);
+  color: var(--k9-color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Secondary */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--k9-color-primary);
+  border-color: var(--k9-color-border);
+}
+
+.btn--secondary:not(:disabled):hover {
+  background-color: var(--k9-color-primary-hover);
+  border-color: var(--k9-color-primary);
+}
+
+.btn--secondary:not(:disabled):active {
+  background-color: var(--k9-color-primary-pressed);
+  border-color: var(--k9-color-primary);
+  transform: scale(0.97);
+}
+
+.btn--secondary:disabled {
+  border-color: var(--k9-color-border);
+  color: var(--k9-color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Ghost */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--k9-color-text-secondary);
+  border-color: transparent;
+}
+
+.btn--ghost:not(:disabled):hover {
+  background-color: var(--k9-color-surface-raised);
+  color: var(--k9-color-primary);
+}
+
+.btn--ghost:not(:disabled):active {
+  background-color: var(--k9-color-surface-elevated);
+  color: var(--k9-color-primary);
+  transform: scale(0.97);
+}
+
+.btn--ghost:disabled {
+  color: var(--k9-color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Danger */
+.btn--danger {
+  background-color: var(--k9-color-danger);
+  color: var(--k9-color-danger-text);
+  border-color: transparent;
+}
+
+.btn--danger:not(:disabled):hover {
+  box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.08);
+}
+
+.btn--danger:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.btn--danger:disabled {
+  background-color: var(--k9-color-surface);
+  color: var(--k9-color-text-disabled);
+  cursor: not-allowed;
+}

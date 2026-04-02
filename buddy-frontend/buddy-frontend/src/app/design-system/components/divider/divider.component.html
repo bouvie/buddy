@@ -1,0 +1,21 @@
+@if (safeVariant() === 'simple') {
+  <hr class="divider-line" role="separator" />
+}
+
+@if (safeVariant() === 'labeled') {
+  <div class="divider-labeled" role="separator">
+    <span class="divider-line divider-line--half"></span>
+    @if (label()) {
+      <span class="divider-label">{{ label() }}</span>
+    }
+    <span class="divider-line divider-line--half"></span>
+  </div>
+}
+
+@if (safeVariant() === 'progress') {
+  <div class="divider-progress" role="presentation" aria-hidden="true">
+    <span class="divider-dot divider-dot--active"></span>
+    <span class="divider-dot"></span>
+    <span class="divider-dot"></span>
+  </div>
+}

@@ -1,0 +1,37 @@
+<div
+  class="input-field-container"
+  [class.input-field-container--error]="hasError()"
+  [class.input-field-container--success]="hasSuccess()"
+  [class.input-field-container--disabled]="disabled()"
+  [class.input-field-container--filled]="filled()"
+>
+  <input
+    [type]="safeType()"
+    [id]="id()"
+    class="input-field"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [readOnly]="readOnly()"
+    [value]="value()"
+    [attr.aria-invalid]="hasError() || null"
+    (input)="onInput($event)"
+    (blur)="onBlur($event)"
+    (focus)="onFocus($event)"
+  />
+  @if (hasError()) {
+    <span class="input-icon input-icon--error" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 6v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="10" cy="14" r="0.75" fill="currentColor"/>
+      </svg>
+    </span>
+  } @else if (hasSuccess()) {
+    <span class="input-icon input-icon--success" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M6.5 10l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  }
+</div>

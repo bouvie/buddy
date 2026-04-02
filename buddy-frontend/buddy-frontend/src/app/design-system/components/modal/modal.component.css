@@ -1,0 +1,84 @@
+:host {
+  display: contents;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--k9-space-lg);
+  background-color: rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(4px);
+  animation: modal-backdrop-in var(--k9-duration-normal) var(--k9-easing-standard);
+}
+
+@keyframes modal-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-panel {
+  position: relative;
+  background-color: var(--k9-color-surface);
+  border-radius: var(--k9-radius-xl);
+  border: 1px solid var(--k9-color-border);
+  box-shadow: var(--k9-shadow-xl);
+  width: 100%;
+  max-height: calc(100vh - var(--k9-space-xxl));
+  overflow-y: auto;
+  animation: modal-panel-in var(--k9-duration-normal) var(--k9-easing-emphasis);
+}
+
+@keyframes modal-panel-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* Sizes */
+.modal-panel--sm { max-width: 400px; }
+.modal-panel--md { max-width: 560px; }
+.modal-panel--lg { max-width: 760px; }
+
+/* Sections */
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--k9-space-xl) var(--k9-space-xl) 0;
+  gap: var(--k9-space-lg);
+}
+
+.modal__title {
+  font-family: var(--k9-font-family);
+  font-size: var(--k9-font-size-h3);
+  font-weight: var(--k9-font-weight-semibold);
+  color: var(--k9-color-text);
+  margin: 0;
+}
+
+.modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--k9-color-text-muted);
+  padding: var(--k9-space-xs);
+  border-radius: var(--k9-radius-md);
+  transition: color var(--k9-duration-fast) var(--k9-easing-standard),
+              background-color var(--k9-duration-fast) var(--k9-easing-standard);
+}
+
+.modal__close:hover {
+  color: var(--k9-color-text);
+  background-color: var(--k9-color-surface-raised);
+}
+
+.modal__body {
+  padding: var(--k9-space-xl);
+}

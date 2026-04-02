@@ -1,0 +1,27 @@
+<div class="slider-wrapper" [class.slider-wrapper--disabled]="disabled()">
+  @if (label()) {
+    <div class="slider-header">
+      <span class="slider-label">{{ label() }}</span>
+      <span class="slider-value">{{ value() }}</span>
+    </div>
+  }
+  <div class="slider-track-container">
+    <div class="slider-track">
+      <div class="slider-fill" [style.width.%]="fillPercent()"></div>
+    </div>
+    <input
+      type="range"
+      class="slider-input"
+      [min]="min()"
+      [max]="max()"
+      [step]="step()"
+      [value]="value()"
+      [disabled]="disabled()"
+      (input)="onInput($event)"
+      (blur)="onBlur()"
+      [attr.aria-valuemin]="min()"
+      [attr.aria-valuemax]="max()"
+      [attr.aria-valuenow]="value()"
+    />
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="radio-wrapper">
+  <label class="radio-label" [class.radio-label--disabled]="disabled()">
+    <input
+      type="radio"
+      [id]="name()"
+      [name]="name()"
+      [value]="value()"
+      [checked]="isChecked()"
+      [disabled]="disabled()"
+      class="radio-input"
+      (change)="handleRadioChange($event)"
+    />
+    <span class="radio-dot" aria-hidden="true">
+      <span class="radio-dot__inner"></span>
+    </span>
+    @if (label()) {
+      <span class="radio-text">{{ label() }}</span>
+    }
+  </label>
+</div>

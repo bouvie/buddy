@@ -1,0 +1,57 @@
+<div class="select-wrapper">
+  @if (label()) {
+    <label [for]="id()" class="select-label">{{ label() }}</label>
+  }
+  <div
+    class="select-container"
+    [class.select-container--error]="hasError()"
+    [class.select-container--disabled]="disabled()"
+    [class.select-container--open]="isOpen()"
+  >
+    <button
+      type="button"
+      class="select-trigger"
+      [class.select-trigger--open]="isOpen()"
+      [disabled]="disabled()"
+      (click)="toggle()"
+      [attr.id]="id()"
+      [attr.aria-expanded]="isOpen()"
+      [attr.aria-haspopup]="'listbox'"
+      [attr.aria-invalid]="hasError() || null"
+    >
+      <span class="select-trigger__label" [class.select-trigger__label--placeholder]="!hasSelection()">
+        {{ displayLabel() }}
+      </span>
+      <svg
+        class="select-arrow"
+        [class.select-arrow--open]="isOpen()"
+        width="16" height="16" viewBox="0 0 16 16" fill="none"
+        aria-hidden="true"
+      >
+        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    @if (isOpen()) {
+      <div class="select__menu" role="listbox">
+        @for (option of options(); track option.value) {
+          <button
+            type="button"
+            role="option"
+            class="select__item"
+            [class.select__item--selected]="option.value === selectedValue()"
+            [class.select__item--disabled]="!!option.disabled"
+            [attr.aria-selected]="option.value === selectedValue()"
+            [attr.aria-disabled]="option.disabled || null"
+            (click)="selectOption(option)"
+          >
+            {{ option.label }}
+          </button>
+        }
+      </div>
+    }
+  </div>
+  @if (hasError() && errorMessage()) {
+    <p class="select-error-message">{{ errorMessage() }}</p>
+  }
+</div>

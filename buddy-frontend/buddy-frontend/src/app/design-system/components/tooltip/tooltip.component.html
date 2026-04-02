@@ -1,0 +1,15 @@
+<div class="tooltip-host">
+  <ng-content></ng-content>
+  @if (!disabled() && content()) {
+    <div
+      class="tooltip"
+      [class.tooltip--top]="safePosition() === 'top'"
+      [class.tooltip--bottom]="safePosition() === 'bottom'"
+      [class.tooltip--left]="safePosition() === 'left'"
+      [class.tooltip--right]="safePosition() === 'right'"
+      role="tooltip"
+    >
+      {{ content() }}
+    </div>
+  }
+</div>

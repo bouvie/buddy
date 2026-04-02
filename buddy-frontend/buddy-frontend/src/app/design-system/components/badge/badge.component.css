@@ -1,0 +1,51 @@
+:host {
+  display: inline-flex;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--k9-space-xs);
+  height: 29px;
+  padding: 0 var(--k9-space-md);
+  border-radius: var(--k9-radius-full);
+  border: 1px solid;
+  font-family: var(--k9-font-family);
+  font-size: var(--k9-font-size-caption);
+  font-weight: var(--k9-font-weight-bold);
+  letter-spacing: var(--k9-letter-spacing-caption);
+  white-space: nowrap;
+}
+
+.badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--k9-radius-full);
+  flex-shrink: 0;
+  background-color: currentColor;
+}
+
+/* Variants */
+.badge--success {
+  background-color: var(--k9-color-primary-hover);
+  border-color: var(--k9-color-primary);
+  color: var(--k9-color-primary);
+}
+
+.badge--warning {
+  background-color: var(--k9-color-secondary-hover);
+  border-color: var(--k9-color-secondary);
+  color: var(--k9-color-secondary);
+}
+
+.badge--error {
+  background-color: var(--k9-color-danger-hover);
+  border-color: var(--k9-color-danger);
+  color: var(--k9-color-danger);
+}
+
+.badge--neutral {
+  background-color: var(--k9-color-neutral-hover);
+  border-color: var(--k9-color-neutral);
+  color: var(--k9-color-neutral);
+}

@@ -1,0 +1,228 @@
+/**
+ * Buddy Design System - CSS Custom Properties (Variables)
+ * Synced from Figma: Buddy (node 51:817)
+ *
+ * Usage:
+ *   - CSS: background: var(--k9-color-primary);
+ *   - Tailwind: class="bg-k9-primary text-k9-text"
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* ========== COLORS — BRAND ========== */
+  /* Sage (primary) */
+  --k9-color-primary: #BACBB8;
+  --k9-color-primary-text: #263427;
+  --k9-color-primary-hover: rgba(186, 203, 184, 0.10);
+  --k9-color-primary-pressed: rgba(186, 203, 184, 0.20);
+  --k9-color-primary-focus: rgba(186, 203, 184, 0.35);
+  --k9-color-primary-subtle: rgba(186, 203, 184, 0.05);
+
+  /* Secondary tints */
+  --k9-color-secondary-hover: rgba(255, 181, 161, 0.10);
+  --k9-color-secondary-subtle: rgba(255, 181, 161, 0.05);
+
+  /* Danger tints */
+  --k9-color-danger-hover: rgba(255, 180, 171, 0.10);
+  --k9-color-danger-subtle: rgba(255, 180, 171, 0.05);
+
+  /* Neutral tints */
+  --k9-color-neutral-hover: rgba(196, 200, 192, 0.10);
+
+  /* Terracotta (secondary / warning) */
+  --k9-color-secondary: #FFB5A1;
+  --k9-color-secondary-text: #542112;
+
+  /* Error (coral) */
+  --k9-color-danger: #FFB4AB;
+  --k9-color-danger-text: #690005;
+
+  /* Stone (neutral / muted accent) */
+  --k9-color-neutral: #C4C8C0;
+  --k9-color-neutral-text: #0F1419;
+
+  /* ========== COLORS — SURFACE ========== */
+  --k9-color-bg: #0F1419;
+  --k9-color-surface: #1B2025;
+  --k9-color-surface-raised: #252A30;
+  --k9-color-surface-elevated: #30353A;
+  /* kept for backward compat */
+  --k9-color-surface-deep: #0A0F13;
+
+  /* ========== COLORS — BORDER ========== */
+  --k9-color-border: #434842;
+  --k9-color-border-light: #434842;
+  --k9-color-border-default: #434842;
+
+  /* ========== COLORS — TEXT ========== */
+  --k9-color-text: #DEE3E9;
+  --k9-color-text-secondary: #C4C8C0;
+  --k9-color-text-muted: #8E928B;
+  --k9-color-text-disabled: rgba(142, 146, 139, 0.40);
+
+  /* ========== ALIASES — SHORT FORM (used by component CSS) ========== */
+  --k9-primary: var(--k9-color-primary);
+  --k9-primary-text: var(--k9-color-primary-text);
+  --k9-secondary: var(--k9-color-secondary);
+  --k9-secondary-text: var(--k9-color-secondary-text);
+  --k9-danger: var(--k9-color-danger);
+  --k9-neutral: var(--k9-color-neutral);
+  --k9-surface: var(--k9-color-surface);
+  --k9-surface-raised: var(--k9-color-surface-raised);
+  --k9-surface-elevated: var(--k9-color-surface-elevated);
+  --k9-surface-deep: var(--k9-color-surface-deep);
+  --k9-text: var(--k9-color-text);
+  --k9-text-secondary: var(--k9-color-text-secondary);
+  --k9-text-muted: var(--k9-color-text-muted);
+  --k9-border: var(--k9-color-border);
+
+  /* ========== TYPOGRAPHY — FONT FAMILY ========== */
+  --k9-font-family: 'Manrope', 'Segoe UI', 'Roboto', sans-serif;
+
+  /* ========== TYPOGRAPHY — FONT WEIGHTS ========== */
+  --k9-font-weight-regular: 400;
+  --k9-font-weight-medium: 500;
+  --k9-font-weight-semibold: 600;
+  --k9-font-weight-bold: 700;
+  --k9-font-weight-extrabold: 800;
+  --k9-font-weight-black: 900;
+
+  /* ========== TYPOGRAPHY — FONT SIZES & LINE HEIGHTS ========== */
+  --k9-font-size-display: 72px;
+  --k9-line-height-display: 72px;
+  --k9-letter-spacing-display: -0.05em;
+
+  --k9-font-size-h1: 32px;
+  --k9-line-height-h1: 40px;
+  --k9-letter-spacing-h1: -0.02em;
+
+  --k9-font-size-h2: 24px;
+  --k9-line-height-h2: 32px;
+  --k9-letter-spacing-h2: -0.01em;
+
+  --k9-font-size-h3: 20px;
+  --k9-line-height-h3: 28px;
+
+  --k9-font-size-body-large: 20px;
+  --k9-line-height-body-large: 32px;
+
+  --k9-font-size-body: 14px;
+  --k9-line-height-body: 20px;
+
+  --k9-font-size-button: 16px;
+  --k9-line-height-button: 24px;
+
+  --k9-font-size-label: 12px;
+  --k9-line-height-label: 16px;
+  --k9-letter-spacing-label: 0.3em;
+
+  --k9-font-size-caption: 10px;
+  --k9-line-height-caption: 15px;
+  --k9-letter-spacing-caption: 0.4em;
+
+  /* ========== SPACING ========== */
+  --k9-space-0: 0;
+  --k9-space-xs: 4px;
+  --k9-space-sm: 8px;
+  --k9-space-md: 12px;
+  --k9-space-lg: 16px;
+  --k9-space-xl: 24px;
+  --k9-space-xxl: 32px;
+  --k9-space-xxxl: 48px;
+  --k9-space-max: 64px;
+
+  /* ========== BORDER RADIUS ========== */
+  --k9-radius-none: 0;
+  --k9-radius-sm: 4px;
+  --k9-radius-md: 8px;
+  --k9-radius-lg: 12px;
+  --k9-radius-xl: 16px;
+  --k9-radius-full: 9999px;
+
+  /* ========== SHADOWS ========== */
+  --k9-shadow-none: none;
+  --k9-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --k9-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --k9-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+  --k9-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+  --k9-shadow-focus: 0 0 0 3px rgba(186, 203, 184, 0.35);
+  --k9-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+
+  /* ========== TRANSITIONS ========== */
+  --k9-duration-fastest: 100ms;
+  --k9-duration-fast: 150ms;
+  --k9-duration-normal: 200ms;
+  --k9-duration-slow: 300ms;
+  --k9-duration-slower: 400ms;
+
+  --k9-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --k9-easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --k9-easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --k9-easing-emphasis: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --k9-transition: all var(--k9-duration-normal) var(--k9-easing-standard);
+  --k9-transition-fast: all var(--k9-duration-fast) var(--k9-easing-standard);
+  --k9-transition-slow: all var(--k9-duration-slow) var(--k9-easing-standard);
+}
+
+/* ========== GLOBAL STYLES ========== */
+body {
+  font-family: var(--k9-font-family);
+  background-color: var(--k9-color-bg);
+  color: var(--k9-color-text);
+}
+
+/* ========== TYPOGRAPHY CLASSES ========== */
+.text-k9-display {
+  font-size: var(--k9-font-size-display);
+  line-height: var(--k9-line-height-display);
+  font-weight: var(--k9-font-weight-regular);
+  letter-spacing: var(--k9-letter-spacing-display);
+}
+
+.text-k9-h1 {
+  font-size: var(--k9-font-size-h1);
+  line-height: var(--k9-line-height-h1);
+  font-weight: var(--k9-font-weight-semibold);
+  letter-spacing: var(--k9-letter-spacing-h1);
+}
+
+.text-k9-h2 {
+  font-size: var(--k9-font-size-h2);
+  line-height: var(--k9-line-height-h2);
+  font-weight: var(--k9-font-weight-semibold);
+  letter-spacing: var(--k9-letter-spacing-h2);
+}
+
+.text-k9-h3 {
+  font-size: var(--k9-font-size-h3);
+  line-height: var(--k9-line-height-h3);
+  font-weight: var(--k9-font-weight-semibold);
+}
+
+.text-k9-body-large {
+  font-size: var(--k9-font-size-body-large);
+  line-height: var(--k9-line-height-body-large);
+  font-weight: var(--k9-font-weight-regular);
+}
+
+.text-k9-body {
+  font-size: var(--k9-font-size-body);
+  line-height: var(--k9-line-height-body);
+  font-weight: var(--k9-font-weight-regular);
+}
+
+.text-k9-label {
+  font-size: var(--k9-font-size-label);
+  line-height: var(--k9-line-height-label);
+  font-weight: var(--k9-font-weight-bold);
+  letter-spacing: var(--k9-letter-spacing-label);
+}
+
+.text-k9-caption {
+  font-size: var(--k9-font-size-caption);
+  line-height: var(--k9-line-height-caption);
+  font-weight: var(--k9-font-weight-regular);
+  letter-spacing: var(--k9-letter-spacing-caption);
+}

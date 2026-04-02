@@ -1,0 +1,15 @@
+<div class="progress-wrapper">
+  <div class="progress-track">
+    <div
+      class="progress-fill"
+      [style.width.%]="clampedValue()"
+      role="progressbar"
+      [attr.aria-valuenow]="clampedValue()"
+      [attr.aria-valuemin]="0"
+      [attr.aria-valuemax]="100"
+    ></div>
+  </div>
+  @if (showLabel()) {
+    <span class="progress-label">{{ clampedValue() }}%</span>
+  }
+</div>

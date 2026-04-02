@@ -1,0 +1,38 @@
+<div class="dropdown">
+  <button
+    type="button"
+    class="dropdown__trigger"
+    [class.dropdown__trigger--open]="isOpen()"
+    [disabled]="disabled()"
+    (click)="toggle()"
+    [attr.aria-expanded]="isOpen()"
+    [attr.aria-haspopup]="true"
+  >
+    <span>{{ triggerLabel() }}</span>
+    <svg
+      class="dropdown__arrow"
+      [class.dropdown__arrow--open]="isOpen()"
+      width="16" height="16" viewBox="0 0 16 16" fill="none"
+    >
+      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  @if (isOpen()) {
+    <div class="dropdown__menu" role="menu">
+      @for (item of items(); track item.value) {
+        <button
+          type="button"
+          role="menuitem"
+          class="dropdown__item"
+          [class.dropdown__item--danger]="!!item.danger"
+          [class.dropdown__item--disabled]="!!item.disabled"
+          [attr.aria-disabled]="item.disabled || null"
+          (click)="select(item)"
+        >
+          {{ item.label }}
+        </button>
+      }
+    </div>
+  }
+</div>

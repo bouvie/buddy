@@ -1,0 +1,112 @@
+:host {
+  display: block;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+.chart-card {
+  background-color: var(--k9-color-surface);
+  border: 1px solid var(--k9-color-border);
+  border-radius: var(--k9-radius-md);
+  padding: var(--k9-space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--k9-space-xl);
+}
+
+/* ─── Populated ──────────────────────────────────────────────────────────── */
+.chart-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--k9-space-md);
+}
+
+.chart-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chart-card__title {
+  font-size: var(--k9-font-size-label);
+  font-weight: var(--k9-font-weight-regular);
+  color: var(--k9-color-text-secondary);
+  letter-spacing: var(--k9-letter-spacing-label);
+  text-transform: uppercase;
+}
+
+.chart-card__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--k9-space-xs);
+}
+
+.chart-card__value {
+  font-size: var(--k9-font-size-h2);
+  line-height: var(--k9-line-height-h2);
+  font-weight: var(--k9-font-weight-bold);
+  color: var(--k9-color-text);
+  letter-spacing: var(--k9-letter-spacing-h2);
+}
+
+.chart-card__unit {
+  font-size: var(--k9-font-size-label);
+  font-weight: var(--k9-font-weight-regular);
+  color: var(--k9-color-text-secondary);
+}
+
+/* LIVE badge */
+.chart-card__live-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px var(--k9-space-sm);
+  border-radius: var(--k9-radius-md);
+  background-color: var(--k9-color-primary-subtle);
+  border: 1px solid var(--k9-color-primary);
+  font-size: var(--k9-font-size-caption);
+  font-weight: var(--k9-font-weight-bold);
+  color: var(--k9-color-primary);
+  letter-spacing: var(--k9-letter-spacing-caption);
+  flex-shrink: 0;
+}
+
+/* ECharts container */
+.chart-card__chart {
+  width: 100%;
+  height: 128px;
+}
+
+/* ─── Skeleton ───────────────────────────────────────────────────────────── */
+.chart-card__sk-title {
+  display: block;
+  width: 96px;
+  height: 12px;
+  border-radius: var(--k9-radius-md);
+}
+
+.chart-card__sk-chart {
+  display: block;
+  width: 100%;
+  height: 128px;
+  border-radius: var(--k9-radius-md);
+}
+
+/* ─── Empty ──────────────────────────────────────────────────────────────── */
+.chart-card--empty {
+  min-height: 218px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--k9-space-sm);
+}
+
+.chart-card__empty-icon {
+  font-size: 27px;
+  color: var(--k9-color-text-muted);
+}
+
+.chart-card__empty-label {
+  font-size: var(--k9-font-size-label);
+  font-weight: var(--k9-font-weight-regular);
+  color: var(--k9-color-text-muted);
+  letter-spacing: var(--k9-letter-spacing-label);
+}

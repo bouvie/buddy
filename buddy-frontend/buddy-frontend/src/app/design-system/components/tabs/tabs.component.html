@@ -1,0 +1,16 @@
+<div class="tabs" role="tablist">
+  @for (tab of tabs(); track tab.value) {
+    <button
+      type="button"
+      role="tab"
+      [attr.aria-selected]="tab.value === activeTab()"
+      [attr.aria-disabled]="tab.disabled || null"
+      class="tabs__tab"
+      [class.tabs__tab--active]="tab.value === activeTab()"
+      [class.tabs__tab--disabled]="!!tab.disabled"
+      (click)="selectTab(tab)"
+    >
+      {{ tab.label }}
+    </button>
+  }
+</div>

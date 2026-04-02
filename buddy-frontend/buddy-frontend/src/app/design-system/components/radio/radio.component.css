@@ -1,0 +1,84 @@
+:host {
+  display: inline-block;
+}
+
+.radio-wrapper {
+  display: inline-flex;
+}
+
+.radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--k9-space-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-label--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Hide native input visually but keep it accessible */
+.radio-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Custom radio ring */
+.radio-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--k9-radius-full);
+  border: 1.5px solid var(--k9-color-border);
+  background-color: transparent;
+  transition: var(--k9-transition-fast);
+}
+
+/* Inner fill dot */
+.radio-dot__inner {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--k9-radius-full);
+  background-color: var(--k9-color-primary-text);
+  transform: scale(0);
+  transition: transform var(--k9-duration-fast) var(--k9-easing-emphasis);
+}
+
+.radio-input:checked + .radio-dot {
+  border-color: var(--k9-color-primary);
+  background-color: var(--k9-color-primary);
+}
+
+.radio-input:checked + .radio-dot .radio-dot__inner {
+  transform: scale(1);
+}
+
+.radio-input:focus-visible + .radio-dot {
+  box-shadow: var(--k9-shadow-focus);
+  border-color: var(--k9-color-primary);
+}
+
+.radio-label:not(.radio-label--disabled):hover .radio-dot {
+  border-color: var(--k9-color-primary);
+  background-color: var(--k9-color-primary-hover);
+}
+
+/* Label text */
+.radio-text {
+  font-family: var(--k9-font-family);
+  font-size: var(--k9-font-size-body);
+  color: var(--k9-color-text);
+  line-height: var(--k9-line-height-body);
+}

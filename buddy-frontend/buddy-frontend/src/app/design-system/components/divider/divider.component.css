@@ -1,0 +1,58 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Simple */
+.divider-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--k9-color-border);
+  border: none;
+  margin: 0;
+}
+
+/* Labeled */
+.divider-labeled {
+  display: flex;
+  align-items: center;
+  gap: var(--k9-space-md);
+}
+
+.divider-line--half {
+  flex: 1;
+}
+
+.divider-label {
+  font-family: var(--k9-font-family);
+  font-size: var(--k9-font-size-caption);
+  color: var(--k9-color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: var(--k9-letter-spacing-caption);
+  text-transform: uppercase;
+}
+
+/* Progress dots */
+.divider-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--k9-space-xs);
+}
+
+.divider-dot {
+  display: block;
+  height: 6px;
+  border-radius: var(--k9-radius-full);
+  background-color: var(--k9-color-surface-elevated);
+}
+
+.divider-dot--active {
+  width: 48px;
+  background-color: var(--k9-color-primary);
+}
+
+.divider-dot:not(.divider-dot--active) {
+  width: 12px;
+}

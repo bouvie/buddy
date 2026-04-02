@@ -1,0 +1,78 @@
+:host {
+  display: inline-block;
+}
+
+.tooltip-host {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Tooltip bubble — hidden by default, shown on hover */
+.tooltip {
+  position: absolute;
+  z-index: 40;
+  white-space: nowrap;
+  padding: var(--k9-space-xs) var(--k9-space-sm);
+  background-color: var(--k9-color-surface-elevated);
+  color: var(--k9-color-text);
+  border: 1px solid var(--k9-color-border);
+  border-radius: var(--k9-radius-md);
+  font-family: var(--k9-font-family);
+  font-size: var(--k9-font-size-caption);
+  line-height: var(--k9-line-height-caption);
+  box-shadow: var(--k9-shadow-md);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--k9-duration-fast) var(--k9-easing-standard),
+              transform var(--k9-duration-fast) var(--k9-easing-standard);
+}
+
+.tooltip-host:hover .tooltip,
+.tooltip-host:focus-within .tooltip {
+  opacity: 1;
+}
+
+/* Positions */
+.tooltip--top {
+  bottom: calc(100% + var(--k9-space-xs));
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.tooltip-host:hover .tooltip--top,
+.tooltip-host:focus-within .tooltip--top {
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip--bottom {
+  top: calc(100% + var(--k9-space-xs));
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.tooltip-host:hover .tooltip--bottom,
+.tooltip-host:focus-within .tooltip--bottom {
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip--left {
+  right: calc(100% + var(--k9-space-xs));
+  top: 50%;
+  transform: translateY(-50%) translateX(4px);
+}
+
+.tooltip-host:hover .tooltip--left,
+.tooltip-host:focus-within .tooltip--left {
+  transform: translateY(-50%) translateX(0);
+}
+
+.tooltip--right {
+  left: calc(100% + var(--k9-space-xs));
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+}
+
+.tooltip-host:hover .tooltip--right,
+.tooltip-host:focus-within .tooltip--right {
+  transform: translateY(-50%) translateX(0);
+}

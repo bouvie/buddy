@@ -1,0 +1,24 @@
+<div class="avatar-root" [class.avatar-root--with-text]="name() || subtitle()">
+  <div
+    class="avatar-image"
+    [class.avatar-image--sm]="safeSize() === 'sm'"
+    [class.avatar-image--md]="safeSize() === 'md'"
+    [class.avatar-image--lg]="safeSize() === 'lg'"
+  >
+    @if (hasImage()) {
+      <img [src]="src()" [alt]="alt()" class="avatar-img" />
+    } @else {
+      <span class="avatar-initials">{{ initials() }}</span>
+    }
+  </div>
+  @if (name() || subtitle()) {
+    <div class="avatar-text">
+      @if (name()) {
+        <span class="avatar-name">{{ name() }}</span>
+      }
+      @if (subtitle()) {
+        <span class="avatar-subtitle">{{ subtitle() }}</span>
+      }
+    </div>
+  }
+</div>

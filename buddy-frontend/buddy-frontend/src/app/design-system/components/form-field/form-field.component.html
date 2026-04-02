@@ -1,0 +1,16 @@
+<div class="form-field">
+  @if (label()) {
+    <label
+      [for]="inputId()"
+      class="form-field__label"
+      [class.form-field__label--required]="required()"
+    >{{ label() }}</label>
+  }
+  <ng-content></ng-content>
+  @if (helpText() && !hasError()) {
+    <span class="form-field__help">{{ helpText() }}</span>
+  }
+  @if (hasError() && error()) {
+    <span class="form-field__error" role="alert">{{ error() }}</span>
+  }
+</div>

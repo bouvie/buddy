@@ -1,11 +1,9 @@
-import { Directive, HostBinding, OnInit, OnDestroy, inject } from '@angular/core';
-import { of, Subscription } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
-import type {
-  ChartCardData,
-  ChartDataPoint,
-} from '../../../design-system/components/chart-card/chart-card.types';
-import { ChartCardComponent } from '../../../design-system';
+import { Directive, effect, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { of } from 'rxjs';
+import { delay, map, startWith } from 'rxjs/operators';
+import type { ChartCardData, ChartDataPoint } from '../../../design-system/components/chart-card/chart-card.types';
+import { ChartCardComponent } from '../../../design-system/components/chart-card/chart-card.component';
 
 /** BPM moyens par heure sur 24h — à remplacer par un appel HTTP */
 const HEART_RATE_MOCK: ChartDataPoint[] = [
@@ -39,30 +37,26 @@ const HEART_RATE_MOCK: ChartDataPoint[] = [
   selector: 'app-chart-card[appHeartRateChart]',
   standalone: true,
 })
-export class HeartRateChartDirective implements OnInit, OnDestroy {
+export class HeartRateChartDirective {
   private readonly host = inject(ChartCardComponent, { host: true });
 
-  private _sub: Subscription | null = null;
+  private readonly chartData = toSignal(
+    of(HEART_RATE_MOCK).pipe(
+      delay(800),
+      map((points): ChartCardData => ({
+        variant:     'line-area',
+        title:       'Heart Rate',
+        headerValue: '72',
+        unit:        'BPM',
+        isLive:      true,
+        points,
+      })),
+      startWith<ChartCardData>({ variant: 'skeleton' }),
+    ),
+    { requireSync: true },
+  );
 
-  ngOnInit(): void {
-    this._sub = of(HEART_RATE_MOCK)
-      .pipe(
-        delay(1000),
-        tap((points) => {
-          this.host.data.set({
-            variant: 'line-area',
-            title: 'Heart Rate',
-            headerValue: '72',
-            unit: 'BPM',
-            isLive: true,
-            points,
-          });
-        }),
-      )
-      .subscribe();
-  }
-
-  ngOnDestroy(): void {
-    this._sub?.unsubscribe();
+  constructor() {
+    effect(() => this.host.data.set(this.chartData()));
   }
 }

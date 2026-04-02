@@ -69,3 +69,6 @@ export * from './chart-card/chart-card.types';
 
 export * from './metric-card/metric-card.component';
 export * from './metric-card/metric-card.types';
+
+export * from './map/map.component';
+export * from './map/map.types';

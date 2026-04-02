@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.map-wrapper {
+  width: 100%;
+  border-radius: var(--k9-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--k9-color-border);
+}
+
+.info-window {
+  font-family: var(--k9-font-family);
+  color: #1a1a1a;
+  padding: 2px 4px;
+  max-width: 200px;
+}
+
+.info-window__title {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.info-window__content {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #444;
+}

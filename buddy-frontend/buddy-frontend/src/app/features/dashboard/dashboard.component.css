@@ -43,6 +43,10 @@
   gap: var(--k9-space-lg);
 }
 
+.dashboard__map-card {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 640px) {
   .dashboard {
     padding: var(--k9-space-lg);
@@ -51,5 +55,9 @@
 
   .dashboard__grid {
     grid-template-columns: 1fr;
+  }
+
+  .dashboard__map-card {
+    grid-column: auto;
   }
 }

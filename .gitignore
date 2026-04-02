@@ -1,7 +1,1 @@
-/buddy-frontend/node_modules/*
-
-/buddy-frontend/dist/*
-
-/budy-frontend/pakage-lock.json
-
-/.claude/settings.local.json
+.claude/*

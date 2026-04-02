@@ -1,0 +1,28 @@
+<div class="map-wrapper" [style.height]="height()">
+  @if (isReady()) {
+    <google-map [options]="mapOptions()" width="100%" height="100%">
+      <map-info-window (closeclick)="closeInfo()">
+        @if (activeMarker(); as m) {
+          <div class="info-window">
+            @if (m.title) {
+              <strong class="info-window__title">{{ m.title }}</strong>
+            }
+            @if (m.infoContent) {
+              <p class="info-window__content">{{ m.infoContent }}</p>
+            }
+          </div>
+        }
+      </map-info-window>
+
+      @for (m of markers(); track m.lat + '-' + m.lng; let i = $index) {
+        <map-marker
+          [position]="{ lat: m.lat, lng: m.lng }"
+          [title]="m.title ?? ''"
+          (mapClick)="openInfo(m, i)"
+        />
+      }
+    </google-map>
+  } @else {
+    <div class="map-skeleton"></div>
+  }
+</div>

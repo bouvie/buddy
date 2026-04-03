@@ -78,5 +78,46 @@
         ]
       }
     },
+    "cap-sync": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx nx build buddy-frontend && npx cap sync"
+      }
+    },
+    "cap-open-ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx cap open ios"
+      }
+    },
+    "cap-open-android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx cap open android"
+      }
+    },
+    "add": {
+      "executor": "nx:run-commands",
+      "configurations": {
+        "ios": {
+          "command": "npx cap add ios"
+        },
+        "android": {
+          "command": "npx cap add android"
+        }
+      }
+    },
+    "cap": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx cap {args.cmd}"
+      }
+    },
+    "sync": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx cap sync"
+      }
+    }
   }
 }

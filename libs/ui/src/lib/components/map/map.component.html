@@ -4,6 +4,11 @@
       <map-info-window (closeclick)="closeInfo()">
         @if (activeMarker(); as m) {
           <div class="info-window">
+            <button class="info-window__close" (click)="closeInfo()" aria-label="Fermer">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L9 9M9 1L1 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </button>
             @if (m.title) {
               <strong class="info-window__title">{{ m.title }}</strong>
             }
@@ -14,12 +19,12 @@
         }
       </map-info-window>
 
-      @for (item of markersWithIcons(); track item.m.lat + '-' + item.m.lng; let i = $index) {
+      @for (m of markers(); track m.lat + '-' + m.lng; let i = $index) {
         <map-marker
-          [position]="{ lat: item.m.lat, lng: item.m.lng }"
-          [title]="item.m.title ?? ''"
-          [options]="{ icon: item.icon }"
-          (mapClick)="openInfo(item.m, i)"
+          [position]="{ lat: m.lat, lng: m.lng }"
+          [title]="m.title ?? ''"
+          [options]="{ icon: pinIcon() }"
+          (mapClick)="openInfo(m, i)"
         />
       }
     </google-map>

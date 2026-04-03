@@ -22,3 +22,35 @@ body {
 html, body {
   height: 100%;
 }
+
+/* ─── Google Maps InfoWindow — K9 Design System ──────────────────────────── */
+.gm-style .gm-style-iw-c {
+  background-color: var(--k9-color-surface) !important;
+  border: 1px solid var(--k9-color-border) !important;
+  border-radius: var(--k9-radius-lg) !important;
+  box-shadow: var(--k9-shadow-md) !important;
+  padding: 0 !important;
+}
+
+/* Flèche */
+.gm-style .gm-style-iw-tc::after,
+.gm-style .gm-style-iw-tc > div {
+  background: var(--k9-color-surface, #1B2025) !important;
+  box-shadow: none !important;
+}
+
+/* Header */
+
+.gm-style-iw-chr {
+  display: none
+}
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+/* Bouton close natif Google — masqué, fermeture via clic extérieur */
+.gm-style .gm-style-iw-c button.gm-ui-hover-effect {
+  display: none !important;
+}

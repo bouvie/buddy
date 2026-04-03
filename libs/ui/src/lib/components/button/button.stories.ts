@@ -8,7 +8,7 @@ const meta: Meta<ButtonComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
-    figmaUrl: 'https://www.figma.com/design/Mu9JwRHYdwbyYVNRe63par/Buddy?node-id=51-817&m=dev',
+    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=11-25',
   },
   argTypes: {
     variant: { control: 'select', options: BUTTON_VARIANTS },

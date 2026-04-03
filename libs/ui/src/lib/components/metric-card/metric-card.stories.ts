@@ -49,7 +49,7 @@ const meta: Meta<MetricCardComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/Mu9JwRHYdwbyYVNRe63par/Buddy?node-id=56-1419&m=dev',
+    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=14-25',
   },
   argTypes: {
     data: {

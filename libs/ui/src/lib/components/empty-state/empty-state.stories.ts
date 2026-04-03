@@ -6,7 +6,7 @@ const meta: Meta<EmptyStateComponent> = {
   title: 'Design System / Components / EmptyState',
   component: EmptyStateComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-59' },
   argTypes: {
     size: { control: 'select', options: EMPTY_STATE_SIZES },
     title: { control: 'text' },

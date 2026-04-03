@@ -7,7 +7,7 @@ const meta: Meta<ModalComponent> = {
   title: 'Design System / Components / Modal',
   component: ModalComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-22' },
   argTypes: {
     size: { control: 'select', options: MODAL_SIZES },
     isOpen: { control: 'boolean' },

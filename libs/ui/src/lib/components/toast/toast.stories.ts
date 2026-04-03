@@ -6,7 +6,7 @@ const meta: Meta<ToastComponent> = {
   title: 'Design System / Components / Toast',
   component: ToastComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=30-28' },
   argTypes: {
     variant: { control: 'select', options: TOAST_VARIANTS },
     position: { control: 'select', options: TOAST_POSITIONS },

@@ -5,7 +5,7 @@ const meta: Meta<SpinnerComponent> = {
   title: 'Design System / Components / Spinner',
   component: SpinnerComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'centered' },
+  parameters: { layout: 'centered', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=30-13' },
   argTypes: {
     size: { control: 'select', options: ['sm', 'md', 'lg'] },
     variant: { control: 'select', options: ['primary', 'secondary', 'white'] },

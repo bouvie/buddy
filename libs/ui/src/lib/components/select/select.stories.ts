@@ -12,7 +12,7 @@ const meta: Meta<SelectComponent> = {
   title: 'Design System / Components / Select',
   component: SelectComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-41' },
   argTypes: {
     placeholder: {
       control: 'text',

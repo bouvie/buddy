@@ -7,7 +7,7 @@ const meta: Meta<TooltipComponent> = {
   title: 'Design System / Components / Tooltip',
   component: TooltipComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'centered' },
+  parameters: { layout: 'centered', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=30-52' },
   argTypes: {
     position: { control: 'select', options: TOOLTIP_POSITIONS },
     content: { control: 'text' },

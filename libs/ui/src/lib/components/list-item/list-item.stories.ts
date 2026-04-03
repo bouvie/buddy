@@ -45,7 +45,7 @@ const meta: Meta<ListItemComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/Mu9JwRHYdwbyYVNRe63par/Buddy?node-id=56-1494&m=dev',
+    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-2',
   },
   argTypes: {
     data: {

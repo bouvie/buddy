@@ -22,7 +22,7 @@ const meta: Meta<SideNavComponent> = {
   decorators: [
     applicationConfig({ providers: [provideRouter([])] }),
   ],
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-53' },
 };
 
 export default meta;

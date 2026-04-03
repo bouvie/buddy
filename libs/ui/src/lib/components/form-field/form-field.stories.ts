@@ -6,7 +6,7 @@ const meta: Meta<FormFieldComponent> = {
   title: 'Design System / Components / FormField',
   component: FormFieldComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-66' },
   argTypes: {
     label: { control: 'text', description: 'Label du champ' },
     inputId: { control: 'text', description: 'id liant le label au champ enfant via [for]' },

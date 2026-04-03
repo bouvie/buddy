@@ -5,7 +5,7 @@ const meta: Meta<ProgressComponent> = {
   title: 'Design System / Components / Progress',
   component: ProgressComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-28' },
   argTypes: {
     value: {
       control: { type: 'range', min: 0, max: 100, step: 5 },

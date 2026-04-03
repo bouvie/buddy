@@ -12,7 +12,7 @@ const meta: Meta<DropdownComponent> = {
   title: 'Design System / Components / Dropdown',
   component: DropdownComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'centered' },
+  parameters: { layout: 'centered', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-48' },
   argTypes: {
     triggerLabel: { control: 'text' },
     disabled: { control: 'boolean' },

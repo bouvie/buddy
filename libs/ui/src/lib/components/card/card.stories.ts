@@ -7,7 +7,7 @@ const meta: Meta<CardComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/file/Mu9JwRHYdwbyYVNRe63par?node-id=42:304',
+    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-26',
   },
   argTypes: {
     title: { control: 'text', description: 'Titre affiché dans le header de la card (optionnel)' },

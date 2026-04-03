@@ -5,7 +5,7 @@ const meta: Meta<CheckboxComponent> = {
   title: 'Design System / Components / Checkbox',
   component: CheckboxComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-31' },
   argTypes: {
     id: { control: 'text', description: 'Unique identifier for accessibility' },
     label: { control: 'text', description: 'Checkbox label text' },

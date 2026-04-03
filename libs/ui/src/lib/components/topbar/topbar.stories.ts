@@ -5,7 +5,7 @@ const meta: Meta<TopbarComponent> = {
   title: 'Design System / Shell / Topbar',
   component: TopbarComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'fullscreen' },
+  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=14-68' },
 };
 
 export default meta;

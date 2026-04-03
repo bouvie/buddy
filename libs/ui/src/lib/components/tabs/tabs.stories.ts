@@ -11,7 +11,7 @@ const meta: Meta<TabsComponent> = {
   title: 'Design System / Components / Tabs',
   component: TabsComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=30-21' },
   argTypes: {
     activeTab: { control: 'text' },
   },

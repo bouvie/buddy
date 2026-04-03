@@ -18,6 +18,7 @@ const meta: Meta<MapComponent> = {
   parameters: {
     layout: 'padded',
     backgrounds: { default: 'k9-dark' },
+    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=1-6',
   },
   decorators: [
     applicationConfig({

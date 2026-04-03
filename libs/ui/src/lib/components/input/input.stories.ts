@@ -8,7 +8,7 @@ const meta: Meta<InputComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/Mu9JwRHYdwbyYVNRe63par/Buddy?node-id=51-817&m=dev',
+    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=12-23',
   },
   argTypes: {
     type: { control: 'select', options: INPUT_TYPES },

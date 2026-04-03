@@ -5,7 +5,7 @@ const meta: Meta<RadioComponent> = {
   title: 'Design System / Components / Radio',
   component: RadioComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-34' },
   argTypes: {
     name: { control: 'text', description: 'Radio group name' },
     value: { control: 'text', description: 'Radio button value' },

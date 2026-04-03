@@ -5,7 +5,7 @@ const meta: Meta<SkeletonComponent> = {
   title: 'Design System / Components / Skeleton',
   component: SkeletonComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-69' },
   argTypes: {
     shape: { control: 'select', options: ['rectangle', 'circle', 'text'], description: 'Forme du placeholder' },
     count: { control: { type: 'range', min: 1, max: 5 }, description: 'Nombre de placeholders empilés' },

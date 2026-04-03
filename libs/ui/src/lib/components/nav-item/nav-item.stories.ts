@@ -15,7 +15,7 @@ const meta: Meta<NavItemComponent> = {
   decorators: [
     applicationConfig({ providers: [provideRouter([])] }),
   ],
-  parameters: { layout: 'padded' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=14-52' },
   argTypes: {
     variant: { control: 'select', options: NAV_ITEM_VARIANTS },
   },

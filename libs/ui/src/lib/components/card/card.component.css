@@ -2,6 +2,22 @@
   display: block;
 }
 
+/* ─── Animated border — live state ───────────────────────────────────────── */
+@property --k9-card-glow-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes card-live-spin {
+  to { --k9-card-glow-angle: 360deg; }
+}
+
+@keyframes card-live-pulse {
+  0%, 100% { box-shadow: var(--k9-shadow-sm), 0 0  8px 2px rgba(186, 203, 184, 0.10); }
+  50%       { box-shadow: var(--k9-shadow-sm), 0 0 22px 6px rgba(186, 203, 184, 0.28); }
+}
+
 .card {
   background-color: var(--k9-color-surface);
   border-radius: var(--k9-radius-xl);
@@ -18,6 +34,30 @@
 .card--elevation-sm   { box-shadow: var(--k9-shadow-sm); }
 .card--elevation-md   { box-shadow: var(--k9-shadow-md); }
 .card--elevation-lg   { box-shadow: var(--k9-shadow-lg); }
+
+/* Live */
+.card--live {
+  border-color: transparent;
+  position: relative;
+  animation: card-live-pulse 2.5s ease-in-out infinite;
+}
+
+.card--live::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--k9-radius-xl) + 1px);
+  z-index: -1;
+  background: conic-gradient(
+    from var(--k9-card-glow-angle),
+    transparent 60%,
+    rgba(186, 203, 184, 0.30) 75%,
+    rgba(186, 203, 184, 0.70) 88%,
+    rgba(186, 203, 184, 0.30) 96%,
+    transparent 100%
+  );
+  animation: card-live-spin 5s linear infinite;
+}
 
 /* Interactive */
 .card--interactive {

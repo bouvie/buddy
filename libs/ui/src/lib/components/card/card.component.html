@@ -10,6 +10,7 @@
   [class.card--padding-md]="padding() === 'md'"
   [class.card--padding-lg]="padding() === 'lg'"
   [class.card--interactive]="interactive()"
+  [class.card--live]="isLive()"
 >
   @if (title()) {
     <div class="card__header">

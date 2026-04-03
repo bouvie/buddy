@@ -16,4 +16,5 @@ export class CardComponent {
   readonly elevation   = input<CardElevation>('md');
   readonly border      = input(true);
   readonly interactive = input(false);
+  readonly isLive      = input(false);
 }

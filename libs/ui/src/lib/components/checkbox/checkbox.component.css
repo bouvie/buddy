@@ -44,12 +44,21 @@
   border: 1.5px solid var(--k9-color-border);
   background-color: transparent;
   color: var(--k9-color-primary-text);
-  transition: var(--k9-transition-fast);
+  transition: background-color var(--k9-duration-fast) var(--k9-easing-emphasis),
+              border-color var(--k9-duration-fast) var(--k9-easing-standard),
+              box-shadow var(--k9-duration-fast) var(--k9-easing-standard);
 }
 
 .checkbox-input:checked + .checkbox-box {
   background-color: var(--k9-color-primary);
   border-color: var(--k9-color-primary);
+  animation: checkbox-pop var(--k9-duration-normal) var(--k9-easing-emphasis);
+}
+
+@keyframes checkbox-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
 }
 
 .checkbox-input:indeterminate + .checkbox-box {

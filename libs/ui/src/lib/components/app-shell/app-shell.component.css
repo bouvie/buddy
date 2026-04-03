@@ -30,17 +30,36 @@
 }
 
 /* ── Topbar ─────────────────────────────────── */
-/* ── Mobile < 768px) ──────────────────────── */
-@media (max-width: 768px) {
-  .app-shell__topbar {
-    display: none;
-  }
-}
+
 .app-shell__topbar {
   grid-area: topbar;
   position: sticky;
   top: 0;
   z-index: var(--k9-z-topbar);
+}
+
+/* ── Mobile (< 768px) — transparent + scroll-hide ── */
+@media (max-width: 768px) {
+  :host {
+    grid-template-rows: 0 1fr;
+  }
+
+  .app-shell__topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    --k9-topbar-bg: var(--k9-color-bg);
+    --k9-topbar-border: transparent;
+    transition: transform var(--k9-duration-slow) var(--k9-easing-standard),
+                opacity var(--k9-duration-normal) var(--k9-easing-standard);
+  }
+
+  .app-shell__topbar--hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 /* ── Body (sidenav + main) ──────────────────── */
@@ -71,6 +90,13 @@
 
 .app-shell__bottomnav--hidden {
   display: none;
+}
+
+/* ── Mobile (< 768px) — padding-top après les styles de base ── */
+@media (max-width: 768px) {
+  .app-shell__main {
+    padding-top: calc(var(--k9-topbar-height) + env(safe-area-inset-top) + var(--k9-space-sm));
+  }
 }
 
 /* ── Desktop (≥ 768px) ──────────────────────── */

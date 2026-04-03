@@ -22,8 +22,9 @@
 .nav-item--bottom {
   flex-direction: column;
   gap: 0;
-  flex: 1;
-  padding: var(--k9-space-sm) var(--k9-space-md);
+  flex: 0 0 auto;
+  padding: 0 var(--k9-space-xl);
+  height: var(--k9-bottom-nav-height);
   border-radius: var(--k9-radius-md);
 }
 
@@ -33,6 +34,7 @@
 
 .nav-item--bottom.nav-item--active {
   color: var(--k9-color-primary);
+  animation: nav-active-spring var(--k9-duration-slow) var(--k9-easing-emphasis);
 }
 
 /* Icon-only dock : labels masqués */
@@ -58,6 +60,8 @@
 .nav-item--side.nav-item--active {
   color: var(--k9-color-primary);
   background: var(--k9-color-primary-subtle);
+  box-shadow: var(--k9-shadow-primary-glow);
+  animation: nav-active-spring var(--k9-duration-slow) var(--k9-easing-emphasis);
 }
 
 /* ── Icon wrap ──────────────────────────────── */
@@ -95,6 +99,11 @@
   line-height: 16px;
   text-align: center;
   pointer-events: none;
+}
+
+@keyframes nav-active-spring {
+  0%   { transform: scale(0.94); }
+  100% { transform: scale(1); }
 }
 
 /* ── Label ──────────────────────────────────── */

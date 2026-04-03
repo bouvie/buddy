@@ -1,10 +1,11 @@
 :host {
   display: block;
   width: 100%;
-  background: var(--k9-color-surface);
-  border-bottom: 1px solid var(--k9-color-border);
+  background: var(--k9-topbar-bg, var(--k9-color-surface));
+  border-bottom: 1px solid var(--k9-topbar-border, var(--k9-color-border));
   /* Le background s'étend dans la safe area (status bar Capacitor) */
   padding-top: env(safe-area-inset-top);
+  transition: background var(--k9-transition-slow), border-color var(--k9-transition-slow);
 }
 
 .topbar__content {

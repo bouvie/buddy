@@ -148,6 +148,7 @@
   --k9-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
   --k9-shadow-focus: 0 0 0 3px rgba(186, 203, 184, 0.35);
   --k9-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  --k9-shadow-primary-glow: 0 0 10px 1px rgba(186, 203, 184, 0.15);
 
   /* ========== TRANSITIONS ========== */
   --k9-duration-fastest: 100ms;
@@ -169,7 +170,7 @@
   --k9-z-topbar: 50;
   --k9-z-nav: 100;
   --k9-topbar-height: 56px;
-  --k9-bottom-nav-height: 52px;
+  --k9-bottom-nav-height: 48px;
   --k9-sidenav-width: 240px;
 }
 

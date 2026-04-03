@@ -22,6 +22,7 @@
 
 .toggle-btn--active {
   background-color: var(--k9-color-primary);
+  box-shadow: var(--k9-shadow-primary-glow);
 }
 
 .toggle-btn:focus-visible {
@@ -42,7 +43,7 @@
   height: 20px;
   background-color: var(--k9-color-text);
   border-radius: 50%;
-  transition: left var(--k9-duration-normal) var(--k9-easing-standard),
+  transition: left var(--k9-duration-normal) var(--k9-easing-emphasis),
               background-color var(--k9-duration-normal) var(--k9-easing-standard);
 }
 

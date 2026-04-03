@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import {
   AppShellComponent,
+  AvatarComponent,
   TopbarComponent,
   BottomNavComponent,
   SideNavComponent,
@@ -15,7 +16,7 @@ const ICON_PROFILE = 'M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AppShellComponent, TopbarComponent, BottomNavComponent, SideNavComponent],
+  imports: [RouterLink, RouterOutlet, AppShellComponent, AvatarComponent, TopbarComponent, BottomNavComponent, SideNavComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

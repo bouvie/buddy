@@ -14,13 +14,13 @@
   height: 4px;
   background-color: var(--k9-color-surface-elevated);
   border-radius: var(--k9-radius-full);
-  overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
   background-color: var(--k9-color-primary);
   border-radius: var(--k9-radius-full);
+  box-shadow: var(--k9-shadow-primary-glow);
   transition: width var(--k9-duration-slow) var(--k9-easing-standard);
 }
 

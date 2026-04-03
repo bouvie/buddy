@@ -2,8 +2,30 @@
   display: block;
 }
 
+/* ─── Animated border token ──────────────────────────────────────────────── */
+@property --k9-glow-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes card-border-spin {
+  to { --k9-glow-angle: 360deg; }
+}
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 6px 1px rgba(186, 203, 184, 0.18); }
+  50%       { box-shadow: 0 0 16px 4px rgba(186, 203, 184, 0.36); }
+}
+
+@keyframes dot-breathe {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.65); }
+}
+
 /* ─── Base ───────────────────────────────────────────────────────────────── */
 .chart-card {
+  position: relative;
   background-color: var(--k9-color-surface);
   border: 1px solid var(--k9-color-border);
   border-radius: var(--k9-radius-md);
@@ -11,6 +33,28 @@
   display: flex;
   flex-direction: column;
   gap: var(--k9-space-xl);
+}
+
+/* ─── Live card — rotating border glow ───────────────────────────────────── */
+.chart-card--live {
+  border-color: transparent;
+}
+
+.chart-card--live::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--k9-radius-md) + 1px);
+  z-index: -1;
+  background: conic-gradient(
+    from var(--k9-glow-angle),
+    transparent 60%,
+    rgba(186, 203, 184, 0.30) 75%,
+    rgba(186, 203, 184, 0.70) 88%,
+    rgba(186, 203, 184, 0.30) 96%,
+    transparent 100%
+  );
+  animation: card-border-spin 5s linear infinite;
 }
 
 /* ─── Populated ──────────────────────────────────────────────────────────── */
@@ -59,6 +103,7 @@
 .chart-card__live-badge {
   display: inline-flex;
   align-items: center;
+  gap: 5px;
   padding: 4px var(--k9-space-sm);
   border-radius: var(--k9-radius-md);
   background-color: var(--k9-color-primary-subtle);
@@ -68,6 +113,18 @@
   color: var(--k9-color-primary);
   letter-spacing: var(--k9-letter-spacing-caption);
   flex-shrink: 0;
+  animation: badge-pulse 2.5s ease-in-out infinite;
+}
+
+.chart-card__live-badge::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: var(--k9-radius-full);
+  background-color: currentColor;
+  flex-shrink: 0;
+  animation: dot-breathe 2.5s ease-in-out infinite;
 }
 
 /* ECharts container */

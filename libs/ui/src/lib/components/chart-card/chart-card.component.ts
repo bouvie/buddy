@@ -80,13 +80,30 @@ export class ChartCardComponent {
           type: 'line',
           data: points.map((p) => p.value),
           smooth: true,
-          symbol: 'none',
-          lineStyle: { color: primary, width: 2 },
+          symbol: 'circle',
+          symbolSize: 6,
+          showSymbol: false,
+          lineStyle: {
+            color: primary,
+            width: 2,
+            shadowBlur: 8,
+            shadowColor: `${primary}80`,
+          },
+          emphasis: {
+            itemStyle: {
+              color: primary,
+              borderColor: primary,
+              shadowBlur: 12,
+              shadowColor: `${primary}99`,
+            },
+          },
           areaStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
               { offset: 0, color: `${primary}40` },
               { offset: 1, color: `${primary}00` },
             ]),
+            shadowBlur: 16,
+            shadowColor: `${primary}20`,
           },
         },
       ],
@@ -123,7 +140,20 @@ export class ChartCardComponent {
           type: 'bar',
           data: points.map((p) => p.value),
           barMaxWidth: 40,
-          itemStyle: { color: primary, borderRadius: [4, 4, 0, 0] },
+          itemStyle: {
+            color: primary,
+            borderRadius: [4, 4, 0, 0],
+            shadowBlur: 8,
+            shadowColor: `${primary}60`,
+            shadowOffsetY: -2,
+          },
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 18,
+              shadowColor: `${primary}99`,
+              shadowOffsetY: -3,
+            },
+          },
         },
       ],
     };

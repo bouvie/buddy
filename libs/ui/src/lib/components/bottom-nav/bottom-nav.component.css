@@ -1,8 +1,9 @@
 :host {
   position: fixed;
-  bottom: calc(var(--k9-space-lg) + env(safe-area-inset-bottom));
-  left: var(--k9-space-lg);
-  right: var(--k9-space-lg);
+  bottom: calc(var(--k9-space-xxl) + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
   z-index: var(--k9-z-nav);
   border-radius: var(--k9-radius-xl);
   /* Glassmorphism — surface-elevated avec transparence + blur */

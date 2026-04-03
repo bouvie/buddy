@@ -16,7 +16,7 @@
 
 <!-- ─── CHART (line-area | bar) ───────────────────────────────────────────── -->
 @if (isChart()) {
-  <div class="chart-card chart-card--populated">
+  <div class="chart-card chart-card--populated" [class.chart-card--live]="isLive()">
     <div class="chart-card__header">
       <div class="chart-card__meta">
         <span class="chart-card__title">{{ title() }}</span>

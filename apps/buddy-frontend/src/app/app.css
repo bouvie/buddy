@@ -30,3 +30,17 @@ body {
   color: var(--k9-color-text);
   letter-spacing: -0.01em;
 }
+
+.topbar-avatar-link {
+  display: flex;
+  align-items: center;
+  border-radius: var(--k9-radius-md);
+  outline: none;
+  transition: opacity var(--k9-transition-fast);
+}
+
+.topbar-avatar-link:hover { opacity: 0.8; }
+
+.topbar-avatar-link:focus-visible {
+  box-shadow: var(--k9-shadow-focus);
+}

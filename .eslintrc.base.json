@@ -24,6 +24,10 @@
                 "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "scope:shared"]
               },
               {
+                "sourceTag": "type:app-api",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
+              },
+              {
                 "sourceTag": "type:data-access",
                 "onlyDependOnLibsWithTags": ["scope:shared"]
               },

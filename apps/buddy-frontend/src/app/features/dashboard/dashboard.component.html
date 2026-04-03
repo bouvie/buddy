@@ -6,8 +6,8 @@
     elevation="sm"
     [isLive]="true"
   >
-    <k9-map height="360px" appMapLocation />
+    <k9-map height="360px" [appMapLocation]="dogId" />
   </k9-card>
-  <k9-chart-card appHeartRateChart></k9-chart-card>
-  <k9-chart-card appSleepTimeChart></k9-chart-card>
+  <k9-chart-card [appHeartRateChart]="dogId"></k9-chart-card>
+  <k9-chart-card [appSleepTimeChart]="dogId"></k9-chart-card>
 </section>

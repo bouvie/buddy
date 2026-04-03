@@ -1,0 +1,25 @@
+# Owned by MapLocationDirective
+# Initial position — loaded by DashboardData query via Dashboard_Dog composition
+
+fragment MapLocation_Dog on Dog {
+  id
+  name
+  lastLocation {
+    lat
+    lng
+    address
+    timestamp
+  }
+}
+
+# Live position updates — 1 push/second via WebSocket
+# Same shape as lastLocation — directive replaces the marker on each emit
+
+subscription MapLocationLive($dogId: ID!) {
+  location(dogId: $dogId) {
+    lat
+    lng
+    address
+    timestamp
+  }
+}

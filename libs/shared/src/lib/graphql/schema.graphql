@@ -1,0 +1,36 @@
+type Query {
+  dog(id: ID!): Dog
+}
+
+type Subscription {
+  heartRate(dogId: ID!): HeartRatePoint!
+  location(dogId: ID!):  LocationPoint!
+}
+
+type Dog {
+  id:               ID!
+  name:             String!
+  lastLocation:     LocationPoint
+  heartRateSeries(last: Int! = 30): [HeartRatePoint!]!
+  sleepSeries(last: Int! = 7):      [SleepPoint!]!
+}
+
+# GPS position — éphémère, keyFields: false côté Apollo cache
+type LocationPoint {
+  lat:       Float!
+  lng:       Float!
+  timestamp: String!
+  address:   String
+}
+
+# Fréquence cardiaque — éphémère, keyFields: false côté Apollo cache
+type HeartRatePoint {
+  timestamp: String!
+  bpm:       Int!
+}
+
+# Donnée de sommeil — date ISO transformée en label par le frontend
+type SleepPoint {
+  date:  String!
+  hours: Float!
+}

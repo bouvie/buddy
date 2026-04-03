@@ -1,0 +1,20 @@
+# Owned by HeartRateChartDirective
+# Pre-fills the 30-point sliding window — replaces buildInitialState() mock
+
+fragment HeartRateSeries_Dog on Dog {
+  id
+  heartRateSeries(last: 30) {
+    timestamp
+    bpm
+  }
+}
+
+# Live BPM stream — 1 push/second via WebSocket
+# Directive shifts the sliding window on each emit (same logic as evolve())
+
+subscription HeartRateLive($dogId: ID!) {
+  heartRate(dogId: $dogId) {
+    timestamp
+    bpm
+  }
+}

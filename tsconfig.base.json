@@ -23,7 +23,8 @@
     "isolatedModules": true,
     "paths": {
       "@buddy/ui": ["libs/ui/src/index.ts"],
-      "@buddy/data-access": ["libs/data-access/src/index.ts"]
+      "@buddy/data-access": ["libs/data-access/src/index.ts"],
+      "@buddy/shared": ["libs/shared/src/index.ts"]
     }
   }
 }

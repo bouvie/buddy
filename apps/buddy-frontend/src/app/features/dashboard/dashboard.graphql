@@ -1,0 +1,20 @@
+# Owned by DashboardComponent
+# Composes all child directive fragments — DashboardComponent is the only query entry point.
+# Subscriptions (HeartRateLive, MapLocationLive) are managed independently by their directives.
+
+#import "./directives/map-location.graphql"
+#import "./directives/heart-rate-chart.graphql"
+#import "./directives/sleep-time-chart.graphql"
+
+fragment Dashboard_Dog on Dog {
+  id
+  ...MapLocation_Dog
+  ...HeartRateSeries_Dog
+  ...SleepSeries_Dog
+}
+
+query DashboardData($dogId: ID!) {
+  dog(id: $dogId) {
+    ...Dashboard_Dog
+  }
+}

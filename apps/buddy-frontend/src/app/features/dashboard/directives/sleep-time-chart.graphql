@@ -1,0 +1,10 @@
+# Owned by SleepTimeChartDirective
+# Static query — no subscription. ISO dates transformed to display labels by formatSleepDate() helper.
+
+fragment SleepSeries_Dog on Dog {
+  id
+  sleepSeries(last: 7) {
+    date
+    hours
+  }
+}

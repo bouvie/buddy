@@ -10,4 +10,33 @@
   </k9-card>
   <k9-chart-card [appHeartRateChart]="dogId"></k9-chart-card>
   <k9-chart-card [appSleepTimeChart]="dogId"></k9-chart-card>
+  <div
+    class="dashboard__activity-list"
+    [appActivityReport]="dogId"
+    #activityReport="appActivityReport"
+  >
+    @for (item of activityReport.items(); track item.label; let i = $index) {
+      <k9-list-item [data]="item" [appEditActivity]="item" #edit="appEditActivity" />
+      <k9-modal [isOpen]="edit.isOpen()" title="Éditer l'événement" (closed)="edit.close()">
+        <div class="activity-edit-form">
+          <k9-form-field label="Libellé" [inputId]="'act-label-' + i">
+            <k9-input [id]="'act-label-' + i" [(ngModel)]="edit.draft.label" />
+          </k9-form-field>
+          <k9-form-field label="Type d'activité" [inputId]="'act-type-' + i">
+            <k9-input [id]="'act-type-' + i" [(ngModel)]="edit.draft.activityType" />
+          </k9-form-field>
+          <k9-form-field label="Durée" [inputId]="'act-duration-' + i">
+            <k9-input [id]="'act-duration-' + i" [(ngModel)]="edit.draft.duration" />
+          </k9-form-field>
+          <k9-form-field label="Notes" [inputId]="'act-notes-' + i">
+            <k9-input [id]="'act-notes-' + i" [(ngModel)]="edit.draft.notes" />
+          </k9-form-field>
+        </div>
+        <div modal-footer class="activity-edit-form__footer">
+          <k9-button variant="ghost" size="sm" (clicked)="edit.close()">Annuler</k9-button>
+          <k9-button size="sm" (clicked)="edit.save()">Enregistrer</k9-button>
+        </div>
+      </k9-modal>
+    }
+  </div>
 </section>

@@ -9,7 +9,7 @@
   height: 64px;
   border-radius: var(--k9-radius-xl);
   background-color: var(--k9-color-surface);
-  border: 1px solid transparent;
+  border: 1px solid var(--k9-color-border);
   transition: var(--k9-transition-fast);
 }
 

@@ -43,8 +43,34 @@
   gap: var(--k9-space-lg);
 }
 
-.dashboard__map-card {
+.dashboard__map-card,
+.dashboard__activity-list {
   grid-column: 1 / -1;
+}
+
+.dashboard__activity-list {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ─── Activity edit modal ─────────────────────────────────────────────────── */
+.activity-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k9-space-md);
+}
+
+.activity-edit-form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--k9-space-sm);
+  padding: var(--k9-space-lg) var(--k9-space-xl);
+  border-top: 1px solid var(--k9-color-border);
 }
 
 @media (max-width: 640px) {

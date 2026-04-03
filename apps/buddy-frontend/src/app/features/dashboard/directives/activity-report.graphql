@@ -1,0 +1,12 @@
+# Owned by ActivityReportDirective
+# TODO: remplacer le mock par une vraie query quand le schema est défini
+
+# fragment ActivityReport_Dog on Dog {
+#   id
+#   activityEvents(last: 10, excludeStatus: IDLE) {
+#     id
+#     type        # RUNNING | WALK | WAKE | AGITATION | ...
+#     startedAt
+#     duration    # secondes
+#   }
+# }

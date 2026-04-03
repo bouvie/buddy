@@ -40,8 +40,8 @@
       "standalone": true
     },
     "@nx/angular:library": {
-      "unitTestRunner": "vitest",
-      "linter": "eslint"
+      "linter": "eslint",
+      "unitTestRunner": "vitest"
     }
   },
   "plugins": [

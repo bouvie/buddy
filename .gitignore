@@ -28,3 +28,6 @@ coverage/
 #Mobile
 ios/
 android/
+
+/apps/buddy-frontend/src/environments/environment.prod.ts
+/apps/buddy-frontend/src/environments/environment.ts

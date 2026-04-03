@@ -22,7 +22,8 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "paths": {
-      "@buddy/ui": ["libs/ui/src/index.ts"]
+      "@buddy/ui": ["libs/ui/src/index.ts"],
+      "@buddy/data-access": ["libs/data-access/src/index.ts"]
     }
   }
 }

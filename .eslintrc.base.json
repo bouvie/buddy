@@ -21,7 +21,11 @@
             "depConstraints": [
               {
                 "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:ui", "scope:shared"]
+                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "scope:shared"]
+              },
+              {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
               },
               {
                 "sourceTag": "type:ui",

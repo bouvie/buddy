@@ -30,6 +30,12 @@
 }
 
 /* ── Topbar ─────────────────────────────────── */
+/* ── Mobile < 768px) ──────────────────────── */
+@media (max-width: 768px) {
+  .app-shell__topbar {
+    display: none;
+  }
+}
 .app-shell__topbar {
   grid-area: topbar;
   position: sticky;
@@ -53,6 +59,7 @@
   flex: 1;
   overflow-y: auto;
   outline: none;
+  padding: var(--k9-space-lg);
   /* Réserve de l'espace sous le dock flottant */
   padding-bottom: calc(var(--k9-bottom-nav-height) + var(--k9-space-xl) + env(safe-area-inset-bottom));
 }
@@ -70,5 +77,7 @@
 @media (min-width: 768px) {
   .app-shell__sidenav  { display: flex; }
   .app-shell__bottomnav { display: none; }
-  .app-shell__main { padding-bottom: 0; }
+  .app-shell__main {
+    padding: var(--k9-space-xl);
+  }
 }

@@ -24,7 +24,9 @@ body {
   transition: var(--k9-transition);
 }
 
-/* Ensure bottom nav bar doesn't cover content */
-main {
-  padding-bottom: 80px; /* Account for fixed bottom nav */
+.app-logo {
+  font-size: var(--k9-font-size-h3);
+  font-weight: var(--k9-font-weight-bold);
+  color: var(--k9-color-text);
+  letter-spacing: -0.01em;
 }

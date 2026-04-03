@@ -1,0 +1,112 @@
+:host { display: contents; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--k9-color-text-muted);
+  transition: color var(--k9-duration-fast) var(--k9-easing-standard),
+              background var(--k9-duration-fast) var(--k9-easing-standard);
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-item:focus-visible {
+  border-radius: var(--k9-radius-md);
+  box-shadow: var(--k9-shadow-focus);
+}
+
+/* ── Bottom variant ─────────────────────────── */
+.nav-item--bottom {
+  flex-direction: column;
+  gap: 0;
+  flex: 1;
+  padding: var(--k9-space-sm) var(--k9-space-md);
+  border-radius: var(--k9-radius-md);
+}
+
+.nav-item--bottom:hover:not(.nav-item--active) {
+  color: var(--k9-color-text-secondary);
+}
+
+.nav-item--bottom.nav-item--active {
+  color: var(--k9-color-primary);
+}
+
+/* Icon-only dock : labels masqués */
+.nav-item--bottom .nav-item__label {
+  display: none;
+}
+
+/* ── Side variant ───────────────────────────── */
+.nav-item--side {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--k9-space-md);
+  width: 100%;
+  padding: var(--k9-space-sm) var(--k9-space-lg);
+  border-radius: var(--k9-radius-md);
+}
+
+.nav-item--side:hover:not(.nav-item--active) {
+  color: var(--k9-color-text-secondary);
+  background: var(--k9-color-neutral-hover);
+}
+
+.nav-item--side.nav-item--active {
+  color: var(--k9-color-primary);
+  background: var(--k9-color-primary-subtle);
+}
+
+/* ── Icon wrap ──────────────────────────────── */
+.nav-item__icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-item__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-item--bottom .nav-item__icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Badge ──────────────────────────────────── */
+.nav-item__badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 var(--k9-space-xs);
+  border-radius: var(--k9-radius-full);
+  background: var(--k9-color-danger);
+  color: var(--k9-color-danger-text);
+  font-size: 9px;
+  font-weight: var(--k9-font-weight-bold);
+  line-height: 16px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ── Label ──────────────────────────────────── */
+.nav-item__label {
+  font-size: var(--k9-font-size-caption);
+  font-weight: var(--k9-font-weight-semibold);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.nav-item--side .nav-item__label {
+  font-size: var(--k9-font-size-body);
+  font-weight: var(--k9-font-weight-medium);
+  letter-spacing: normal;
+}

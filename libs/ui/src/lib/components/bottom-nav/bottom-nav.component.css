@@ -1,0 +1,26 @@
+:host {
+  position: fixed;
+  bottom: calc(var(--k9-space-lg) + env(safe-area-inset-bottom));
+  left: var(--k9-space-lg);
+  right: var(--k9-space-lg);
+  z-index: var(--k9-z-nav);
+  border-radius: var(--k9-radius-xl);
+  /* Glassmorphism — surface-elevated avec transparence + blur */
+  background: color-mix(in srgb, var(--k9-color-surface-elevated) 70%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, var(--k9-color-border) 60%, transparent);
+  box-shadow: var(--k9-shadow-xl);
+  overflow: hidden;
+}
+
+.bottom-nav {
+  display: flex;
+}
+
+.bottom-nav__items {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--k9-bottom-nav-height);
+}

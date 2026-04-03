@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<k9-app-shell>
+  <k9-topbar>
+    <span slot="start" class="app-logo">Buddy</span>
+  </k9-topbar>
+
+  <k9-side-nav [items]="navItems"> </k9-side-nav>
+
+  <k9-bottom-nav [items]="navItems" />
+
+  <router-outlet />
+</k9-app-shell>

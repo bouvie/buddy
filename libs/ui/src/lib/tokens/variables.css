@@ -164,6 +164,13 @@
   --k9-transition: all var(--k9-duration-normal) var(--k9-easing-standard);
   --k9-transition-fast: all var(--k9-duration-fast) var(--k9-easing-standard);
   --k9-transition-slow: all var(--k9-duration-slow) var(--k9-easing-standard);
+
+  /* ========== SHELL ========== */
+  --k9-z-topbar: 50;
+  --k9-z-nav: 100;
+  --k9-topbar-height: 56px;
+  --k9-bottom-nav-height: 52px;
+  --k9-sidenav-width: 240px;
 }
 
 /* ========== GLOBAL STYLES ========== */

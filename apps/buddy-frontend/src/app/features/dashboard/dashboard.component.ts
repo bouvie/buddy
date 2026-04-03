@@ -8,7 +8,13 @@ import { SleepTimeChartDirective } from './directives/sleep-time-chart.directive
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [ChartCardComponent, CardComponent, MapComponent, HeartRateChartDirective, SleepTimeChartDirective],
+  imports: [
+    ChartCardComponent,
+    CardComponent,
+    MapComponent,
+    HeartRateChartDirective,
+    SleepTimeChartDirective,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],

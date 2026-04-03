@@ -1,0 +1,31 @@
+<a
+  class="nav-item"
+  [class.nav-item--bottom]="safeVariant() === 'bottom'"
+  [class.nav-item--side]="safeVariant() === 'side'"
+  [routerLink]="item().route"
+  routerLinkActive="nav-item--active"
+  #rla="routerLinkActive"
+  [attr.aria-current]="rla.isActive ? 'page' : null"
+>
+  <span class="nav-item__icon-wrap">
+    <svg
+      class="nav-item__icon"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path [attr.d]="item().icon" />
+    </svg>
+    @if (hasBadge()) {
+      <span class="nav-item__badge" [attr.aria-label]="item().badge + ' notifications'">
+        {{ badgeLabel() }}
+      </span>
+    }
+  </span>
+  <span class="nav-item__label">{{ item().label }}</span>
+</a>

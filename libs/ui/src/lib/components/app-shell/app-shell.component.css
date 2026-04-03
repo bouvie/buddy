@@ -1,0 +1,74 @@
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "topbar"
+    "body";
+  min-height: 100dvh;
+  background: var(--k9-color-bg);
+}
+
+/* ── Skip link (accessibilité) ──────────────── */
+.app-shell__skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--k9-space-lg);
+  z-index: calc(var(--k9-z-nav) + 10);
+  padding: var(--k9-space-sm) var(--k9-space-lg);
+  background: var(--k9-color-surface-elevated);
+  color: var(--k9-color-text);
+  border: 1px solid var(--k9-color-border);
+  border-radius: var(--k9-radius-md);
+  text-decoration: none;
+  font-size: var(--k9-font-size-body);
+  font-family: var(--k9-font-family);
+  transition: top var(--k9-transition-fast);
+}
+
+.app-shell__skip-link:focus {
+  top: var(--k9-space-sm);
+}
+
+/* ── Topbar ─────────────────────────────────── */
+.app-shell__topbar {
+  grid-area: topbar;
+  position: sticky;
+  top: 0;
+  z-index: var(--k9-z-topbar);
+}
+
+/* ── Body (sidenav + main) ──────────────────── */
+.app-shell__body {
+  grid-area: body;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.app-shell__sidenav {
+  display: none;
+}
+
+.app-shell__main {
+  flex: 1;
+  overflow-y: auto;
+  outline: none;
+  /* Réserve de l'espace sous le dock flottant */
+  padding-bottom: calc(var(--k9-bottom-nav-height) + var(--k9-space-xl) + env(safe-area-inset-bottom));
+}
+
+/* ── Bottom nav (fixed, transparent au layout) ── */
+.app-shell__bottomnav {
+  display: contents;
+}
+
+.app-shell__bottomnav--hidden {
+  display: none;
+}
+
+/* ── Desktop (≥ 768px) ──────────────────────── */
+@media (min-width: 768px) {
+  .app-shell__sidenav  { display: flex; }
+  .app-shell__bottomnav { display: none; }
+  .app-shell__main { padding-bottom: 0; }
+}

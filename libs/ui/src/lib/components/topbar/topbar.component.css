@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  width: 100%;
+  background: var(--k9-color-surface);
+  border-bottom: 1px solid var(--k9-color-border);
+  /* Le background s'étend dans la safe area (status bar Capacitor) */
+  padding-top: env(safe-area-inset-top);
+}
+
+.topbar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--k9-topbar-height);
+  padding: 0 var(--k9-space-lg);
+  gap: var(--k9-space-sm);
+}
+
+.topbar__start,
+.topbar__end {
+  display: flex;
+  align-items: center;
+  gap: var(--k9-space-sm);
+  flex-shrink: 0;
+  min-width: 40px;
+}
+
+.topbar__end {
+  justify-content: flex-end;
+}
+
+.topbar__center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  overflow: hidden;
+}

@@ -17,7 +17,7 @@
     "android:sync": "npm run build && npx cap sync android",
     "android:run": "npx cap run android",
     "android:open": "npx cap open android",
-    "android:log": "adb logcat -s Capacitor/Console,chromium",
+    "android:log": "%LOCALAPPDATA%\\Android\\Sdk\\platform-tools\\adb logcat -s Capacitor/Console,chromium",
     "ios": "npm run build && npx cap sync ios && npx cap open ios",
     "ios:sync": "npm run build && npx cap sync ios",
     "ios:run": "npx cap run ios",

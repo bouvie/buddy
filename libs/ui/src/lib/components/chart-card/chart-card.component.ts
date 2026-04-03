@@ -52,6 +52,9 @@ export class ChartCardComponent {
     const primary = k9CssVar('--k9-color-primary');
     const border = k9CssVar('--k9-color-border');
     return {
+      animationDuration: 0,
+      animationDurationUpdate: 800,
+      animationEasingUpdate: 'linear' as const,
       grid: { top: 8, right: 0, bottom: 0, left: 0, containLabel: false },
       xAxis: {
         type: 'category',

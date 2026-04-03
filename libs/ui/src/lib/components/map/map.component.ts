@@ -2,6 +2,7 @@ import {
   Component,
   ChangeDetectionStrategy,
   input,
+  model,
   signal,
   computed,
   inject,
@@ -26,10 +27,10 @@ import { MapLoaderService } from './map-loader.service';
 export class MapComponent implements OnInit {
   private readonly _loader = inject(MapLoaderService);
 
-  readonly center = input<MapCenter>({ lat: 48.8566, lng: 2.3522 });
-  readonly zoom = input<number>(12);
-  readonly markers = input<MapMarkerData[]>([]);
-  readonly height = input<string>('400px');
+  readonly center  = model<MapCenter>({ lat: 48.8566, lng: 2.3522 });
+  readonly zoom    = model<number>(12);
+  readonly markers = model<MapMarkerData[]>([]);
+  readonly height  = input<string>('400px');
 
   readonly activeMarker = signal<MapMarkerData | null>(null);
   readonly isReady = signal(false);

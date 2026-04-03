@@ -1,9 +1,8 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ChartCardComponent } from '@buddy/ui';
-import { CardComponent } from '@buddy/ui';
-import { MapComponent } from '@buddy/ui';
+import { ChartCardComponent, CardComponent, MapComponent } from '@buddy/ui';
 import { HeartRateChartDirective } from './directives/heart-rate-chart.directive';
 import { SleepTimeChartDirective } from './directives/sleep-time-chart.directive';
+import { MapLocationDirective } from './directives/map-location.directive';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +13,7 @@ import { SleepTimeChartDirective } from './directives/sleep-time-chart.directive
     MapComponent,
     HeartRateChartDirective,
     SleepTimeChartDirective,
+    MapLocationDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.component.html',

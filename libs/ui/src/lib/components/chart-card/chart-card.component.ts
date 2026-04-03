@@ -1,22 +1,12 @@
 import { Component, ChangeDetectionStrategy, input, computed, model } from '@angular/core';
 import type { EChartsOption } from 'echarts';
 import * as echarts from 'echarts/core';
-import { LineChart, BarChart } from 'echarts/charts';
-import { GridComponent, TooltipComponent } from 'echarts/components';
-import { CanvasRenderer } from 'echarts/renderers';
 import { NgxEchartsDirective } from 'ngx-echarts';
 
 import type { ChartCardVariant, ChartCardData, ChartDataPoint } from './chart-card.types';
 import { CHART_CARD_VARIANTS } from './chart-card.types';
 import { SkeletonComponent } from '../skeleton/skeleton.component';
-import { K9_ECHARTS_THEME } from '../../tokens/echarts-theme';
-
-echarts.use([LineChart, BarChart, GridComponent, TooltipComponent, CanvasRenderer]);
-echarts.registerTheme('k9', K9_ECHARTS_THEME);
-
-// Tokens sync depuis variables.css
-const PRIMARY = '#BACBB8';
-const BORDER = '#434842';
+import { k9CssVar } from '../../utils';
 
 @Component({
   selector: 'k9-chart-card',
@@ -59,6 +49,8 @@ export class ChartCardComponent {
   });
 
   private _buildLineAreaOptions(points: ChartDataPoint[]): EChartsOption {
+    const primary = k9CssVar('--k9-color-primary');
+    const border = k9CssVar('--k9-color-border');
     return {
       grid: { top: 8, right: 0, bottom: 0, left: 0, containLabel: false },
       xAxis: {
@@ -74,7 +66,7 @@ export class ChartCardComponent {
         axisLine: { show: false },
         axisTick: { show: false },
         axisLabel: { show: false },
-        splitLine: { lineStyle: { color: BORDER, type: 'dashed' as const } },
+        splitLine: { lineStyle: { color: border, type: 'dashed' as const } },
       },
       tooltip: {
         trigger: 'axis',
@@ -89,11 +81,11 @@ export class ChartCardComponent {
           data: points.map((p) => p.value),
           smooth: true,
           symbol: 'none',
-          lineStyle: { color: PRIMARY, width: 2 },
+          lineStyle: { color: primary, width: 2 },
           areaStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: `${PRIMARY}40` },
-              { offset: 1, color: `${PRIMARY}00` },
+              { offset: 0, color: `${primary}40` },
+              { offset: 1, color: `${primary}00` },
             ]),
           },
         },
@@ -102,6 +94,7 @@ export class ChartCardComponent {
   }
 
   private _buildBarOptions(points: ChartDataPoint[]): EChartsOption {
+    const primary = k9CssVar('--k9-color-primary');
     return {
       grid: { top: 0, right: 0, bottom: 0, left: 0, containLabel: false },
       xAxis: {
@@ -130,7 +123,7 @@ export class ChartCardComponent {
           type: 'bar',
           data: points.map((p) => p.value),
           barMaxWidth: 40,
-          itemStyle: { color: PRIMARY, borderRadius: [4, 4, 0, 0] },
+          itemStyle: { color: primary, borderRadius: [4, 4, 0, 0] },
         },
       ],
     };

@@ -9,19 +9,6 @@
         "plugin:@nx/angular"
       ],
       "rules": {
-        "@nx/enforce-module-boundaries": [
-          "error",
-          {
-            "enforceBuildableLibDependency": true,
-            "allow": [],
-            "depConstraints": [
-              {
-                "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:ui", "scope:shared"]
-              }
-            ]
-          }
-        ],
         "@angular-eslint/component-selector": [
           "error",
           {

@@ -72,3 +72,6 @@ export * from './metric-card/metric-card.types';
 
 export * from './map/map.component';
 export * from './map/map.types';
+
+export * from './list-item/list-item.component';
+export * from './list-item/list-item.types';

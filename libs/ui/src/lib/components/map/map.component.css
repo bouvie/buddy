@@ -10,24 +10,37 @@
   border: 1px solid var(--k9-color-border);
 }
 
+/* État de chargement */
+.map-skeleton {
+  width: 100%;
+  height: 100%;
+  background: var(--k9-color-surface);
+  animation: skeleton-pulse 1.5s var(--k9-easing-standard) infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
 .info-window {
   font-family: var(--k9-font-family);
-  color: #1a1a1a;
-  padding: 2px 4px;
+  color: var(--k9-color-bg);
+  padding: var(--k9-space-xs) var(--k9-space-sm);
   max-width: 200px;
 }
 
 .info-window__title {
   display: block;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 4px;
+  font-size: var(--k9-font-size-body);
+  font-weight: var(--k9-font-weight-bold);
+  line-height: var(--k9-line-height-body);
+  margin-bottom: var(--k9-space-xs);
 }
 
 .info-window__content {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.5;
-  color: #444;
+  font-size: var(--k9-font-size-label);
+  line-height: var(--k9-line-height-label);
+  color: var(--k9-color-surface-elevated);
 }

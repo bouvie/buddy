@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { GOOGLE_MAPS_API_KEY, provideK9Charts } from '@buddy/ui';
 
 // Remplacer par votre clé Google Maps API
-const MAPS_API_KEY = '';
+const MAPS_API_KEY = 'AIzaSyCergp8yFFW6wIsxyXx116JQFBXzz39K8E';
 
 export const appConfig: ApplicationConfig = {
   providers: [

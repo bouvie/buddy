@@ -41,10 +41,11 @@ export class MapComponent implements OnInit {
     center: this.center(),
     zoom: this.zoom(),
     styles: MAP_DARK_STYLE,
-    zoomControl: true,
+    zoomControl: false,
     streetViewControl: false,
     mapTypeControl: false,
     fullscreenControl: false,
+    disableDefaultUI: true,
   }));
 
   ngOnInit(): void {

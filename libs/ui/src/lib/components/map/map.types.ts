@@ -7,6 +7,8 @@ export interface MapMarkerData {
   lng: number;
   title?: string;
   infoContent?: string;
+  avatarUrl?: string;
+  avatarInitials?: string;
 }
 
 export interface MapCenter {

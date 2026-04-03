@@ -14,11 +14,12 @@
         }
       </map-info-window>
 
-      @for (m of markers(); track m.lat + '-' + m.lng; let i = $index) {
+      @for (item of markersWithIcons(); track item.m.lat + '-' + item.m.lng; let i = $index) {
         <map-marker
-          [position]="{ lat: m.lat, lng: m.lng }"
-          [title]="m.title ?? ''"
-          (mapClick)="openInfo(m, i)"
+          [position]="{ lat: item.m.lat, lng: item.m.lng }"
+          [title]="item.m.title ?? ''"
+          [options]="{ icon: item.icon }"
+          (mapClick)="openInfo(item.m, i)"
         />
       }
     </google-map>

@@ -5,7 +5,7 @@
 .spinner-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-sm);
 }
 
 .spinner {
@@ -23,26 +23,26 @@
 }
 
 .spinner--md {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-width: 3px;
 }
 
 .spinner--lg {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-width: 4px;
 }
 
 /* Variants — piste grise + arc coloré */
 .spinner--primary {
-  border-color: var(--k9-color-border);
-  border-top-color: var(--k9-color-primary);
+  border-color: var(--k10-color-border);
+  border-top-color: var(--k10-color-primary);
 }
 
 .spinner--secondary {
-  border-color: var(--k9-color-border);
-  border-top-color: var(--k9-color-secondary);
+  border-color: var(--k10-color-border);
+  border-top-color: var(--k10-color-secondary);
 }
 
 .spinner--white {
@@ -51,9 +51,9 @@
 }
 
 .spinner-label {
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-body);
-  color: var(--k9-color-text-secondary);
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-body);
+  color: var(--k10-color-text-secondary);
 }
 
 @keyframes spinner-rotate {

@@ -5,11 +5,11 @@
 .alert {
   display: flex;
   align-items: flex-start;
-  gap: var(--k9-space-lg);
-  padding: var(--k9-space-xl);
-  border-radius: var(--k9-radius-xl);
+  gap: var(--k10-space-md);
+  padding: 14px;
+  border-radius: var(--k10-radius-lg);
   border: 1px solid;
-  font-family: var(--k9-font-family);
+  font-family: var(--k10-font-family);
 }
 
 .alert__icon-wrap {
@@ -17,29 +17,29 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--k9-radius-lg);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--k10-radius-full);
 }
 
 .alert__body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-xs);
 }
 
 .alert__title {
-  font-size: var(--k9-font-size-body);
-  font-weight: var(--k9-font-weight-semibold);
-  line-height: var(--k9-line-height-body);
+  font-size: 13px;
+  font-weight: var(--k10-font-weight-semibold);
+  line-height: var(--k10-line-height-body);
   margin: 0;
 }
 
 .alert__description {
-  font-size: var(--k9-font-size-body);
-  line-height: var(--k9-line-height-body);
-  color: var(--k9-color-text-secondary);
+  font-size: 11px;
+  line-height: var(--k10-line-height-body);
+  color: var(--k10-color-text-secondary);
   margin: 0;
 }
 
@@ -47,75 +47,75 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--k9-color-text-muted);
+  color: var(--k10-color-text-muted);
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: color var(--k9-duration-fast) var(--k9-easing-standard);
+  transition: color var(--k10-duration-fast) var(--k10-easing-standard);
 }
 
 .alert__dismiss:hover {
-  color: var(--k9-color-text);
+  color: var(--k10-color-text);
 }
 
-/* Info */
+/* ── Info ──────────────────────────────────────────────────────────────── */
 .alert--info {
-  background-color: var(--k9-color-surface);
-  border-color: var(--k9-color-border);
+  background-color: rgba(107, 180, 232, 0.07);
+  border-color: rgba(107, 180, 232, 0.25);
 }
 
 .alert--info .alert__icon-wrap {
-  background-color: var(--k9-color-primary-hover);
-  color: var(--k9-color-primary);
+  background-color: var(--k10-color-info);
+  color: var(--k10-color-info-text);
 }
 
 .alert--info .alert__title {
-  color: var(--k9-color-text);
+  color: var(--k10-color-info);
 }
 
-/* Success */
+/* ── Success ───────────────────────────────────────────────────────────── */
 .alert--success {
-  background-color: var(--k9-color-primary-subtle);
-  border-color: var(--k9-color-primary);
+  background-color: rgba(114, 201, 138, 0.07);
+  border-color: rgba(114, 201, 138, 0.25);
 }
 
 .alert--success .alert__icon-wrap {
-  background-color: var(--k9-color-primary);
-  color: var(--k9-color-primary-text);
+  background-color: var(--k10-color-success);
+  color: var(--k10-color-success-text);
 }
 
 .alert--success .alert__title {
-  color: var(--k9-color-primary);
+  color: var(--k10-color-success);
 }
 
-/* Warning */
+/* ── Warning ───────────────────────────────────────────────────────────── */
 .alert--warning {
-  background-color: var(--k9-color-secondary-subtle);
-  border-color: var(--k9-color-secondary);
+  background-color: rgba(240, 192, 96, 0.07);
+  border-color: rgba(240, 192, 96, 0.25);
 }
 
 .alert--warning .alert__icon-wrap {
-  background-color: var(--k9-color-secondary);
-  color: var(--k9-color-secondary-text);
+  background-color: var(--k10-color-warning);
+  color: var(--k10-color-warning-text);
 }
 
 .alert--warning .alert__title {
-  color: var(--k9-color-secondary);
+  color: var(--k10-color-warning);
 }
 
-/* Error */
+/* ── Error ─────────────────────────────────────────────────────────────── */
 .alert--error {
-  background-color: var(--k9-color-danger-subtle);
-  border-color: var(--k9-color-danger);
+  background-color: rgba(191, 104, 104, 0.07);
+  border-color: rgba(191, 104, 104, 0.25);
 }
 
 .alert--error .alert__icon-wrap {
-  background-color: var(--k9-color-danger);
-  color: var(--k9-color-danger-text);
+  background-color: var(--k10-color-danger);
+  color: var(--k10-color-danger-text);
 }
 
 .alert--error .alert__title {
-  color: var(--k9-color-danger);
+  color: var(--k10-color-danger);
 }

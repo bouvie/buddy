@@ -1,0 +1,84 @@
+:host {
+  display: block;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--k10-color-surface);
+  border: 1.5px solid var(--k10-color-border);
+  border-radius: var(--k10-radius-full);
+  transition: border-color var(--k10-duration-fast) var(--k10-easing-standard),
+              box-shadow var(--k10-duration-fast) var(--k10-easing-standard);
+}
+
+.search:focus-within {
+  border-color: var(--k10-color-accent);
+  box-shadow: 0 0 0 3px var(--k10-color-accent-focus);
+}
+
+.search--disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+.search--sm { height: 36px; padding: 0 var(--k10-space-md); gap: var(--k10-space-sm); }
+.search--md { height: 44px; padding: 0 var(--k10-space-lg); gap: var(--k10-space-md); }
+.search--lg { height: 52px; padding: 0 var(--k10-space-xl); gap: var(--k10-space-md); }
+
+/* ── Search icon ──────────────────────────────────────────────────────────── */
+.search__icon {
+  color: var(--k10-color-accent);
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.search--sm .search__icon { font-size: 12px; }
+.search--lg .search__icon { font-size: 16px; }
+
+/* ── Input ────────────────────────────────────────────────────────────────── */
+.search__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-body);
+  color: var(--k10-color-text);
+  min-width: 0;
+}
+
+.search--sm .search__input { font-size: var(--k10-font-size-caption); }
+
+.search__input::placeholder {
+  color: var(--k10-color-text-muted);
+}
+
+.search__input::-webkit-search-decoration,
+.search__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* ── Clear button ─────────────────────────────────────────────────────────── */
+.search__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: var(--k10-color-surface-raised);
+  color: var(--k10-color-text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 10px;
+  transition: var(--k10-transition-fast);
+}
+
+.search__clear:hover {
+  background: var(--k10-color-surface-elevated);
+  color: var(--k10-color-text);
+}

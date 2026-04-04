@@ -9,7 +9,7 @@ import {
 import type { DropdownItem } from './dropdown.types';
 
 @Component({
-  selector: 'k9-dropdown',
+  selector: 'k10-dropdown',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

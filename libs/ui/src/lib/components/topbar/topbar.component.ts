@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'k9-topbar',
+  selector: 'k10-topbar',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

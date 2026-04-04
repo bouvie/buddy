@@ -3,7 +3,7 @@ import type { DividerVariant } from './divider.types';
 import { DIVIDER_VARIANTS } from './divider.types';
 
 @Component({
-  selector: 'k9-divider',
+  selector: 'k10-divider',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

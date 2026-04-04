@@ -1,0 +1,19 @@
+<span
+  class="notification-dot"
+  [class.notification-dot--xs]="safeSize() === 'xs'"
+  [class.notification-dot--sm]="safeSize() === 'sm'"
+  [class.notification-dot--md]="safeSize() === 'md'"
+  [class.notification-dot--danger]="safeVariant() === 'danger'"
+  [class.notification-dot--primary]="safeVariant() === 'primary'"
+  [class.notification-dot--accent]="safeVariant() === 'accent'"
+  [class.notification-dot--warning]="safeVariant() === 'warning'"
+  [class.notification-dot--success]="safeVariant() === 'success'"
+  [class.notification-dot--pulse]="pulse()"
+  [class.notification-dot--with-count]="displayCount() !== null"
+  role="status"
+  [attr.aria-label]="displayCount() ? displayCount() + ' notifications' : 'New notification'"
+>
+  @if (displayCount() !== null) {
+    {{ displayCount() }}
+  }
+</span>

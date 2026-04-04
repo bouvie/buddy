@@ -49,7 +49,7 @@ const meta: Meta<MetricCardComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=14-25',
+    figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=14-25',
   },
   argTypes: {
     data: {
@@ -67,7 +67,7 @@ type Story = StoryObj<MetricCardComponent>;
 export const Default: Story = {
   render: (args) => ({
     props: args,
-    template: `<k9-metric-card class="block max-w-xs" [data]="data"></k9-metric-card>`,
+    template: `<k10-metric-card class="block max-w-xs" [data]="data"></k10-metric-card>`,
   }),
 };
 
@@ -81,11 +81,11 @@ export const AllVariants: Story = {
       empty: EMPTY,
     },
     template: `
-      <div style="display:flex;flex-direction:column;gap:16px;max-width:340px;padding:24px;background:var(--k9-color-bg)">
-        <k9-metric-card [data]="activeVelocity"></k9-metric-card>
-        <k9-metric-card [data]="activeHeartRate"></k9-metric-card>
-        <k9-metric-card [data]="loading"></k9-metric-card>
-        <k9-metric-card [data]="empty"></k9-metric-card>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:340px;padding:24px;background:var(--k10-color-bg)">
+        <k10-metric-card [data]="activeVelocity"></k10-metric-card>
+        <k10-metric-card [data]="activeHeartRate"></k10-metric-card>
+        <k10-metric-card [data]="loading"></k10-metric-card>
+        <k10-metric-card [data]="empty"></k10-metric-card>
       </div>
     `,
   }),

@@ -1,0 +1,20 @@
+<button
+  type="button"
+  class="fab"
+  [class.fab--sm]="safeSize() === 'sm'"
+  [class.fab--md]="safeSize() === 'md'"
+  [class.fab--lg]="safeSize() === 'lg'"
+  [class.fab--primary]="safeVariant() === 'primary'"
+  [class.fab--accent]="safeVariant() === 'accent'"
+  [class.fab--secondary]="safeVariant() === 'secondary'"
+  [class.fab--ghost]="safeVariant() === 'ghost'"
+  [class.fab--extended]="isExtended()"
+  [disabled]="disabled()"
+  (click)="!disabled() && clicked.emit()"
+  [attr.aria-label]="label() || null"
+>
+  <i [class]="icon()" aria-hidden="true"></i>
+  @if (label()) {
+    <span class="fab__label">{{ label() }}</span>
+  }
+</button>

@@ -3,24 +3,33 @@
 }
 
 .skeleton {
+  background-color: var(--k10-color-surface-raised);
+  border-radius: var(--k10-radius-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     90deg,
-    var(--k9-color-surface) 25%,
-    var(--k9-color-surface-raised) 50%,
-    var(--k9-color-surface) 75%
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
   );
-  background-size: 800px 100%;
-  border-radius: var(--k9-radius-sm);
-  animation: shimmer 1.5s infinite linear;
+  background-size: 400px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
 }
 
 @keyframes shimmer {
-  0%   { background-position: -800px 0; }
-  100% { background-position:  800px 0; }
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
 }
 
 .skeleton--circle {
-  border-radius: var(--k9-radius-full);
+  border-radius: var(--k10-radius-full);
   width: 48px;
   height: 48px;
 }
@@ -33,4 +42,10 @@
 .skeleton--text {
   width: 100%;
   height: 16px;
+}
+
+.skeleton--card {
+  width: 120px;
+  height: 80px;
+  border-radius: var(--k10-radius-lg);
 }

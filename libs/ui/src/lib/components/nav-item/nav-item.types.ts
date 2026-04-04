@@ -1,4 +1,5 @@
 export type NavItemVariant = 'bottom' | 'side';
+export type NavItemColor   = 'primary' | 'accent';
 
 export interface NavItemConfig {
   label: string;
@@ -8,3 +9,4 @@ export interface NavItemConfig {
 }
 
 export const NAV_ITEM_VARIANTS = ['bottom', 'side'] as const;
+export const NAV_ITEM_COLORS   = ['primary', 'accent'] as const;

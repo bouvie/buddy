@@ -11,7 +11,7 @@ import type { ToastVariant, ToastPosition } from './toast.types';
 import { TOAST_VARIANTS, TOAST_POSITIONS } from './toast.types';
 
 @Component({
-  selector: 'k9-toast',
+  selector: 'k10-toast',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

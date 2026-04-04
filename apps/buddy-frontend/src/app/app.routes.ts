@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { provideK9Charts } from '@buddy/ui';
+import { provideK10Charts } from '@buddy/ui';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: 'dashboard',
-    providers: [provideK9Charts()],
+    providers: [provideK10Charts()],
     loadComponent: () =>
       import('./features/dashboard/dashboard.component').then(
         (m) => m.DashboardComponent

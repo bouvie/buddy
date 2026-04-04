@@ -1,0 +1,26 @@
+<span
+  class="tag"
+  [class.tag--sm]="safeSize() === 'sm'"
+  [class.tag--md]="safeSize() === 'md'"
+  [class.tag--default]="safeVariant() === 'default'"
+  [class.tag--primary]="safeVariant() === 'primary'"
+  [class.tag--accent]="safeVariant() === 'accent'"
+  [class.tag--success]="safeVariant() === 'success'"
+  [class.tag--warning]="safeVariant() === 'warning'"
+  [class.tag--danger]="safeVariant() === 'danger'"
+  [class.tag--info]="safeVariant() === 'info'"
+>
+  @if (label()) {
+    {{ label() }}
+  } @else {
+    <ng-content></ng-content>
+  }
+  @if (removable()) {
+    <button
+      type="button"
+      class="tag__remove"
+      aria-label="Remove tag"
+      (click)="removed.emit()"
+    >×</button>
+  }
+</span>

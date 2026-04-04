@@ -13,7 +13,7 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'k9-checkbox',
+  selector: 'k10-checkbox',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

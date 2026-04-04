@@ -5,6 +5,7 @@
     [class.toast--success]="safeVariant() === 'success'"
     [class.toast--warning]="safeVariant() === 'warning'"
     [class.toast--error]="safeVariant() === 'error'"
+    [class.toast--neutral]="safeVariant() === 'neutral'"
     [class.toast--top-right]="safePosition() === 'top-right'"
     [class.toast--top-left]="safePosition() === 'top-left'"
     [class.toast--bottom-right]="safePosition() === 'bottom-right'"
@@ -12,25 +13,30 @@
     role="status"
     aria-live="polite"
   >
-    <span class="toast__icon" aria-hidden="true">
+    <span class="toast__icon-badge" aria-hidden="true">
       @if (safeVariant() === 'success') {
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
           <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
           <path d="M6.5 10l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       } @else if (safeVariant() === 'warning') {
-        <svg width="18" height="18" viewBox="0 0 22 19" fill="none">
+        <svg width="14" height="14" viewBox="0 0 22 19" fill="none">
           <path d="M11 1L21 18H1L11 1Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
           <path d="M11 8v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           <circle cx="11" cy="14.5" r="0.75" fill="currentColor"/>
         </svg>
       } @else if (safeVariant() === 'error') {
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
           <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
           <path d="M7 7l6 6M13 7l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
+      } @else if (safeVariant() === 'neutral') {
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M7 10h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
       } @else {
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
           <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
           <path d="M10 9v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           <circle cx="10" cy="6.5" r="0.75" fill="currentColor"/>
@@ -40,7 +46,7 @@
     <span class="toast__message">{{ message() }}</span>
     @if (dismissible()) {
       <button type="button" class="toast__close" (click)="dismiss()" aria-label="Fermer">
-        <svg width="14" height="14" viewBox="0 0 12 12" fill="none">
+        <svg width="18" height="18" viewBox="0 0 12 12" fill="none">
           <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
       </button>

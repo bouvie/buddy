@@ -1,0 +1,96 @@
+:host {
+  display: inline-flex;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--k10-space-xs);
+  border-radius: var(--k10-radius-full);
+  font-family: var(--k10-font-family);
+  font-weight: var(--k10-font-weight-medium);
+  white-space: nowrap;
+  transition: var(--k10-transition-fast);
+  border: 1px solid transparent;
+}
+
+/* ── Sizes ──────────────────────────────────────────────────────────────── */
+.tag--sm {
+  height: 20px;
+  padding: 0 var(--k10-space-sm);
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
+.tag--md {
+  height: 32px;
+  padding: 0 14px;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+/* ── Variants ────────────────────────────────────────────────────────────── */
+.tag--default {
+  background-color: var(--k10-color-surface-raised);
+  border-color: var(--k10-color-border);
+  color: var(--k10-color-text-secondary);
+}
+
+.tag--primary {
+  background-color: var(--k10-color-primary-subtle);
+  border-color: rgba(196, 217, 194, 0.20);
+  color: var(--k10-color-primary);
+}
+
+.tag--accent {
+  background-color: rgba(92, 158, 168, 0.12);
+  border-color: rgba(92, 158, 168, 0.25);
+  color: var(--k10-color-accent);
+}
+
+.tag--success {
+  background-color: var(--k10-color-success-subtle);
+  border-color: rgba(114, 201, 138, 0.20);
+  color: var(--k10-color-success);
+}
+
+.tag--warning {
+  background-color: var(--k10-color-warning-subtle);
+  border-color: rgba(240, 192, 96, 0.20);
+  color: var(--k10-color-warning);
+}
+
+.tag--danger {
+  background-color: var(--k10-color-danger-subtle);
+  border-color: rgba(191, 104, 104, 0.20);
+  color: var(--k10-color-danger);
+}
+
+.tag--info {
+  background-color: var(--k10-color-info-subtle);
+  border-color: rgba(107, 180, 232, 0.20);
+  color: var(--k10-color-info);
+}
+
+/* ── Remove button ───────────────────────────────────────────────────────── */
+.tag__remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  transition: opacity var(--k10-duration-fast) var(--k10-easing-standard);
+}
+
+.tag__remove:hover {
+  opacity: 1;
+}

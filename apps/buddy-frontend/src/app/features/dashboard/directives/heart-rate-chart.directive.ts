@@ -12,7 +12,7 @@ const FIXED_LABELS: readonly string[] = Array.from({ length: WINDOW_SIZE }, (_, 
 );
 
 @Directive({
-  selector: 'k9-chart-card[appHeartRateChart]',
+  selector: 'k10-chart-card[appHeartRateChart]',
   standalone: true,
 })
 export class HeartRateChartDirective implements OnInit {

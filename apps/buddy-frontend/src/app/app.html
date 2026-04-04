@@ -1,14 +1,14 @@
-<k9-app-shell>
-  <k9-topbar>
+<k10-app-shell>
+  <k10-topbar>
     <span slot="start" class="app-logo" routerLink="/dashboard">Buddy</span>
     <a slot="end" routerLink="/dogs" class="topbar-avatar-link" aria-label="Mes chiens">
-      <k9-avatar size="sm" />
+      <k10-avatar size="sm" />
     </a>
-  </k9-topbar>
+  </k10-topbar>
 
-  <k9-side-nav [items]="navItems"> </k9-side-nav>
+  <k10-side-nav [items]="navItems"> </k10-side-nav>
 
-  <k9-bottom-nav [items]="navItems" />
+  <k10-bottom-nav [items]="navItems" />
 
   <router-outlet />
-</k9-app-shell>
+</k10-app-shell>

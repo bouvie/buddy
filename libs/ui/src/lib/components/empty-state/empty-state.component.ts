@@ -3,7 +3,7 @@ import type { EmptyStateSize } from './empty-state.types';
 import { EMPTY_STATE_SIZES } from './empty-state.types';
 
 @Component({
-  selector: 'k9-empty-state',
+  selector: 'k10-empty-state',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

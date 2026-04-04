@@ -1,8 +1,8 @@
 <!-- ─── SKELETON ──────────────────────────────────────────────────────────── -->
 @if (safeVariant() === 'skeleton') {
   <div class="chart-card chart-card--skeleton">
-    <k9-skeleton shape="rectangle" class="chart-card__sk-title"></k9-skeleton>
-    <k9-skeleton shape="rectangle" class="chart-card__sk-chart"></k9-skeleton>
+    <k10-skeleton shape="rectangle" class="chart-card__sk-title"></k10-skeleton>
+    <k10-skeleton shape="rectangle" class="chart-card__sk-chart"></k10-skeleton>
   </div>
 }
 
@@ -37,7 +37,7 @@
     <div
       echarts
       [options]="chartOptions()"
-      theme="k9"
+      theme="k10"
       renderer="svg"
       class="chart-card__chart"
     ></div>

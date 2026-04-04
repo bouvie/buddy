@@ -6,10 +6,10 @@ import { NgxEchartsDirective } from 'ngx-echarts';
 import type { ChartCardVariant, ChartCardData, ChartDataPoint } from './chart-card.types';
 import { CHART_CARD_VARIANTS } from './chart-card.types';
 import { SkeletonComponent } from '../skeleton/skeleton.component';
-import { k9CssVar } from '../../utils';
+import { k10CssVar } from '../../utils';
 
 @Component({
-  selector: 'k9-chart-card',
+  selector: 'k10-chart-card',
   standalone: true,
   imports: [NgxEchartsDirective, SkeletonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,8 +49,8 @@ export class ChartCardComponent {
   });
 
   private _buildLineAreaOptions(points: ChartDataPoint[]): EChartsOption {
-    const primary = k9CssVar('--k9-color-primary');
-    const border = k9CssVar('--k9-color-border');
+    const primary = k10CssVar('--k10-color-primary');
+    const border = k10CssVar('--k10-color-border');
     return {
       animationDuration: 0,
       animationDurationUpdate: 800,
@@ -114,7 +114,7 @@ export class ChartCardComponent {
   }
 
   private _buildBarOptions(points: ChartDataPoint[]): EChartsOption {
-    const primary = k9CssVar('--k9-color-primary');
+    const primary = k10CssVar('--k10-color-primary');
     return {
       grid: { top: 0, right: 0, bottom: 0, left: 0, containLabel: false },
       xAxis: {

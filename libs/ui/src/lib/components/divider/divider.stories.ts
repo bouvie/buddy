@@ -8,7 +8,7 @@ const meta: Meta<DividerComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-38',
+    figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=27-38',
   },
   argTypes: {
     variant: { control: 'select', options: DIVIDER_VARIANTS },
@@ -23,7 +23,7 @@ type Story = StoryObj<DividerComponent>;
 export const Default: Story = {
   render: (args) => ({
     props: args,
-    template: `<div style="width:360px;padding:24px;background:#0F1419"><k9-divider ${argsToTemplate(args)}></k9-divider></div>`,
+    template: `<div style="width:360px;padding:24px;background:#0F1419"><k10-divider ${argsToTemplate(args)}></k10-divider></div>`,
   }),
 };
 
@@ -32,9 +32,9 @@ export const AllVariants: Story = {
     imports: [DividerComponent],
     template: `
       <div style="display:flex;flex-direction:column;gap:32px;width:360px;padding:24px;background:#0F1419">
-        <k9-divider variant="simple"></k9-divider>
-        <k9-divider variant="labeled" label="Or continue with"></k9-divider>
-        <k9-divider variant="progress"></k9-divider>
+        <k10-divider variant="simple"></k10-divider>
+        <k10-divider variant="labeled" label="Or continue with"></k10-divider>
+        <k10-divider variant="progress"></k10-divider>
       </div>
     `,
   }),

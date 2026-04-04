@@ -2,7 +2,8 @@
   <button
     type="button"
     class="toggle-btn"
-    [class.toggle-btn--active]="checked()"
+    [class.toggle-btn--active]="checked() && safeVariant() === 'primary'"
+    [class.toggle-btn--active-accent]="checked() && safeVariant() === 'accent'"
     [disabled]="disabled()"
     (click)="onToggleChange(!checked())"
     role="switch"

@@ -2,13 +2,13 @@
 @if (safeVariant() === 'skeleton') {
   <div class="list-item list-item--skeleton">
     <div class="list-item__left">
-      <k9-skeleton shape="circle" class="list-item__sk-avatar"></k9-skeleton>
+      <k10-skeleton shape="circle" class="list-item__sk-avatar"></k10-skeleton>
       <div class="list-item__sk-text">
-        <k9-skeleton shape="rectangle" class="list-item__sk-label"></k9-skeleton>
-        <k9-skeleton shape="rectangle" class="list-item__sk-sublabel"></k9-skeleton>
+        <k10-skeleton shape="rectangle" class="list-item__sk-label"></k10-skeleton>
+        <k10-skeleton shape="rectangle" class="list-item__sk-sublabel"></k10-skeleton>
       </div>
     </div>
-    <k9-skeleton shape="rectangle" class="list-item__sk-value"></k9-skeleton>
+    <k10-skeleton shape="rectangle" class="list-item__sk-value"></k10-skeleton>
   </div>
 }
 
@@ -23,7 +23,9 @@
     [attr.tabindex]="safeVariant() === 'navigation' ? 0 : null"
   >
     <div class="list-item__left">
-      <i [class]="icon()" class="list-item__icon" aria-hidden="true"></i>
+      <div class="list-item__icon-container" aria-hidden="true">
+        <i [class]="icon()"></i>
+      </div>
       <div class="list-item__text">
         <span class="list-item__label">{{ label() }}</span>
         @if (sublabel()) {
@@ -34,15 +36,12 @@
 
     <!-- Toggle -->
     @if (safeVariant() === 'toggle') {
-      <k9-toggle
-        [checked]="checked()"
-        (toggled)="onToggle($event)"
-      ></k9-toggle>
+      <k10-toggle [checked]="checked()" (toggled)="onToggle($event)"></k10-toggle>
     }
 
     <!-- Navigation chevron -->
     @if (safeVariant() === 'navigation') {
-      <i class="fa-solid fa-chevron-right list-item__chevron" aria-hidden="true"></i>
+      <span class="list-item__chevron" aria-hidden="true">›</span>
     }
 
     <!-- Text / Value -->
@@ -52,11 +51,7 @@
 
     <!-- Status / Error — Retry button -->
     @if (safeVariant() === 'status-error') {
-      <k9-button
-        variant="danger"
-        size="sm"
-        (clicked)="retried.emit()"
-      >Retry</k9-button>
+      <k10-button variant="danger" size="sm" (clicked)="retried.emit()">Retry</k10-button>
     }
   </div>
 }

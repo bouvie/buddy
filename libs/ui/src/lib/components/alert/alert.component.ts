@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, input, output, model } from '@angul
 import type { AlertVariant } from './alert.types';
 
 @Component({
-  selector: 'k9-alert',
+  selector: 'k10-alert',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

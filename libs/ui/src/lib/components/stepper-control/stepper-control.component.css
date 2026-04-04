@@ -1,0 +1,81 @@
+:host {
+  display: inline-flex;
+}
+
+/* ── Container — pill with inner buttons ───────────────────────────────────── */
+.stepper-control {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  border-radius: var(--k10-radius-full);
+  border: 1px solid var(--k10-color-input-border, #1E2D42);
+  overflow: hidden;
+  transition: border-color var(--k10-duration-fast) var(--k10-easing-standard);
+}
+
+.stepper-control--accent {
+  border-color: var(--k10-color-accent);
+}
+
+.stepper-control--disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.stepper-control__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: var(--k10-color-surface, #121D2A);
+  font-family: var(--k10-font-family);
+  font-size: 16px;
+  font-weight: var(--k10-font-weight-bold);
+  color: var(--k10-color-primary);
+  cursor: pointer;
+  transition: color var(--k10-duration-fast) var(--k10-easing-standard),
+              background-color var(--k10-duration-fast) var(--k10-easing-standard);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.stepper-control--accent .stepper-control__btn {
+  color: var(--k10-color-accent);
+}
+
+.stepper-control__btn:hover:not(:disabled):not(.stepper-control__btn--dimmed) {
+  background-color: var(--k10-color-surface-raised);
+}
+
+.stepper-control__btn:active:not(:disabled):not(.stepper-control__btn--dimmed) {
+  background-color: var(--k10-color-surface-elevated);
+}
+
+.stepper-control__btn--dimmed {
+  color: var(--k10-color-text-muted);
+  cursor: not-allowed;
+}
+
+/* ── Value ───────────────────────────────────────────────────────────────── */
+.stepper-control__value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 40px;
+  background-color: var(--k10-color-surface, #121D2A);
+  font-family: var(--k10-font-family);
+  font-size: 15px;
+  font-weight: var(--k10-font-weight-bold);
+  color: var(--k10-color-text);
+  border-left: 1px solid var(--k10-color-input-border, #1E2D42);
+  border-right: 1px solid var(--k10-color-input-border, #1E2D42);
+  user-select: none;
+}
+
+.stepper-control--accent .stepper-control__value {
+  border-color: var(--k10-color-accent);
+}

@@ -2,6 +2,8 @@
   class="nav-item"
   [class.nav-item--bottom]="safeVariant() === 'bottom'"
   [class.nav-item--side]="safeVariant() === 'side'"
+  [class.nav-item--color-primary]="safeColor() === 'primary'"
+  [class.nav-item--color-accent]="safeColor() === 'accent'"
   [routerLink]="item().route"
   routerLinkActive="nav-item--active"
   #rla="routerLinkActive"

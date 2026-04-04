@@ -27,7 +27,7 @@ const meta: Meta<AppShellComponent> = {
   decorators: [
     applicationConfig({ providers: [provideRouter([])] }),
   ],
-  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=30-60' },
+  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=30-60' },
 };
 
 export default meta;
@@ -41,16 +41,16 @@ export const Mobile: Story = {
     imports: SHELL_IMPORTS,
     props: { navItems: NAV_ITEMS },
     template: `
-      <k9-app-shell>
-        <k9-topbar>
-          <span slot="start" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">K9 Pro</span>
-        </k9-topbar>
-        <k9-bottom-nav [items]="navItems" />
+      <k10-app-shell>
+        <k10-topbar>
+          <span slot="start" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">Buddy</span>
+        </k10-topbar>
+        <k10-bottom-nav [items]="navItems" />
         <div style="padding:24px;color:#DEE3E9;font-family:Manrope,sans-serif">
           <h2 style="font-size:24px;font-weight:600;margin:0 0 8px">Tableau de bord</h2>
           <p style="color:#8E928B;font-size:14px;margin:0">Contenu de la page</p>
         </div>
-      </k9-app-shell>
+      </k10-app-shell>
     `,
   }),
 };
@@ -63,19 +63,19 @@ export const Desktop: Story = {
     imports: SHELL_IMPORTS,
     props: { navItems: NAV_ITEMS },
     template: `
-      <k9-app-shell>
-        <k9-topbar>
-          <span slot="start" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">K9 Pro</span>
-        </k9-topbar>
-        <k9-side-nav [items]="navItems">
-          <span slot="header" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">K9 Pro</span>
-        </k9-side-nav>
-        <k9-bottom-nav [items]="navItems" />
+      <k10-app-shell>
+        <k10-topbar>
+          <span slot="start" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">Buddy</span>
+        </k10-topbar>
+        <k10-side-nav [items]="navItems">
+          <span slot="header" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">Buddy</span>
+        </k10-side-nav>
+        <k10-bottom-nav [items]="navItems" />
         <div style="padding:24px;color:#DEE3E9;font-family:Manrope,sans-serif">
           <h2 style="font-size:24px;font-weight:600;margin:0 0 8px">Tableau de bord</h2>
           <p style="color:#8E928B;font-size:14px;margin:0">Contenu de la page</p>
         </div>
-      </k9-app-shell>
+      </k10-app-shell>
     `,
   }),
 };
@@ -89,16 +89,16 @@ export const KeyboardOpen: Story = {
     imports: SHELL_IMPORTS,
     props: { navItems: NAV_ITEMS, keyboardVisible: true },
     template: `
-      <k9-app-shell [keyboardVisible]="keyboardVisible">
-        <k9-topbar>
-          <span slot="start" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">K9 Pro</span>
-        </k9-topbar>
-        <k9-bottom-nav [items]="navItems" />
+      <k10-app-shell [keyboardVisible]="keyboardVisible">
+        <k10-topbar>
+          <span slot="start" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">Buddy</span>
+        </k10-topbar>
+        <k10-bottom-nav [items]="navItems" />
         <div style="padding:24px;color:#DEE3E9;font-family:Manrope,sans-serif">
           <p style="color:#8E928B;font-size:14px;margin:0 0 12px">La bottom nav est masquée quand le clavier est ouvert</p>
           <input style="width:100%;padding:12px;background:#252A30;border:1px solid #434842;border-radius:8px;color:#DEE3E9;font-family:Manrope,sans-serif;font-size:14px;outline:none" placeholder="Rechercher..." autofocus />
         </div>
-      </k9-app-shell>
+      </k10-app-shell>
     `,
   }),
 };

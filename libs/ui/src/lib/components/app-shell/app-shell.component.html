@@ -1,18 +1,18 @@
-<a class="app-shell__skip-link" href="#k9-main">Aller au contenu</a>
+<a class="app-shell__skip-link" href="#k10-main">Aller au contenu</a>
 
 <header class="app-shell__topbar" [class.app-shell__topbar--hidden]="topbarHidden()">
-  <ng-content select="k9-topbar" />
+  <ng-content select="k10-topbar" />
 </header>
 
 <div class="app-shell__body">
   <aside class="app-shell__sidenav">
-    <ng-content select="k9-side-nav" />
+    <ng-content select="k10-side-nav" />
   </aside>
-  <main #mainRef class="app-shell__main" id="k9-main" tabindex="-1">
+  <main #mainRef class="app-shell__main" id="k10-main" tabindex="-1">
     <ng-content />
   </main>
 </div>
 
 <div class="app-shell__bottomnav" [class.app-shell__bottomnav--hidden]="keyboardVisible()">
-  <ng-content select="k9-bottom-nav" />
+  <ng-content select="k10-bottom-nav" />
 </div>

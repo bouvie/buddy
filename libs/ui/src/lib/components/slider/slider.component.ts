@@ -8,9 +8,11 @@ import {
   forwardRef,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import type { SliderVariant } from './slider.types';
+import { SLIDER_VARIANTS } from './slider.types';
 
 @Component({
-  selector: 'k9-slider',
+  selector: 'k10-slider',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,10 +27,16 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class SliderComponent implements ControlValueAccessor {
-  readonly label = input('');
-  readonly min   = input(0);
-  readonly max   = input(100);
-  readonly step  = input(1);
+  readonly label   = input('');
+  readonly min     = input(0);
+  readonly max     = input(100);
+  readonly step    = input(1);
+  readonly variant = input<SliderVariant>('primary');
+
+  readonly safeVariant = computed<SliderVariant>(() => {
+    const v = this.variant();
+    return SLIDER_VARIANTS.includes(v) ? v : 'primary';
+  });
 
   readonly disabledInput = input(false, { alias: 'disabled' });
   private readonly _disabledByForm = signal(false);

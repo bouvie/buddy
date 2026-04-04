@@ -1,4 +1,10 @@
-<div class="tabs" role="tablist">
+<div
+  class="tabs"
+  [class.tabs--primary]="safeVariant() === 'primary'"
+  [class.tabs--accent]="safeVariant() === 'accent'"
+  [class.tabs--underline]="safeVariant() === 'underline'"
+  role="tablist"
+>
   @for (tab of tabs(); track tab.value) {
     <button
       type="button"

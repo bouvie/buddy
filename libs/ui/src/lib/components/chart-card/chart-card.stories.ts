@@ -71,7 +71,7 @@ const meta: Meta<ChartCardComponent> = {
   ],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=14-3',
+    figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=14-3',
   },
   argTypes: {
     data: {
@@ -89,7 +89,7 @@ type Story = StoryObj<ChartCardComponent>;
 export const Default: Story = {
   render: (args) => ({
     props: args,
-    template: `<k9-chart-card class="block max-w-xs" [data]="data"></k9-chart-card>`,
+    template: `<k10-chart-card class="block max-w-xs" [data]="data"></k10-chart-card>`,
   }),
 };
 
@@ -98,11 +98,11 @@ export const AllVariants: Story = {
     imports: [ChartCardComponent],
     props: { lineArea: LINE_AREA, bar: BAR, skeleton: SKELETON, empty: EMPTY },
     template: `
-      <div style="display:flex;flex-direction:column;gap:16px;max-width:360px;padding:24px;background:var(--k9-color-bg)">
-        <k9-chart-card [data]="lineArea"></k9-chart-card>
-        <k9-chart-card [data]="bar"></k9-chart-card>
-        <k9-chart-card [data]="skeleton"></k9-chart-card>
-        <k9-chart-card [data]="empty"></k9-chart-card>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:360px;padding:24px;background:var(--k10-color-bg)">
+        <k10-chart-card [data]="lineArea"></k10-chart-card>
+        <k10-chart-card [data]="bar"></k10-chart-card>
+        <k10-chart-card [data]="skeleton"></k10-chart-card>
+        <k10-chart-card [data]="empty"></k10-chart-card>
       </div>
     `,
   }),

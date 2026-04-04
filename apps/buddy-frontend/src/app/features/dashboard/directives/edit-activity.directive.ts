@@ -9,7 +9,7 @@ export interface ActivityDraft {
 }
 
 @Directive({
-  selector: 'k9-list-item[appEditActivity]',
+  selector: 'k10-list-item[appEditActivity]',
   exportAs: 'appEditActivity',
   standalone: true,
   host: { '[style.cursor]': '"pointer"' },

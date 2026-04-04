@@ -1,7 +1,16 @@
 <div class="progress-wrapper">
-  <div class="progress-track">
+  <div class="progress-track"
+    [class.progress-track--sm]="size() === 'sm'"
+    [class.progress-track--md]="size() === 'md'"
+    [class.progress-track--lg]="size() === 'lg'"
+  >
     <div
       class="progress-fill"
+      [class.progress-fill--primary]="safeVariant() === 'primary'"
+      [class.progress-fill--accent]="safeVariant() === 'accent'"
+      [class.progress-fill--success]="safeVariant() === 'success'"
+      [class.progress-fill--danger]="safeVariant() === 'danger'"
+      [class.progress-fill--warning]="safeVariant() === 'warning'"
       [style.width.%]="clampedValue()"
       role="progressbar"
       [attr.aria-valuenow]="clampedValue()"

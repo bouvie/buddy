@@ -3,14 +3,14 @@
 }
 
 /* ─── Animated border token ──────────────────────────────────────────────── */
-@property --k9-glow-angle {
+@property --k10-glow-angle {
   syntax: '<angle>';
   inherits: false;
   initial-value: 0deg;
 }
 
 @keyframes card-border-spin {
-  to { --k9-glow-angle: 360deg; }
+  to { --k10-glow-angle: 360deg; }
 }
 
 @keyframes badge-pulse {
@@ -26,13 +26,13 @@
 /* ─── Base ───────────────────────────────────────────────────────────────── */
 .chart-card {
   position: relative;
-  background-color: var(--k9-color-surface);
-  border: 1px solid var(--k9-color-border);
-  border-radius: var(--k9-radius-md);
-  padding: var(--k9-space-xl);
+  background-color: var(--k10-color-surface);
+  border: 1px solid var(--k10-color-border);
+  border-radius: var(--k10-radius-md);
+  padding: var(--k10-space-xl);
   display: flex;
   flex-direction: column;
-  gap: var(--k9-space-xl);
+  gap: var(--k10-space-xl);
 }
 
 /* ─── Live card — rotating border glow ───────────────────────────────────── */
@@ -44,10 +44,10 @@
   content: '';
   position: absolute;
   inset: -1px;
-  border-radius: calc(var(--k9-radius-md) + 1px);
+  border-radius: calc(var(--k10-radius-md) + 1px);
   z-index: -1;
   background: conic-gradient(
-    from var(--k9-glow-angle),
+    from var(--k10-glow-angle),
     transparent 60%,
     rgba(186, 203, 184, 0.30) 75%,
     rgba(186, 203, 184, 0.70) 88%,
@@ -62,7 +62,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--k9-space-md);
+  gap: var(--k10-space-md);
 }
 
 .chart-card__meta {
@@ -72,31 +72,31 @@
 }
 
 .chart-card__title {
-  font-size: var(--k9-font-size-label);
-  font-weight: var(--k9-font-weight-regular);
-  color: var(--k9-color-text-secondary);
-  letter-spacing: var(--k9-letter-spacing-label);
+  font-size: var(--k10-font-size-label);
+  font-weight: var(--k10-font-weight-regular);
+  color: var(--k10-color-text-secondary);
+  letter-spacing: var(--k10-letter-spacing-label);
   text-transform: uppercase;
 }
 
 .chart-card__value-row {
   display: flex;
   align-items: baseline;
-  gap: var(--k9-space-xs);
+  gap: var(--k10-space-xs);
 }
 
 .chart-card__value {
-  font-size: var(--k9-font-size-h2);
-  line-height: var(--k9-line-height-h2);
-  font-weight: var(--k9-font-weight-bold);
-  color: var(--k9-color-text);
-  letter-spacing: var(--k9-letter-spacing-h2);
+  font-size: var(--k10-font-size-h2);
+  line-height: var(--k10-line-height-h2);
+  font-weight: var(--k10-font-weight-bold);
+  color: var(--k10-color-text);
+  letter-spacing: var(--k10-letter-spacing-h2);
 }
 
 .chart-card__unit {
-  font-size: var(--k9-font-size-label);
-  font-weight: var(--k9-font-weight-regular);
-  color: var(--k9-color-text-secondary);
+  font-size: var(--k10-font-size-label);
+  font-weight: var(--k10-font-weight-regular);
+  color: var(--k10-color-text-secondary);
 }
 
 /* LIVE badge */
@@ -104,14 +104,14 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 4px var(--k9-space-sm);
-  border-radius: var(--k9-radius-md);
-  background-color: var(--k9-color-primary-subtle);
-  border: 1px solid var(--k9-color-primary);
-  font-size: var(--k9-font-size-caption);
-  font-weight: var(--k9-font-weight-bold);
-  color: var(--k9-color-primary);
-  letter-spacing: var(--k9-letter-spacing-caption);
+  padding: 4px var(--k10-space-sm);
+  border-radius: var(--k10-radius-md);
+  background-color: var(--k10-color-primary-subtle);
+  border: 1px solid var(--k10-color-primary);
+  font-size: var(--k10-font-size-caption);
+  font-weight: var(--k10-font-weight-bold);
+  color: var(--k10-color-primary);
+  letter-spacing: var(--k10-letter-spacing-caption);
   flex-shrink: 0;
   animation: badge-pulse 2.5s ease-in-out infinite;
 }
@@ -121,7 +121,7 @@
   display: inline-block;
   width: 5px;
   height: 5px;
-  border-radius: var(--k9-radius-full);
+  border-radius: var(--k10-radius-full);
   background-color: currentColor;
   flex-shrink: 0;
   animation: dot-breathe 2.5s ease-in-out infinite;
@@ -138,14 +138,14 @@
   display: block;
   width: 96px;
   height: 12px;
-  border-radius: var(--k9-radius-md);
+  border-radius: var(--k10-radius-md);
 }
 
 .chart-card__sk-chart {
   display: block;
   width: 100%;
   height: 128px;
-  border-radius: var(--k9-radius-md);
+  border-radius: var(--k10-radius-md);
 }
 
 /* ─── Empty ──────────────────────────────────────────────────────────────── */
@@ -153,17 +153,17 @@
   min-height: 218px;
   justify-content: center;
   align-items: flex-start;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-sm);
 }
 
 .chart-card__empty-icon {
   font-size: 27px;
-  color: var(--k9-color-text-muted);
+  color: var(--k10-color-text-muted);
 }
 
 .chart-card__empty-label {
-  font-size: var(--k9-font-size-label);
-  font-weight: var(--k9-font-weight-regular);
-  color: var(--k9-color-text-muted);
-  letter-spacing: var(--k9-letter-spacing-label);
+  font-size: var(--k10-font-size-label);
+  font-weight: var(--k10-font-weight-regular);
+  color: var(--k10-color-text-muted);
+  letter-spacing: var(--k10-letter-spacing-label);
 }

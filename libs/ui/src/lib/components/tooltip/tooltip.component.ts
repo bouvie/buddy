@@ -3,7 +3,7 @@ import type { TooltipPosition } from './tooltip.types';
 import { TOOLTIP_POSITIONS } from './tooltip.types';
 
 @Component({
-  selector: 'k9-tooltip',
+  selector: 'k10-tooltip',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

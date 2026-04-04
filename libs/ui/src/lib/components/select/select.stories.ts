@@ -12,7 +12,7 @@ const meta: Meta<SelectComponent> = {
   title: 'Design System / Components / Select',
   component: SelectComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-41' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=10-51' },
   argTypes: {
     placeholder: {
       control: 'text',
@@ -37,7 +37,7 @@ type Story = StoryObj<SelectComponent>;
 export const Default: Story = {
   render: (args) => ({
     props: { ...args, options },
-    template: `<k9-select [options]="options" ${argsToTemplate(args)} />`,
+    template: `<k10-select [options]="options" ${argsToTemplate(args)} />`,
   }),
 };
 
@@ -45,7 +45,7 @@ export const WithLabel: Story = {
   args: { label: 'Choisir une option', id: 'select-1' },
   render: (args) => ({
     props: { ...args, options },
-    template: `<k9-select [options]="options" ${argsToTemplate(args)} />`,
+    template: `<k10-select [options]="options" ${argsToTemplate(args)} />`,
   }),
 };
 
@@ -54,9 +54,9 @@ export const AllStates: Story = {
     imports: [SelectComponent],
     template: `
       <div class="space-y-4 max-w-xs">
-        <k9-select label="Normal" id="s1" [options]="[]" placeholder="Select..." />
-        <k9-select label="Avec erreur" id="s2" [options]="[]" [hasError]="true" placeholder="Invalid..." />
-        <k9-select label="Désactivé" id="s3" [options]="[]" [disabled]="true" placeholder="Disabled..." />
+        <k10-select label="Normal" id="s1" [options]="[]" placeholder="Select..." />
+        <k10-select label="Avec erreur" id="s2" [options]="[]" [hasError]="true" placeholder="Invalid..." />
+        <k10-select label="Désactivé" id="s3" [options]="[]" [disabled]="true" placeholder="Disabled..." />
       </div>
     `,
   }),

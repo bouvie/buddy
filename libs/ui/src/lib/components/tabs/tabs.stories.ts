@@ -1,23 +1,26 @@
 import { Meta, StoryObj } from '@storybook/angular';
 import { TabsComponent } from './tabs.component';
+import { TABS_VARIANTS } from './tabs.types';
 
 const SAMPLE_TABS = [
-  { label: 'Profil', value: 'profile' },
-  { label: 'Activité', value: 'activity' },
-  { label: 'Paramètres', value: 'settings' },
+  { label: 'Day',   value: 'day' },
+  { label: 'Week',  value: 'week' },
+  { label: 'Month', value: 'month' },
 ];
 
 const meta: Meta<TabsComponent> = {
   title: 'Design System / Components / Tabs',
   component: TabsComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=30-21' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=12-42' },
   argTypes: {
+    variant:   { control: 'select', options: TABS_VARIANTS },
     activeTab: { control: 'text' },
   },
   args: {
     tabs: SAMPLE_TABS,
-    activeTab: 'profile',
+    activeTab: 'day',
+    variant: 'primary',
   },
 };
 
@@ -26,25 +29,41 @@ type Story = StoryObj<TabsComponent>;
 
 export const Default: Story = {};
 
-export const WithDisabled: Story = {
-  args: {
-    tabs: [
-      { label: 'Profil', value: 'profile' },
-      { label: 'Activité', value: 'activity' },
-      { label: 'Admin', value: 'admin', disabled: true },
-    ],
-    activeTab: 'profile',
-  },
-};
+export const AllVariants: Story = {
+  render: () => ({
+    imports: [TabsComponent],
+    template: `
+      <div style="display:flex;flex-direction:column;gap:32px;padding:32px;background:#0C1219;max-width:400px">
 
-export const ManyTabs: Story = {
-  args: {
-    tabs: [
-      { label: 'Santé', value: 'health' },
-      { label: 'Nutrition', value: 'nutrition' },
-      { label: 'Vaccins', value: 'vaccines' },
-      { label: 'Documents', value: 'documents' },
-    ],
-    activeTab: 'health',
-  },
+        <div>
+          <p style="color:#68788C;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px">Primary</p>
+          <k10-tabs [tabs]="tabs" activeTab="day" variant="primary"></k10-tabs>
+        </div>
+
+        <div>
+          <p style="color:#68788C;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px">Accent</p>
+          <k10-tabs [tabs]="tabs" activeTab="week" variant="accent"></k10-tabs>
+        </div>
+
+        <div>
+          <p style="color:#68788C;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px">Underline</p>
+          <k10-tabs [tabs]="tabs" activeTab="month" variant="underline"></k10-tabs>
+        </div>
+
+        <div>
+          <p style="color:#68788C;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px">With disabled</p>
+          <k10-tabs [tabs]="tabsDisabled" activeTab="day" variant="primary"></k10-tabs>
+        </div>
+
+      </div>
+    `,
+    props: {
+      tabs: SAMPLE_TABS,
+      tabsDisabled: [
+        { label: 'Day',   value: 'day' },
+        { label: 'Week',  value: 'week' },
+        { label: 'Month', value: 'month', disabled: true },
+      ],
+    },
+  }),
 };

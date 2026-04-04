@@ -4,6 +4,11 @@
     [class.avatar-image--sm]="safeSize() === 'sm'"
     [class.avatar-image--md]="safeSize() === 'md'"
     [class.avatar-image--lg]="safeSize() === 'lg'"
+    [class.avatar-image--xl]="safeSize() === 'xl'"
+    [class.avatar-image--primary]="safeColor() === 'primary'"
+    [class.avatar-image--accent]="safeColor() === 'accent'"
+    [class.avatar-image--secondary]="safeColor() === 'secondary'"
+    [class.avatar-image--success]="safeColor() === 'success'"
   >
     @if (hasImage()) {
       <img [src]="src()" [alt]="alt()" class="avatar-img" />

@@ -7,7 +7,7 @@ const meta: Meta<AlertComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-2',
+    figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=27-2',
   },
   argTypes: {
     variant: { control: 'select', options: ['info', 'success', 'warning', 'error'] },
@@ -31,7 +31,7 @@ type Story = StoryObj<AlertComponent>;
 export const Default: Story = {
   render: (args) => ({
     props: args,
-    template: `<div style="max-width:480px"><k9-alert ${argsToTemplate(args)}></k9-alert></div>`,
+    template: `<div style="max-width:480px"><k10-alert ${argsToTemplate(args)}></k10-alert></div>`,
   }),
 };
 
@@ -39,26 +39,26 @@ export const AllVariants: Story = {
   render: () => ({
     imports: [AlertComponent],
     template: `
-      <div style="display:flex;flex-direction:column;gap:16px;max-width:480px;padding:24px;background:#0F1419">
-        <k9-alert
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:480px;padding:24px;background:#0C1219">
+        <k10-alert
           variant="info"
           title="Information / System Notice"
           description="Neural synchronization is currently operating at peak efficiency. No immediate operator action is required at this cycle."
           [dismissible]="true"
         />
-        <k9-alert
+        <k10-alert
           variant="success"
           title="Success / Metric Synchronized"
           description="Physical data point convergence complete. Biometric integrity verified across all distributed nodes."
           [dismissible]="true"
         />
-        <k9-alert
+        <k10-alert
           variant="warning"
           title="Warning / Resource Latency"
           description="External telemetry feed is experiencing high jitter. Recommended recalibration if latency exceeds 250ms threshold."
           [dismissible]="true"
         />
-        <k9-alert
+        <k10-alert
           variant="error"
           title="Critical / Uplink Severed"
           description="Primary biometric feed disconnected. Automatic failover initiated but local storage at 98% capacity."

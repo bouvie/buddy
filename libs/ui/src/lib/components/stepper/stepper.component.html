@@ -1,0 +1,41 @@
+<div
+  class="stepper"
+  [class.stepper--horizontal]="safeOrientation() === 'horizontal'"
+  [class.stepper--vertical]="safeOrientation() === 'vertical'"
+>
+  @for (step of steps(); track step.label; let i = $index; let last = $last) {
+    <div
+      class="stepper__step"
+      [class.stepper__step--completed]="stepStatus(i) === 'completed'"
+      [class.stepper__step--active]="stepStatus(i) === 'active'"
+      [class.stepper__step--error]="stepStatus(i) === 'error'"
+      [class.stepper__step--upcoming]="stepStatus(i) === 'upcoming'"
+    >
+      <button
+        type="button"
+        class="stepper__node"
+        (click)="goTo(i)"
+        [attr.aria-current]="stepStatus(i) === 'active' ? 'step' : null"
+      >
+        @if (stepStatus(i) === 'completed') {
+          <i class="fa-solid fa-check" aria-hidden="true"></i>
+        } @else if (stepStatus(i) === 'error') {
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        } @else {
+          {{ i + 1 }}
+        }
+      </button>
+
+      <div class="stepper__content">
+        <span class="stepper__label">{{ step.label }}</span>
+        @if (step.description) {
+          <span class="stepper__desc">{{ step.description }}</span>
+        }
+      </div>
+
+      @if (!last) {
+        <div class="stepper__connector" aria-hidden="true"></div>
+      }
+    </div>
+  }
+</div>

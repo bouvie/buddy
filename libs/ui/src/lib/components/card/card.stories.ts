@@ -1,5 +1,6 @@
 import { Meta, StoryObj, argsToTemplate } from '@storybook/angular';
 import { CardComponent } from './card.component';
+import { CARD_VARIANTS } from './card.types';
 
 const meta: Meta<CardComponent> = {
   title: 'Design System / Components / Card',
@@ -7,17 +8,17 @@ const meta: Meta<CardComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-26',
+    figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=11-2',
   },
   argTypes: {
-    title: { control: 'text', description: 'Titre affiché dans le header de la card (optionnel)' },
-    footer: { control: 'boolean', description: 'Afficher la zone footer (slot [card-footer])' },
-    padding: { control: 'select', options: ['none', 'sm', 'md', 'lg'] },
-    elevation: { control: 'select', options: ['none', 'sm', 'md', 'lg'] },
-    border: { control: 'boolean' },
-    interactive: { control: 'boolean', description: 'Hover effect (translateY + shadow)' },
+    variant:     { control: 'select', options: CARD_VARIANTS },
+    padding:     { control: 'select', options: ['none', 'sm', 'md', 'lg'] },
+    title:       { control: 'text' },
+    footer:      { control: 'boolean' },
+    interactive: { control: 'boolean' },
+    isLive:      { control: 'boolean' },
   },
-  args: { title: '', footer: false, padding: 'md', elevation: 'md', border: true, interactive: false },
+  args: { variant: 'default', padding: 'md', title: '', footer: false, interactive: false, isLive: false },
 };
 
 export default meta;
@@ -27,47 +28,47 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <k9-card class="max-w-xs" ${argsToTemplate(args)}>
-        <p class="text-k9-body text-k9-text-secondary">Card content goes here</p>
-      </k9-card>
+      <k10-card style="width:200px" ${argsToTemplate(args)}>
+        <p style="color:#A8B4C4;font-size:13px;margin:0">Card content</p>
+      </k10-card>
     `,
   }),
 };
 
-export const WithHeader: Story = {
-  args: { title: 'Card Title', padding: 'md', elevation: 'sm' },
-  render: (args) => ({
-    props: args,
-    template: `
-      <k9-card class="max-w-xs" ${argsToTemplate(args)}>
-        <p class="text-k9-body text-k9-text-secondary">Content below the header</p>
-      </k9-card>
-    `,
-  }),
-};
-
-export const WithFooter: Story = {
-  args: { title: 'Card with Footer', footer: true },
-  render: (args) => ({
-    props: args,
-    template: `
-      <k9-card class="max-w-xs" ${argsToTemplate(args)}>
-        <p class="text-k9-body text-k9-text-secondary">Main content</p>
-        <div card-footer class="text-k9-label text-k9-text-muted">Footer content</div>
-      </k9-card>
-    `,
-  }),
-};
-
-export const AllElevations: Story = {
+export const AllVariants: Story = {
   render: () => ({
     imports: [CardComponent],
     template: `
-      <div class="flex gap-4 flex-wrap">
-        <k9-card elevation="none" class="w-40"><p class="text-k9-body">None</p></k9-card>
-        <k9-card elevation="sm"   class="w-40"><p class="text-k9-body">SM</p></k9-card>
-        <k9-card elevation="md"   class="w-40"><p class="text-k9-body">MD</p></k9-card>
-        <k9-card elevation="lg"   class="w-40"><p class="text-k9-body">LG</p></k9-card>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;padding:24px;background:#0C1219;align-items:flex-start">
+
+        <k10-card variant="default"  style="width:160px">
+          <p style="color:#A8B4C4;font-size:11px;margin:0">Default</p>
+        </k10-card>
+
+        <k10-card variant="elevated" style="width:160px">
+          <p style="color:#A8B4C4;font-size:11px;margin:0">Elevated</p>
+        </k10-card>
+
+        <k10-card variant="outlined" style="width:160px">
+          <p style="color:#A8B4C4;font-size:11px;margin:0">Outlined</p>
+        </k10-card>
+
+        <k10-card variant="primary"  style="width:160px">
+          <p style="color:#A8B4C4;font-size:11px;margin:0">Primary Tint</p>
+        </k10-card>
+
+        <k10-card variant="accent"   style="width:160px">
+          <p style="color:#A8B4C4;font-size:11px;margin:0">Accent Tint</p>
+        </k10-card>
+
+        <k10-card variant="glass"    style="width:160px">
+          <p style="color:#A8B4C4;font-size:11px;margin:0">Glass</p>
+        </k10-card>
+
+        <k10-card variant="accent" [isLive]="true" style="width:160px">
+          <p style="color:#A8B4C4;font-size:11px;margin:0">Live (animated)</p>
+        </k10-card>
+
       </div>
     `,
   }),

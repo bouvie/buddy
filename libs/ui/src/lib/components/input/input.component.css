@@ -6,69 +6,99 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 64px;
-  border-radius: var(--k9-radius-xl);
-  background-color: var(--k9-color-surface);
-  border: 1px solid var(--k9-color-border);
-  transition: var(--k9-transition-fast);
+  height: 52px;
+  border-radius: var(--k10-radius-lg);
+  background-color: var(--k10-color-input-bg, #162233);
+  border: 1px solid var(--k10-color-input-border, #1E2D42);
+  transition: border-color var(--k10-duration-fast) var(--k10-easing-standard),
+              box-shadow   var(--k10-duration-fast) var(--k10-easing-standard);
 }
 
+/* Focus: accent border 1.5px */
 .input-field-container:focus-within {
-  border-color: var(--k9-color-primary);
-  box-shadow: var(--k9-shadow-focus);
+  border-color: var(--k10-color-accent);
+  border-width: 1.5px;
+  box-shadow: 0 0 0 3px var(--k10-color-accent-focus);
 }
 
-.input-field-container--filled {
-  background-color: var(--k9-color-surface-raised);
-}
-
+/* Error: danger border 1.5px */
 .input-field-container--error {
-  border-color: var(--k9-color-danger);
+  border-color: var(--k10-color-danger);
+  border-width: 1.5px;
 }
 
 .input-field-container--error:focus-within {
-  box-shadow: 0 0 0 3px var(--k9-color-danger-hover);
+  border-color: var(--k10-color-danger);
+  border-width: 1.5px;
+  box-shadow: none;
 }
 
+/* Success: success border 1.5px */
 .input-field-container--success {
-  border-color: var(--k9-color-primary);
+  border-color: var(--k10-color-success);
+  border-width: 1.5px;
 }
 
+/* Disabled */
 .input-field-container--disabled {
-  background-color: var(--k9-color-surface-deep);
-  border-color: var(--k9-color-border);
+  border-color: var(--k10-color-input-border, #1E2D42);
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
+/* ── Input field ── */
 .input-field {
   flex: 1;
   height: 100%;
-  padding: 0 var(--k9-space-xl);
+  padding: 0 14px;
   background: transparent;
   border: none;
   outline: none;
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-body);
-  color: var(--k9-color-text);
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-body-sm);    /* 13px */
+  color: var(--k10-color-text);
   cursor: inherit;
 }
 
 .input-field::placeholder {
-  color: var(--k9-color-text-muted);
+  color: var(--k10-color-text-muted);
 }
 
 .input-field:disabled {
   cursor: not-allowed;
-  color: var(--k9-color-text-muted);
+  color: var(--k10-color-text-muted);
 }
 
+/* ── Status icons ── */
 .input-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding-right: var(--k9-space-xl);
+  padding-right: 14px;
 }
 
-.input-icon--error   { color: var(--k9-color-danger); }
-.input-icon--success { color: var(--k9-color-primary); }
+/* Small badge-style icon — matches Figma 18px circle */
+.input-icon--error {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--k10-radius-full);
+  background-color: rgba(191, 104, 104, 0.15);
+  color: var(--k10-color-danger);
+  font-size: 9px;
+  font-weight: var(--k10-font-weight-bold);
+  padding-right: 0;
+  margin-right: 14px;
+}
+
+.input-icon--success {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--k10-radius-full);
+  background-color: rgba(114, 201, 138, 0.15);
+  color: var(--k10-color-success);
+  font-size: 9px;
+  font-weight: var(--k10-font-weight-bold);
+  padding-right: 0;
+  margin-right: 14px;
+}

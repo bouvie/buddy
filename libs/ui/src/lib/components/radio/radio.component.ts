@@ -10,7 +10,7 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'k9-radio',
+  selector: 'k10-radio',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,236 +1,329 @@
 /**
- * Buddy Design System - CSS Custom Properties (Variables)
- * Synced from Figma: Buddy (node 51:817)
+ * Buddy Design System K-10 — CSS Custom Properties
+ * Synced from Figma: K-10 Design System (fileKey: 5MS7DIRcSDz7lYm0tjze7x)
+ * Palette: "Deep Ocean Dark"
  *
  * Usage:
- *   - CSS: background: var(--k9-color-primary);
- *   - Tailwind: class="bg-k9-primary text-k9-text"
+ *   - CSS: background: var(--k10-color-bg);
+ *   - Tailwind: class="bg-k10-bg text-k10-text"
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  /* ========== COLORS — BRAND ========== */
-  /* Sage (primary) */
-  --k9-color-primary: #BACBB8;
-  --k9-color-primary-text: #263427;
-  --k9-color-primary-hover: rgba(186, 203, 184, 0.10);
-  --k9-color-primary-pressed: rgba(186, 203, 184, 0.20);
-  --k9-color-primary-focus: rgba(186, 203, 184, 0.35);
-  --k9-color-primary-subtle: rgba(186, 203, 184, 0.05);
+  /* ========== COLORS — BACKGROUNDS & SURFACES ========== */
+  --k10-color-bg-deep:         #070B11;
+  --k10-color-bg:              #0C1219;
+  --k10-color-surface:         #121D2A;
+  --k10-color-surface-raised:  #192538;
+  --k10-color-surface-elevated:#213047;
+  --k10-color-surface-4:       #2A3D5C;
+  --k10-color-border:          #354A62;
+  /* Form-specific — input well and subtle border (from Figma spec) */
+  --k10-color-input-bg:        #162233;
+  --k10-color-input-border:    #1E2D42;
 
-  /* Secondary tints */
-  --k9-color-secondary-hover: rgba(255, 181, 161, 0.10);
-  --k9-color-secondary-subtle: rgba(255, 181, 161, 0.05);
+  /* ========== COLORS — PRIMARY (Sage) ========== */
+  --k10-color-primary:         #C4D9C2;
+  --k10-color-primary-text:    #1E2E1C;
+  --k10-color-primary-hover:   rgba(196, 217, 194, 0.10);
+  --k10-color-primary-pressed: rgba(196, 217, 194, 0.20);
+  --k10-color-primary-focus:   rgba(196, 217, 194, 0.35);
+  --k10-color-primary-subtle:  rgba(196, 217, 194, 0.06);
 
-  /* Danger tints */
-  --k9-color-danger-hover: rgba(255, 180, 171, 0.10);
-  --k9-color-danger-subtle: rgba(255, 180, 171, 0.05);
+  /* ========== COLORS — ACCENT (Teal — live data / GPS) ========== */
+  --k10-color-accent:          #5C9EA8;
+  --k10-color-accent-text:     #0D2226;
+  --k10-color-accent-hover:    rgba(92, 158, 168, 0.10);
+  --k10-color-accent-pressed:  rgba(92, 158, 168, 0.20);
+  --k10-color-accent-focus:    rgba(92, 158, 168, 0.35);
+  --k10-color-accent-subtle:   rgba(92, 158, 168, 0.06);
 
-  /* Neutral tints */
-  --k9-color-neutral-hover: rgba(196, 200, 192, 0.10);
+  /* ========== COLORS — SECONDARY (Amber) ========== */
+  --k10-color-secondary:         #F4A86A;
+  --k10-color-secondary-text:    #3D1E00;
+  --k10-color-secondary-hover:   rgba(244, 168, 106, 0.10);
+  --k10-color-secondary-pressed: rgba(244, 168, 106, 0.20);
+  --k10-color-secondary-focus:   rgba(244, 168, 106, 0.35);
+  --k10-color-secondary-subtle:  rgba(244, 168, 106, 0.06);
 
-  /* Terracotta (secondary / warning) */
-  --k9-color-secondary: #FFB5A1;
-  --k9-color-secondary-text: #542112;
+  /* ========== COLORS — DANGER ========== */
+  --k10-color-danger:          #BF6868;
+  --k10-color-danger-text:     #2D0A0A;
+  --k10-color-danger-hover:    rgba(191, 104, 104, 0.10);
+  --k10-color-danger-pressed:  rgba(191, 104, 104, 0.20);
+  --k10-color-danger-focus:    rgba(191, 104, 104, 0.35);
+  --k10-color-danger-subtle:   rgba(191, 104, 104, 0.06);
 
-  /* Error (coral) */
-  --k9-color-danger: #FFB4AB;
-  --k9-color-danger-text: #690005;
+  /* ========== COLORS — SUCCESS ========== */
+  --k10-color-success:         #72C98A;
+  --k10-color-success-text:    #0D2914;
+  --k10-color-success-hover:   rgba(114, 201, 138, 0.10);
+  --k10-color-success-pressed: rgba(114, 201, 138, 0.20);
+  --k10-color-success-focus:   rgba(114, 201, 138, 0.35);
+  --k10-color-success-subtle:  rgba(114, 201, 138, 0.06);
 
-  /* Stone (neutral / muted accent) */
-  --k9-color-neutral: #C4C8C0;
-  --k9-color-neutral-text: #0F1419;
+  /* ========== COLORS — WARNING ========== */
+  --k10-color-warning:         #F0C060;
+  --k10-color-warning-text:    #2D1A00;
+  --k10-color-warning-hover:   rgba(240, 192, 96, 0.10);
+  --k10-color-warning-pressed: rgba(240, 192, 96, 0.20);
+  --k10-color-warning-focus:   rgba(240, 192, 96, 0.35);
+  --k10-color-warning-subtle:  rgba(240, 192, 96, 0.06);
 
-  /* ========== COLORS — SURFACE ========== */
-  --k9-color-bg: #0F1419;
-  --k9-color-surface: #1B2025;
-  --k9-color-surface-raised: #252A30;
-  --k9-color-surface-elevated: #30353A;
-  /* kept for backward compat */
-  --k9-color-surface-deep: #0A0F13;
+  /* ========== COLORS — INFO ========== */
+  --k10-color-info:            #6BB4E8;
+  --k10-color-info-text:       #0A1A2D;
+  --k10-color-info-hover:      rgba(107, 180, 232, 0.10);
+  --k10-color-info-pressed:    rgba(107, 180, 232, 0.20);
+  --k10-color-info-focus:      rgba(107, 180, 232, 0.35);
+  --k10-color-info-subtle:     rgba(107, 180, 232, 0.06);
 
-  /* ========== COLORS — BORDER ========== */
-  --k9-color-border: #434842;
-  --k9-color-border-light: #434842;
-  --k9-color-border-default: #434842;
+  /* ========== COLORS — NEUTRAL ========== */
+  --k10-color-neutral:         #B8C0CC;
+  --k10-color-neutral-text:    #0F1419;
+  --k10-color-neutral-hover:   rgba(184, 192, 204, 0.10);
+  --k10-color-neutral-pressed: rgba(184, 192, 204, 0.20);
+  --k10-color-neutral-focus:   rgba(184, 192, 204, 0.35);
+  --k10-color-neutral-subtle:  rgba(184, 192, 204, 0.06);
 
   /* ========== COLORS — TEXT ========== */
-  --k9-color-text: #DEE3E9;
-  --k9-color-text-secondary: #C4C8C0;
-  --k9-color-text-muted: #8E928B;
-  --k9-color-text-disabled: rgba(142, 146, 139, 0.40);
+  --k10-color-text:            #E8EDF5;
+  --k10-color-text-secondary:  #A8B4C4;
+  --k10-color-text-muted:      #68788C;
+  --k10-color-text-disabled:   rgba(104, 120, 140, 0.40);
 
-  /* ========== ALIASES — SHORT FORM (used by component CSS) ========== */
-  --k9-primary: var(--k9-color-primary);
-  --k9-primary-text: var(--k9-color-primary-text);
-  --k9-secondary: var(--k9-color-secondary);
-  --k9-secondary-text: var(--k9-color-secondary-text);
-  --k9-danger: var(--k9-color-danger);
-  --k9-neutral: var(--k9-color-neutral);
-  --k9-surface: var(--k9-color-surface);
-  --k9-surface-raised: var(--k9-color-surface-raised);
-  --k9-surface-elevated: var(--k9-color-surface-elevated);
-  --k9-surface-deep: var(--k9-color-surface-deep);
-  --k9-text: var(--k9-color-text);
-  --k9-text-secondary: var(--k9-color-text-secondary);
-  --k9-text-muted: var(--k9-color-text-muted);
-  --k9-border: var(--k9-color-border);
+  /* ========== ALIASES — SHORT FORM ========== */
+  --k10-primary:            var(--k10-color-primary);
+  --k10-primary-text:       var(--k10-color-primary-text);
+  --k10-accent:             var(--k10-color-accent);
+  --k10-accent-text:        var(--k10-color-accent-text);
+  --k10-secondary:          var(--k10-color-secondary);
+  --k10-secondary-text:     var(--k10-color-secondary-text);
+  --k10-danger:             var(--k10-color-danger);
+  --k10-neutral:            var(--k10-color-neutral);
+  --k10-surface:            var(--k10-color-surface);
+  --k10-surface-raised:     var(--k10-color-surface-raised);
+  --k10-surface-elevated:   var(--k10-color-surface-elevated);
+  --k10-surface-deep:       var(--k10-color-bg-deep);
+  --k10-text:               var(--k10-color-text);
+  --k10-text-secondary:     var(--k10-color-text-secondary);
+  --k10-text-muted:         var(--k10-color-text-muted);
+  --k10-border:             var(--k10-color-border);
+
+  /* ========== GLASS TOKENS ========== */
+  --k10-glass-surface-bg:  rgba(18, 29, 42, 0.65);
+  --k10-glass-raised-bg:   rgba(25, 37, 56, 0.70);
+  --k10-glass-deep-bg:     rgba(33, 48, 71, 0.80);
+  --k10-glass-border:      rgba(53, 74, 98, 0.50);
+  --k10-glass-blur-sm:     16px;
+  --k10-glass-blur-md:     20px;
+  --k10-glass-blur-lg:     24px;
 
   /* ========== TYPOGRAPHY — FONT FAMILY ========== */
-  --k9-font-family: 'Manrope', 'Segoe UI', 'Roboto', sans-serif;
+  --k10-font-family: 'Manrope', 'Segoe UI', 'Roboto', sans-serif;
 
   /* ========== TYPOGRAPHY — FONT WEIGHTS ========== */
-  --k9-font-weight-regular: 400;
-  --k9-font-weight-medium: 500;
-  --k9-font-weight-semibold: 600;
-  --k9-font-weight-bold: 700;
-  --k9-font-weight-extrabold: 800;
-  --k9-font-weight-black: 900;
+  --k10-font-weight-regular:   400;
+  --k10-font-weight-medium:    500;
+  --k10-font-weight-semibold:  600;
+  --k10-font-weight-bold:      700;
+  --k10-font-weight-extrabold: 800;
+  --k10-font-weight-black:     900;
 
-  /* ========== TYPOGRAPHY — FONT SIZES & LINE HEIGHTS ========== */
-  --k9-font-size-display: 72px;
-  --k9-line-height-display: 72px;
-  --k9-letter-spacing-display: -0.05em;
+  /* ========== TYPOGRAPHY — SCALE ========== */
+  --k10-font-size-display:   36px;
+  --k10-line-height-display: 44px;
 
-  --k9-font-size-h1: 32px;
-  --k9-line-height-h1: 40px;
-  --k9-letter-spacing-h1: -0.02em;
+  --k10-font-size-h1:   24px;
+  --k10-line-height-h1: 32px;
 
-  --k9-font-size-h2: 24px;
-  --k9-line-height-h2: 32px;
-  --k9-letter-spacing-h2: -0.01em;
+  --k10-font-size-h2:   20px;
+  --k10-line-height-h2: 28px;
 
-  --k9-font-size-h3: 20px;
-  --k9-line-height-h3: 28px;
+  --k10-font-size-h3:   16px;
+  --k10-line-height-h3: 24px;
 
-  --k9-font-size-body-large: 20px;
-  --k9-line-height-body-large: 32px;
+  --k10-font-size-body-large:   18px;
+  --k10-line-height-body-large: 28px;
 
-  --k9-font-size-body: 14px;
-  --k9-line-height-body: 20px;
+  --k10-font-size-body:   15px;
+  --k10-line-height-body: 22px;
 
-  --k9-font-size-button: 16px;
-  --k9-line-height-button: 24px;
+  --k10-font-size-body-sm:   13px;
+  --k10-line-height-body-sm: 20px;
 
-  --k9-font-size-label: 12px;
-  --k9-line-height-label: 16px;
-  --k9-letter-spacing-label: 0.3em;
+  --k10-font-size-label:          11px;
+  --k10-line-height-label:        16px;
+  --k10-letter-spacing-label:     0.06em;
 
-  --k9-font-size-caption: 10px;
-  --k9-line-height-caption: 15px;
-  --k9-letter-spacing-caption: 0.4em;
+  --k10-font-size-caption:        10px;
+  --k10-line-height-caption:      14px;
+  --k10-letter-spacing-caption:   0.04em;
 
-  /* ========== SPACING ========== */
-  --k9-space-0: 0;
-  --k9-space-xs: 4px;
-  --k9-space-sm: 8px;
-  --k9-space-md: 12px;
-  --k9-space-lg: 16px;
-  --k9-space-xl: 24px;
-  --k9-space-xxl: 32px;
-  --k9-space-xxxl: 48px;
-  --k9-space-max: 64px;
+  /* Data readout scale (métrique chiffres) */
+  --k10-font-size-data-lg:   28px;
+  --k10-line-height-data-lg: 36px;
+
+  --k10-font-size-data-md:   22px;
+  --k10-line-height-data-md: 28px;
+
+  --k10-font-size-data-sm:   18px;
+  --k10-line-height-data-sm: 24px;
+
+  /* ========== SPACING — base 4px ========== */
+  --k10-space-0:    0;
+  --k10-space-xs:   4px;
+  --k10-space-sm:   8px;
+  --k10-space-md:   12px;
+  --k10-space-lg:   16px;
+  --k10-space-xl:   24px;
+  --k10-space-xxl:  32px;
+  --k10-space-xxxl: 48px;
+  --k10-space-4xl:  64px;
+  --k10-space-5xl:  80px;
+  --k10-space-6xl:  96px;
 
   /* ========== BORDER RADIUS ========== */
-  --k9-radius-none: 0;
-  --k9-radius-sm: 4px;
-  --k9-radius-md: 8px;
-  --k9-radius-lg: 12px;
-  --k9-radius-xl: 16px;
-  --k9-radius-full: 9999px;
+  --k10-radius-none: 0;
+  --k10-radius-xs:   2px;
+  --k10-radius-sm:   4px;
+  --k10-radius-md:   8px;
+  --k10-radius-lg:   12px;
+  --k10-radius-xl:   16px;
+  --k10-radius-2xl:  20px;
+  --k10-radius-full: 9999px;
 
   /* ========== SHADOWS ========== */
-  --k9-shadow-none: none;
-  --k9-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --k9-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-  --k9-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
-  --k9-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
-  --k9-shadow-focus: 0 0 0 3px rgba(186, 203, 184, 0.35);
-  --k9-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.4);
-  --k9-shadow-primary-glow: 0 0 10px 1px rgba(186, 203, 184, 0.15);
+  --k10-shadow-none:  none;
+  --k10-shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --k10-shadow-md:    0 4px 6px -1px rgba(0, 0, 0, 0.6);
+  --k10-shadow-lg:    0 10px 15px -3px rgba(0, 0, 0, 0.7);
+  --k10-shadow-xl:    0 20px 25px -5px rgba(0, 0, 0, 0.8);
+  --k10-shadow-focus: 0 0 0 3px rgba(196, 217, 194, 0.35);
+  --k10-shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  --k10-shadow-primary-glow: 0 0 12px 2px rgba(196, 217, 194, 0.18);
+  --k10-shadow-accent-glow:  0 0 12px 2px rgba(92, 158, 168, 0.25);
 
-  /* ========== TRANSITIONS ========== */
-  --k9-duration-fastest: 100ms;
-  --k9-duration-fast: 150ms;
-  --k9-duration-normal: 200ms;
-  --k9-duration-slow: 300ms;
-  --k9-duration-slower: 400ms;
+  /* ========== MOTION ========== */
+  --k10-duration-instant: 0ms;
+  --k10-duration-fast:    120ms;
+  --k10-duration-normal:  200ms;
+  --k10-duration-slow:    300ms;
+  --k10-duration-slower:  500ms;
+  --k10-duration-lazy:    800ms;
 
-  --k9-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
-  --k9-easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
-  --k9-easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
-  --k9-easing-emphasis: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --k10-easing-standard:   cubic-bezier(0.2, 0, 0, 1);
+  --k10-easing-decelerate: cubic-bezier(0, 0, 0, 1);
+  --k10-easing-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --k10-easing-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  --k9-transition: all var(--k9-duration-normal) var(--k9-easing-standard);
-  --k9-transition-fast: all var(--k9-duration-fast) var(--k9-easing-standard);
-  --k9-transition-slow: all var(--k9-duration-slow) var(--k9-easing-standard);
+  --k10-transition:      all var(--k10-duration-normal) var(--k10-easing-standard);
+  --k10-transition-fast: all var(--k10-duration-fast)   var(--k10-easing-standard);
+  --k10-transition-slow: all var(--k10-duration-slow)   var(--k10-easing-standard);
 
   /* ========== SHELL ========== */
-  --k9-z-topbar: 50;
-  --k9-z-nav: 100;
-  --k9-topbar-height: 56px;
-  --k9-bottom-nav-height: 48px;
-  --k9-sidenav-width: 240px;
+  --k10-z-topbar:           50;
+  --k10-z-nav:              100;
+  --k10-topbar-height:      56px;
+  --k10-bottom-nav-height:  48px;
+  --k10-sidenav-width:      240px;
 }
 
 /* ========== GLOBAL STYLES ========== */
 body {
-  font-family: var(--k9-font-family);
-  background-color: var(--k9-color-bg);
-  color: var(--k9-color-text);
+  font-family: var(--k10-font-family);
+  background-color: var(--k10-color-bg);
+  color: var(--k10-color-text);
 }
 
 /* ========== TYPOGRAPHY CLASSES ========== */
-.text-k9-display {
-  font-size: var(--k9-font-size-display);
-  line-height: var(--k9-line-height-display);
-  font-weight: var(--k9-font-weight-regular);
-  letter-spacing: var(--k9-letter-spacing-display);
+.text-k10-display {
+  font-size: var(--k10-font-size-display);
+  line-height: var(--k10-line-height-display);
+  font-weight: var(--k10-font-weight-bold);
 }
 
-.text-k9-h1 {
-  font-size: var(--k9-font-size-h1);
-  line-height: var(--k9-line-height-h1);
-  font-weight: var(--k9-font-weight-semibold);
-  letter-spacing: var(--k9-letter-spacing-h1);
+.text-k10-h1 {
+  font-size: var(--k10-font-size-h1);
+  line-height: var(--k10-line-height-h1);
+  font-weight: var(--k10-font-weight-bold);
 }
 
-.text-k9-h2 {
-  font-size: var(--k9-font-size-h2);
-  line-height: var(--k9-line-height-h2);
-  font-weight: var(--k9-font-weight-semibold);
-  letter-spacing: var(--k9-letter-spacing-h2);
+.text-k10-h2 {
+  font-size: var(--k10-font-size-h2);
+  line-height: var(--k10-line-height-h2);
+  font-weight: var(--k10-font-weight-bold);
 }
 
-.text-k9-h3 {
-  font-size: var(--k9-font-size-h3);
-  line-height: var(--k9-line-height-h3);
-  font-weight: var(--k9-font-weight-semibold);
+.text-k10-h3 {
+  font-size: var(--k10-font-size-h3);
+  line-height: var(--k10-line-height-h3);
+  font-weight: var(--k10-font-weight-bold);
 }
 
-.text-k9-body-large {
-  font-size: var(--k9-font-size-body-large);
-  line-height: var(--k9-line-height-body-large);
-  font-weight: var(--k9-font-weight-regular);
+.text-k10-body-large {
+  font-size: var(--k10-font-size-body-large);
+  line-height: var(--k10-line-height-body-large);
+  font-weight: var(--k10-font-weight-regular);
 }
 
-.text-k9-body {
-  font-size: var(--k9-font-size-body);
-  line-height: var(--k9-line-height-body);
-  font-weight: var(--k9-font-weight-regular);
+.text-k10-body {
+  font-size: var(--k10-font-size-body);
+  line-height: var(--k10-line-height-body);
+  font-weight: var(--k10-font-weight-regular);
 }
 
-.text-k9-label {
-  font-size: var(--k9-font-size-label);
-  line-height: var(--k9-line-height-label);
-  font-weight: var(--k9-font-weight-bold);
-  letter-spacing: var(--k9-letter-spacing-label);
+.text-k10-body-sm {
+  font-size: var(--k10-font-size-body-sm);
+  line-height: var(--k10-line-height-body-sm);
+  font-weight: var(--k10-font-weight-regular);
 }
 
-.text-k9-caption {
-  font-size: var(--k9-font-size-caption);
-  line-height: var(--k9-line-height-caption);
-  font-weight: var(--k9-font-weight-regular);
-  letter-spacing: var(--k9-letter-spacing-caption);
+.text-k10-label {
+  font-size: var(--k10-font-size-label);
+  line-height: var(--k10-line-height-label);
+  font-weight: var(--k10-font-weight-bold);
+  letter-spacing: var(--k10-letter-spacing-label);
+}
+
+.text-k10-caption {
+  font-size: var(--k10-font-size-caption);
+  line-height: var(--k10-line-height-caption);
+  font-weight: var(--k10-font-weight-regular);
+  letter-spacing: var(--k10-letter-spacing-caption);
+}
+
+.text-k10-data-lg {
+  font-size: var(--k10-font-size-data-lg);
+  line-height: var(--k10-line-height-data-lg);
+  font-weight: var(--k10-font-weight-bold);
+}
+
+.text-k10-data-md {
+  font-size: var(--k10-font-size-data-md);
+  line-height: var(--k10-line-height-data-md);
+  font-weight: var(--k10-font-weight-bold);
+}
+
+.text-k10-data-sm {
+  font-size: var(--k10-font-size-data-sm);
+  line-height: var(--k10-line-height-data-sm);
+  font-weight: var(--k10-font-weight-bold);
+}
+
+/* ========== COMPONENT ALIASES (K-9 → K-10 token renames) ========== */
+:root {
+  /* button typography → h3 scale in K-10 */
+  --k10-font-size-button:    var(--k10-font-size-h3);
+  --k10-line-height-button:  var(--k10-line-height-h3);
+
+  /* emphasis easing → spring in K-10 */
+  --k10-easing-emphasis: var(--k10-easing-spring);
+
+  /* surface-deep → bg-deep in K-10 */
+  --k10-color-surface-deep: var(--k10-color-bg-deep);
+
+  /* duration-fastest removed in K-10 → fast (120ms) */
+  --k10-duration-fastest: var(--k10-duration-fast);
 }

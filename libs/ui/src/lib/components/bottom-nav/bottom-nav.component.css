@@ -1,17 +1,17 @@
 :host {
   position: fixed;
-  bottom: calc(var(--k9-space-xxl) + env(safe-area-inset-bottom));
+  bottom: calc(var(--k10-space-xxl) + env(safe-area-inset-bottom));
   left: 50%;
   transform: translateX(-50%);
   width: fit-content;
-  z-index: var(--k9-z-nav);
-  border-radius: var(--k9-radius-xl);
+  z-index: var(--k10-z-nav);
+  border-radius: var(--k10-radius-xl);
   /* Glassmorphism — surface-elevated avec transparence + blur */
-  background: color-mix(in srgb, var(--k9-color-surface-elevated) 70%, transparent);
+  background: color-mix(in srgb, var(--k10-color-surface-elevated) 70%, transparent);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid color-mix(in srgb, var(--k9-color-border) 60%, transparent);
-  box-shadow: var(--k9-shadow-xl);
+  border: 1px solid color-mix(in srgb, var(--k10-color-border) 60%, transparent);
+  box-shadow: var(--k10-shadow-xl);
   overflow: hidden;
 }
 
@@ -23,5 +23,5 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: var(--k9-bottom-nav-height);
+  height: var(--k10-bottom-nav-height);
 }

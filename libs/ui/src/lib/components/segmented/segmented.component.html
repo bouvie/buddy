@@ -1,0 +1,27 @@
+<div
+  class="segmented"
+  [class.segmented--sm]="safeSize() === 'sm'"
+  [class.segmented--md]="safeSize() === 'md'"
+  [class.segmented--color-primary]="safeColor() === 'primary'"
+  [class.segmented--color-accent]="safeColor() === 'accent'"
+  [class.segmented--color-secondary]="safeColor() === 'secondary'"
+  [class.segmented--disabled]="disabled()"
+  role="group"
+>
+  @for (item of items(); track item.value) {
+    <button
+      type="button"
+      class="segmented__item"
+      [class.segmented__item--active]="value() === item.value"
+      [class.segmented__item--disabled]="item.disabled"
+      [disabled]="disabled() || item.disabled"
+      (click)="select(item)"
+      [attr.aria-pressed]="value() === item.value"
+    >
+      @if (item.icon) {
+        <i [class]="item.icon" aria-hidden="true"></i>
+      }
+      {{ item.label }}
+    </button>
+  }
+</div>

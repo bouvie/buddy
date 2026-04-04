@@ -2,47 +2,94 @@
   display: block;
 }
 
+/* ── Base container — dark pill ─────────────────────────────────────────── */
 .tabs {
   display: flex;
   align-items: center;
-  gap: var(--k9-space-xs);
-  padding: var(--k9-space-xs);
-  background-color: var(--k9-color-surface);
-  border-radius: var(--k9-radius-xl);
-  border: 1px solid var(--k9-color-border);
+  padding: 4px;
+  gap: 2px;
+  background-color: var(--k10-color-surface, #121D2A);
+  border-radius: var(--k10-radius-full);
 }
 
+/* ── Underline variant — transparent container with bottom border ──────── */
+.tabs--underline {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  gap: 0;
+  border-bottom: 1px solid var(--k10-color-input-border, #1E2D42);
+}
+
+/* ── Tab button ─────────────────────────────────────────────────────────── */
 .tabs__tab {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 40px;
-  padding: 0 var(--k9-space-lg);
-  border-radius: var(--k9-radius-lg);
-  border: none;
+  padding: 0 var(--k10-space-lg);
+  border-radius: var(--k10-radius-full);
+  border: 1px solid transparent;
   background: transparent;
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-body);
-  font-weight: var(--k9-font-weight-medium);
-  color: var(--k9-color-text-secondary);
+  font-family: var(--k10-font-family);
+  font-size: 13px;
+  font-weight: var(--k10-font-weight-regular);
+  color: var(--k10-color-text-muted);
   cursor: pointer;
   white-space: nowrap;
-  transition: var(--k9-transition-fast);
+  transition: color var(--k10-duration-fast) var(--k10-easing-standard),
+              background-color var(--k10-duration-fast) var(--k10-easing-standard);
 }
 
 .tabs__tab:hover:not(.tabs__tab--disabled):not(.tabs__tab--active) {
-  color: var(--k9-color-text);
-  background-color: var(--k9-color-surface-raised);
+  color: var(--k10-color-text-secondary);
+  background-color: var(--k10-color-surface-raised);
 }
 
-.tabs__tab--active {
-  background-color: var(--k9-color-surface-elevated);
-  color: var(--k9-color-text);
-  font-weight: var(--k9-font-weight-semibold);
-  box-shadow: var(--k9-shadow-sm);
+/* ── Active — primary ──────────────────────────────────────────────────── */
+.tabs--primary .tabs__tab--active {
+  background-color: var(--k10-color-input-bg, #162233);
+  border-color: rgba(196, 217, 194, 0.20);
+  color: var(--k10-color-primary);
+  font-weight: var(--k10-font-weight-semibold);
 }
 
+/* ── Active — accent ───────────────────────────────────────────────────── */
+.tabs--accent .tabs__tab--active {
+  background-color: var(--k10-color-input-bg, #162233);
+  border-color: rgba(92, 158, 168, 0.20);
+  color: var(--k10-color-accent);
+  font-weight: var(--k10-font-weight-semibold);
+}
+
+/* ── Underline variant ─────────────────────────────────────────────────── */
+.tabs--underline .tabs__tab {
+  border-radius: 0;
+  height: 44px;
+  position: relative;
+  border: none;
+  padding-bottom: 2px;
+}
+
+.tabs--underline .tabs__tab--active {
+  color: var(--k10-color-text);
+  font-weight: var(--k10-font-weight-semibold);
+  background-color: transparent;
+}
+
+/* Active underline bar */
+.tabs--underline .tabs__tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--k10-space-lg);
+  right: var(--k10-space-lg);
+  height: 2px;
+  border-radius: var(--k10-radius-full);
+  background-color: var(--k10-color-primary);
+}
+
+/* ── Disabled ──────────────────────────────────────────────────────────── */
 .tabs__tab--disabled {
   opacity: 0.4;
   cursor: not-allowed;

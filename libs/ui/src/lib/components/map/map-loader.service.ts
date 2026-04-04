@@ -36,7 +36,7 @@ export class MapLoaderService {
         this._loaded = true;
         resolve();
       };
-      script.onerror = () => reject(new Error('[k9-map] Failed to load Google Maps script'));
+      script.onerror = () => reject(new Error('[k10-map] Failed to load Google Maps script'));
       document.head.appendChild(script);
     });
 

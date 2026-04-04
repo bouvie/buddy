@@ -6,131 +6,155 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: var(--k9-font-weight-bold);
-  font-size: var(--k9-font-size-button);
-  line-height: var(--k9-line-height-button);
-  border-radius: var(--k9-radius-xl);
-  border: 1px solid transparent;
-  transition: var(--k9-transition-fast);
+  gap: var(--k10-space-sm);
+  border-radius: var(--k10-radius-xl);
+  border: none;
   cursor: pointer;
-  font-family: var(--k9-font-family);
-  width: 100%;
+  font-family: var(--k10-font-family);
   letter-spacing: 0;
+  transition: var(--k10-transition-fast);
+  white-space: nowrap;
+  width: 100%;
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--k9-color-primary);
+  outline: 2px solid var(--k10-color-primary);
   outline-offset: 2px;
 }
 
-/* Sizes */
+/* ── Sizes ── */
+/* sm: h-44px px-16px 13px medium */
 .btn--sm {
-  height: 48px;
-  padding: 0 var(--k9-space-lg);
-  font-size: var(--k9-font-size-body);
+  height: 44px;
+  padding: 0 var(--k10-space-lg);
+  font-size: 13px;
+  font-weight: var(--k10-font-weight-medium);
 }
 
+/* md: h-56px px-24px 15px semibold */
 .btn--md {
-  height: 64px;
-  padding: 0 var(--k9-space-xl);
+  height: 56px;
+  padding: 0 var(--k10-space-xl);
+  font-size: 15px;
+  font-weight: var(--k10-font-weight-semibold);
 }
 
+/* lg: h-64px px-32px 16px bold */
 .btn--lg {
-  height: 72px;
-  padding: 0 var(--k9-space-xxl);
-  font-size: var(--k9-font-size-body-large);
+  height: 64px;
+  padding: 0 var(--k10-space-xxl);
+  font-size: 16px;
+  font-weight: var(--k10-font-weight-bold);
 }
 
-/* Full width */
-.btn--full-width {
-  width: 100%;
-}
+.btn--full-width { width: 100%; }
 
-/* Primary */
+/* ── Primary ── */
 .btn--primary {
-  background-color: var(--k9-color-primary);
-  color: var(--k9-color-primary-text);
-  border-color: transparent;
+  background-color: var(--k10-color-primary);
+  color: var(--k10-color-primary-text);
+  box-shadow: 0 0 12px 0 rgba(196, 217, 194, 0.20);
 }
 
 .btn--primary:not(:disabled):hover {
-  box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 18px 0 rgba(196, 217, 194, 0.32),
+              inset 0 0 0 100px rgba(255, 255, 255, 0.06);
 }
 
-.btn--primary:not(:disabled):active {
-  transform: scale(0.97);
-}
+.btn--primary:not(:disabled):active { transform: scale(0.97); }
 
 .btn--primary:disabled {
-  background-color: var(--k9-color-surface);
-  color: var(--k9-color-text-disabled);
+  background-color: var(--k10-color-surface-raised);
+  color: var(--k10-color-text-muted);
+  box-shadow: none;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
-/* Secondary */
+/* ── Accent (teal — live / GPS) ── */
+.btn--accent {
+  background-color: var(--k10-color-accent);
+  color: var(--k10-color-accent-text);
+  box-shadow: 0 0 12px 0 rgba(62, 196, 207, 0.20);
+}
+
+.btn--accent:not(:disabled):hover {
+  box-shadow: 0 0 18px 0 rgba(62, 196, 207, 0.32),
+              inset 0 0 0 100px rgba(255, 255, 255, 0.08);
+}
+
+.btn--accent:not(:disabled):active { transform: scale(0.97); }
+
+.btn--accent:disabled {
+  background-color: var(--k10-color-surface-raised);
+  color: var(--k10-color-text-muted);
+  box-shadow: none;
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Secondary (outlined) ── */
 .btn--secondary {
   background-color: transparent;
-  color: var(--k9-color-primary);
-  border-color: var(--k9-color-border);
+  color: var(--k10-color-primary);
+  border: 1.5px solid var(--k10-color-primary);
 }
 
 .btn--secondary:not(:disabled):hover {
-  background-color: var(--k9-color-primary-hover);
-  border-color: var(--k9-color-primary);
+  background-color: var(--k10-color-primary-hover);
 }
 
 .btn--secondary:not(:disabled):active {
-  background-color: var(--k9-color-primary-pressed);
-  border-color: var(--k9-color-primary);
+  background-color: var(--k10-color-primary-pressed);
   transform: scale(0.97);
 }
 
 .btn--secondary:disabled {
-  border-color: var(--k9-color-border);
-  color: var(--k9-color-text-disabled);
+  background-color: var(--k10-color-surface-raised);
+  border-color: transparent;
+  color: var(--k10-color-text-muted);
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
-/* Ghost */
+/* ── Ghost ── */
 .btn--ghost {
   background-color: transparent;
-  color: var(--k9-color-text-secondary);
-  border-color: transparent;
+  color: var(--k10-color-text-secondary);
 }
 
 .btn--ghost:not(:disabled):hover {
-  background-color: var(--k9-color-surface-raised);
-  color: var(--k9-color-primary);
+  background-color: var(--k10-color-surface-raised);
+  color: var(--k10-color-text);
 }
 
 .btn--ghost:not(:disabled):active {
-  background-color: var(--k9-color-surface-elevated);
-  color: var(--k9-color-primary);
+  background-color: var(--k10-color-surface-elevated);
   transform: scale(0.97);
 }
 
 .btn--ghost:disabled {
-  color: var(--k9-color-text-disabled);
+  background-color: var(--k10-color-surface-raised);
+  color: var(--k10-color-text-muted);
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
-/* Danger */
+/* ── Danger ── */
 .btn--danger {
-  background-color: var(--k9-color-danger);
-  color: var(--k9-color-danger-text);
-  border-color: transparent;
+  background-color: var(--k10-color-danger);
+  color: var(--k10-color-danger-text);
 }
 
 .btn--danger:not(:disabled):hover {
   box-shadow: inset 0 0 0 100px rgba(255, 255, 255, 0.08);
 }
 
-.btn--danger:not(:disabled):active {
-  transform: scale(0.97);
-}
+.btn--danger:not(:disabled):active { transform: scale(0.97); }
 
 .btn--danger:disabled {
-  background-color: var(--k9-color-surface);
-  color: var(--k9-color-text-disabled);
+  background-color: var(--k10-color-surface-raised);
+  color: var(--k10-color-text-muted);
+  opacity: 0.45;
   cursor: not-allowed;
 }

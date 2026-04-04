@@ -3,7 +3,7 @@ import type { ButtonVariant, ButtonSize, ButtonType } from './button.types';
 import { BUTTON_VARIANTS, BUTTON_SIZES } from './button.types';
 
 @Component({
-  selector: 'k9-button',
+  selector: 'k10-button',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

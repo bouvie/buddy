@@ -4,7 +4,7 @@ import { METRIC_CARD_VARIANTS } from './metric-card.types';
 import { SkeletonComponent } from '../skeleton/skeleton.component';
 
 @Component({
-  selector: 'k9-metric-card',
+  selector: 'k10-metric-card',
   standalone: true,
   imports: [SkeletonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,

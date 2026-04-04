@@ -10,7 +10,7 @@ import type { ModalSize } from './modal.types';
 import { MODAL_SIZES } from './modal.types';
 
 @Component({
-  selector: 'k9-modal',
+  selector: 'k10-modal',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

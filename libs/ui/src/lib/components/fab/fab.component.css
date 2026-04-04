@@ -1,0 +1,115 @@
+:host {
+  display: inline-flex;
+}
+
+.fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--k10-radius-xl);    /* 16px — square with radius, NOT pill */
+  cursor: pointer;
+  font-family: var(--k10-font-family);
+  font-weight: var(--k10-font-weight-semibold);
+  transition: var(--k10-transition-fast);
+  flex-shrink: 0;
+  gap: var(--k10-space-sm);
+}
+
+.fab:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+.fab--sm {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--k10-radius-lg);    /* 12px */
+  font-size: 16px;
+}
+
+.fab--md {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--k10-radius-xl);    /* 16px — Figma spec */
+  font-size: 20px;
+}
+
+.fab--lg {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--k10-radius-2xl);   /* 20px — Figma spec */
+  font-size: 22px;
+}
+
+/* Extended FAB (with label) — full pill */
+.fab--extended {
+  width: auto;
+  padding: 0 var(--k10-space-xl);
+  border-radius: var(--k10-radius-full);
+}
+
+.fab--sm.fab--extended { height: 40px; font-size: 13px; }
+.fab--md.fab--extended { height: 48px; font-size: 14px; }
+.fab--lg.fab--extended { height: 56px; font-size: 16px; }
+
+/* ── Variants ─────────────────────────────────────────────────────────────── */
+.fab--primary {
+  background-color: var(--k10-color-primary);
+  color: var(--k10-color-primary-text);
+  box-shadow: var(--k10-shadow-md);
+}
+
+.fab--primary:not(:disabled):hover {
+  box-shadow: var(--k10-shadow-primary-glow), var(--k10-shadow-md);
+  transform: scale(1.04);
+}
+
+.fab--primary:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.fab--accent {
+  background-color: var(--k10-color-accent);
+  color: var(--k10-color-accent-text);
+  box-shadow: var(--k10-shadow-md);
+}
+
+.fab--accent:not(:disabled):hover {
+  box-shadow: 0 0 0 6px rgba(92, 158, 168, 0.20), var(--k10-shadow-md);
+  transform: scale(1.04);
+}
+
+.fab--accent:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.fab--secondary {
+  background-color: var(--k10-color-surface-raised);
+  color: var(--k10-color-text);
+  border: 1px solid var(--k10-color-border);
+  box-shadow: var(--k10-shadow-sm);
+}
+
+.fab--secondary:not(:disabled):hover {
+  background-color: var(--k10-color-surface-elevated);
+  transform: scale(1.04);
+}
+
+.fab--ghost {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--k10-color-text);
+  backdrop-filter: blur(8px);
+}
+
+.fab--ghost:not(:disabled):hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  transform: scale(1.04);
+}
+
+/* ── Label ────────────────────────────────────────────────────────────────── */
+.fab__label {
+  letter-spacing: 0.01em;
+}

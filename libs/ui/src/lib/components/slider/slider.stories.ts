@@ -1,5 +1,6 @@
 import { Meta, StoryObj, argsToTemplate } from '@storybook/angular';
 import { SliderComponent } from './slider.component';
+import { SLIDER_VARIANTS } from './slider.types';
 
 const meta: Meta<SliderComponent> = {
   title: 'Design System / Components / Slider',
@@ -7,17 +8,17 @@ const meta: Meta<SliderComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=30-2',
+    figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=10-2',
   },
   argTypes: {
-    label: { control: 'text' },
-    min: { control: 'number' },
-    max: { control: 'number' },
-    step: { control: 'number' },
-    value: { control: 'number' },
+    label:    { control: 'text' },
+    variant:  { control: 'select', options: SLIDER_VARIANTS },
+    min:      { control: 'number' },
+    max:      { control: 'number' },
+    step:     { control: 'number' },
     disabled: { control: 'boolean' },
   },
-  args: { label: 'Intensity', min: 0, max: 100, step: 1 },
+  args: { label: 'Intensity', variant: 'primary', min: 0, max: 100, step: 1 },
 };
 
 export default meta;
@@ -26,7 +27,7 @@ type Story = StoryObj<SliderComponent>;
 export const Default: Story = {
   render: (args) => ({
     props: args,
-    template: `<div style="max-width:360px;padding:24px;background:#0F1419"><k9-slider ${argsToTemplate(args)}></k9-slider></div>`,
+    template: `<div style="max-width:360px;padding:24px;background:#0C1219"><k10-slider ${argsToTemplate(args)}></k10-slider></div>`,
   }),
 };
 
@@ -34,10 +35,11 @@ export const AllVariants: Story = {
   render: () => ({
     imports: [SliderComponent],
     template: `
-      <div style="display:flex;flex-direction:column;gap:24px;max-width:360px;padding:24px;background:#0F1419">
-        <k9-slider label="Intensity" [value]="60"></k9-slider>
-        <k9-slider label="Recovery" [value]="30"></k9-slider>
-        <k9-slider label="Disabled" [value]="50" [disabled]="true"></k9-slider>
+      <div style="display:flex;flex-direction:column;gap:24px;max-width:360px;padding:24px;background:#0C1219">
+        <k10-slider label="Workout Intensity"  variant="primary" [value]="65"></k10-slider>
+        <k10-slider label="GPS Precision"      variant="accent"  [value]="80"></k10-slider>
+        <k10-slider label="Alert Threshold"    variant="warning" [value]="40"></k10-slider>
+        <k10-slider label="Recovery (disabled)"               [value]="50" [disabled]="true"></k10-slider>
       </div>
     `,
   }),

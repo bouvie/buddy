@@ -9,9 +9,11 @@ import {
   forwardRef,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import type { ToggleVariant } from './toggle.types';
+import { TOGGLE_VARIANTS } from './toggle.types';
 
 @Component({
-  selector: 'k9-toggle',
+  selector: 'k10-toggle',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,6 +31,12 @@ export class ToggleComponent implements ControlValueAccessor {
   /** Two-way bindable via [(checked)]="x" ou reactive form */
   readonly checked = model(false);
   readonly label   = input('');
+  readonly variant = input<ToggleVariant>('primary');
+
+  readonly safeVariant = computed<ToggleVariant>(() => {
+    const v = this.variant();
+    return TOGGLE_VARIANTS.includes(v) ? v : 'primary';
+  });
 
   /** disabled peut venir de l'input parent ou de setDisabledState (CVA) */
   readonly disabledInput = input(false, { alias: 'disabled' });

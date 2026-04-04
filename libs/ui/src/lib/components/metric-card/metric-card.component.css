@@ -4,13 +4,13 @@
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */
 .metric-card {
-  background-color: var(--k9-color-surface);
-  border: 1px solid var(--k9-color-border);
-  border-radius: var(--k9-radius-md);
-  padding: var(--k9-space-xl);
+  background-color: var(--k10-color-surface);
+  border: 1px solid var(--k10-color-border);
+  border-radius: var(--k10-radius-md);
+  padding: var(--k10-space-xl);
   display: flex;
   flex-direction: column;
-  gap: var(--k9-space-lg);
+  gap: var(--k10-space-lg);
 }
 
 /* ─── Active ─────────────────────────────────────────────────────────────── */
@@ -21,10 +21,10 @@
 }
 
 .metric-card__label {
-  font-size: var(--k9-font-size-label);
-  font-weight: var(--k9-font-weight-regular);
-  color: var(--k9-color-text-secondary);
-  letter-spacing: var(--k9-letter-spacing-label);
+  font-size: var(--k10-font-size-label);
+  font-weight: var(--k10-font-weight-regular);
+  color: var(--k10-color-text-secondary);
+  letter-spacing: var(--k10-letter-spacing-label);
   text-transform: uppercase;
 }
 
@@ -32,23 +32,23 @@
 .metric-card__trend {
   display: inline-flex;
   align-items: center;
-  gap: var(--k9-space-xs);
-  padding: 2px var(--k9-space-sm);
-  border-radius: var(--k9-radius-full);
-  font-size: var(--k9-font-size-caption);
-  font-weight: var(--k9-font-weight-bold);
-  letter-spacing: var(--k9-letter-spacing-caption);
-  transition: var(--k9-transition-fast);
+  gap: var(--k10-space-xs);
+  padding: 2px var(--k10-space-sm);
+  border-radius: var(--k10-radius-full);
+  font-size: var(--k10-font-size-caption);
+  font-weight: var(--k10-font-weight-bold);
+  letter-spacing: var(--k10-letter-spacing-caption);
+  transition: var(--k10-transition-fast);
 }
 
 .metric-card__trend--up {
-  background-color: var(--k9-color-primary-subtle);
-  color: var(--k9-color-primary);
+  background-color: var(--k10-color-primary-subtle);
+  color: var(--k10-color-primary);
 }
 
 .metric-card__trend--down {
-  background-color: var(--k9-color-danger-subtle);
-  color: var(--k9-color-danger);
+  background-color: var(--k10-color-danger-subtle);
+  color: var(--k10-color-danger);
 }
 
 .metric-card__trend-icon {
@@ -59,37 +59,37 @@
 .metric-card__value-row {
   display: flex;
   align-items: baseline;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-sm);
 }
 
 .metric-card__value {
-  font-size: 36px;
-  line-height: 40px;
-  font-weight: var(--k9-font-weight-extrabold);
-  color: var(--k9-color-text);
+  font-size: var(--k10-font-size-data-lg);
+  line-height: var(--k10-line-height-data-lg);
+  font-weight: var(--k10-font-weight-extrabold);
+  color: var(--k10-color-text);
   letter-spacing: -0.02em;
 }
 
 .metric-card__unit {
-  font-size: var(--k9-font-size-body);
-  font-weight: var(--k9-font-weight-medium);
-  color: var(--k9-color-text-secondary);
+  font-size: var(--k10-font-size-body);
+  font-weight: var(--k10-font-weight-medium);
+  color: var(--k10-color-text-secondary);
   text-transform: uppercase;
 }
 
 /* Progress bar */
 .metric-card__bar-track {
   height: 4px;
-  border-radius: var(--k9-radius-full);
-  background-color: var(--k9-color-surface-elevated);
+  border-radius: var(--k10-radius-full);
+  background-color: var(--k10-color-surface-elevated);
   overflow: hidden;
 }
 
 .metric-card__bar-fill {
   height: 100%;
-  border-radius: var(--k9-radius-full);
-  background-color: var(--k9-color-primary);
-  transition: width var(--k9-transition-slow);
+  border-radius: var(--k10-radius-full);
+  background-color: var(--k10-color-primary);
+  transition: width var(--k10-transition-slow);
 }
 
 /* ─── Loading ────────────────────────────────────────────────────────────── */
@@ -103,21 +103,21 @@
   display: block;
   width: 40px;
   height: 16px;
-  border-radius: var(--k9-radius-full);
+  border-radius: var(--k10-radius-full);
 }
 
 .metric-card__sk-value {
   display: block;
   width: 96px;
   height: 40px;
-  border-radius: var(--k9-radius-md);
+  border-radius: var(--k10-radius-md);
 }
 
 .metric-card__sk-bar {
   display: block;
   width: 100%;
   height: 4px;
-  border-radius: var(--k9-radius-full);
+  border-radius: var(--k10-radius-full);
 }
 
 /* ─── Empty ──────────────────────────────────────────────────────────────── */
@@ -125,17 +125,17 @@
   min-height: 96px;
   flex-direction: column;
   justify-content: center;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-sm);
 }
 
 .metric-card__empty-icon {
   font-size: 22px;
-  color: var(--k9-color-text-muted);
+  color: var(--k10-color-text-muted);
 }
 
 .metric-card__empty-label {
-  font-size: var(--k9-font-size-label);
-  font-weight: var(--k9-font-weight-medium);
-  color: var(--k9-color-text-muted);
-  letter-spacing: var(--k9-letter-spacing-label);
+  font-size: var(--k10-font-size-label);
+  font-weight: var(--k10-font-weight-medium);
+  color: var(--k10-color-text-muted);
+  letter-spacing: var(--k10-letter-spacing-label);
 }

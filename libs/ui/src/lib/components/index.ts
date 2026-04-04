@@ -86,3 +86,27 @@ export * from './bottom-nav/bottom-nav.component';
 export * from './side-nav/side-nav.component';
 
 export * from './app-shell/app-shell.component';
+
+export * from './tag/tag.component';
+export * from './tag/tag.types';
+
+export * from './fab/fab.component';
+export * from './fab/fab.types';
+
+export * from './search/search.component';
+export * from './search/search.types';
+
+export * from './segmented/segmented.component';
+export * from './segmented/segmented.types';
+
+export * from './live-indicator/live-indicator.component';
+export * from './live-indicator/live-indicator.types';
+
+export * from './notification-dot/notification-dot.component';
+export * from './notification-dot/notification-dot.types';
+
+export * from './stepper/stepper.component';
+export * from './stepper/stepper.types';
+
+export * from './stepper-control/stepper-control.component';
+export * from './stepper-control/stepper-control.types';

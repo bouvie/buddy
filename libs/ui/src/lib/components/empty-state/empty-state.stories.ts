@@ -6,7 +6,7 @@ const meta: Meta<EmptyStateComponent> = {
   title: 'Design System / Components / EmptyState',
   component: EmptyStateComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-59' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=27-59' },
   argTypes: {
     size: { control: 'select', options: EMPTY_STATE_SIZES },
     title: { control: 'text' },
@@ -27,7 +27,7 @@ type Story = StoryObj<EmptyStateComponent>;
 export const Default: Story = {
   render: (args) => ({
     props: args,
-    template: `<k9-empty-state ${argsToTemplate(args)}></k9-empty-state>`,
+    template: `<k10-empty-state ${argsToTemplate(args)}></k10-empty-state>`,
   }),
 };
 
@@ -35,15 +35,15 @@ export const AllSizes: Story = {
   render: () => ({
     imports: [EmptyStateComponent],
     template: `
-      <div style="display:flex;flex-direction:column;gap:32px;background:var(--k9-color-bg)">
-        <div style="border:1px solid var(--k9-color-border);border-radius:16px">
-          <k9-empty-state size="sm" title="Small" description="Vue compacte."></k9-empty-state>
+      <div style="display:flex;flex-direction:column;gap:32px;background:var(--k10-color-bg)">
+        <div style="border:1px solid var(--k10-color-border);border-radius:16px">
+          <k10-empty-state size="sm" title="Small" description="Vue compacte."></k10-empty-state>
         </div>
-        <div style="border:1px solid var(--k9-color-border);border-radius:16px">
-          <k9-empty-state size="md" title="Medium" description="Vue standard." actionLabel="Ajouter"></k9-empty-state>
+        <div style="border:1px solid var(--k10-color-border);border-radius:16px">
+          <k10-empty-state size="md" title="Medium" description="Vue standard." actionLabel="Ajouter"></k10-empty-state>
         </div>
-        <div style="border:1px solid var(--k9-color-border);border-radius:16px">
-          <k9-empty-state size="lg" title="Large" description="Vue ample pour page dédiée." actionLabel="Commencer"></k9-empty-state>
+        <div style="border:1px solid var(--k10-color-border);border-radius:16px">
+          <k10-empty-state size="lg" title="Large" description="Vue ample pour page dédiée." actionLabel="Commencer"></k10-empty-state>
         </div>
       </div>
     `,

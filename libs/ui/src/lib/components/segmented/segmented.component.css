@@ -1,0 +1,92 @@
+:host {
+  display: inline-flex;
+}
+
+.segmented {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--k10-color-surface);
+  border: 1px solid var(--k10-color-border);
+  border-radius: var(--k10-radius-xl);
+  padding: 3px;
+  gap: 2px;
+}
+
+.segmented--disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+.segmented--sm { padding: 2px; border-radius: var(--k10-radius-lg); }
+.segmented--md { padding: 3px; border-radius: var(--k10-radius-xl); }
+
+/* ── Items ────────────────────────────────────────────────────────────────── */
+.segmented__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--k10-space-xs);
+  border: none;
+  background: transparent;
+  font-family: var(--k10-font-family);
+  font-weight: var(--k10-font-weight-medium);
+  color: var(--k10-color-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: calc(var(--k10-radius-xl) - 2px);
+  transition: var(--k10-transition-fast);
+}
+
+.segmented--sm .segmented__item {
+  height: 28px;
+  padding: 0 var(--k10-space-md);
+  font-size: var(--k10-font-size-caption);
+  border-radius: calc(var(--k10-radius-lg) - 1px);
+}
+
+.segmented--md .segmented__item {
+  height: 36px;
+  padding: 0 var(--k10-space-lg);
+  font-size: var(--k10-font-size-body);
+}
+
+.segmented__item:hover:not(.segmented__item--active):not(.segmented__item--disabled) {
+  color: var(--k10-color-text);
+  background-color: var(--k10-color-surface-raised);
+}
+
+.segmented__item--active {
+  background-color: var(--k10-color-input-bg, #162233);
+  font-weight: var(--k10-font-weight-semibold);
+  box-shadow: var(--k10-shadow-sm);
+  animation: seg-active-in var(--k10-duration-normal) var(--k10-easing-emphasis);
+}
+
+/* Color role — default (primary) */
+.segmented--color-primary .segmented__item--active {
+  color: var(--k10-color-primary);
+  border: 1px solid rgba(196, 217, 194, 0.25);
+}
+
+/* Color role — accent */
+.segmented--color-accent .segmented__item--active {
+  color: var(--k10-color-accent);
+  border: 1px solid rgba(92, 158, 168, 0.25);
+}
+
+/* Color role — secondary */
+.segmented--color-secondary .segmented__item--active {
+  color: var(--k10-color-secondary);
+  border: 1px solid rgba(244, 168, 106, 0.25);
+}
+
+@keyframes seg-active-in {
+  from { transform: scale(0.96); opacity: 0.8; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.segmented__item--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

@@ -1,4 +1,9 @@
-<div class="slider-wrapper" [class.slider-wrapper--disabled]="disabled()">
+<div
+  class="slider-wrapper"
+  [class.slider-wrapper--disabled]="disabled()"
+  [class.slider-wrapper--accent]="safeVariant() === 'accent'"
+  [class.slider-wrapper--warning]="safeVariant() === 'warning'"
+>
   @if (label()) {
     <div class="slider-header">
       <span class="slider-label">{{ label() }}</span>

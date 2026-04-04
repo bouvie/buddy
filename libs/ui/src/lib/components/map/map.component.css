@@ -12,8 +12,8 @@
 .map-skeleton {
   width: 100%;
   height: 100%;
-  background: var(--k9-color-surface);
-  animation: skeleton-pulse 1.5s var(--k9-easing-standard) infinite;
+  background: var(--k10-color-surface);
+  animation: skeleton-pulse 1.5s var(--k10-easing-standard) infinite;
 }
 
 @keyframes skeleton-pulse {
@@ -22,48 +22,48 @@
 }
 
 .info-window {
-  font-family: var(--k9-font-family);
-  padding: var(--k9-space-sm) var(--k9-space-md);
-  padding-right: var(--k9-space-xl);
+  font-family: var(--k10-font-family);
+  padding: var(--k10-space-sm) var(--k10-space-md);
+  padding-right: var(--k10-space-xl);
   min-width: 160px;
   position: relative;
 }
 
 .info-window__close {
   position: absolute;
-  top: var(--k9-space-sm);
-  right: var(--k9-space-sm);
+  top: var(--k10-space-sm);
+  right: var(--k10-space-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
   border: none;
-  border-radius: var(--k9-radius-sm);
+  border-radius: var(--k10-radius-sm);
   background: transparent;
-  color: var(--k9-color-text-muted);
+  color: var(--k10-color-text-muted);
   cursor: pointer;
-  transition: background var(--k9-duration-fast) var(--k9-easing-standard),
-              color var(--k9-duration-fast) var(--k9-easing-standard);
+  transition: background var(--k10-duration-fast) var(--k10-easing-standard),
+              color var(--k10-duration-fast) var(--k10-easing-standard);
 }
 
 .info-window__close:hover {
-  background: var(--k9-color-surface-raised);
-  color: var(--k9-color-text);
+  background: var(--k10-color-surface-raised);
+  color: var(--k10-color-text);
 }
 
 .info-window__title {
   display: block;
-  font-size: var(--k9-font-size-body);
-  font-weight: var(--k9-font-weight-bold);
-  line-height: var(--k9-line-height-body);
-  color: var(--k9-color-text);
-  margin-bottom: var(--k9-space-xs);
+  font-size: var(--k10-font-size-body);
+  font-weight: var(--k10-font-weight-bold);
+  line-height: var(--k10-line-height-body);
+  color: var(--k10-color-text);
+  margin-bottom: var(--k10-space-xs);
 }
 
 .info-window__content {
   margin: 0;
-  font-size: var(--k9-font-size-label);
-  line-height: var(--k9-line-height-label);
-  color: var(--k9-color-text-secondary);
+  font-size: var(--k10-font-size-label);
+  line-height: var(--k10-line-height-label);
+  color: var(--k10-color-text-secondary);
 }

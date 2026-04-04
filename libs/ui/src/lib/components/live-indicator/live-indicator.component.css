@@ -1,0 +1,97 @@
+:host {
+  display: inline-flex;
+}
+
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--k10-space-xs);
+  border-radius: var(--k10-radius-full);
+  font-family: var(--k10-font-family);
+  font-weight: var(--k10-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+.live-indicator--sm {
+  height: 20px;
+  padding: 0 var(--k10-space-sm);
+  font-size: 9px;
+}
+
+.live-indicator--md {
+  height: 24px;
+  padding: 0 var(--k10-space-md);
+  font-size: 10px;
+}
+
+.live-indicator--lg {
+  height: 28px;
+  padding: 0 var(--k10-space-md);
+  font-size: 11px;
+}
+
+/* ── Mode: pill (default) — bg + border ──────────────────────────────────── */
+.live-indicator--pill.live-indicator--accent {
+  background-color: rgba(92, 158, 168, 0.15);
+  color: var(--k10-color-accent);
+  border: 1px solid rgba(92, 158, 168, 0.30);
+}
+
+.live-indicator--pill.live-indicator--danger {
+  background-color: var(--k10-color-danger-subtle);
+  color: var(--k10-color-danger);
+  border: 1px solid rgba(191, 104, 104, 0.30);
+}
+
+.live-indicator--pill.live-indicator--success {
+  background-color: var(--k10-color-success-subtle);
+  color: var(--k10-color-success);
+  border: 1px solid rgba(114, 201, 138, 0.30);
+}
+
+.live-indicator--pill.live-indicator--warning {
+  background-color: var(--k10-color-warning-subtle);
+  color: var(--k10-color-warning);
+  border: 1px solid rgba(240, 192, 96, 0.30);
+}
+
+/* ── Mode: inline — transparent bg, text color only ─────────────────────── */
+.live-indicator--inline {
+  background: transparent;
+  border: none;
+  padding: 0;
+  height: auto;
+}
+
+.live-indicator--inline.live-indicator--accent  { color: var(--k10-color-accent); }
+.live-indicator--inline.live-indicator--danger   { color: var(--k10-color-danger); }
+.live-indicator--inline.live-indicator--success  { color: var(--k10-color-success); }
+.live-indicator--inline.live-indicator--warning  { color: var(--k10-color-warning); }
+
+/* ── Dot ──────────────────────────────────────────────────────────────────── */
+.live-indicator__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}
+
+.live-indicator--sm .live-indicator__dot { width: 5px; height: 5px; }
+.live-indicator--lg .live-indicator__dot { width: 7px; height: 7px; }
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+.live-indicator__dot--pulse {
+  animation: live-pulse 1.4s var(--k10-easing-standard) infinite;
+}
+
+/* ── Label ────────────────────────────────────────────────────────────────── */
+.live-indicator__label {
+  line-height: 1;
+}

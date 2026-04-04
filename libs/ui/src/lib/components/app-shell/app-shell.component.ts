@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ElementRef, OnDestroy, afterNextRender, input, signal, viewChild } from '@angular/core';
 
 @Component({
-  selector: 'k9-app-shell',
+  selector: 'k10-app-shell',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

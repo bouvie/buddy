@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 
 @Component({
-  selector: 'k9-form-field',
+  selector: 'k10-form-field',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

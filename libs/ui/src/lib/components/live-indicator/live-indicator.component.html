@@ -1,0 +1,23 @@
+<span
+  class="live-indicator"
+  [class.live-indicator--pill]="safeMode() === 'pill'"
+  [class.live-indicator--inline]="safeMode() === 'inline'"
+  [class.live-indicator--sm]="safeSize() === 'sm'"
+  [class.live-indicator--md]="safeSize() === 'md'"
+  [class.live-indicator--lg]="safeSize() === 'lg'"
+  [class.live-indicator--accent]="safeVariant() === 'accent'"
+  [class.live-indicator--danger]="safeVariant() === 'danger'"
+  [class.live-indicator--success]="safeVariant() === 'success'"
+  [class.live-indicator--warning]="safeVariant() === 'warning'"
+  aria-label="Live status indicator"
+  role="status"
+>
+  <span
+    class="live-indicator__dot"
+    [class.live-indicator__dot--pulse]="pulse()"
+    aria-hidden="true"
+  ></span>
+  @if (label()) {
+    <span class="live-indicator__label">{{ label() }}</span>
+  }
+</span>

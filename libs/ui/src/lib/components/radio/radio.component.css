@@ -9,7 +9,7 @@
 .radio-label {
   display: inline-flex;
   align-items: center;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-sm);
   cursor: pointer;
   user-select: none;
 }
@@ -40,45 +40,46 @@
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  border-radius: var(--k9-radius-full);
-  border: 1.5px solid var(--k9-color-border);
-  background-color: transparent;
-  transition: var(--k9-transition-fast);
+  border-radius: var(--k10-radius-full);
+  border: 1.5px solid var(--k10-color-input-border, #1E2D42);
+  background-color: var(--k10-color-input-bg, #162233);
+  transition: var(--k10-transition-fast);
 }
 
 /* Inner fill dot */
 .radio-dot__inner {
   width: 8px;
   height: 8px;
-  border-radius: var(--k9-radius-full);
-  background-color: var(--k9-color-primary-text);
+  border-radius: var(--k10-radius-full);
+  background-color: var(--k10-color-primary-text);
   transform: scale(0);
-  transition: transform var(--k9-duration-fast) var(--k9-easing-emphasis);
+  transition: transform var(--k10-duration-fast) var(--k10-easing-emphasis);
 }
 
 .radio-input:checked + .radio-dot {
-  border-color: var(--k9-color-primary);
-  background-color: var(--k9-color-primary);
+  border: 2px solid var(--k10-color-primary);
+  background-color: var(--k10-color-input-bg, #162233);
 }
 
 .radio-input:checked + .radio-dot .radio-dot__inner {
   transform: scale(1);
+  background-color: var(--k10-color-primary);
 }
 
 .radio-input:focus-visible + .radio-dot {
-  box-shadow: var(--k9-shadow-focus);
-  border-color: var(--k9-color-primary);
+  box-shadow: var(--k10-shadow-focus);
+  border-color: var(--k10-color-primary);
 }
 
 .radio-label:not(.radio-label--disabled):hover .radio-dot {
-  border-color: var(--k9-color-primary);
-  background-color: var(--k9-color-primary-hover);
+  border-color: var(--k10-color-primary);
+  background-color: var(--k10-color-primary-subtle);
 }
 
 /* Label text */
 .radio-text {
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-body);
-  color: var(--k9-color-text);
-  line-height: var(--k9-line-height-body);
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-body);
+  color: var(--k10-color-text);
+  line-height: var(--k10-line-height-body);
 }

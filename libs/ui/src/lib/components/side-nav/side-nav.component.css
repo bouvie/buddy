@@ -1,20 +1,20 @@
 :host {
   display: flex;
   flex-direction: column;
-  width: var(--k9-sidenav-width);
+  width: var(--k10-sidenav-width);
   height: 100%;
-  background: var(--k9-color-surface);
-  border-right: 1px solid var(--k9-color-border);
+  background: var(--k10-color-surface);
+  border-right: 1px solid var(--k10-color-border);
   overflow-y: auto;
   overflow-x: hidden;
   flex-shrink: 0;
 }
 
 .side-nav__header {
-  padding: var(--k9-space-lg);
-  border-bottom: 1px solid var(--k9-color-border);
+  padding: var(--k10-space-lg);
+  border-bottom: 1px solid var(--k10-color-border);
   flex-shrink: 0;
-  min-height: var(--k9-topbar-height);
+  min-height: var(--k10-topbar-height);
   display: flex;
   align-items: center;
 }
@@ -22,14 +22,14 @@
 .side-nav__items {
   display: flex;
   flex-direction: column;
-  padding: var(--k9-space-sm);
-  gap: var(--k9-space-xs);
+  padding: var(--k10-space-sm);
+  gap: var(--k10-space-xs);
   flex: 1;
 }
 
 .side-nav__footer {
-  padding: var(--k9-space-lg);
-  border-top: 1px solid var(--k9-color-border);
+  padding: var(--k10-space-lg);
+  border-top: 1px solid var(--k10-color-border);
   flex-shrink: 0;
 }
 

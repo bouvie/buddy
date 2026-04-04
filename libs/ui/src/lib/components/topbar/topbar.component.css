@@ -1,27 +1,27 @@
 :host {
   display: block;
   width: 100%;
-  background: var(--k9-topbar-bg, var(--k9-color-surface));
-  border-bottom: 1px solid var(--k9-topbar-border, var(--k9-color-border));
+  background: var(--k10-topbar-bg, var(--k10-color-surface));
+  border-bottom: 1px solid var(--k10-topbar-border, var(--k10-color-border));
   /* Le background s'étend dans la safe area (status bar Capacitor) */
   padding-top: env(safe-area-inset-top);
-  transition: background var(--k9-transition-slow), border-color var(--k9-transition-slow);
+  transition: background var(--k10-transition-slow), border-color var(--k10-transition-slow);
 }
 
 .topbar__content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--k9-topbar-height);
-  padding: 0 var(--k9-space-lg);
-  gap: var(--k9-space-sm);
+  height: var(--k10-topbar-height);
+  padding: 0 var(--k10-space-lg);
+  gap: var(--k10-space-sm);
 }
 
 .topbar__start,
 .topbar__end {
   display: flex;
   align-items: center;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-sm);
   flex-shrink: 0;
   min-width: 40px;
 }

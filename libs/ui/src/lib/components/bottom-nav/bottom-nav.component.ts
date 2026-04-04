@@ -3,7 +3,7 @@ import { NavItemComponent } from '../nav-item/nav-item.component';
 import type { NavItemConfig } from '../nav-item/nav-item.types';
 
 @Component({
-  selector: 'k9-bottom-nav',
+  selector: 'k10-bottom-nav',
   standalone: true,
   imports: [NavItemComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,

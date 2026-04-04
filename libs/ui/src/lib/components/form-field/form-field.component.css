@@ -5,32 +5,32 @@
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-sm);
   width: 100%;
 }
 
 .form-field__label {
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-caption);
-  font-weight: var(--k9-font-weight-bold);
-  letter-spacing: var(--k9-letter-spacing-caption);
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-caption);
+  font-weight: var(--k10-font-weight-bold);
+  letter-spacing: var(--k10-letter-spacing-caption);
   text-transform: uppercase;
-  color: var(--k9-color-text-muted);
+  color: var(--k10-color-text-muted);
 }
 
 .form-field__label--required::after {
   content: " *";
-  color: var(--k9-color-danger);
+  color: var(--k10-color-danger);
 }
 
 .form-field__error {
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-caption);
-  color: var(--k9-color-danger);
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-caption);
+  color: var(--k10-color-danger);
 }
 
 .form-field__help {
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-caption);
-  color: var(--k9-color-text-muted);
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-caption);
+  color: var(--k10-color-text-muted);
 }

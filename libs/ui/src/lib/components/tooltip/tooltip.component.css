@@ -12,19 +12,19 @@
   position: absolute;
   z-index: 40;
   white-space: nowrap;
-  padding: var(--k9-space-xs) var(--k9-space-sm);
-  background-color: var(--k9-color-surface-elevated);
-  color: var(--k9-color-text);
-  border: 1px solid var(--k9-color-border);
-  border-radius: var(--k9-radius-md);
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-caption);
-  line-height: var(--k9-line-height-caption);
-  box-shadow: var(--k9-shadow-md);
+  padding: var(--k10-space-xs) var(--k10-space-sm);
+  background-color: var(--k10-color-surface-elevated);
+  color: var(--k10-color-text);
+  border: 1px solid var(--k10-color-border);
+  border-radius: var(--k10-radius-md);
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-caption);
+  line-height: var(--k10-line-height-caption);
+  box-shadow: var(--k10-shadow-md);
   pointer-events: none;
   opacity: 0;
-  transition: opacity var(--k9-duration-fast) var(--k9-easing-standard),
-              transform var(--k9-duration-fast) var(--k9-easing-standard);
+  transition: opacity var(--k10-duration-fast) var(--k10-easing-standard),
+              transform var(--k10-duration-fast) var(--k10-easing-standard);
 }
 
 .tooltip-host:hover .tooltip,
@@ -34,7 +34,7 @@
 
 /* Positions */
 .tooltip--top {
-  bottom: calc(100% + var(--k9-space-xs));
+  bottom: calc(100% + var(--k10-space-xs));
   left: 50%;
   transform: translateX(-50%) translateY(4px);
 }
@@ -45,7 +45,7 @@
 }
 
 .tooltip--bottom {
-  top: calc(100% + var(--k9-space-xs));
+  top: calc(100% + var(--k10-space-xs));
   left: 50%;
   transform: translateX(-50%) translateY(-4px);
 }
@@ -56,7 +56,7 @@
 }
 
 .tooltip--left {
-  right: calc(100% + var(--k9-space-xs));
+  right: calc(100% + var(--k10-space-xs));
   top: 50%;
   transform: translateY(-50%) translateX(4px);
 }
@@ -67,7 +67,7 @@
 }
 
 .tooltip--right {
-  left: calc(100% + var(--k9-space-xs));
+  left: calc(100% + var(--k10-space-xs));
   top: 50%;
   transform: translateY(-50%) translateX(-4px);
 }

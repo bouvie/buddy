@@ -3,7 +3,7 @@ import { NavItemComponent } from '../nav-item/nav-item.component';
 import type { NavItemConfig } from '../nav-item/nav-item.types';
 
 @Component({
-  selector: 'k9-side-nav',
+  selector: 'k10-side-nav',
   standalone: true,
   imports: [NavItemComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,

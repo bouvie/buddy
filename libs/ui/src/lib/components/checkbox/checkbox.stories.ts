@@ -5,7 +5,7 @@ const meta: Meta<CheckboxComponent> = {
   title: 'Design System / Components / Checkbox',
   component: CheckboxComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-31' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=9-52' },
   argTypes: {
     id: { control: 'text', description: 'Unique identifier for accessibility' },
     label: { control: 'text', description: 'Checkbox label text' },
@@ -31,11 +31,11 @@ export const AllStates: Story = {
     imports: [CheckboxComponent],
     template: `
       <div class="space-y-2">
-        <k9-checkbox id="cb1" label="Unchecked" [checked]="false" />
-        <k9-checkbox id="cb2" label="Checked" [checked]="true" />
-        <k9-checkbox id="cb3" label="Indeterminate" [indeterminate]="true" />
-        <k9-checkbox id="cb4" label="Disabled unchecked" [checked]="false" [disabled]="true" />
-        <k9-checkbox id="cb5" label="Disabled checked" [checked]="true" [disabled]="true" />
+        <k10-checkbox id="cb1" label="Unchecked" [checked]="false" />
+        <k10-checkbox id="cb2" label="Checked" [checked]="true" />
+        <k10-checkbox id="cb3" label="Indeterminate" [indeterminate]="true" />
+        <k10-checkbox id="cb4" label="Disabled unchecked" [checked]="false" [disabled]="true" />
+        <k10-checkbox id="cb5" label="Disabled checked" [checked]="true" [disabled]="true" />
       </div>
     `,
   }),

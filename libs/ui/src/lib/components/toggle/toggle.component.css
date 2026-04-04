@@ -5,62 +5,71 @@
 .toggle-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: var(--k9-space-md);
+  gap: 12px;
 }
 
+/* ── Track ────────────────────────────────────────────────────────────────── */
 .toggle-btn {
   position: relative;
   width: 52px;
   height: 28px;
   border: none;
-  border-radius: var(--k9-radius-full);
+  border-radius: var(--k10-radius-full);
   cursor: pointer;
-  transition: background-color var(--k9-duration-normal) var(--k9-easing-standard);
-  background-color: var(--k9-color-surface-elevated);
+  transition: background-color var(--k10-duration-normal) var(--k10-easing-standard);
+  background-color: var(--k10-color-input-bg, #162233);
   flex-shrink: 0;
 }
 
 .toggle-btn--active {
-  background-color: var(--k9-color-primary);
-  box-shadow: var(--k9-shadow-primary-glow);
+  background-color: var(--k10-color-primary);
+  box-shadow: var(--k10-shadow-primary-glow);
+}
+
+.toggle-btn--active-accent {
+  background-color: var(--k10-color-accent);
+  box-shadow: 0 0 0 4px var(--k10-color-accent-focus);
 }
 
 .toggle-btn:focus-visible {
-  box-shadow: var(--k9-shadow-focus);
+  box-shadow: var(--k10-shadow-focus);
   outline: none;
 }
 
 .toggle-btn:disabled {
-  opacity: 0.4;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
+/* ── Thumb ────────────────────────────────────────────────────────────────── */
 .toggle-slider {
   position: absolute;
   top: 4px;
   left: 4px;
   width: 20px;
   height: 20px;
-  background-color: var(--k9-color-text);
+  background-color: #ffffff;
   border-radius: 50%;
-  transition: left var(--k9-duration-normal) var(--k9-easing-emphasis),
-              background-color var(--k9-duration-normal) var(--k9-easing-standard);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.30);
+  transition: left var(--k10-duration-normal) var(--k10-easing-emphasis);
 }
 
-.toggle-btn--active .toggle-slider {
-  left: calc(100% - 24px);
-  background-color: var(--k9-color-primary-text);
+.toggle-btn--active .toggle-slider,
+.toggle-btn--active-accent .toggle-slider {
+  left: 28px;
 }
 
+/* ── Label ────────────────────────────────────────────────────────────────── */
 .toggle-label {
-  font-family: var(--k9-font-family);
-  font-size: var(--k9-font-size-body);
-  color: var(--k9-color-text);
+  font-family: var(--k10-font-family);
+  font-size: var(--k10-font-size-body);
+  font-weight: var(--k10-font-weight-medium);
+  color: var(--k10-color-text);
   cursor: pointer;
   user-select: none;
 }
 
 .toggle-label--disabled {
-  opacity: 0.4;
+  opacity: 0.45;
   cursor: not-allowed;
 }

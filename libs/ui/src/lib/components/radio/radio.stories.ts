@@ -5,7 +5,7 @@ const meta: Meta<RadioComponent> = {
   title: 'Design System / Components / Radio',
   component: RadioComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-34' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=9-73' },
   argTypes: {
     name: { control: 'text', description: 'Radio group name' },
     value: { control: 'text', description: 'Radio button value' },
@@ -31,10 +31,10 @@ export const RadioGroup: Story = {
     imports: [RadioComponent],
     template: `
       <div class="space-y-3">
-        <k9-radio name="options" value="1" label="Option 1" [checked]="true" />
-        <k9-radio name="options" value="2" label="Option 2" />
-        <k9-radio name="options" value="3" label="Option 3" />
-        <k9-radio name="options" value="4" label="Option 4 (disabled)" [disabled]="true" />
+        <k10-radio name="options" value="1" label="Option 1" [checked]="true" />
+        <k10-radio name="options" value="2" label="Option 2" />
+        <k10-radio name="options" value="3" label="Option 3" />
+        <k10-radio name="options" value="4" label="Option 4 (disabled)" [disabled]="true" />
       </div>
     `,
   }),

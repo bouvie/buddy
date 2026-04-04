@@ -15,11 +15,12 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'k9-dark',
+      default: 'k10-bg',
       values: [
-        { name: 'k9-dark', value: '#060E20' },
-        { name: 'k9-surface', value: '#192540' },
-        { name: 'white', value: '#ffffff' },
+        { name: 'k10-bg',      value: '#0C1219' },
+        { name: 'k10-surface', value: '#121D2A' },
+        { name: 'k10-raised',  value: '#192538' },
+        { name: 'white',       value: '#ffffff' },
       ],
     },
   },

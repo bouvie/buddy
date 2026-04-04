@@ -7,7 +7,7 @@ const meta: Meta<ModalComponent> = {
   title: 'Design System / Components / Modal',
   component: ModalComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-22' },
+  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=29-22' },
   argTypes: {
     size: { control: 'select', options: MODAL_SIZES },
     isOpen: { control: 'boolean' },
@@ -29,12 +29,12 @@ export const Default: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <k9-modal ${argsToTemplate(args)}>
-        <p style="color:var(--k9-color-text-secondary);margin:0">
+      <k10-modal ${argsToTemplate(args)}>
+        <p style="color:var(--k10-color-text-secondary);margin:0">
           Contenu de la modale. Utilisez <code>ng-content</code> pour injecter du contenu arbitraire,
           et <code>[modal-footer]</code> pour la zone actions.
         </p>
-      </k9-modal>
+      </k10-modal>
     `,
   }),
 };
@@ -43,15 +43,15 @@ export const WithFooter: Story = {
   render: () => ({
     imports: [ModalComponent, ButtonComponent],
     template: `
-      <k9-modal [isOpen]="true" title="Confirmer la suppression" size="sm">
-        <p style="color:var(--k9-color-text-secondary);margin:0">
+      <k10-modal [isOpen]="true" title="Confirmer la suppression" size="sm">
+        <p style="color:var(--k10-color-text-secondary);margin:0">
           Cette action est irréversible. Voulez-vous continuer ?
         </p>
         <div modal-footer style="display:flex;justify-content:flex-end;gap:12px;padding:0 24px 24px">
-          <k9-button variant="ghost">Annuler</k9-button>
-          <k9-button variant="danger">Supprimer</k9-button>
+          <k10-button variant="ghost">Annuler</k10-button>
+          <k10-button variant="danger">Supprimer</k10-button>
         </div>
-      </k9-modal>
+      </k10-modal>
     `,
   }),
 };
@@ -60,16 +60,16 @@ export const AllSizes: Story = {
   render: () => ({
     imports: [ModalComponent],
     template: `
-      <div style="display:flex;flex-direction:column;gap:32px;padding:32px;background:var(--k9-color-bg)">
-        <k9-modal [isOpen]="true" title="Small — 400px" size="sm" [dismissible]="false">
-          <p style="color:var(--k9-color-text-secondary);margin:0">Contenu SM.</p>
-        </k9-modal>
-        <k9-modal [isOpen]="true" title="Medium — 560px" size="md" [dismissible]="false">
-          <p style="color:var(--k9-color-text-secondary);margin:0">Contenu MD.</p>
-        </k9-modal>
-        <k9-modal [isOpen]="true" title="Large — 760px" size="lg" [dismissible]="false">
-          <p style="color:var(--k9-color-text-secondary);margin:0">Contenu LG.</p>
-        </k9-modal>
+      <div style="display:flex;flex-direction:column;gap:32px;padding:32px;background:var(--k10-color-bg)">
+        <k10-modal [isOpen]="true" title="Small — 400px" size="sm" [dismissible]="false">
+          <p style="color:var(--k10-color-text-secondary);margin:0">Contenu SM.</p>
+        </k10-modal>
+        <k10-modal [isOpen]="true" title="Medium — 560px" size="md" [dismissible]="false">
+          <p style="color:var(--k10-color-text-secondary);margin:0">Contenu MD.</p>
+        </k10-modal>
+        <k10-modal [isOpen]="true" title="Large — 760px" size="lg" [dismissible]="false">
+          <p style="color:var(--k10-color-text-secondary);margin:0">Contenu LG.</p>
+        </k10-modal>
       </div>
     `,
   }),

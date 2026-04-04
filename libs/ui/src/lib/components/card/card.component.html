@@ -1,10 +1,11 @@
 <div
   class="card"
-  [class.card--no-border]="!border()"
-  [class.card--elevation-none]="elevation() === 'none'"
-  [class.card--elevation-sm]="elevation() === 'sm'"
-  [class.card--elevation-md]="elevation() === 'md'"
-  [class.card--elevation-lg]="elevation() === 'lg'"
+  [class.card--default]="safeVariant() === 'default'"
+  [class.card--elevated]="safeVariant() === 'elevated'"
+  [class.card--outlined]="safeVariant() === 'outlined'"
+  [class.card--primary]="safeVariant() === 'primary'"
+  [class.card--accent]="safeVariant() === 'accent'"
+  [class.card--glass]="safeVariant() === 'glass'"
   [class.card--padding-none]="padding() === 'none'"
   [class.card--padding-sm]="padding() === 'sm'"
   [class.card--padding-md]="padding() === 'md'"
@@ -12,6 +13,9 @@
   [class.card--interactive]="interactive()"
   [class.card--live]="isLive()"
 >
+  @if (safeVariant() === 'primary' || safeVariant() === 'accent') {
+    <div class="card__tint-bar"></div>
+  }
   @if (title()) {
     <div class="card__header">
       <h3>{{ title() }}</h3>

@@ -22,7 +22,7 @@ const meta: Meta<SideNavComponent> = {
   decorators: [
     applicationConfig({ providers: [provideRouter([])] }),
   ],
-  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-53' },
+  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=29-53' },
 };
 
 export default meta;
@@ -33,9 +33,9 @@ export const Default: Story = {
     props: { items: NAV_ITEMS },
     template: `
       <div style="display:flex;height:100vh;background:#0F1419">
-        <k9-side-nav [items]="items">
-          <span slot="header" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">K9 Pro</span>
-        </k9-side-nav>
+        <k10-side-nav [items]="items">
+          <span slot="header" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">Buddy</span>
+        </k10-side-nav>
         <div style="flex:1;padding:24px;color:#DEE3E9;font-family:Manrope,sans-serif">Contenu principal</div>
       </div>
     `,
@@ -47,8 +47,8 @@ export const WithFooter: Story = {
     props: { items: NAV_ITEMS },
     template: `
       <div style="display:flex;height:100vh;background:#0F1419">
-        <k9-side-nav [items]="items">
-          <span slot="header" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">K9 Pro</span>
+        <k10-side-nav [items]="items">
+          <span slot="header" style="color:#DEE3E9;font-family:Manrope,sans-serif;font-weight:700;font-size:18px">Buddy</span>
           <div slot="footer" style="display:flex;align-items:center;gap:8px">
             <div style="width:32px;height:32px;border-radius:50%;background:#BACBB8"></div>
             <div>
@@ -56,7 +56,7 @@ export const WithFooter: Story = {
               <p style="margin:0;color:#8E928B;font-family:Manrope,sans-serif;font-size:12px">Admin</p>
             </div>
           </div>
-        </k9-side-nav>
+        </k10-side-nav>
         <div style="flex:1;padding:24px;color:#DEE3E9;font-family:Manrope,sans-serif">Contenu principal</div>
       </div>
     `,

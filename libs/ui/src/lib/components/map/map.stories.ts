@@ -17,8 +17,8 @@ const meta: Meta<MapComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    backgrounds: { default: 'k9-dark' },
-    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=1-6',
+    backgrounds: { default: 'k10-dark' },
+    figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=1-6',
   },
   decorators: [
     applicationConfig({

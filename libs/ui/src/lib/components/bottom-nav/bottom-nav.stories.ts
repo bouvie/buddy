@@ -22,7 +22,7 @@ const meta: Meta<BottomNavComponent> = {
   decorators: [
     applicationConfig({ providers: [provideRouter([])] }),
   ],
-  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=30-71' },
+  parameters: { layout: 'fullscreen', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=30-71' },
 };
 
 export default meta;
@@ -33,7 +33,7 @@ export const Default: Story = {
     props: { items: NAV_ITEMS },
     template: `
       <div style="position:fixed;bottom:0;left:0;right:0">
-        <k9-bottom-nav [items]="items" />
+        <k10-bottom-nav [items]="items" />
       </div>
     `,
   }),
@@ -44,7 +44,7 @@ export const ThreeItems: Story = {
     props: { items: NAV_ITEMS.slice(0, 3) },
     template: `
       <div style="position:fixed;bottom:0;left:0;right:0">
-        <k9-bottom-nav [items]="items" />
+        <k10-bottom-nav [items]="items" />
       </div>
     `,
   }),

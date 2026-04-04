@@ -7,7 +7,7 @@ import { MapComponent } from '@buddy/ui';
 import { DogService } from '@buddy/data-access';
 
 @Directive({
-  selector: 'k9-map[appMapLocation]',
+  selector: 'k10-map[appMapLocation]',
   standalone: true,
 })
 export class MapLocationDirective implements OnInit {

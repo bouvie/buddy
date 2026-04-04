@@ -1,0 +1,65 @@
+:host {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.notification-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--k10-radius-full);
+  font-family: var(--k10-font-family);
+  font-weight: var(--k10-font-weight-bold);
+  line-height: 1;
+  border: 1.5px solid var(--k10-color-bg);
+}
+
+/* ── Sizes ────────────────────────────────────────────────────────────────── */
+.notification-dot--xs {
+  width: 6px;
+  height: 6px;
+  font-size: 0;
+}
+
+.notification-dot--sm {
+  width: 8px;
+  height: 8px;
+  font-size: 0;
+}
+
+.notification-dot--md {
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+}
+
+.notification-dot--with-count {
+  width: auto;
+  min-width: 16px;
+  padding: 0 3px;
+}
+
+.notification-dot--md.notification-dot--with-count {
+  min-width: 18px;
+  height: 18px;
+  font-size: 9px;
+  padding: 0 4px;
+}
+
+/* ── Variants — text always bg-deep for legibility (dark-on-light) ────────── */
+.notification-dot--danger  { background-color: var(--k10-color-danger);  color: var(--k10-color-bg-deep); }
+.notification-dot--primary { background-color: var(--k10-color-primary); color: var(--k10-color-bg-deep); }
+.notification-dot--accent  { background-color: var(--k10-color-accent);  color: var(--k10-color-bg-deep); }
+.notification-dot--warning { background-color: var(--k10-color-warning); color: var(--k10-color-bg-deep); }
+.notification-dot--success { background-color: var(--k10-color-success); color: var(--k10-color-bg-deep); }
+
+/* ── Pulse ────────────────────────────────────────────────────────────────── */
+@keyframes notif-pulse {
+  0%   { box-shadow: 0 0 0 0 currentColor; opacity: 0.9; }
+  70%  { box-shadow: 0 0 0 5px transparent; opacity: 0.6; }
+  100% { box-shadow: 0 0 0 0 transparent; opacity: 0.9; }
+}
+
+.notification-dot--pulse {
+  animation: notif-pulse 2s ease-in-out infinite;
+}

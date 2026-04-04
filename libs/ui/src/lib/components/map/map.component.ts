@@ -15,7 +15,7 @@ import { GoogleMap, MapMarker, MapInfoWindow } from '@angular/google-maps';
 import { MapCenter, MapMarkerData } from './map.types';
 import { MAP_DARK_STYLE } from './map-dark-style';
 import { MapLoaderService } from './map-loader.service';
-import { k9CssVar } from '../../utils';
+import { k10CssVar } from '../../utils';
 
 interface MapPinTokens {
   primary:       string;
@@ -25,7 +25,7 @@ interface MapPinTokens {
 
 function buildK9PinIcon(tokens: MapPinTokens, uid: string): google.maps.Icon {
   const { primary, surfaceRaised, border } = tokens;
-  const clipId = `k9-pin-clip-${uid}`;
+  const clipId = `k10-pin-clip-${uid}`;
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="52" height="62" viewBox="0 0 52 62">
     <defs>
@@ -46,7 +46,7 @@ function buildK9PinIcon(tokens: MapPinTokens, uid: string): google.maps.Icon {
 }
 
 @Component({
-  selector: 'k9-map',
+  selector: 'k10-map',
   standalone: true,
   imports: [GoogleMap, MapMarker, MapInfoWindow],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -84,9 +84,9 @@ export class MapComponent implements OnInit {
       this.isReady.set(true);
       this.pinIcon.set(buildK9PinIcon(
         {
-          primary:       k9CssVar('--k9-color-primary'),
-          surfaceRaised: k9CssVar('--k9-color-surface-raised'),
-          border:        k9CssVar('--k9-color-border'),
+          primary:       k10CssVar('--k10-color-primary'),
+          surfaceRaised: k10CssVar('--k10-color-surface-raised'),
+          border:        k10CssVar('--k10-color-border'),
         },
         'static',
       ));

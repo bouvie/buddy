@@ -2,115 +2,126 @@
   display: block;
 }
 
-/* ─── Base ───────────────────────────────────────────────────────────────── */
+/* ── Base ── */
 .list-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--k9-space-lg);
-  border-radius: var(--k9-radius-md);
-  background-color: var(--k9-color-surface);
-  border: 1px solid var(--k9-color-border);
-  gap: var(--k9-space-lg);
+  padding: 0 var(--k10-space-lg);             /* 0 16px */
+  height: 72px;
+  border-radius: var(--k10-radius-lg);        /* 12px */
+  background-color: var(--k10-color-surface); /* #121D2A */
+  border: 1px solid var(--k10-color-surface-raised); /* #192538 */
+  gap: var(--k10-space-md);                   /* 12px */
 }
 
-/* ─── Left content (icon + text stack) ───────────────────────────────────── */
+/* ── Icon container (36×36, radius 10px, accent tint) ── */
+.list-item__icon-container {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: rgba(92, 158, 168, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--k10-color-accent);
+  font-size: 13px;
+  font-weight: var(--k10-font-weight-bold);
+}
+
+/* ── Left content (icon container + text stack) ── */
 .list-item__left {
   display: flex;
   align-items: center;
-  gap: var(--k9-space-lg);
+  gap: var(--k10-space-md);
   min-width: 0;
   flex: 1;
-}
-
-.list-item__icon {
-  font-size: 15px;
-  color: var(--k9-color-text-secondary);
-  flex-shrink: 0;
-  width: 18px;
-  text-align: center;
 }
 
 .list-item__text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
 }
 
 .list-item__label {
-  font-size: var(--k9-font-size-body);
-  font-weight: var(--k9-font-weight-bold);
-  color: var(--k9-color-text);
+  font-size: var(--k10-font-size-body-sm);    /* 13px */
+  font-weight: var(--k10-font-weight-semibold);
+  color: var(--k10-color-text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .list-item__sublabel {
-  font-size: var(--k9-font-size-caption);
-  font-weight: var(--k9-font-weight-regular);
-  color: var(--k9-color-text-muted);
+  font-size: 11px;
+  font-weight: var(--k10-font-weight-regular);
+  color: var(--k10-color-text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* ─── Right content ──────────────────────────────────────────────────────── */
+/* ── Right content ── */
 .list-item__value {
-  font-size: var(--k9-font-size-caption);
-  font-weight: var(--k9-font-weight-bold);
-  color: var(--k9-color-text-secondary);
+  font-size: var(--k10-font-size-body-sm);
+  font-weight: var(--k10-font-weight-bold);
+  color: var(--k10-color-text-secondary);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .list-item__chevron {
-  font-size: 12px;
-  color: var(--k9-color-text-muted);
+  font-size: 13px;
+  font-weight: var(--k10-font-weight-bold);
+  color: #5A6478;
   flex-shrink: 0;
 }
 
-/* ─── Navigation variant ─────────────────────────────────────────────────── */
+/* ── Navigation variant ── */
 .list-item--navigation {
   cursor: pointer;
-  transition: background-color var(--k9-duration-fast) var(--k9-easing-standard);
+  transition: background-color var(--k10-duration-fast) var(--k10-easing-standard);
 }
 
 .list-item--navigation:hover {
-  background-color: var(--k9-color-surface-raised);
+  background-color: var(--k10-color-surface-raised);
 }
 
 .list-item--navigation:focus-visible {
   outline: none;
-  box-shadow: var(--k9-shadow-focus);
+  box-shadow: var(--k10-shadow-focus);
 }
 
-/* ─── Status/Error variant ───────────────────────────────────────────────── */
-.list-item--status-error .list-item__icon {
-  color: var(--k9-color-danger);
+/* ── Status/Error variant ── */
+.list-item--status-error .list-item__icon-container {
+  background-color: rgba(191, 104, 104, 0.12);
+  color: var(--k10-color-danger);
 }
 
 .list-item--status-error .list-item__label {
-  color: var(--k9-color-danger);
+  color: var(--k10-color-danger);
 }
 
-/* ─── Skeleton variant ───────────────────────────────────────────────────── */
+/* ── Skeleton variant ── */
 .list-item--skeleton {
-  gap: var(--k9-space-lg);
+  gap: var(--k10-space-md);
 }
 
 .list-item__sk-avatar {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   flex-shrink: 0;
+  border-radius: 10px;
 }
 
 .list-item__sk-text {
   display: flex;
   flex-direction: column;
-  gap: var(--k9-space-sm);
+  gap: var(--k10-space-sm);
   flex: 1;
 }
 
@@ -118,20 +129,20 @@
   display: block;
   width: 96px;
   height: 12px;
-  border-radius: var(--k9-radius-md);
+  border-radius: var(--k10-radius-md);
 }
 
 .list-item__sk-sublabel {
   display: block;
   width: 128px;
   height: 8px;
-  border-radius: var(--k9-radius-md);
+  border-radius: var(--k10-radius-md);
 }
 
 .list-item__sk-value {
   display: block;
   width: 48px;
   height: 16px;
-  border-radius: var(--k9-radius-full);
+  border-radius: var(--k10-radius-full);
   flex-shrink: 0;
 }

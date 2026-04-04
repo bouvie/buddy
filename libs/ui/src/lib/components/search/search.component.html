@@ -1,0 +1,32 @@
+<div
+  class="search"
+  [class.search--sm]="safeSize() === 'sm'"
+  [class.search--md]="safeSize() === 'md'"
+  [class.search--lg]="safeSize() === 'lg'"
+  [class.search--disabled]="disabled()"
+>
+  <i class="fa-solid fa-magnifying-glass search__icon" aria-hidden="true"></i>
+
+  <input
+    type="search"
+    class="search__input"
+    [id]="id()"
+    [placeholder]="placeholder()"
+    [value]="value()"
+    [disabled]="disabled()"
+    autocomplete="off"
+    (input)="onInput($event)"
+    (keydown)="onKeydown($event)"
+  />
+
+  @if (value()) {
+    <button
+      type="button"
+      class="search__clear"
+      aria-label="Clear search"
+      (click)="clear()"
+    >
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+  }
+</div>

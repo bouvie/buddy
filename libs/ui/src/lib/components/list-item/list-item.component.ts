@@ -14,7 +14,7 @@ import { ButtonComponent } from '../button/button.component';
 import { SkeletonComponent } from '../skeleton/skeleton.component';
 
 @Component({
-  selector: 'k9-list-item',
+  selector: 'k10-list-item',
   standalone: true,
   imports: [ToggleComponent, ButtonComponent, SkeletonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,

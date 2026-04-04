@@ -12,7 +12,7 @@ import type { InputType } from './input.types';
 import { INPUT_TYPES } from './input.types';
 
 @Component({
-  selector: 'k9-input',
+  selector: 'k10-input',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

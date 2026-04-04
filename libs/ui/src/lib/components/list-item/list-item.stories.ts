@@ -45,7 +45,7 @@ const meta: Meta<ListItemComponent> = {
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
-    figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=29-2',
+    figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=11-142',
   },
   argTypes: {
     data: {
@@ -63,7 +63,7 @@ type Story = StoryObj<ListItemComponent>;
 export const Default: Story = {
   render: (args) => ({
     props: args,
-    template: `<k9-list-item class="block max-w-xs" [data]="data"></k9-list-item>`,
+    template: `<k10-list-item class="block max-w-xs" [data]="data"></k10-list-item>`,
   }),
 };
 
@@ -78,12 +78,12 @@ export const AllVariants: Story = {
       statusError: STATUS_ERROR,
     },
     template: `
-      <div style="display:flex;flex-direction:column;gap:8px;max-width:360px;padding:24px;background:var(--k9-color-bg)">
-        <k9-list-item [data]="toggle"></k9-list-item>
-        <k9-list-item [data]="navigation"></k9-list-item>
-        <k9-list-item [data]="textValue"></k9-list-item>
-        <k9-list-item [data]="skeleton"></k9-list-item>
-        <k9-list-item [data]="statusError"></k9-list-item>
+      <div style="display:flex;flex-direction:column;gap:8px;max-width:360px;padding:24px;background:var(--k10-color-bg)">
+        <k10-list-item [data]="toggle"></k10-list-item>
+        <k10-list-item [data]="navigation"></k10-list-item>
+        <k10-list-item [data]="textValue"></k10-list-item>
+        <k10-list-item [data]="skeleton"></k10-list-item>
+        <k10-list-item [data]="statusError"></k10-list-item>
       </div>
     `,
   }),

@@ -1,0 +1,25 @@
+<div
+  class="stepper-control"
+  [class.stepper-control--accent]="safeVariant() === 'accent'"
+  [class.stepper-control--disabled]="disabled()"
+>
+  <button
+    type="button"
+    class="stepper-control__btn stepper-control__btn--dec"
+    [class.stepper-control__btn--dimmed]="atMin()"
+    [disabled]="disabled() || atMin()"
+    (click)="decrement()"
+    aria-label="Decrease"
+  >−</button>
+
+  <span class="stepper-control__value" aria-live="polite">{{ value() }}</span>
+
+  <button
+    type="button"
+    class="stepper-control__btn stepper-control__btn--inc"
+    [class.stepper-control__btn--dimmed]="atMax()"
+    [disabled]="disabled() || atMax()"
+    (click)="increment()"
+    aria-label="Increase"
+  >+</button>
+</div>

@@ -13,7 +13,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import type { SelectOption } from './select.types';
 
 @Component({
-  selector: 'k9-select',
+  selector: 'k10-select',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

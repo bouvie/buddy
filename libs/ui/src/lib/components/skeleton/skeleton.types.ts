@@ -1,8 +1,3 @@
-export type SkeletonShape = 'rectangle' | 'circle' | 'text';
+export type SkeletonShape = 'rectangle' | 'circle' | 'text' | 'card';
 
-export interface SkeletonState {
-  shape: SkeletonShape;
-  width: string;
-  height: string;
-  count: number;
-}
+export const SKELETON_SHAPES = ['rectangle', 'circle', 'text', 'card'] as const;

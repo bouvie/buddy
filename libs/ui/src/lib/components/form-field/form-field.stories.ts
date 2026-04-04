@@ -6,7 +6,7 @@ const meta: Meta<FormFieldComponent> = {
   title: 'Design System / Components / FormField',
   component: FormFieldComponent,
   tags: ['autodocs'],
-  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP?node-id=27-66' },
+  parameters: { layout: 'padded', figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=27-66' },
   argTypes: {
     label: { control: 'text', description: 'Label du champ' },
     inputId: { control: 'text', description: 'id liant le label au champ enfant via [for]' },
@@ -34,7 +34,7 @@ export const Default: Story = {
     props: args,
     template: `
       <div class="max-w-xs">
-        <k9-form-field
+        <k10-form-field
           [label]="label"
           [inputId]="inputId"
           [required]="required"
@@ -42,8 +42,8 @@ export const Default: Story = {
           [error]="error"
           [helpText]="helpText"
         >
-          <k9-input [id]="inputId" type="email" placeholder="email@example.com" [hasError]="hasError" />
-        </k9-form-field>
+          <k10-input [id]="inputId" type="email" placeholder="email@example.com" [hasError]="hasError" />
+        </k10-form-field>
       </div>
     `,
   }),
@@ -54,18 +54,18 @@ export const AllStates: Story = {
     imports: [FormFieldComponent, InputComponent],
     template: `
       <div class="space-y-6 max-w-xs">
-        <k9-form-field label="Normal field" helpText="This is a help text">
-          <k9-input placeholder="Email..." />
-        </k9-form-field>
-        <k9-form-field label="Required field" [required]="true">
-          <k9-input placeholder="Required value" />
-        </k9-form-field>
-        <k9-form-field label="Field with error" [hasError]="true" error="This field is invalid">
-          <k9-input [hasError]="true" placeholder="Invalid value" />
-        </k9-form-field>
-        <k9-form-field label="Disabled field">
-          <k9-input [disabled]="true" placeholder="Disabled" />
-        </k9-form-field>
+        <k10-form-field label="Normal field" helpText="This is a help text">
+          <k10-input placeholder="Email..." />
+        </k10-form-field>
+        <k10-form-field label="Required field" [required]="true">
+          <k10-input placeholder="Required value" />
+        </k10-form-field>
+        <k10-form-field label="Field with error" [hasError]="true" error="This field is invalid">
+          <k10-input [hasError]="true" placeholder="Invalid value" />
+        </k10-form-field>
+        <k10-form-field label="Disabled field">
+          <k10-input [disabled]="true" placeholder="Disabled" />
+        </k10-form-field>
       </div>
     `,
   }),

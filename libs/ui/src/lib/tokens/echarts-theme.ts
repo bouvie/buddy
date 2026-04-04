@@ -1,31 +1,35 @@
 /**
- * Buddy Design System — ECharts Theme "k9"
+ * Buddy Design System — ECharts Theme "k10"
  *
- * Mapping des tokens CSS vers les valeurs ECharts.
+ * Mapping des tokens K-10 Deep Ocean Dark vers les valeurs ECharts.
  * ECharts ne peut pas lire les CSS custom properties à runtime,
  * ces valeurs sont donc synchronisées manuellement depuis variables.css.
  *
- * Enregistrement : echarts.registerTheme('k9', K9_ECHARTS_THEME)
+ * Enregistrement : echarts.registerTheme('k10', K10_ECHARTS_THEME)
  */
 
 // ─── Tokens (sync depuis variables.css) ───────────────────────────────────────
 const C = {
-  primary:        '#BACBB8',
-  secondary:      '#FFB5A1',
-  danger:         '#FFB4AB',
-  neutral:        '#C4C8C0',
-  bg:             '#0F1419',
-  surface:        '#1B2025',
-  surfaceRaised:  '#252A30',
-  surfaceElevated:'#30353A',
-  text:           '#DEE3E9',
-  textSecondary:  '#C4C8C0',
-  textMuted:      '#8E928B',
-  border:         '#434842',
+  primary:         '#C4D9C2',
+  accent:          '#5C9EA8',
+  secondary:       '#F4A86A',
+  danger:          '#BF6868',
+  success:         '#72C98A',
+  warning:         '#F0C060',
+  info:            '#6BB4E8',
+  neutral:         '#B8C0CC',
+  bg:              '#0C1219',
+  surface:         '#121D2A',
+  surfaceRaised:   '#192538',
+  surfaceElevated: '#1E2F44',
+  text:            '#E8EDF2',
+  textSecondary:   '#B8C0CC',
+  textMuted:       '#6B7A8C',
+  border:          '#1D2A3A',
 } as const;
 
-export const K9_ECHARTS_THEME = {
-  color: [C.primary, C.secondary, C.neutral, C.danger],
+export const K10_ECHARTS_THEME = {
+  color: [C.primary, C.accent, C.secondary, C.info, C.success, C.warning, C.danger, C.neutral],
   backgroundColor: 'transparent',
 
   textStyle: {
@@ -47,7 +51,7 @@ export const K9_ECHARTS_THEME = {
   },
 
   bar: {
-    itemStyle: { barBorderRadius: 4 },
+    itemStyle: { barBorderRadius: 6 },
   },
 
   categoryAxis: {
@@ -65,14 +69,17 @@ export const K9_ECHARTS_THEME = {
   },
 
   tooltip: {
-    backgroundColor:  C.surfaceElevated,
-    borderColor:      C.border,
-    borderWidth:      1,
-    textStyle:        { color: C.text, fontSize: 12 },
-    extraCssText:     'border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.5);',
+    backgroundColor: C.surfaceElevated,
+    borderColor:     C.border,
+    borderWidth:     1,
+    textStyle:       { color: C.text, fontSize: 12 },
+    extraCssText:    'border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.6);',
   },
 
   legend: {
     textStyle: { color: C.textSecondary },
   },
 } as const;
+
+/** @deprecated Use K10_ECHARTS_THEME */
+export const K9_ECHARTS_THEME = K10_ECHARTS_THEME;

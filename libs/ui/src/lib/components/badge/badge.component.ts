@@ -3,7 +3,7 @@ import type { BadgeVariant } from './badge.types';
 import { BADGE_VARIANTS } from './badge.types';
 
 @Component({
-  selector: 'k9-badge',
+  selector: 'k10-badge',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

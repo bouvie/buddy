@@ -1,225 +1,245 @@
-# K9 Pro — Convention Figma
+# K-10 — Convention Figma ↔ Code
 
-> Source de vérité pour la synchronisation Figma ↔ code.
-> Ce fichier est lu par Claude via l'API Figma pour vérifier, générer et auditer les composants.
-> Toute divergence entre ce fichier et `tokens/variables.css` est un bug.
-
----
-
-## Structure du fichier Figma
-
-L'ordre des pages est normé — il conditionne la lisibilité depuis l'API.
-
-```
-📁 K9 Pro — Design System
-
-  📄 _Tokens          ← Variables Figma (sync automatique avec variables.css)
-  📄 _Status          ← Dashboard de synchronisation : état de chaque composant
-  📄 Typography       ← Styles de texte + spécimens visuels
-  📄 Colors           ← Palette + états (hover / pressed / subtle / focus)
-  📄 Foundations      ← Spacing · Radius · Shadow · Motion
-  📄 Components       ← Tous les composants (28) avec variantes + états
-  📄 Patterns         ← Assemblages normés (dashboard, navigation, formulaires)
-  📄 Motion           ← Courbes easing, durées, règles d'animation
-  📄 Playground       ← Sandbox designer, non normé, non versionné
-```
-
-**Règle** : les pages préfixées `_` sont à usage machine/technique. Ne pas les réorganiser.
+> Source de vérité pour la synchronisation entre le fichier Figma K-10 et `libs/ui/`.
+> Lue par Claude via MCP lors des audits design system.
 
 ---
 
-## Variables Figma — Collections
+## Structure du fichier Figma K-10
 
-### Collection `Color`
+9 pages :
 
-| Variable Figma | Valeur | Token CSS |
+| Page | Contenu |
+|---|---|
+| `_Tokens` | Variables Figma — Colors, Spacing, Radius, Typography, Motion, Glass, Shell |
+| `_Status` | Tableau de synchronisation composant par composant |
+| `Typography` | Spécimens typographiques — scale, poids, line-heights |
+| `Colors` | Palette K-10 complète — rôles sémantiques, états |
+| `Foundations` | Radius, Spacing, Shadows, Glassmorphism |
+| `Components` | 39 composants avec variantes et états |
+| `Patterns` | Assemblages récurrents (forms, lists, dashboard layouts) |
+| `Motion` | Durées, easings, annotations @animated/@live/@spring |
+| `Playground` | Zone de test libre |
+
+---
+
+## Variables Figma — Collections K-10
+
+### Collection `Color` — "Deep Ocean Dark"
+
+| Variable | Valeur | Usage |
 |---|---|---|
-| `color/bg` | `#0F1419` | `--k9-color-bg` |
-| `color/surface` | `#1B2025` | `--k9-color-surface` |
-| `color/surface-raised` | `#252A30` | `--k9-color-surface-raised` |
-| `color/surface-elevated` | `#30353A` | `--k9-color-surface-elevated` |
-| `color/surface-deep` | `#0A0F13` | `--k9-color-surface-deep` |
-| `color/border` | `#434842` | `--k9-color-border` |
-| `color/primary` | `#BACBB8` | `--k9-color-primary` |
-| `color/primary-text` | `#263427` | `--k9-color-primary-text` |
-| `color/primary-hover` | `rgba(186,203,184,0.10)` | `--k9-color-primary-hover` |
-| `color/primary-pressed` | `rgba(186,203,184,0.20)` | `--k9-color-primary-pressed` |
-| `color/primary-focus` | `rgba(186,203,184,0.35)` | `--k9-color-primary-focus` |
-| `color/primary-subtle` | `rgba(186,203,184,0.05)` | `--k9-color-primary-subtle` |
-| `color/secondary` | `#FFB5A1` | `--k9-color-secondary` |
-| `color/secondary-text` | `#542112` | `--k9-color-secondary-text` |
-| `color/secondary-hover` | `rgba(255,181,161,0.10)` | `--k9-color-secondary-hover` |
-| `color/secondary-pressed` | `rgba(255,181,161,0.20)` | `--k9-color-secondary-pressed` |
-| `color/secondary-focus` | `rgba(255,181,161,0.35)` | `--k9-color-secondary-focus` |
-| `color/secondary-subtle` | `rgba(255,181,161,0.05)` | `--k9-color-secondary-subtle` |
-| `color/danger` | `#FC8585` | `--k9-color-danger` |
-| `color/danger-text` | `#5C0011` | `--k9-color-danger-text` |
-| `color/danger-hover` | `rgba(252,133,133,0.10)` | `--k9-color-danger-hover` |
-| `color/danger-pressed` | `rgba(252,133,133,0.20)` | `--k9-color-danger-pressed` |
-| `color/danger-focus` | `rgba(252,133,133,0.35)` | `--k9-color-danger-focus` |
-| `color/danger-subtle` | `rgba(252,133,133,0.05)` | `--k9-color-danger-subtle` |
-| `color/neutral` | `#C4C8C0` | `--k9-color-neutral` |
-| `color/neutral-text` | `#1A1D1A` | `--k9-color-neutral-text` |
-| `color/neutral-hover` | `rgba(196,200,192,0.10)` | `--k9-color-neutral-hover` |
-| `color/text` | `#DEE3E9` | `--k9-color-text` |
-| `color/text-secondary` | `#C4C8C0` | `--k9-color-text-secondary` |
-| `color/text-muted` | `#8E928B` | `--k9-color-text-muted` |
-| `color/text-disabled` | `rgba(142,146,139,0.40)` | `--k9-color-text-disabled` |
+| `color/bg-deep` | `#070B11` | Fond le plus sombre (abyssal) |
+| `color/bg` | `#0C1219` | Fond de l'application |
+| `color/surface` | `#121D2A` | Cards, panels |
+| `color/surface-raised` | `#192538` | Dropdowns, menus |
+| `color/surface-elevated` | `#213047` | Tooltips, modals |
+| `color/surface-4` | `#2A3D5C` | Surfaces supplémentaires |
+| `color/border` | `#354A62` | Tous les 1px border |
+| `color/input-bg` | `#162233` | Fond dédié champs de formulaire |
+| `color/input-border` | `#1E2D42` | Bordure dédié champs de formulaire |
+| `color/primary` | `#C4D9C2` | Sage — accent principal |
+| `color/primary-text` | `#1E2E1C` | Texte sur fond primary |
+| `color/primary-hover` | `rgba(196,217,194,0.10)` | Hover subtle |
+| `color/primary-pressed` | `rgba(196,217,194,0.20)` | Active/pressed |
+| `color/primary-focus` | `rgba(196,217,194,0.35)` | Ring focus |
+| `color/primary-subtle` | `rgba(196,217,194,0.06)` | Background très léger |
+| `color/accent` | `#5C9EA8` | Teal — live data, GPS, temps-réel |
+| `color/accent-text` | `#0D2226` | Texte sur fond accent |
+| `color/accent-hover` | `rgba(92,158,168,0.10)` | |
+| `color/accent-pressed` | `rgba(92,158,168,0.20)` | |
+| `color/accent-focus` | `rgba(92,158,168,0.35)` | |
+| `color/accent-subtle` | `rgba(92,158,168,0.06)` | |
+| `color/secondary` | `#F4A86A` | Amber — alerte douce |
+| `color/secondary-text` | `#3D1E00` | Texte sur fond secondary |
+| `color/secondary-hover` | `rgba(244,168,106,0.10)` | |
+| `color/secondary-pressed` | `rgba(244,168,106,0.20)` | |
+| `color/secondary-focus` | `rgba(244,168,106,0.35)` | |
+| `color/secondary-subtle` | `rgba(244,168,106,0.06)` | |
+| `color/danger` | `#BF6868` | Erreur, destruction |
+| `color/danger-text` | `#2D0A0A` | |
+| `color/danger-hover` | `rgba(191,104,104,0.10)` | |
+| `color/danger-pressed` | `rgba(191,104,104,0.20)` | |
+| `color/danger-focus` | `rgba(191,104,104,0.35)` | |
+| `color/danger-subtle` | `rgba(191,104,104,0.06)` | |
+| `color/success` | `#72C98A` | Succès, santé OK |
+| `color/success-text` | `#0D2914` | |
+| `color/success-hover` | `rgba(114,201,138,0.10)` | |
+| `color/success-pressed` | `rgba(114,201,138,0.20)` | |
+| `color/success-focus` | `rgba(114,201,138,0.35)` | |
+| `color/success-subtle` | `rgba(114,201,138,0.06)` | |
+| `color/warning` | `#F0C060` | Avertissement |
+| `color/warning-text` | `#2D1A00` | |
+| `color/warning-hover` | `rgba(240,192,96,0.10)` | |
+| `color/warning-pressed` | `rgba(240,192,96,0.20)` | |
+| `color/warning-focus` | `rgba(240,192,96,0.35)` | |
+| `color/warning-subtle` | `rgba(240,192,96,0.06)` | |
+| `color/info` | `#6BB4E8` | Information neutre |
+| `color/info-text` | `#0A1A2D` | |
+| `color/info-hover` | `rgba(107,180,232,0.10)` | |
+| `color/info-pressed` | `rgba(107,180,232,0.20)` | |
+| `color/info-focus` | `rgba(107,180,232,0.35)` | |
+| `color/info-subtle` | `rgba(107,180,232,0.06)` | |
+| `color/neutral` | `#B8C0CC` | Neutre — statut non catégorisé |
+| `color/neutral-text` | `#0F1419` | |
+| `color/neutral-hover` | `rgba(184,192,204,0.10)` | |
+| `color/neutral-pressed` | `rgba(184,192,204,0.20)` | |
+| `color/neutral-focus` | `rgba(184,192,204,0.35)` | |
+| `color/neutral-subtle` | `rgba(184,192,204,0.06)` | |
+| `color/text` | `#E8EDF5` | Texte principal |
+| `color/text-secondary` | `#A8B4C4` | Texte secondaire |
+| `color/text-muted` | `#68788C` | Texte atténué, placeholder |
+| `color/text-disabled` | `rgba(104,120,140,0.40)` | Texte désactivé |
 
 ### Collection `Spacing` — base 4px
 
-| Variable | px | Token |
-|---|---|---|
-| `spacing/xs` | 4 | `--k9-space-xs` |
-| `spacing/sm` | 8 | `--k9-space-sm` |
-| `spacing/md` | 12 | `--k9-space-md` |
-| `spacing/lg` | 16 | `--k9-space-lg` |
-| `spacing/xl` | 24 | `--k9-space-xl` |
-| `spacing/xxl` | 32 | `--k9-space-xxl` |
-| `spacing/xxxl` | 48 | `--k9-space-xxxl` |
-| `spacing/4xl` | 64 | `--k9-space-4xl` |
+```
+spacing/xs    4px
+spacing/sm    8px
+spacing/md   12px
+spacing/lg   16px
+spacing/xl   24px
+spacing/xxl  32px
+spacing/xxxl 48px
+spacing/4xl  64px
+spacing/5xl  80px
+spacing/6xl  96px
+```
 
 ### Collection `Radius`
 
-| Variable | px | Token |
-|---|---|---|
-| `radius/none` | 0 | `--k9-radius-none` |
-| `radius/sm` | 4 | `--k9-radius-sm` |
-| `radius/md` | 8 | `--k9-radius-md` |
-| `radius/lg` | 12 | `--k9-radius-lg` |
-| `radius/xl` | 16 | `--k9-radius-xl` |
-| `radius/full` | 9999 | `--k9-radius-full` |
+```
+radius/none  0
+radius/xs    2px
+radius/sm    4px   — micro-éléments (checkbox box, skeleton)
+radius/md    8px   — éléments inline compacts (badge, tab, dropdown item)
+radius/lg   12px   — icon-wraps UNIQUEMENT (alert icon, empty-state icon)
+radius/xl   16px   — éléments interactifs (buttons, inputs, cards)
+radius/2xl  20px   — FAB lg
+radius/full 9999px — pills, chips, tags, avatar circle
+```
 
 ### Collection `Shell`
 
-| Variable | px | Token |
-|---|---|---|
-| `shell/topbar-height` | 56 | `--k9-topbar-height` |
-| `shell/bottom-nav-height` | 48 | `--k9-bottom-nav-height` |
-| `shell/sidenav-width` | 240 | `--k9-sidenav-width` |
-| `shell/z-base` | 0 | `--k9-z-base` |
-| `shell/z-raised` | 10 | `--k9-z-raised` |
-| `shell/z-dropdown` | 20 | `--k9-z-dropdown` |
-| `shell/z-sticky` | 30 | `--k9-z-sticky` |
-| `shell/z-topbar` | 40 | `--k9-z-topbar` |
-| `shell/z-nav` | 45 | `--k9-z-nav` |
-| `shell/z-modal` | 50 | `--k9-z-modal` |
-| `shell/z-toast` | 60 | `--k9-z-toast` |
+```
+shell/topbar-height     56px
+shell/bottom-nav-height 48px
+shell/sidenav-width    240px
+shell/z-topbar          50
+shell/z-nav            100
+```
+
+### Collection `Glass`
+
+```
+glass/surface-bg   rgba(18, 29, 42, 0.65)
+glass/raised-bg    rgba(25, 37, 56, 0.70)
+glass/deep-bg      rgba(33, 48, 71, 0.80)
+glass/border       rgba(53, 74, 98, 0.50)
+glass/blur-sm      16px
+glass/blur-md      20px
+glass/blur-lg      24px
+```
 
 ---
 
 ## Styles de texte Figma
 
-| Style Figma | Font | Size | Line-h | Weight | Letter-spacing | Transform |
-|---|---|---|---|---|---|---|
-| `display` | Manrope | 72 | 72 | 400 | -5% | — |
-| `h1` | Manrope | 32 | 40 | 600 | -2% | — |
-| `h2` | Manrope | 24 | 32 | 600 | -1% | — |
-| `h3` | Manrope | 20 | 28 | 600 | 0% | — |
-| `body-large` | Manrope | 20 | 32 | 400 | 0% | — |
-| `body-md` | Manrope | 16 | 24 | 400 | 0% | — |
-| `body` | Manrope | 14 | 20 | 400 | 0% | — |
-| `button` | Manrope | 16 | 24 | 700 | 0% | — |
-| `label` | Manrope | 12 | 16 | 700 | 30% | UPPERCASE |
-| `caption` | Manrope | 10 | 15 | 400 | 40% | — |
-
-> `label` est **toujours uppercase dans Figma**. Le text-transform est une règle de rendu, pas une convention de casse manuelle.
-
----
-
-## Mapping sémantique — états fonctionnels → tokens de couleur
-
-Les états fonctionnels (success, warning, error, info) ne sont pas des tokens distincts : ils s'appuient sur les tokens de rôle existants. Ce tableau est la source de vérité pour tout composant qui expose une `variant` sémantique.
-
-| État sémantique | Couleur de base | Fill subtle | Border | Texte | Icône |
+| Style | Taille | Poids | Line-height | Letter-spacing | Usage |
 |---|---|---|---|---|---|
-| `success` | `color/primary` | `color/primary-subtle` | `color/primary` | `color/primary` | `color/primary` |
-| `warning` | `color/secondary` | `color/secondary-subtle` | `color/secondary` | `color/secondary` | `color/secondary` |
-| `error` | `color/danger` | `color/danger-subtle` | `color/danger` | `color/danger` | `color/danger` |
-| `info` | `color/neutral` | `color/surface` | `color/border` | `color/text-secondary` | `color/text-secondary` |
+| `display` | 36px | 700 | 44px | −0.02em | Hero, grandes métriques |
+| `h1` | 24px | 700 | 32px | −0.01em | Titres de section |
+| `h2` | 20px | 700 | 28px | −0.01em | Sous-titres |
+| `h3` | 16px | 700 | 24px | 0 | Titres composant |
+| `body-large` | 18px | 400 | 28px | 0 | Corps large |
+| `body` | 15px | 400 | 22px | 0 | Corps standard |
+| `body-sm` | 13px | 400 | 20px | 0 | Corps petit |
+| `label` | 11px | 700 | 16px | 0.06em | Labels de champs (uppercase) |
+| `caption` | 10px | 400 | 14px | 0.04em | Métadonnées, badges |
+| `data-lg` | 28px | 700 | 36px | −0.02em | Grandes métriques |
+| `data-md` | 22px | 700 | 28px | −0.01em | Métriques standard |
+| `data-sm` | 18px | 700 | 24px | −0.01em | Métriques compactes |
+| `button` | 16px | 700 | 24px | 0 | Texte de bouton (= h3) |
 
-> **Pourquoi `secondary` = warning** : le coral (#FFB5A1) est visuellement interprété comme un signal d'attention (chaud, sans être une alerte critique). Il est **distinct** de `danger` (#FC8585) qui est clairement rouge.
-> **Règle de nommage** : les `variant` Angular restent `info | success | warning | error`. Le mapping vers les tokens de couleur ci-dessus est la responsabilité du composant, pas de l'appelant.
+Police : **Manrope** — Regular/Medium/SemiBold/Bold/ExtraBold/Black
 
 ---
 
-## Règles de "pâte graphique" — invariants visuels
+## Mapping sémantique des états K-10
 
-Ces règles définissent l'identité K9 Pro. Tout écart est une regression, pas une évolution.
+K-10 dispose de tokens sémantiques dédiés (≠ K-9 qui mappait success→primary, warning→secondary).
 
-### R1 — Thème sombre exclusif
-Fond systématique `color/bg` (`#0F1419`). Surfaces en 4 niveaux d'élévation :
+| État | Token couleur | Hex | Usage |
+|---|---|---|---|
+| **success** | `color/success` | `#72C98A` | Santé OK, opération réussie, activité normale |
+| **warning** | `color/warning` | `#F0C060` | Alerte douce, données à surveiller |
+| **error / danger** | `color/danger` | `#BF6868` | Erreur, valeur critique, action destructrice |
+| **info** | `color/info` | `#6BB4E8` | Information neutre, aide contextuelle |
+| **live / real-time** | `color/accent` | `#5C9EA8` | GPS temps-réel, fréquence cardiaque live, WebSocket actif |
+| **primary / CTA** | `color/primary` | `#C4D9C2` | Action principale, focus, navigation active |
+| **secondary / soft-alert** | `color/secondary` | `#F4A86A` | Alerte secondaire, avertissement doux |
+
+---
+
+## Invariants visuels K-10
+
+### R1 — Thème sombre canonical
+Fond de l'application : `--k10-color-bg` `#0C1219` ("Deep Ocean Dark"). Jamais de fond blanc ou light. Toutes les surfaces utilisent la hiérarchie bg → surface → surface-raised → surface-elevated → surface-4.
+
+### R2 — Bordures 1px
+Toutes les bordures visibles : `1px solid var(--k10-color-border)` (`#354A62`). Jamais de valeur hardcodée. Exception : input-border (`#1E2D42`) pour les champs de formulaire.
+
+### R3 — Rôles radius
 ```
-bg (#0F1419) → surface (#1B2025) → surface-raised (#252A30) → surface-elevated (#30353A)
+radius/xl  (16px) → éléments interactifs : boutons, inputs, cards, modals, menus
+radius/md  (8px)  → éléments inline : nav-item active, tab active, dropdown item
+radius/full       → pills : badge, tag, live-indicator, notification-dot, slider thumb
+radius/lg  (12px) → icon-wraps uniquement : alert icon-wrap, empty-state icon-wrap
+radius/sm  (4px)  → micro-éléments : checkbox box, skeleton rectangle
 ```
-Les éléments "flottants" (modals, dropdowns, tooltips) utilisent `surface-elevated`.
 
-### R2 — Bordure universelle `1px solid color/border`
-Tout conteneur (card, input, badge, select, modal) porte `1px solid #434842`. Jamais plus épaisse. La bordure devient `color/primary` uniquement sur focus/active.
+### R4 — Glow primary
+Toute activation d'état primaire porte `--k10-shadow-primary-glow` (`0 0 12px 2px rgba(196,217,194,0.18)`). Exemples : nav-item active, toggle on, stepper step active, progress fill.
 
-### R3 — Radius par rôle sémantique
-| Rôle | Radius | px |
-|---|---|---|
-| Actions (boutons, tags interactifs) | `xl` | 16px |
-| Champs de saisie (input, select, dropdown trigger) | `xl` | 16px |
-| Conteneurs de données (chart-card, metric-card) | `md` | 8px |
-| Cards génériques et modals | `xl` | 16px |
-| Pills, badges, progress bars, toggle track | `full` | 9999px |
-| Éléments de navigation (nav-item) | `md` | 8px |
-| Avatar sm | `md` | 8px |
-| Avatar md/lg | `xl` | 16px |
-| Icon-wraps petits (alert, empty-state) | `lg` | 12px |
+Variante accent : `--k10-shadow-accent-glow` (`0 0 12px 2px rgba(92,158,168,0.25)`) pour les éléments live/GPS.
 
-> **Inputs et selects** → `radius/xl` (16px), pas `md`. Leur hauteur de 64px appelle un radius plus prononcé.
-> **Conteneurs de données** (chart-card, metric-card) → `radius/md` (8px). Ils affichent des graphiques et métriques, pas des actions.
-> `card` générique → `radius/xl`. Ne pas confondre avec les data cards.
+### R5 — Typographie données chiffrées
+Les valeurs numériques temps-réel (BPM, km, etc.) utilisent **exclusivement** les styles data-lg/md/sm (28/22/18px, weight bold). Jamais `body` ou `h1` pour des chiffres de monitoring.
 
-### R4 — Glow primary = seul marqueur d'état actif
+### R6 — Animated border live
+Les composants en état temps-réel (`isLive=true`) affichent une bordure animée :
 ```
-couleur  → color/primary (#BACBB8)
-fond     → color/primary-subtle (rgba 5%)
-ombre    → 0 0 10px 1px rgba(186,203,184,0.15)
+border       → transparent
+::before     → conic-gradient(from 0deg,
+                 transparent 0%,
+                 var(--k10-color-accent) 40%,
+                 var(--k10-color-primary) 70%,
+                 transparent 100%)
+               animation: spin 5s linear infinite
+box-shadow   → pulse 0%→28% opacity · 2.5s ease-in-out infinite
 ```
-Aucune autre couleur ne marque l'état actif. L'état hover utilise `primary-hover` (rgba 10%).
 
-### R5 — Hiérarchie typographique dans les cards de données
-```
-LABEL   → 12px · 700 · uppercase · letter-spacing 0.3em · color/text-secondary
-Valeur  → 24px (h2) ou 36px · 700-800 · color/text · letter-spacing négatif
-Unité   → 14px · 500 · uppercase · color/text-secondary
-```
-Le label ne descend jamais sous 12px. La valeur ne monte jamais au-dessus de 36px/800.
-
-### R6 — Live = animated border + pulse
-Un état "temps réel" se distingue par :
-- Bordure native → `transparent`
-- Pseudo-élément `::before` → `conic-gradient` sage-vert en rotation 5s
-- `box-shadow` pulsant entre `rgba(186,203,184,0.10)` et `rgba(186,203,184,0.28)` en 2.5s
-
-Dans Figma : annoter `@live` dans le nom du layer. Représenter par un stroke extérieur dégradé + effet "Glow".
-
-### R7 — Spring sur les transitions d'état discret
-Micro-interactions on/off (nav-item, toggle, checkbox) : easing spring `cubic-bezier(0.34, 1.56, 0.64, 1)`, `300ms`.
-Dans Figma : transition Smart Animate, easing Custom `0.34 / 1.56 / 0.64 / 1`, durée `300ms`.
+### R7 — Spring sur transitions d'état discret
+Micro-interactions on/off (nav-item, toggle, checkbox, segmented) : easing spring `cubic-bezier(0.34, 1.56, 0.64, 1)`, `300ms`. Dans Figma : Smart Animate, easing Custom `0.34 / 1.56 / 0.64 / 1`, durée `300ms`.
 
 ### R8 — Icônes
 Toutes les icônes utilisent `stroke="currentColor"`. Taille standard : `24×24px`. Taille dans bottom-nav et list-item : `20×20px`. Jamais de couleur hardcodée.
 
 ### R9 — Glassmorphism — réservé aux éléments flottants mobiles
-Le glassmorphism (`backdrop-filter: blur` + `color-mix` + opacité < 100%) est utilisé **exclusivement** pour les éléments qui flottent au-dessus du contenu scrollable sur mobile :
+Le glassmorphism est utilisé **exclusivement** pour les éléments flottants au-dessus du contenu scrollable sur mobile. Utiliser les tokens `glass/*` :
 ```
-backdrop-filter : blur(20px)
-background      : color-mix(in srgb, --k9-color-surface-elevated 70%, transparent)
-border          : 1px solid color-mix(in srgb, --k9-color-border 60%, transparent)
+backdrop-filter : blur(var(--k10-glass-blur-md))   /* 20px */
+background      : var(--k10-glass-raised-bg)         /* rgba(25,37,56,0.70) */
+border          : 1px solid var(--k10-glass-border)  /* rgba(53,74,98,0.50) */
 ```
-Composants éligibles : `k9-bottom-nav`. Ne pas appliquer aux modals, dropdowns, tooltips (ils utilisent `surface-elevated` plein).
+Composants éligibles : `k10-bottom-nav`. Ne pas appliquer aux modals, dropdowns, tooltips.
 
 ### R10 — `radius/lg` (12px) — usage normé : icon-wraps
-`radius/lg` est réservé aux **conteneurs d'icône carrés** (wraps d'illustration ou d'icône fonctionnelle) :
-- `alert` icon-wrap : `48×48px · radius lg`
-- `empty-state` icon-wrap : taille variable · `radius lg`
+`radius/lg` est réservé aux **conteneurs d'icône carrés** :
+- `alert` icon-wrap : `48×48px · radius/lg`
+- `empty-state` icon-wrap : taille variable · `radius/lg`
 
-Ne pas utiliser `radius/lg` pour les composants interactifs (boutons, inputs, cards) — leurs rôles respectifs imposent `xl`, `md` ou `full`.
+Ne pas utiliser pour les composants interactifs.
 
 ---
 
@@ -228,17 +248,17 @@ Ne pas utiliser `radius/lg` pour les composants interactifs (boutons, inputs, ca
 ### Button
 
 ```
-Selector Angular : k9-button
+Selector Angular : k10-button
 Variants         : primary | secondary | ghost | danger
 Sizes            : sm | md | lg
 
-─── sm ───  height 48px · padding-x 16px · font body (14px/700) · radius xl
-─── md ───  height 64px · padding-x 24px · font button (16px/700) · radius xl
-─── lg ───  height 72px · padding-x 32px · font body-large (20px/700) · radius xl
+─── sm ───  height 40px · padding-x 16px · font label (11px/700) · radius xl
+─── md ───  height 48px · padding-x 24px · font button (16px/700) · radius xl
+─── lg ───  height 56px · padding-x 32px · font body-large (18px/700) · radius xl
 
 ─── primary ───
-  fill normal    : color/primary (#BACBB8)
-  text           : color/primary-text (#263427)
+  fill normal    : color/primary (#C4D9C2)
+  text           : color/primary-text (#1E2E1C)
   fill hover     : primary + inset white overlay 8%
   active         : scale(0.97)
   fill disabled  : color/surface · text color/text-disabled
@@ -258,127 +278,379 @@ Sizes            : sm | md | lg
   disabled       : text color/text-disabled
 
 ─── danger ───
-  fill normal    : color/danger (#FFB4AB) · text color/danger-text (#690005)
+  fill normal    : color/danger (#BF6868) · text color/danger-text (#2D0A0A)
   hover          : danger + inset white 8%
   active         : scale(0.97)
   disabled       : fill surface · text text-disabled
 ```
 
+### Tag
+
+```
+Selector Angular : k10-tag
+Variants         : default | primary | accent | success | warning | danger | info
+Sizes            : sm | md
+removable        : Boolean — affiche une croix
+
+─── sm ─── height 20px · padding-x 8px · font caption (10px/500/0.03em) · radius full
+─── md ─── height 32px · padding-x 14px · font body-sm (13px/500/0.01em) · radius full
+
+─── default  ─── fill surface-raised · border border-color · text text-secondary
+─── primary  ─── fill primary-subtle · border primary/20% · text primary
+─── accent   ─── fill accent/12% · border accent/25% · text accent
+─── success  ─── fill success-subtle · border success/20% · text success
+─── warning  ─── fill warning-subtle · border warning/20% · text warning
+─── danger   ─── fill danger-subtle · border danger/20% · text danger
+─── info     ─── fill info-subtle · border info/20% · text info
+
+remove button : 14×14px · radius full · opacity 0.6 → 1 on hover
+```
+
+### FAB
+
+```
+Selector Angular : k10-fab
+Variants         : primary | accent | secondary | ghost
+Sizes            : sm | md | lg
+extended         : Boolean — affiche un label (pill)
+
+─── sm ─── 40×40px · radius lg (12px) · icon 16px
+─── md ─── 48×48px · radius xl (16px) · icon 20px
+─── lg ─── 56×56px · radius 2xl (20px) · icon 22px
+─── extended ─── height same · width auto · padding-x 24px · radius full
+
+─── primary ─── fill primary · text primary-text · shadow md
+  hover : shadow primary-glow + md · scale(1.04)
+─── accent  ─── fill accent · text accent-text · shadow md
+  hover : shadow accent-glow · scale(1.04)
+─── secondary ─── fill surface-raised · text text · border 1px border · shadow sm
+  hover : fill surface-elevated · scale(1.04)
+─── ghost ─── fill rgba(255,255,255,0.06) · text text · backdrop-filter blur(8px)
+  hover : fill rgba(255,255,255,0.10) · scale(1.04)
+
+active (tous) : scale(0.97)
+disabled      : opacity 0.45
+```
+
 ### Input
 
 ```
-Selector Angular : k9-input
-height           : 64px
+Selector Angular : k10-input
+height           : 56px
 radius           : xl (16px)
-fill default     : color/surface
-border default   : 1px solid transparent
+fill default     : color/input-bg (#162233)
+border default   : 1.5px solid color/input-border (#1E2D42)
 fill filled      : color/surface-raised
 padding-x        : 24px (spacing/xl)
-font             : body (14px/400)
+font             : body (15px/400)
 placeholder      : color/text-muted
-icon padding-r   : 24px
 
 ─── focus-within ───
-  border : color/primary
-  shadow : 0 0 0 3px rgba(186,203,184,0.35)
+  border : color/accent (#5C9EA8)
+  shadow : 0 0 0 3px rgba(92,158,168,0.35)
 
 ─── error ───
   border : color/danger
-  focus-within shadow : 0 0 0 3px rgba(255,180,171,0.10)
+  focus shadow : 0 0 0 3px rgba(191,104,104,0.35)
   icon color : color/danger
 
 ─── success ───
-  border : color/primary
-  icon color : color/primary
+  border : color/success
+  icon color : color/success
 
 ─── disabled ───
-  fill   : color/surface-deep
+  fill   : color/surface
   border : color/border
   cursor : not-allowed
+  opacity : 0.45
+```
+
+### Search
+
+```
+Selector Angular : k10-search
+Sizes            : sm | md | lg
+
+─── sm ─── height 36px · padding-x 12px · gap 8px · font caption
+─── md ─── height 44px · padding-x 16px · gap 12px · font body
+─── lg ─── height 52px · padding-x 24px · gap 12px · font body
+
+fill         : color/surface
+border       : 1.5px solid color/border · radius full
+icon         : 12-16px · color/accent
+
+focus-within : border color/accent · shadow 0 0 0 3px accent-focus
+
+clear button : 20×20px · radius full · fill surface-raised · text text-muted
+               hover : fill surface-elevated · text text
+
+disabled : opacity 0.45 · pointer-events none
+```
+
+### Select
+
+```
+Selector Angular : k10-select
+(identique à k10-input en hauteur et layout)
+
+─── trigger ─── h=56px · padding 0 24px · radius xl
+  border   : 1.5px solid input-border · fill input-bg · body (15px/text)
+  focus    : border accent · shadow accent-focus
+  open     : border accent · shadow accent-focus
+  disabled : fill surface · border border · text-muted · opacity 0.45
+  error    : border danger
+
+─── menu ─── fill surface-raised · radius xl · border 1px border · shadow-lg
+  padding  : 4px · flex col · gap 2px
+  offset   : top calc(100% + 4px) · full width
+  entrance : @animated select-menu-in · decelerate · fast
+
+─── item ─── h=40px · padding 0 12px · radius lg · body (15px/text)
+  hover    : fill surface-elevated
+  selected : text primary · medium weight · hover fill primary-subtle
+  disabled : opacity 0.4
+```
+
+### Checkbox
+
+```
+Selector Angular : k10-checkbox
+layout           : inline-flex · align-center · gap 8px (spacing/sm)
+
+─── box ─── 20×20px · radius sm (4px) · border 1.5px border · fill transparent
+
+unchecked   : border color/border · fill transparent
+hover       : border color/primary · fill primary-hover
+checked     : fill primary · border primary · @animated checkbox-pop (scale 1→1.18→1, 200ms, spring)
+indeterminate : fill primary · border primary (dash icon)
+focus-visible : shadow focus · border primary
+disabled    : opacity 0.4 · cursor not-allowed
+
+label text : body (15px/400/text)
+```
+
+### Radio
+
+```
+Selector Angular : k10-radio
+layout           : inline-flex · align-center · gap 8px
+
+─── dot ─── 20×20px · radius full · border 1.5px border · fill transparent
+  inner dot : 8×8px · radius full · fill primary-text · scale(0) → scale(1) checked
+  transition : spring easing · fast (120ms)
+
+unchecked     : border color/border
+hover         : border primary · fill primary-hover
+checked       : dot fill primary · border primary · inner scale(1)
+focus-visible : shadow focus · border primary
+disabled      : opacity 0.4
+
+label text : body (15px/400/text)
+```
+
+### Toggle
+
+```
+Selector Angular : k10-toggle
+layout           : inline-flex · align-center · gap 12px (spacing/md)
+
+─── track ─── 48×28px · radius full
+  off    : fill surface-elevated
+  on     : fill primary · shadow primary-glow
+  transition background-color · normal · standard
+
+─── thumb ─── 20×20px · radius full · top=4px
+  off    : left=4px · fill color/text
+  on     : left=24px · fill primary-text
+  transition left · normal · @spring emphasis
+
+label   : body (15px/400/text)
+disabled: opacity 0.4 · cursor not-allowed
+```
+
+### Slider
+
+```
+Selector Angular : k10-slider
+layout           : flex col · gap 8px · full width
+
+─── header ─── flex row · space-between
+  label : label (11px/700/uppercase/0.06em) · text-muted
+  value : caption (10px/400) · text-secondary
+
+─── track ─── h=4px · radius full · fill surface-elevated
+─── fill  ─── h=4px · radius full · fill primary · transition fast standard
+
+─── thumb ─── 20×20px · radius full · fill primary · shadow-md
+  hover : scale(1.15) · transition fast
+  focus : shadow focus
+
+disabled : opacity 0.4 · pointer-events none
+```
+
+### Segmented
+
+```
+Selector Angular : k10-segmented
+colorRole        : primary | accent | secondary
+Sizes            : sm | md
+disabled         : Boolean
+
+container : fill surface · border 1px border · radius xl (md size) / lg (sm)
+            padding 3px (md) / 2px (sm) · gap 2px
+
+─── sm ─── item: h=28px · padding-x 12px · font caption · radius calc(lg-1px)
+─── md ─── item: h=36px · padding-x 16px · font body · radius calc(xl-2px)
+
+item default  : text text-secondary · transparent fill
+item hover    : text text · fill surface-raised
+item active
+  fill    : color/input-bg (#162233) · shadow sm
+  primary : text primary · border 1px primary/25%
+  accent  : text accent · border 1px accent/25%
+  secondary : text secondary · border 1px secondary/25%
+  @animated seg-active-in (scale 0.96→1, spring, normal)
+item disabled : opacity 0.4
+```
+
+### Stepper
+
+```
+Selector Angular : k10-stepper
+orientation      : horizontal | vertical
+
+─── node ─── 32×32px · radius full
+  default   : border 2px border · fill surface · text text-muted
+  active    : border primary · fill primary-subtle · text primary · shadow primary-glow
+  completed : border primary · fill primary · text primary-text
+  error     : border danger · fill danger-subtle · text danger
+
+─── connector ─── h=2px (horizontal) · w=2px (vertical) · fill border · radius full
+  completed step connector : fill primary
+
+─── content ─── flex col · gap 2px (vertical mode only)
+  label    : body (15px/500/text-secondary) · active: text/semibold
+  sublabel : caption (10px/text-muted)
+
+spacing between steps (horizontal) : flex: 1 + connector
+spacing between steps (vertical)   : padding-bottom 16px per step
+```
+
+### Stepper Control
+
+```
+Selector Angular : k10-stepper-control
+colorRole        : default | accent
+height           : 40px · radius full · overflow hidden
+border           : 1px solid color/input-border
+  accent mode    : border color/accent
+
+─── buttons ─── 40×40px · fill surface · color primary
+  accent mode : color accent
+  hover : fill surface-raised
+  active : fill surface-elevated
+  dimmed (min/max reached) : color text-muted · cursor not-allowed
+
+─── value ─── 52×40px · fill surface · font body (15px/700/text)
+  border-left/right : 1px input-border
+  accent mode : border-color accent
+```
+
+### FormField
+
+```
+Selector Angular : k10-form-field
+layout           : flex col · gap 8px · full width
+
+label  : label (11px/700/uppercase/0.06em) · text-muted
+         * required → suffix " *" in text danger
+
+error  : caption (10px/400) · text danger
+help   : caption (10px/400) · text-muted
 ```
 
 ### ChartCard
 
 ```
-Selector Angular : k9-chart-card
+Selector Angular : k10-chart-card
 fill             : color/surface
 border           : 1px solid color/border
 radius           : md (8px)
-padding          : 24px (spacing/xl) · tous côtés
+padding          : 24px · tous côtés
 gap              : 24px entre header et chart
 
 ─── header ─── flex row · space-between · align-items flex-start · gap 12px
 
 ─── meta (gauche) ───
   layout : flex column · gap 2px
-  title  : label style (12px/700/uppercase/0.3em/text-secondary)
-  value  : h2 (24px/700/-0.01em/text)
-  unit   : label (12px, text-secondary)
+  title  : label (11px/700/uppercase/0.06em/text-secondary)
+  value  : data-md (22px/700/-0.01em/text)
+  unit   : caption (10px · text-secondary)
 
 ─── live-badge (droite) ───
   padding   : 4px 8px
   radius    : md (8px)
-  fill      : color/primary-subtle
-  border    : 1px solid color/primary
-  text      : caption (10px/700/0.4em/color/primary)
+  fill      : color/accent-subtle
+  border    : 1px solid color/accent
+  text      : caption (10px/700/0.04em/color/accent)
   dot       : 5×5px · radius full · currentColor | @animated dot-breathe 2.5s
 
 ─── chart area ─── height 128px · width 100%
 
 ─── live state ───
-  border       → transparent
-  ::before     → conic-gradient(sage) spin 5s | @live
-  box-shadow   → pulse 0–28% opacity 2.5s | @animated
+  border     → transparent
+  ::before   → conic-gradient(accent+primary) spin 5s | @live
+  box-shadow → pulse 0–28% opacity 2.5s | @animated
 ```
 
 ### MetricCard
 
 ```
-Selector Angular : k9-metric-card
+Selector Angular : k10-metric-card
 fill             : color/surface
 border           : 1px solid color/border
 radius           : md (8px)
-padding          : 24px (spacing/xl)
-gap              : 16px (spacing/lg)
+padding          : 24px
+gap              : 16px
 
 ─── header row ─── flex · space-between · align-center
-
-label             : label style · text-secondary · uppercase
+label             : label (11px/700/uppercase/0.06em) · text-secondary
 
 trend badge
-  up   → fill primary-subtle · text primary · padding 2px/8px · radius full
-  down → fill danger-subtle  · text danger  · caption (10px/700/0.4em)
+  up   → fill primary-subtle · text primary · padding 2px/8px · radius full · caption
+  down → fill danger-subtle  · text danger  · caption (10px/700/0.04em)
 
 ─── value row ─── flex · align-baseline · gap 8px
-value             : 36px/40px · 800 (extrabold) · text · letter-spacing -0.02em
-unit              : body (14px/500) · text-secondary · uppercase
+value             : data-lg (28px/36px · 700) · text · letter-spacing -0.02em
+unit              : body (15px/500) · text-secondary · uppercase
 
 ─── progress bar ───
-track             : height 4px · radius full · fill surface-elevated
-fill              : height 4px · radius full · fill primary
+track             : h=4px · radius full · fill surface-elevated
+fill              : h=4px · radius full · fill primary · shadow primary-glow
 ```
 
 ### Badge
 
 ```
-Selector Angular : k9-badge
+Selector Angular : k10-badge
 height           : 28px
-padding-x        : 12px (spacing/md)
+padding-x        : 12px
 radius           : full
 border           : 1px solid (couleur du variant)
-font             : caption (10px/700/0.4em)
+font             : caption (10px/700/0.04em)
 dot              : 6×6px · radius full · currentColor
 
-success → fill primary-hover  · border primary  · text primary
-warning → fill secondary-hover · border secondary · text secondary
-error   → fill danger-hover   · border danger   · text danger
-neutral → fill neutral-hover  · border neutral  · text neutral
+success → fill success-hover · border success  · text success
+warning → fill warning-hover · border warning  · text warning
+error   → fill danger-hover  · border danger   · text danger
+neutral → fill neutral-hover · border neutral  · text neutral
+info    → fill info-hover    · border info     · text info
 ```
 
 ### Avatar
 
 ```
-Selector Angular : k9-avatar
+Selector Angular : k10-avatar
 radius sm        : md (8px)   · size 40×40px
 radius md        : xl (16px)  · size 64×64px
 radius lg        : xl (16px)  · size 80×80px
@@ -387,21 +659,21 @@ border           : 1px solid color/border
 fill             : color/surface-raised
 
 initials
-  font  : body (14px/700) · uppercase · letter-spacing 0.05em · text
+  font  : body (15px/700) · uppercase · letter-spacing 0.05em · text
 
-with-text layout : flex row · align-center · gap 12px (spacing/md)
-name             : body (14px/500) · text
+with-text layout : flex row · align-center · gap 12px
+name             : body (15px/500) · text
 subtitle         : caption (10px) · text-muted
 ```
 
 ### Topbar
 
 ```
-Selector Angular : k9-topbar
+Selector Angular : k10-topbar
 height           : 56px (shell/topbar-height)
-fill             : color/surface  (hook : --k9-topbar-bg)
-border-bottom    : 1px solid color/border (hook : --k9-topbar-border)
-padding-x        : 16px (spacing/lg)
+fill             : color/surface  (hook : --k10-topbar-bg)
+border-bottom    : 1px solid color/border (hook : --k10-topbar-border)
+padding-x        : 16px
 
 layout           : flex · space-between · align-center · gap 8px
 start slot       : flex · align-center · gap 8px · min-width 40px
@@ -412,9 +684,9 @@ end slot         : flex · align-center · justify-end · gap 8px · min-width 4
 ### NavItem — bottom
 
 ```
-Selector Angular : k9-nav-item [variant="bottom"]
+Selector Angular : k10-nav-item [variant="bottom"]
 height           : 48px (shell/bottom-nav-height)
-padding-x        : 24px (spacing/xl)
+padding-x        : 24px
 radius           : md (8px)
 layout           : flex column · align-center · justify-center
 icon             : 20×20px
@@ -428,13 +700,13 @@ active  → fill primary-subtle · text color/primary · shadow primary-glow | @
 ### NavItem — side
 
 ```
-Selector Angular : k9-nav-item [variant="side"]
+Selector Angular : k10-nav-item [variant="side"]
 width            : 100%
-padding          : 8px 16px (spacing/sm + spacing/lg)
+padding          : 8px 16px
 radius           : md (8px)
 layout           : flex row · align-center · justify-start · gap 12px
 icon             : 24×24px
-label            : body (14px/500)
+label            : body (15px/500)
 
 default → text color/text-muted
 hover   → fill neutral-hover · text text-secondary
@@ -444,33 +716,33 @@ active  → fill primary-subtle · text primary · shadow primary-glow | @spring
 ### Alert
 
 ```
-Selector Angular : k9-alert
-layout           : flex row · align-items flex-start · gap 16px (spacing/lg)
-padding          : 24px (spacing/xl) · tous côtés
+Selector Angular : k10-alert
+layout           : flex row · align-items flex-start · gap 16px
+padding          : 24px · tous côtés
 radius           : xl (16px)
 border           : 1px solid (couleur du variant)
 
 ─── icon-wrap ─── 48×48px · radius lg (12px) · flex center
-─── body ─── flex col · gap 8px (spacing/sm)
-  title       : body (14px/600) · couleur du variant
-  description : body (14px/400) · text-secondary
+─── body ─── flex col · gap 8px
+  title       : body (15px/600) · couleur du variant
+  description : body (15px/400) · text-secondary
 
 ─── info ───
   fill      : color/surface
   border    : color/border
-  icon-wrap : fill primary-hover · color primary
+  icon-wrap : fill info-hover · color info
 
 ─── success ───
-  fill      : color/primary-subtle
-  border    : color/primary
-  icon-wrap : fill primary · color primary-text
-  title     : color/primary
+  fill      : color/success-subtle
+  border    : color/success
+  icon-wrap : fill success · color success-text
+  title     : color/success
 
 ─── warning ───
-  fill      : color/secondary-subtle
-  border    : color/secondary
-  icon-wrap : fill secondary · color secondary-text
-  title     : color/secondary
+  fill      : color/warning-subtle
+  border    : color/warning
+  icon-wrap : fill warning · color warning-text
+  title     : color/warning
 
 ─── error ───
   fill      : color/danger-subtle
@@ -484,7 +756,7 @@ dismiss button : color text-muted · hover text · transition fast
 ### Card
 
 ```
-Selector Angular : k9-card
+Selector Angular : k10-card
 fill             : color/surface
 radius           : xl (16px)
 border           : 1px solid color/border (--border=true)
@@ -496,65 +768,79 @@ overflow         : hidden
   md   : shadow md
   lg   : shadow lg
 
-─── padding variants (body) ───
+─── padding variants ───
   none : 0
-  sm   : 8px (spacing/sm)
-  md   : 16px (spacing/lg)
-  lg   : 24px (spacing/xl)
+  sm   : 8px
+  md   : 16px
+  lg   : 24px
 
-─── header ─── padding 16px (spacing/lg) · border-bottom 1px border · h3 (20px/700/text)
+─── header ─── padding 16px · border-bottom 1px border · h3 (16px/700/text)
 ─── body ─── padding 16px par défaut
-─── footer ─── padding 12px 16px (spacing/md + spacing/lg) · border-top 1px · fill surface-deep
+─── footer ─── padding 12px 16px · border-top 1px · fill surface-raised
 
 ─── interactive ───
   cursor pointer · hover translateY(-2px) + shadow-lg · transition normal/standard
 
 ─── live ─── @live @animated
-  border transparent · ::before conic-gradient sage spin 5s ·
+  border transparent · ::before conic-gradient(accent+primary) spin 5s ·
   box-shadow pulse 10%→28% opacity 2.5s ease-in-out
 ```
 
-### Checkbox
+### Live Indicator
 
 ```
-Selector Angular : k9-checkbox
-layout           : inline-flex · align-center · gap 8px (spacing/sm)
+Selector Angular : k10-live-indicator
+Variants         : accent | danger | success | warning
+Modes            : pill (default) | inline
+Sizes            : sm | md | lg
 
-─── box ─── 20×20px · radius sm (4px) · border 1.5px border · fill transparent
+─── pill sm ─── h=20px · padding-x 8px · font 9px/700/0.08em · radius full
+─── pill md ─── h=24px · padding-x 12px · font 10px/700/0.08em · radius full
+─── pill lg ─── h=28px · padding-x 12px · font 11px/700/0.08em · radius full
 
-unchecked
-  border color/border · fill transparent
-hover (not disabled)
-  border color/primary · fill primary-hover
-checked
-  fill primary · border primary · @animated checkbox-pop (scale 1→1.18→1, 200ms, emphasis)
-indeterminate
-  fill primary · border primary (dash icon)
-focus-visible
-  shadow focus · border primary
-disabled
-  opacity 0.4 · cursor not-allowed
+─── pill modes (fill + border) ───
+  accent  : fill rgba(accent,0.15) · border rgba(accent,0.30) · text accent
+  danger  : fill danger-subtle · border rgba(danger,0.30) · text danger
+  success : fill success-subtle · border rgba(success,0.30) · text success
+  warning : fill warning-subtle · border rgba(warning,0.30) · text warning
 
-label text : body (14px/400/text)
+─── inline mode ─── transparent · no border · text only
+
+─── dot ─── 5–7px · radius full · currentColor
+  @animated pulse : opacity 1→0.5 + scale 1→0.85 · 1.4s · standard · @infinite
+```
+
+### Notification Dot
+
+```
+Selector Angular : k10-notification-dot
+Variants         : danger | primary | accent | warning | success
+border           : 1.5px solid color/bg (knockout)
+
+─── sizes ───
+  xs : 6×6px · no count · font 0
+  sm : 8×8px · no count · font 0
+  md : 16×16px · font 9px/700 · with-count: min-w 18px · h 18px
+
+text always : color/bg-deep (dark on light pill)
+
+─── @animated pulse ─── ring expand → transparent · 2s ease-in-out @infinite
 ```
 
 ### Divider
 
 ```
-Selector Angular : k9-divider
-width            : 100%
+Selector Angular : k10-divider
 
-─── simple ───
-  line 1px height · fill color/border
+─── simple ───  1px height · fill color/border
 
 ─── labeled ───
-  flex row · gap 12px (spacing/md)
-  two half-lines (fill border) flanking the label
-  label : caption (10px/400/text-muted/uppercase/0.4em letter-spacing)
+  flex row · gap 12px
+  two half-lines flanking label
+  label : caption (10px/400/text-muted/uppercase/0.04em)
 
 ─── progress ───
-  flex row · gap 4px (spacing/xs)
-  dots h=6px · radius full
+  flex row · gap 4px · dots h=6px · radius full
   active dot  : w=48px · fill primary
   inactive dot: w=12px · fill surface-elevated
 ```
@@ -562,22 +848,21 @@ width            : 100%
 ### Dropdown
 
 ```
-Selector Angular : k9-dropdown
+Selector Angular : k10-dropdown
 
-─── trigger ─── inline-flex · h=40px · padding 0 16px (spacing/lg) · radius xl (16px)
-  border   : 1px solid color/border · fill surface
-  font     : body (14px/500)
-  hover    : fill surface-raised · border primary
-  open     : border primary · shadow focus
-  disabled : opacity 0.4 · cursor not-allowed
+─── trigger ─── h=40px · padding 0 16px · radius xl
+  border   : 1px solid border · fill surface
+  font     : body (15px/500)
+  hover    : fill surface-raised · border accent
+  open     : border accent · shadow accent-focus
   arrow    : 16px icon · text-muted · rotate 180° on open
 
 ─── menu ─── fill surface-raised · radius xl · border 1px border · shadow-lg
-  padding  : 4px (spacing/xs) · flex col · gap 2px
+  padding  : 4px · flex col · gap 2px
   offset   : top calc(100% + 4px)
   entrance : @animated dropdown-in (opacity 0→1 + translateY -4px→0) · decelerate · fast
 
-─── item ─── h=40px · padding 0 12px (spacing/md) · radius lg (12px) · body (14px/text)
+─── item ─── h=40px · padding 0 12px · radius lg · body (15px/text)
   hover    : fill surface-elevated
   danger   : text danger · hover fill danger-subtle
   disabled : opacity 0.4
@@ -586,40 +871,27 @@ Selector Angular : k9-dropdown
 ### EmptyState
 
 ```
-Selector Angular : k9-empty-state
-layout           : flex col · align-center · justify-center · text-center · gap 12px (spacing/md)
+Selector Angular : k10-empty-state
+layout           : flex col · align-center · justify-center · text-center · gap 12px
 
-─── sm ─── padding 24px (spacing/xl) · icon 40×40px · title body (14px/600/text)
-─── md ─── padding 48px (spacing/xxxl) · icon 64×64px · title h3 (20px/600/text)
-─── lg ─── padding 64px (spacing/4xl) · icon 80×80px · title h3 (20px/600/text)
+─── sm ─── padding 24px · icon 40×40px · title body (15px/600/text)
+─── md ─── padding 48px · icon 64×64px · title h2 (20px/600/text)
+─── lg ─── padding 64px · icon 80×80px · title h2 (20px/600/text)
 
-description     : body (14px/400/text-secondary) · max-width 360px
-icon color      : text-muted · stroke currentColor
+description     : body (15px/400/text-secondary) · max-width 360px
+icon color      : text-muted · stroke currentColor · icon-wrap radius/lg
 
 ─── action button ─── margin-top 8px
-  h=48px · padding 0 24px (spacing/xl) · radius xl · border 1px border
-  fill transparent · font body (14px/500) · text primary
+  h=48px · padding 0 24px · radius xl · border 1px border
+  fill transparent · font body (15px/500) · text primary
   hover : fill primary-hover · border primary
-```
-
-### FormField
-
-```
-Selector Angular : k9-form-field
-layout           : flex col · gap 8px (spacing/sm) · full width
-
-label  : caption (10px/700/uppercase/0.4em letter-spacing) · text-muted
-         * required → suffix " *" in text danger
-
-error  : caption (10px/400) · text danger
-help   : caption (10px/400) · text-muted
 ```
 
 ### ListItem
 
 ```
-Selector Angular : k9-list-item
-padding          : 16px (spacing/lg) · tous côtés
+Selector Angular : k10-list-item
+padding          : 16px · tous côtés
 radius           : md (8px)
 fill             : color/surface
 border           : 1px solid color/border
@@ -628,36 +900,28 @@ layout           : flex row · space-between · align-center · gap 16px
 ─── left ─── flex row · gap 16px · flex 1
   icon  : 20×20px · text-secondary
   text  : flex col · gap 2px
-    label    : body (14px/700/text) · ellipsis
+    label    : body (15px/700/text) · ellipsis
     sublabel : caption (10px/400/text-muted) · ellipsis
 
 ─── right ───
   value   : caption (10px/700/text-secondary)
   chevron : 12px · text-muted
 
-─── navigation variant ───
-  cursor pointer · hover fill surface-raised · focus shadow-focus
-
-─── status-error variant ───
-  icon text danger · label text danger
-
-─── skeleton variant ───
-  avatar placeholder : 40×40px (use k9-skeleton circle)
-  label bar          : 96×12px · radius md
-  sublabel bar       : 128×8px · radius md
-  value bar          : 48×16px · radius full
+─── navigation variant ─── cursor pointer · hover fill surface-raised · focus shadow-focus
+─── status-error variant ─── icon text danger · label text danger
+─── skeleton variant ─── k10-skeleton placeholders
 ```
 
 ### Modal
 
 ```
-Selector Angular : k9-modal
+Selector Angular : k10-modal
 
 ─── backdrop ─── fixed inset 0 · z=z-modal (50) · bg rgba(0,0,0,0.60) · backdrop-filter blur(4px)
-  @animated modal-backdrop-in (opacity 0→1) · standard · normal (200ms)
+  @animated modal-backdrop-in (opacity 0→1) · standard · normal
 
 ─── panel ─── fill surface · radius xl (16px) · border 1px border · shadow-xl
-  @animated modal-panel-in (opacity 0→1 + translateY 12px + scale 0.97→1) · emphasis · normal
+  @animated modal-panel-in (opacity 0→1 + translateY 12px + scale 0.97→1) · spring · normal
 
 ─── sizes ───
   sm : max-width 400px
@@ -665,91 +929,44 @@ Selector Angular : k9-modal
   lg : max-width 760px
 
 ─── header ─── padding 24px 24px 0 · gap 16px · flex row · space-between
-  title : h3 (20px/600/text)
+  title : h2 (20px/600/text)
   close : radius md · hover fill surface-raised · color text-muted→text
 
-─── body ─── padding 24px (spacing/xl)
+─── body ─── padding 24px
 ```
 
 ### Progress
 
 ```
-Selector Angular : k9-progress
-layout           : flex col · gap 8px (spacing/sm) · full width
+Selector Angular : k10-progress
+layout           : flex col · gap 8px · full width
 
 ─── track ─── h=4px · radius full · fill surface-elevated
-─── fill ─── h=4px · radius full · fill primary · shadow primary-glow
+─── fill  ─── h=4px · radius full · fill primary · shadow primary-glow
   transition width slow (300ms) standard
 
 label : caption (10px/400/text-muted) · right-aligned
 ```
 
-### Radio
-
-```
-Selector Angular : k9-radio
-layout           : inline-flex · align-center · gap 8px (spacing/sm)
-
-─── dot ─── 20×20px · radius full · border 1.5px border · fill transparent
-  inner dot : 8×8px · radius full · fill primary-text · scale(0) unchecked → scale(1) checked
-  transition : emphasis easing · fast
-
-unchecked   : border color/border
-hover       : border primary · fill primary-hover
-checked     : dot fill primary · border primary · inner scale(1)
-focus-visible : shadow focus · border primary
-disabled    : opacity 0.4
-
-label text : body (14px/400/text)
-```
-
-### Select
-
-```
-Selector Angular : k9-select
-(identique à k9-input en hauteur — miroir du composant Input)
-
-─── label ─── caption (10px/700/uppercase/0.4em) · text-muted
-
-─── trigger ─── h=64px · padding 0 24px (spacing/xl) · radius xl (16px)
-  border   : 1px solid transparent · fill surface · body (14px/text)
-  focus    : border primary · shadow focus
-  open     : border primary · shadow focus
-  disabled : fill surface-deep · border border-color · text-muted · cursor not-allowed
-  error    : border danger · open: shadow danger-hover
-
-─── menu ─── fill surface-raised · radius xl · border 1px border · shadow-lg
-  padding  : 4px (spacing/xs) · flex col · gap 2px
-  offset   : top calc(100% + 4px) · full width
-  entrance : @animated select-menu-in · decelerate · fast
-
-─── item ─── h=40px · padding 0 12px (spacing/md) · radius lg · body (14px/text)
-  hover    : fill surface-elevated
-  selected : text primary · medium weight · hover fill primary-subtle
-  disabled : opacity 0.4
-
-error message : caption (10px) · text danger · margin-left 8px
-```
-
 ### SideNav
 
 ```
-Selector Angular : k9-side-nav
+Selector Angular : k10-side-nav
 width            : 240px (shell/sidenav-width)
 height           : 100%
 fill             : color/surface
 border-right     : 1px solid color/border
 overflow-y       : auto
 
-─── header ─── padding 16px (spacing/lg) · border-bottom 1px · min-height 56px (topbar-height)
-─── items ─── padding 8px (spacing/sm) · gap 4px (spacing/xs) · flex col · flex 1
-─── footer ─── padding 16px (spacing/lg) · border-top 1px (hidden if empty)
+─── header ─── padding 16px · border-bottom 1px · min-height 56px
+─── items ─── padding 8px · gap 4px · flex col · flex 1
+─── footer ─── padding 16px · border-top 1px (hidden if empty)
 ```
 
 ### Skeleton
 
 ```
-Selector Angular : k9-skeleton
+Selector Angular : k10-skeleton
 animation        : shimmer 1.5s linear @infinite
   gradient : surface (25%) → surface-raised (50%) → surface (75%) · width 800px
 
@@ -757,35 +974,13 @@ animation        : shimmer 1.5s linear @infinite
 ─── rectangle ─── full width · h=24px · radius sm (4px)
 ─── text      ─── full width · h=16px · radius sm (4px)
 
-width / height can be overridden via inputs for custom sizing
-```
-
-### Slider
-
-```
-Selector Angular : k9-slider
-layout           : flex col · gap 8px (spacing/sm) · full width
-
-─── header ─── flex row · space-between
-  label : caption (10px/700/uppercase/0.4em) · text-muted
-  value : caption (10px/400) · text-secondary
-
-─── track container ─── h=24px · relative
-  track : absolute · h=4px · radius full · fill surface-elevated
-  fill  : h=4px · radius full · fill primary · transition fast standard
-
-─── thumb ─── 20×20px · radius full · fill primary · shadow-md
-  hover : scale(1.15) · transition fast standard
-  focus : shadow focus
-
-disabled : opacity 0.4 · pointer-events none
+width / height overridable via inputs
 ```
 
 ### Spinner
 
 ```
-Selector Angular : k9-spinner
-layout           : inline-flex · align-center · gap 8px (spacing/sm)
+Selector Angular : k10-spinner
 animation        : rotate 360° · 0.8s linear @infinite
 
 ─── sizes ───
@@ -793,94 +988,73 @@ animation        : rotate 360° · 0.8s linear @infinite
   md : 40×40px · border 3px
   lg : 56×56px · border 4px
 
-─── variants (piste + arc) ───
-  primary   : piste color/border · arc color/primary (border-top)
-  secondary : piste color/border · arc color/secondary (border-top)
-  white     : piste rgba(255,255,255,0.20) · arc #ffffff (border-top)
+─── variants ───
+  primary   : piste color/border · arc color/primary
+  secondary : piste color/border · arc color/secondary
+  white     : piste rgba(255,255,255,0.20) · arc #ffffff
 
-label : body (14px/400) · text-secondary
+label : body (15px/400) · text-secondary
 ```
 
 ### Tabs
 
 ```
-Selector Angular : k9-tabs
-container        : flex row · gap 4px (spacing/xs) · padding 4px (spacing/xs)
+Selector Angular : k10-tabs
+container        : flex row · gap 4px · padding 4px
 fill             : color/surface · radius xl (16px) · border 1px border
 
-─── tab ─── flex 1 · h=40px · padding 0 16px (spacing/lg) · radius lg (12px) · body (14px/500)
+─── tab ─── flex 1 · h=40px · padding 0 16px · radius lg (12px) · body (15px/500)
   default  : text-secondary
   hover    : text · fill surface-raised · transition fast
   active   : fill surface-elevated · text · semibold (600) · shadow-sm
-  disabled : opacity 0.4 · cursor not-allowed
+  disabled : opacity 0.4
 ```
 
 ### Toast
 
 ```
-Selector Angular : k9-toast
+Selector Angular : k10-toast
 position         : fixed · z=z-toast (60)
-layout           : flex row · align-center · gap 12px (spacing/md)
-padding          : 12px 16px (spacing/md × spacing/lg)
+layout           : flex row · align-center · gap 12px
+padding          : 12px 16px
 radius           : xl (16px) · border 1px · shadow-lg
 min-width        : 280px · max-width 480px
-@animated        : toast-in (opacity 0→1 + translateY 8px→0) · emphasis · normal (200ms)
+@animated        : toast-in (opacity 0→1 + translateY 8px→0) · spring · normal
 
 ─── variants ───
   info    : fill surface-raised · border border-color · text text
-  success : fill primary-subtle · border primary    · text primary
-  warning : fill secondary-subtle · border secondary · text secondary
-  error   : fill danger-subtle   · border danger    · text danger
+  success : fill success-subtle · border success  · text success
+  warning : fill warning-subtle · border warning  · text warning
+  error   : fill danger-subtle  · border danger   · text danger
 
-─── positions ─── offset 24px (spacing/xl) from edge
+─── positions ─── offset 24px from edge
   top-right / top-left / bottom-right / bottom-left
 
-message : body (14px/400/line-height-body) · color inherit
-close   : opacity 0.6 → 1 on hover · transition fast
-```
-
-### Toggle
-
-```
-Selector Angular : k9-toggle
-layout           : inline-flex · align-center · gap 12px (spacing/md)
-
-─── track ─── 48×28px · radius full
-  off    : fill surface-elevated
-  on     : fill primary · shadow primary-glow
-  transition background-color · normal · standard
-
-─── slider ─── 20×20px · radius full · top=4px
-  off    : left=4px · fill color/text
-  on     : left=24px (calc(100% - 24px)) · fill primary-text
-  transition left · normal · @spring emphasis
-  focus  : shadow focus
-
-label   : body (14px/400/text)
-disabled: opacity 0.4 · cursor not-allowed
+message : body (15px/400) · color inherit
+close   : opacity 0.6 → 1 on hover
 ```
 
 ### Tooltip
 
 ```
-Selector Angular : k9-tooltip
+Selector Angular : k10-tooltip
 bubble           : fill surface-elevated · border 1px border · radius md (8px) · shadow-md
-padding          : 4px 8px (spacing/xs × spacing/sm)
+padding          : 4px 8px
 font             : caption (10px/400/text) · white-space nowrap
 show             : on hover / focus-within · opacity 0→1 · fast standard
-offset           : 4px (spacing/xs) from trigger
+offset           : 4px from trigger
 
 ─── positions ───
-  top    : bottom calc(100% + 4px) · translate-X -50% · slide-in from +4px Y
-  bottom : top   calc(100% + 4px) · translate-X -50% · slide-in from -4px Y
-  left   : right calc(100% + 4px) · translate-Y -50% · slide-in from +4px X
-  right  : left  calc(100% + 4px) · translate-Y -50% · slide-in from -4px X
+  top    : bottom calc(100% + 4px) · translate-X -50% · slide-in +4px Y
+  bottom : top   calc(100% + 4px) · translate-X -50% · slide-in -4px Y
+  left   : right calc(100% + 4px) · translate-Y -50% · slide-in +4px X
+  right  : left  calc(100% + 4px) · translate-Y -50% · slide-in -4px X
 ```
 
 ### AppShell
 
 ```
-Selector Angular : k9-app-shell
+Selector Angular : k10-app-shell
 layout           : CSS grid · rows (auto 1fr) · min-height 100dvh · fill bg
 
 ─── topbar area ─── sticky top 0 · z-topbar
@@ -889,12 +1063,13 @@ layout           : CSS grid · rows (auto 1fr) · min-height 100dvh · fill bg
   desktop (≥768px): sticky (défaut)
 
 ─── body area ─── flex row · overflow hidden
-  sidenav : hidden mobile · visible desktop (flex)
+  sidenav : hidden mobile · visible desktop
   main    : flex 1 · overflow-y auto
-    mobile  : padding 16px · padding-top (topbar-height + safe-area + sm) · padding-bottom (bottom-nav + xl + safe-area)
-    desktop : padding 24px (spacing/xl)
+    mobile  : padding 16px · padding-top (topbar-height + safe-area + sm)
+              padding-bottom (bottom-nav + xl + safe-area)
+    desktop : padding 24px
 
-─── bottom nav ─── visible mobile · hidden desktop (display none)
+─── bottom nav ─── visible mobile · hidden desktop
 
 (aucun input — composant structurel pur)
 ```
@@ -902,18 +1077,34 @@ layout           : CSS grid · rows (auto 1fr) · min-height 100dvh · fill bg
 ### BottomNav
 
 ```
-Selector Angular : k9-bottom-nav
+Selector Angular : k10-bottom-nav
 position         : fixed · bottom (spacing/xxl + safe-area-inset-bottom) · centered
 width            : fit-content · z-nav
 height           : 48px (shell/bottom-nav-height)
 radius           : xl (16px)
-Glassmorphism    : fill color-mix(surface-elevated 70%) · backdrop-filter blur(20px)
-border           : 1px color-mix(border 60% transparent)
+Glassmorphism    : fill var(--k10-glass-raised-bg) · backdrop-filter blur(20px)
+border           : 1px var(--k10-glass-border)
 shadow           : shadow-xl
 overflow         : hidden
 
 items container  : flex row · align-center · full width · height bottom-nav-height
-(items sont des k9-nav-item variant="bottom")
+(items : k10-nav-item variant="bottom")
+```
+
+### Map
+
+```
+Selector Angular : k10-map
+display          : block · width 100%
+
+─── wrapper ─── overflow hidden · radius héritée du conteneur (k10-card padding="none")
+
+─── skeleton ─── fill surface · animation skeleton-pulse 1.5s · affiché pendant loading
+
+─── info-window ─── font-family k10 · padding sm/md
+  close : 20×20px · radius sm · text-muted → text
+  title : body (15px/700/text)
+  content : label (11px/400/text-secondary)
 ```
 
 ---
@@ -931,7 +1122,20 @@ button/secondary/default
 button/secondary/hover
 button/ghost/default
 button/danger/default
-button/danger/disabled
+
+tag/default/sm
+tag/primary/sm
+tag/accent/sm
+tag/default/md
+tag/primary/md
+
+fab/primary/md
+fab/accent/md
+fab/secondary/md
+fab/ghost/md
+fab/primary/sm
+fab/primary/lg
+fab/extended/primary/md
 
 input/default
 input/filled
@@ -939,6 +1143,27 @@ input/focus
 input/error
 input/success
 input/disabled
+
+search/sm/default
+search/md/default
+search/md/focus
+search/lg/default
+
+select/default
+select/open
+select/disabled
+select/error
+
+segmented/primary/default
+segmented/accent/default
+segmented/primary/sm
+
+stepper/horizontal/default
+stepper/vertical/default
+
+stepper-control/default
+stepper-control/accent
+stepper-control/disabled
 
 chart-card/populated/default
 chart-card/populated/live
@@ -953,6 +1178,19 @@ badge/success
 badge/warning
 badge/error
 badge/neutral
+badge/info
+
+live-indicator/accent/pill/md
+live-indicator/danger/pill/md
+live-indicator/success/pill/md
+live-indicator/warning/pill/sm
+live-indicator/accent/inline/md
+
+notification-dot/danger/xs
+notification-dot/danger/sm
+notification-dot/danger/md
+notification-dot/primary/md
+notification-dot/accent/md
 
 avatar/image/sm
 avatar/image/md
@@ -1034,11 +1272,6 @@ radio/checked/hover
 radio/unchecked/disabled
 radio/checked/disabled
 
-select/default
-select/open
-select/disabled
-select/error
-
 side-nav/default
 
 skeleton/rectangle
@@ -1078,9 +1311,12 @@ app-shell/mobile
 app-shell/desktop
 
 bottom-nav/default
+
+map/default
+map/loading
 ```
 
-**Règle** : kebab-case strict. Le nom du composant Figma correspond directement au sélecteur Angular (`k9-[composant]`) et au modificateur BEM (`.composant--[variant]`).
+**Règle** : kebab-case strict. Le nom du composant Figma correspond au sélecteur Angular (`k10-[composant]`) et au modificateur BEM (`.composant--[variant]`).
 
 ---
 
@@ -1095,96 +1331,28 @@ button
   disabled : Boolean → false
   label    : Text → "Button"
 
+tag
+  variant  : Variant → default | primary | accent | success | warning | danger | info
+  size     : Size → sm | md
+  removable : Boolean → false
+  label    : Text → "Label"
+
+fab
+  variant  : Variant → primary | accent | secondary | ghost
+  size     : Size → sm | md | lg
+  extended : Boolean → false
+  label    : Text → "Action"
+  disabled : Boolean → false
+
 input
-  state    : Variant (select) → default | filled | focus | error | success | disabled
+  state    : Variant → default | filled | focus | error | success | disabled
   placeholder : Text → "Placeholder"
   hasIcon  : Boolean → false
 
-chart-card
-  variant  : Variant (select) → populated | skeleton | empty
-  isLive   : Boolean → false
-  title    : Text → "Heart Rate"
-  value    : Text → "72"
-  unit     : Text → "BPM"
-
-metric-card
-  variant  : Variant (select) → active | loading | empty
-  label    : Text → "Distance"
-  value    : Text → "8.4"
-  unit     : Text → "KM"
-  trend    : Variant (select) → up | down | none
-
-badge
-  variant  : Variant (select) → success | warning | error | neutral
-  label    : Text → "Online"
-  hasDot   : Boolean → true
-
-nav-item
-  variant  : Variant (select) → bottom | side
-  active   : Boolean → false
-  label    : Text → "Home"
-  hasBadge : Boolean → false
-
-alert
-  variant     : Variant (select) → info | success | warning | error
-  dismissible : Boolean → false
-  visible     : Boolean → true
-
-card
-  padding     : Variant (select) → none | sm | md | lg
-  elevation   : Variant (select) → none | sm | md | lg
-  border      : Boolean → true
-  interactive : Boolean → false
-  isLive      : Boolean → false
-
-checkbox
-  checked       : Boolean → false
-  disabled      : Boolean → false
-  indeterminate : Boolean → false
-  label         : Text → "Label"
-
-divider
-  variant : Variant (select) → simple | labeled | progress
-  label   : Text → "ou"
-
-dropdown
-  label    : Text → "Options"
+search
+  size     : Size → sm | md | lg
+  placeholder : Text → "Rechercher…"
   disabled : Boolean → false
-
-empty-state
-  size        : Variant (select) → sm | md | lg
-  title       : Text → "Aucun résultat"
-  description : Text → "Modifiez vos critères de recherche."
-  actionLabel : Text → "Réessayer"
-
-form-field
-  label        : Text → "Champ"
-  required     : Boolean → false
-  errorMessage : Text → ""
-  helpText     : Text → ""
-
-list-item
-  variant  : Variant (select) → toggle | navigation | text-value | skeleton | status-error
-  icon     : Text → "fa-solid fa-wifi"
-  label    : Text → "Label"
-  sublabel : Text → "Sublabel"
-  value    : Text → "Valeur"
-  checked  : Boolean → false
-
-modal
-  size  : Variant (select) → sm | md | lg
-  title : Text → "Titre"
-
-progress
-  value     : Number → 60
-  size      : Variant (select) → sm | md | lg
-  showLabel : Boolean → true
-
-radio
-  checked  : Boolean → false
-  disabled : Boolean → false
-  label    : Text → "Option"
-  value    : Text → "option"
 
 select
   label       : Text → "Sélectionnez"
@@ -1192,11 +1360,22 @@ select
   disabled    : Boolean → false
   hasError    : Boolean → false
 
-skeleton
-  shape  : Variant (select) → rectangle | circle | text
-  width  : Text → "100%"
-  height : Text → "24px"
-  count  : Number → 1
+checkbox
+  checked       : Boolean → false
+  disabled      : Boolean → false
+  indeterminate : Boolean → false
+  label         : Text → "Label"
+
+radio
+  checked  : Boolean → false
+  disabled : Boolean → false
+  label    : Text → "Option"
+  value    : Text → "option"
+
+toggle
+  checked  : Boolean → false
+  disabled : Boolean → false
+  label    : Text → "Activer"
 
 slider
   value    : Number → 50
@@ -1206,43 +1385,160 @@ slider
   disabled : Boolean → false
   label    : Text → "Volume"
 
+segmented
+  items    : Text → "Option 1,Option 2,Option 3"
+  active   : Text → "Option 1"
+  colorRole : Variant → primary | accent | secondary
+  size     : Size → sm | md
+  disabled : Boolean → false
+
+stepper
+  steps       : Text → "Étape 1,Étape 2,Étape 3"
+  activeStep  : Number → 1
+  orientation : Variant → horizontal | vertical
+
+stepper-control
+  value    : Number → 1
+  min      : Number → 0
+  max      : Number → 10
+  step     : Number → 1
+  disabled : Boolean → false
+  colorRole : Variant → default | accent
+
+form-field
+  label        : Text → "Champ"
+  required     : Boolean → false
+  errorMessage : Text → ""
+  helpText     : Text → ""
+
+chart-card
+  variant  : Variant → populated | skeleton | empty
+  isLive   : Boolean → false
+  title    : Text → "Heart Rate"
+  value    : Text → "72"
+  unit     : Text → "BPM"
+
+metric-card
+  variant  : Variant → active | loading | empty
+  label    : Text → "Distance"
+  value    : Text → "8.4"
+  unit     : Text → "KM"
+  trend    : Variant → up | down | none
+
+badge
+  variant  : Variant → success | warning | error | neutral | info
+  label    : Text → "Online"
+  hasDot   : Boolean → true
+
+live-indicator
+  variant  : Variant → accent | danger | success | warning
+  mode     : Variant → pill | inline
+  size     : Size → sm | md | lg
+  pulse    : Boolean → true
+  label    : Text → "LIVE"
+
+notification-dot
+  variant  : Variant → danger | primary | accent | warning | success
+  size     : Size → xs | sm | md
+  pulse    : Boolean → false
+  count    : Number → 0
+
+avatar
+  size     : Size → sm | md | lg
+  src      : Text → ""
+  initials : Text → "AB"
+
+nav-item
+  variant  : Variant → bottom | side
+  active   : Boolean → false
+  label    : Text → "Home"
+  hasBadge : Boolean → false
+
+alert
+  variant     : Variant → info | success | warning | error
+  dismissible : Boolean → false
+  visible     : Boolean → true
+
+card
+  padding     : Variant → none | sm | md | lg
+  elevation   : Variant → none | sm | md | lg
+  border      : Boolean → true
+  interactive : Boolean → false
+  isLive      : Boolean → false
+
+divider
+  variant : Variant → simple | labeled | progress
+  label   : Text → "ou"
+
+dropdown
+  label    : Text → "Options"
+  disabled : Boolean → false
+
+empty-state
+  size        : Variant → sm | md | lg
+  title       : Text → "Aucun résultat"
+  description : Text → "Modifiez vos critères de recherche."
+  actionLabel : Text → "Réessayer"
+
+list-item
+  variant  : Variant → toggle | navigation | text-value | skeleton | status-error
+  icon     : Text → "fa-solid fa-wifi"
+  label    : Text → "Label"
+  sublabel : Text → "Sublabel"
+  value    : Text → "Valeur"
+  checked  : Boolean → false
+
+modal
+  size  : Variant → sm | md | lg
+  title : Text → "Titre"
+
+progress
+  value     : Number → 60
+  size      : Variant → sm | md | lg
+  showLabel : Boolean → true
+
+skeleton
+  shape  : Variant → rectangle | circle | text
+  width  : Text → "100%"
+  height : Text → "24px"
+  count  : Number → 1
+
 spinner
-  size    : Variant (select) → sm | md | lg
-  variant : Variant (select) → primary | secondary | white
+  size    : Variant → sm | md | lg
+  variant : Variant → primary | secondary | white
   label   : Text → ""
 
 tabs
   activeTab : Text → "tab1"
 
 toast
-  variant    : Variant (select) → info | success | warning | error
-  position   : Variant (select) → top-right | top-left | bottom-right | bottom-left
+  variant    : Variant → info | success | warning | error
+  position   : Variant → top-right | top-left | bottom-right | bottom-left
   message    : Text → "Opération réussie."
   visible    : Boolean → true
   duration   : Number → 0
   dismissible: Boolean → true
 
-toggle
-  checked  : Boolean → false
-  disabled : Boolean → false
-  label    : Text → "Activer"
-
 tooltip
-  position : Variant (select) → top | bottom | left | right
+  position : Variant → top | bottom | left | right
   content  : Text → "Info contextuelle"
   disabled : Boolean → false
+
+map
+  height   : Text → "400px"
+  loading  : Boolean → false
 ```
 
 ---
 
 ## Description field — métadonnées machine-readable
 
-Chaque composant Figma porte dans son champ **Description** le bloc suivant (copier/coller strictement) :
+Chaque composant Figma porte dans son champ **Description** le bloc suivant :
 
 ```
-selector: k9-[composant]
+selector: k10-[composant]
 status: stable | beta | deprecated
-tokens: --k9-[token1], --k9-[token2]
+tokens: --k10-[token1], --k10-[token2]
 storybook: /story/design-system-components-[composant]--default
 inputs: [input1, input2, ...]
 ```
@@ -1251,179 +1547,277 @@ Exemples :
 
 ```
 --- button ---
-selector: k9-button
+selector: k10-button
 status: stable
-tokens: --k9-color-primary, --k9-radius-xl, --k9-font-size-button
+tokens: --k10-color-primary, --k10-radius-xl, --k10-font-size-h3
 storybook: /story/design-system-components-button--default
 inputs: variant, size, disabled, fullWidth, isLoading
 
---- chart-card ---
-selector: k9-chart-card
+--- tag ---
+selector: k10-tag
 status: stable
-tokens: --k9-color-surface, --k9-radius-md, --k9-space-xl, --k9-color-primary
-storybook: /story/design-system-components-chartcard--default
-inputs: isLive, variant, value, unit, label
+tokens: --k10-color-primary-subtle, --k10-radius-full, --k10-font-size-caption
+storybook: /story/design-system-components-tag--default
+inputs: variant, size, removable, label
+
+--- fab ---
+selector: k10-fab
+status: stable
+tokens: --k10-color-primary, --k10-color-accent, --k10-radius-xl, --k10-shadow-md
+storybook: /story/design-system-components-fab--default
+inputs: variant, size, extended, label, disabled
 
 --- input ---
-selector: k9-input
+selector: k10-input
 status: stable
-tokens: --k9-color-surface, --k9-radius-xl, --k9-space-xl, --k9-shadow-focus
+tokens: --k10-color-input-bg, --k10-color-accent, --k10-radius-xl, --k10-shadow-focus
 storybook: /story/design-system-components-input--default
 inputs: placeholder, disabled, hasIcon, state
 
---- alert ---
-selector: k9-alert
+--- search ---
+selector: k10-search
 status: stable
-tokens: --k9-color-primary-subtle, --k9-color-danger-subtle, --k9-radius-xl, --k9-space-xl
+tokens: --k10-color-surface, --k10-color-accent, --k10-radius-full, --k10-color-accent-focus
+storybook: /story/design-system-components-search--default
+inputs: size, placeholder, disabled
+
+--- select ---
+selector: k10-select
+status: stable
+tokens: --k10-color-input-bg, --k10-color-accent, --k10-radius-xl, --k10-shadow-lg
+storybook: /story/design-system-components-select--default
+inputs: options, label, placeholder, disabled, hasError
+
+--- segmented ---
+selector: k10-segmented
+status: stable
+tokens: --k10-color-surface, --k10-radius-xl, --k10-color-primary, --k10-color-accent
+storybook: /story/design-system-components-segmented--default
+inputs: items, active, colorRole, size, disabled
+
+--- stepper ---
+selector: k10-stepper
+status: stable
+tokens: --k10-color-primary, --k10-radius-full, --k10-shadow-primary-glow
+storybook: /story/design-system-components-stepper--default
+inputs: steps, activeStep, orientation
+
+--- stepper-control ---
+selector: k10-stepper-control
+status: stable
+tokens: --k10-color-primary, --k10-color-accent, --k10-color-input-border, --k10-radius-full
+storybook: /story/design-system-components-steppercontrol--default
+inputs: value, min, max, step, disabled, colorRole
+
+--- chart-card ---
+selector: k10-chart-card
+status: stable
+tokens: --k10-color-surface, --k10-radius-md, --k10-space-xl, --k10-color-accent
+storybook: /story/design-system-components-chartcard--default
+inputs: isLive, variant, value, unit, label
+
+--- metric-card ---
+selector: k10-metric-card
+status: stable
+tokens: --k10-color-surface, --k10-radius-md, --k10-font-size-data-lg, --k10-color-primary
+storybook: /story/design-system-components-metriccard--default
+inputs: variant, label, value, unit, trend
+
+--- live-indicator ---
+selector: k10-live-indicator
+status: stable
+tokens: --k10-color-accent, --k10-radius-full, --k10-easing-standard
+storybook: /story/design-system-components-liveindicator--default
+inputs: variant, mode, size, pulse, label
+
+--- notification-dot ---
+selector: k10-notification-dot
+status: stable
+tokens: --k10-color-danger, --k10-color-primary, --k10-color-accent, --k10-radius-full
+storybook: /story/design-system-components-notificationdot--default
+inputs: variant, size, pulse, count
+
+--- alert ---
+selector: k10-alert
+status: stable
+tokens: --k10-color-success-subtle, --k10-color-danger-subtle, --k10-radius-xl, --k10-space-xl
 storybook: /story/design-system-components-alert--default
 inputs: variant, dismissible, visible
 
 --- card ---
-selector: k9-card
+selector: k10-card
 status: stable
-tokens: --k9-color-surface, --k9-radius-xl, --k9-color-border, --k9-shadow-lg
+tokens: --k10-color-surface, --k10-radius-xl, --k10-color-border, --k10-shadow-lg
 storybook: /story/design-system-components-card--default
 inputs: padding, elevation, border, interactive, isLive
 
 --- checkbox ---
-selector: k9-checkbox
+selector: k10-checkbox
 status: stable
-tokens: --k9-color-primary, --k9-radius-sm, --k9-shadow-focus, --k9-easing-emphasis
+tokens: --k10-color-primary, --k10-radius-sm, --k10-shadow-focus, --k10-easing-spring
 storybook: /story/design-system-components-checkbox--default
 inputs: checked, disabled, indeterminate, label
 
 --- divider ---
-selector: k9-divider
+selector: k10-divider
 status: stable
-tokens: --k9-color-border, --k9-color-primary, --k9-font-size-caption
+tokens: --k10-color-border, --k10-color-primary, --k10-font-size-caption
 storybook: /story/design-system-components-divider--default
 inputs: variant, label
 
 --- dropdown ---
-selector: k9-dropdown
+selector: k10-dropdown
 status: stable
-tokens: --k9-color-surface, --k9-radius-xl, --k9-color-border, --k9-shadow-lg
+tokens: --k10-color-surface, --k10-radius-xl, --k10-color-accent, --k10-shadow-lg
 storybook: /story/design-system-components-dropdown--default
 inputs: label, items, disabled
 
 --- empty-state ---
-selector: k9-empty-state
+selector: k10-empty-state
 status: stable
-tokens: --k9-color-text-muted, --k9-radius-xl, --k9-color-primary, --k9-space-xxxl
+tokens: --k10-color-text-muted, --k10-radius-xl, --k10-color-primary, --k10-space-xxxl
 storybook: /story/design-system-components-emptystate--default
 inputs: size, title, description, actionLabel
 
 --- form-field ---
-selector: k9-form-field
+selector: k10-form-field
 status: stable
-tokens: --k9-font-size-caption, --k9-color-text-muted, --k9-color-danger
+tokens: --k10-font-size-label, --k10-color-text-muted, --k10-color-danger
 storybook: /story/design-system-components-formfield--default
 inputs: label, required, errorMessage, helpText
 
 --- list-item ---
-selector: k9-list-item
+selector: k10-list-item
 status: stable
-tokens: --k9-color-surface, --k9-radius-md, --k9-space-lg, --k9-color-danger
+tokens: --k10-color-surface, --k10-radius-md, --k10-space-lg, --k10-color-danger
 storybook: /story/design-system-components-listitem--default
 inputs: data
 
 --- modal ---
-selector: k9-modal
+selector: k10-modal
 status: stable
-tokens: --k9-color-surface, --k9-radius-xl, --k9-shadow-xl, --k9-easing-emphasis
+tokens: --k10-color-surface, --k10-radius-xl, --k10-shadow-xl, --k10-easing-spring
 storybook: /story/design-system-components-modal--default
 inputs: isOpen, size, title
 
 --- progress ---
-selector: k9-progress
+selector: k10-progress
 status: stable
-tokens: --k9-color-primary, --k9-radius-full, --k9-shadow-primary-glow
+tokens: --k10-color-primary, --k10-radius-full, --k10-shadow-primary-glow
 storybook: /story/design-system-components-progress--default
 inputs: value, size, showLabel, label
 
 --- radio ---
-selector: k9-radio
+selector: k10-radio
 status: stable
-tokens: --k9-color-primary, --k9-radius-full, --k9-shadow-focus, --k9-easing-emphasis
+tokens: --k10-color-primary, --k10-radius-full, --k10-shadow-focus, --k10-easing-spring
 storybook: /story/design-system-components-radio--default
 inputs: checked, disabled, value, label
 
---- select ---
-selector: k9-select
+--- badge ---
+selector: k10-badge
 status: stable
-tokens: --k9-color-surface, --k9-radius-xl, --k9-shadow-focus, --k9-color-primary
-storybook: /story/design-system-components-select--default
-inputs: options, label, placeholder, disabled, hasError
+tokens: --k10-color-success, --k10-color-danger, --k10-color-warning, --k10-radius-full
+storybook: /story/design-system-components-badge--default
+inputs: variant, label, hasDot
+
+--- avatar ---
+selector: k10-avatar
+status: stable
+tokens: --k10-color-surface-raised, --k10-radius-xl, --k10-color-border
+storybook: /story/design-system-components-avatar--default
+inputs: size, src, initials
+
+--- nav-item ---
+selector: k10-nav-item
+status: stable
+tokens: --k10-color-primary-subtle, --k10-radius-md, --k10-shadow-primary-glow, --k10-easing-spring
+storybook: /story/design-system-components-navitem--default
+inputs: variant, active, label, hasBadge
+
+--- topbar ---
+selector: k10-topbar
+status: stable
+tokens: --k10-color-surface, --k10-color-border, --k10-topbar-height
+storybook: /story/design-system-shell-topbar--default
+inputs: (slot-based)
 
 --- side-nav ---
-selector: k9-side-nav
+selector: k10-side-nav
 status: stable
-tokens: --k9-color-surface, --k9-color-border, --k9-sidenav-width, --k9-topbar-height
+tokens: --k10-color-surface, --k10-color-border, --k10-sidenav-width, --k10-topbar-height
 storybook: /story/design-system-shell-sidenav--default
 inputs: (structural — items via ng-content)
 
---- skeleton ---
-selector: k9-skeleton
+--- bottom-nav ---
+selector: k10-bottom-nav
 status: stable
-tokens: --k9-color-surface, --k9-color-surface-raised, --k9-radius-sm, --k9-radius-full
+tokens: --k10-glass-raised-bg, --k10-glass-border, --k10-radius-xl, --k10-shadow-xl
+storybook: /story/design-system-shell-bottomnav--default
+inputs: items
+
+--- app-shell ---
+selector: k10-app-shell
+status: stable
+tokens: --k10-color-bg, --k10-topbar-height, --k10-bottom-nav-height, --k10-sidenav-width
+storybook: /story/design-system-shell-appshell--default
+inputs: (structural)
+
+--- skeleton ---
+selector: k10-skeleton
+status: stable
+tokens: --k10-color-surface, --k10-color-surface-raised, --k10-radius-sm, --k10-radius-full
 storybook: /story/design-system-components-skeleton--default
 inputs: shape, width, height, count
 
 --- slider ---
-selector: k9-slider
+selector: k10-slider
 status: stable
-tokens: --k9-color-primary, --k9-color-surface-elevated, --k9-shadow-focus
+tokens: --k10-color-primary, --k10-color-surface-elevated, --k10-shadow-focus
 storybook: /story/design-system-components-slider--default
 inputs: value, min, max, step, disabled, label
 
 --- spinner ---
-selector: k9-spinner
+selector: k10-spinner
 status: stable
-tokens: --k9-color-primary, --k9-color-border, --k9-color-secondary
+tokens: --k10-color-primary, --k10-color-border, --k10-color-secondary
 storybook: /story/design-system-components-spinner--default
 inputs: size, variant, label
 
 --- tabs ---
-selector: k9-tabs
+selector: k10-tabs
 status: stable
-tokens: --k9-color-surface, --k9-radius-xl, --k9-color-surface-elevated, --k9-shadow-sm
+tokens: --k10-color-surface, --k10-radius-xl, --k10-color-surface-elevated, --k10-shadow-sm
 storybook: /story/design-system-components-tabs--default
 inputs: tabs, activeTab
 
 --- toast ---
-selector: k9-toast
+selector: k10-toast
 status: stable
-tokens: --k9-color-primary-subtle, --k9-color-danger-subtle, --k9-radius-xl, --k9-shadow-lg
+tokens: --k10-color-success-subtle, --k10-color-danger-subtle, --k10-radius-xl, --k10-shadow-lg
 storybook: /story/design-system-components-toast--default
 inputs: variant, position, message, visible, duration, dismissible
 
 --- toggle ---
-selector: k9-toggle
+selector: k10-toggle
 status: stable
-tokens: --k9-color-primary, --k9-radius-full, --k9-shadow-primary-glow, --k9-easing-emphasis
+tokens: --k10-color-primary, --k10-radius-full, --k10-shadow-primary-glow, --k10-easing-spring
 storybook: /story/design-system-components-toggle--default
 inputs: checked, disabled, label
 
 --- tooltip ---
-selector: k9-tooltip
+selector: k10-tooltip
 status: stable
-tokens: --k9-color-surface-elevated, --k9-radius-md, --k9-shadow-md, --k9-font-size-caption
+tokens: --k10-color-surface-elevated, --k10-radius-md, --k10-shadow-md, --k10-font-size-caption
 storybook: /story/design-system-components-tooltip--default
 inputs: position, content, disabled
 
---- app-shell ---
-selector: k9-app-shell
+--- map ---
+selector: k10-map
 status: stable
-tokens: --k9-color-bg, --k9-topbar-height, --k9-bottom-nav-height, --k9-sidenav-width
-storybook: /story/design-system-shell-appshell--default
-inputs: (structural)
-
---- bottom-nav ---
-selector: k9-bottom-nav
-status: stable
-tokens: --k9-color-surface-elevated, --k9-radius-xl, --k9-shadow-xl, --k9-bottom-nav-height
-storybook: /story/design-system-shell-bottomnav--default
-inputs: items
+tokens: --k10-color-surface, --k10-font-family, --k10-font-size-body, --k10-color-text
+storybook: /story/design-system-special-map--default
+inputs: height, loading
 ```
 
 Claude lit ce bloc via l'API Figma (`node.description`) pour vérifier la cohérence code ↔ design.
@@ -1432,41 +1826,47 @@ Claude lit ce bloc via l'API Figma (`node.description`) pour vérifier la cohér
 
 ## Page `_Status` — Dashboard de synchronisation
 
-La page `_Status` contient un tableau Figma mis à jour à chaque modification :
-
 | Composant | Figma | Code | Storybook | Dernière sync | Notes |
 |---|---|---|---|---|---|
-| alert | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| app-shell | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| avatar | ✅ stable | ✅ stable | ✅ | 2026-04 | — |
-| badge | ✅ stable | ✅ stable | ✅ | 2026-04 | — |
-| bottom-nav | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| button | ✅ stable | ✅ stable | ✅ | 2026-04 | — |
-| card | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| chart-card | ✅ stable | ✅ stable | ✅ | 2026-04 | — |
-| checkbox | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| divider | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| dropdown | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| empty-state | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| form-field | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| input | ✅ stable | ✅ stable | ✅ | 2026-04 | — |
-| list-item | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| metric-card | ✅ stable | ✅ stable | ✅ | 2026-04 | ⚠️ label font-weight drift (regular vs bold) |
-| modal | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| nav-item | ✅ stable | ✅ stable | ✅ | 2026-04 | — |
-| progress | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| radio | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| select | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| side-nav | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| skeleton | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| slider | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| spinner | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| tabs | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| toast | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| toggle | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| tooltip | 🔄 beta | ✅ stable | ✅ | 2026-04 | Figma node à créer |
-| topbar | ✅ stable | ✅ stable | ✅ | 2026-04 | — |
-| chart-card | ✅ stable | ✅ stable | ✅ | 2026-04 | ⚠️ title font-weight drift (regular vs bold) |
+| alert | ✅ stable | ✅ stable | ✅ | 2026-04 | Tokens sémantiques K-10 |
+| app-shell | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| avatar | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| badge | ✅ stable | ✅ stable | ✅ | 2026-04 | Variants K-10 (info ajouté) |
+| bottom-nav | ✅ stable | ✅ stable | ✅ | 2026-04 | Glassmorphism tokens K-10 |
+| button | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| card | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| chart-card | ✅ stable | ✅ stable | ✅ | 2026-04 | Live badge → accent (teal) |
+| checkbox | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| divider | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| dropdown | ✅ stable | ✅ stable | ✅ | 2026-04 | Focus → accent |
+| empty-state | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| fab | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| form-field | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| input | ✅ stable | ✅ stable | ✅ | 2026-04 | Focus → accent |
+| list-item | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| live-indicator | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| map | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| metric-card | ✅ stable | ✅ stable | ✅ | 2026-04 | data-lg (28px) |
+| modal | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| nav-item | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| notification-dot | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| progress | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| radio | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| search | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| segmented | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| select | ✅ stable | ✅ stable | ✅ | 2026-04 | Focus → accent |
+| side-nav | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| skeleton | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| slider | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| spinner | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| stepper | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| stepper-control | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| tabs | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| tag | 🔄 beta | ✅ stable | ✅ | 2026-04 | Nouveau K-10 |
+| toast | ✅ stable | ✅ stable | ✅ | 2026-04 | Tokens sémantiques K-10 |
+| toggle | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| tooltip | ✅ stable | ✅ stable | ✅ | 2026-04 | |
+| topbar | ✅ stable | ✅ stable | ✅ | 2026-04 | |
 
 **Statuts** :
 - `✅ stable` — en production, spécifié et testé
@@ -1484,36 +1884,37 @@ Claude peut annoter cette page automatiquement lors d'un audit.
 
 | Token | Valeur | Usage |
 |---|---|---|
-| `duration/fastest` | 100ms | Micro-feedback (ripple) |
-| `duration/fast` | 150ms | Transitions UI légères |
+| `duration/fast` | 120ms | Transitions UI légères (hover, color) |
 | `duration/normal` | 200ms | Transitions standard |
 | `duration/slow` | 300ms | Animations d'état, spring |
-| `duration/slower` | 400ms | Entrées/sorties de modals |
+| `duration/slower` | 500ms | Entrées/sorties de modals |
+| `duration/lazy` | 800ms | Animations de chargement |
 
 ### Easings
 
 | Token | Courbe | Usage |
 |---|---|---|
-| `easing/standard` | `cubic-bezier(0.4, 0, 0.2, 1)` | Transitions UI courantes |
-| `easing/accelerate` | `cubic-bezier(0.4, 0, 1, 1)` | Éléments qui quittent l'écran |
-| `easing/decelerate` | `cubic-bezier(0, 0, 0.2, 1)` | Éléments qui entrent |
-| `easing/emphasis` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | **Spring — micro-interactions** |
+| `easing/standard` | `cubic-bezier(0.2, 0, 0, 1)` | Transitions UI courantes |
+| `easing/accelerate` | `cubic-bezier(0.3, 0, 1, 1)` | Éléments qui quittent l'écran |
+| `easing/decelerate` | `cubic-bezier(0, 0, 0, 1)` | Éléments qui entrent |
+| `easing/spring` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | **Spring — micro-interactions** |
 
 ### Règles par type
 
 | Type | Easing | Durée | Exemples |
 |---|---|---|---|
-| État on/off | `emphasis` (spring) | `slow` (300ms) | nav-item, toggle, checkbox |
-| Transition UI | `standard` | `fast` (150ms) | hover, color change |
+| État on/off | `spring` | `slow` (300ms) | nav-item, toggle, checkbox, segmented |
+| Transition UI | `standard` | `fast` (120ms) | hover, color change |
 | Entrée élément | `decelerate` | `normal` (200ms) | toast, dropdown |
-| Sortie élément | `accelerate` | `fast` (150ms) | toast dismiss |
+| Sortie élément | `accelerate` | `fast` (120ms) | toast dismiss |
 | Live border | linear | 5000ms / infini | conic-gradient rotation |
-| Pulse live | ease-in-out | 2500ms / infini | badge glow, card pulse |
+| Pulse live | ease-in-out | 2500ms / infini | live-indicator dot, card pulse |
+| Micro-pop | `spring` | `normal` (200ms) | checkbox check, segment active |
 
 ### Annotations dans Figma
 - `@animated` → animation CSS présente
 - `@live` → état temps réel (conic-gradient + pulse)
-- `@spring` → easing-emphasis sur la transition
+- `@spring` → easing-spring sur la transition
 - `@infinite` → animation continue (jamais sur interaction utilisateur)
 
 ---
@@ -1528,7 +1929,7 @@ storybook: /story/design-system-components-[composant]--default
 ### Dans Storybook → Figma (parameters)
 ```typescript
 parameters: {
-  figmaUrl: 'https://www.figma.com/file/[FILE_KEY]?node-id=[NODE_ID]',
+  figmaUrl: 'https://www.figma.com/design/5MS7DIRcSDz7lYm0tjze7x?node-id=[NODE_ID]',
 }
 ```
 
@@ -1538,14 +1939,14 @@ Les deux liens doivent être maintenus en sync. Lors d'un audit Claude :
 
 ---
 
-## Fichier Figma K9 Pro — Source de vérité
+## Fichier Figma K-10 — Source de vérité
 
-| Champ     | Valeur |
-|-----------|--------|
-| **URL**   | https://www.figma.com/design/7t9yhZTrDeEa3S5XwgRiXP |
-| **fileKey** | `7t9yhZTrDeEa3S5XwgRiXP` |
-| **Créé**  | 2026-04-03 |
+| Champ | Valeur |
+|---|---|
+| **fileKey** | `5MS7DIRcSDz7lYm0tjze7x` |
 | **Pages** | `_Tokens` · `_Status` · `Typography` · `Colors` · `Foundations` · `Components` · `Patterns` · `Motion` · `Playground` |
+| **Palette** | "Deep Ocean Dark" |
+| **Sync** | avril 2026 |
 
 ---
 
@@ -1564,11 +1965,11 @@ Le MCP officiel Figma est configuré dans `.mcp.json` à la racine du projet :
 }
 ```
 
-**Authentification** : OAuth 2.0 via Figma. À la première utilisation, lancer `/mcp` dans Claude Code et s'authentifier via le flow Figma.
+**Authentification** : OAuth 2.0 via Figma. À la première utilisation, lancer `/mcp` dans Claude Code et s'authentifier.
 
 **Outils disponibles** : `get_design_context`, `get_variable_defs`, `get_code_connect_map`, `get_screenshot`, `get_metadata`, `create_design_system_rules`, `get_figjam`, `generate_diagram`, `whoami`
 
-**Fallback REST API** : Token `FIGMA_API_KEY` dans `~/.claude/mcp.json` — utilisé uniquement si le MCP n'est pas disponible.
+**Fallback REST** : `FIGMA_API_KEY` dans `~/.claude/mcp.json` — utilisé si le MCP OAuth n'est pas disponible.
 
 ---
 
@@ -1577,31 +1978,34 @@ Le MCP officiel Figma est configuré dans `.mcp.json` à la racine du projet :
 Lorsqu'un lien Figma est fourni, Claude exécute :
 
 ```
-1. GET /v1/files/[FILE_KEY]/nodes?ids=[NODE_IDS]
+1. GET /v1/files/5MS7DIRcSDz7lYm0tjze7x/nodes?ids=[NODE_IDS]
    → Extraire : dimensions · padding · gap · radius · couleurs · typographie
 
-2. Comparer avec le code CSS correspondant dans libs/ui/
+2. Comparer avec le code CSS correspondant dans libs/ui/src/lib/components/
 
-3. Comparer les Figma Variables avec variables.css
+3. Comparer les Figma Variables avec libs/ui/src/lib/tokens/variables.css
    → Tout écart de valeur = drift à corriger
 
 4. Vérifier les Component Properties Figma vs inputs Angular
    → Propriété Figma manquante = input non documenté côté design
 
 5. Lire _Status → mettre à jour le statut du composant audité
+
+6. Vérifier que les liens storybook/figmaUrl sont bidirectionnels
 ```
 
 ---
 
 ## Règles de contribution designer
 
-1. **Ne jamais créer de valeur hors Variables** — toute couleur, taille, espacement doit référencer une Variable Figma. Zéro valeur hardcodée dans les layers.
-2. **Nommer selon la convention** `composant/variant/état` — pas d'alias, pas d'espace.
+1. **Ne jamais créer de valeur hors Variables** — toute couleur, taille, espacement doit référencer une Variable Figma. Zéro valeur hardcodée.
+2. **Nommer selon la convention** `composant/variant/état` — kebab-case strict, pas d'espace.
 3. **Renseigner le Description field** à chaque nouveau composant avant de partager.
 4. **Mettre à jour `_Status`** après toute modification d'un composant existant.
 5. **Annoter les layers animés** avec `@animated`, `@live`, `@spring`, `@infinite`.
 6. **Proposer, ne pas décider** les écarts au design system — tout ajout de token passe par une PR code d'abord.
+7. **Ne pas créer de token K-9** — tout le vocabulaire est `k10-*`. Le préfixe `k9-` est legacy et non synchronisé.
 
 ---
 
-_v1.0 — K9 Pro — synchronisation Figma ↔ code — avril 2026_
+_v2.0 — K-10 "Deep Ocean Dark" — synchronisation Figma ↔ code — avril 2026_

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   ChartCardComponent,
@@ -42,5 +42,5 @@ import { EditActivityDirective } from './directives/edit-activity.directive';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  @Input({ required: true }) dogId = '1';
+  dogId = '1';
 }

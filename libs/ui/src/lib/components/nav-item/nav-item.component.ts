@@ -1,10 +1,10 @@
 import { Component, ChangeDetectionStrategy, input, computed } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import type { NavItemVariant, NavItemConfig } from './nav-item.types';
-import { NAV_ITEM_VARIANTS } from './nav-item.types';
+import type { NavItemVariant, NavItemColor, NavItemConfig } from './nav-item.types';
+import { NAV_ITEM_VARIANTS, NAV_ITEM_COLORS } from './nav-item.types';
 
 @Component({
-  selector: 'k9-nav-item',
+  selector: 'k10-nav-item',
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,6 +14,7 @@ import { NAV_ITEM_VARIANTS } from './nav-item.types';
 export class NavItemComponent {
   readonly item    = input.required<NavItemConfig>();
   readonly variant = input<NavItemVariant>('bottom');
+  readonly color   = input<NavItemColor>('primary');
 
   readonly safeVariant = computed<NavItemVariant>(() => {
     const v = this.variant();
@@ -22,6 +23,11 @@ export class NavItemComponent {
       return 'bottom';
     }
     return v;
+  });
+
+  readonly safeColor = computed<NavItemColor>(() => {
+    const c = this.color();
+    return NAV_ITEM_COLORS.includes(c) ? c : 'primary';
   });
 
   readonly hasBadge = computed(() => {

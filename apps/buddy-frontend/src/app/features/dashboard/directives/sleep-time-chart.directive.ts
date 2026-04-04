@@ -12,7 +12,7 @@ function formatSleepDate(isoDate: string): string {
 }
 
 @Directive({
-  selector: 'k9-chart-card[appSleepTimeChart]',
+  selector: 'k10-chart-card[appSleepTimeChart]',
   standalone: true,
 })
 export class SleepTimeChartDirective implements OnInit {

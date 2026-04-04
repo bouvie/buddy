@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, input, computed } from '@angular/co
 import type { SkeletonShape } from './skeleton.types';
 
 @Component({
-  selector: 'k9-skeleton',
+  selector: 'k10-skeleton',
   standalone: true,
   imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

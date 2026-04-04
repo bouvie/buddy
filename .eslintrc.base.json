@@ -21,7 +21,7 @@
             "depConstraints": [
               {
                 "sourceTag": "scope:monitoring",
-                "onlyDependOnLibsWithTags": ["scope:monitoring"]
+                "onlyDependOnLibsWithTags": ["scope:monitoring", "type:shared"]
               },
               {
                 "sourceTag": "scope:acquisition",

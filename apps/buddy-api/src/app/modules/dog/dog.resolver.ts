@@ -18,13 +18,13 @@ export class DogResolver {
   }
 
   @ResolveField('lastLocation')
-  lastLocation(@Parent() _dog: Dog): LocationPoint {
-    return this.locationService.getCurrent();
+  async lastLocation(@Parent() dog: Dog): Promise<LocationPoint> {
+    return this.locationService.getCurrent(this.dogService.getDeviceId(dog.id));
   }
 
   @ResolveField('heartRateSeries')
-  heartRateSeries(@Parent() _dog: Dog, @Args('last') last = 30): HeartRatePoint[] {
-    return this.healthService.getHeartRateSeries(last);
+  async heartRateSeries(@Parent() dog: Dog, @Args('last') last = 30): Promise<HeartRatePoint[]> {
+    return this.healthService.getHeartRateSeries(this.dogService.getDeviceId(dog.id), last);
   }
 
   @ResolveField('sleepSeries')

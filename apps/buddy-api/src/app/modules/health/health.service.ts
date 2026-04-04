@@ -1,20 +1,13 @@
 import { Inject, Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { PubSub } from 'graphql-subscriptions';
 import { HeartRatePoint, SleepPoint } from '@buddy/reading-contracts';
+import { TelemetryReadRepository } from '@buddy/telemetry-monitoring-data-access';
 import { HEALTH_PUB_SUB } from './health.tokens';
 
 const HEART_RATE_UPDATED = 'HEART_RATE_UPDATED';
-const BASE_BPM = 78;
 
-// Migré depuis HeartRateChartDirective — mêmes 3 composantes de variabilité cardiaque canine
-function nextBpm(prev: number, tick: number): number {
-  const rsa       = Math.sin((tick * 2 * Math.PI) / 3) * 4;
-  const hrv       = (Math.random() - 0.5) * 3;
-  const reversion = (BASE_BPM - prev) * 0.06;
-  return Math.round(Math.max(60, Math.min(105, prev + rsa * 0.4 + hrv + reversion)));
-}
-
-// Heures de sommeil sur 7 jours — dates générées dynamiquement au démarrage
+// Heures de sommeil sur 7 jours — mock statique jusqu'à l'implémentation de la détection de sommeil.
+// Le schéma TimescaleDB actuel ne contient pas de données de sommeil (telemetry_daily = activité).
 const SLEEP_HOURS = [7.2, 6.5, 8.1, 5.8, 6.9, 9.0, 8.4];
 
 function buildSleepMock(): SleepPoint[] {
@@ -28,40 +21,45 @@ function buildSleepMock(): SleepPoint[] {
 
 @Injectable()
 export class HealthService implements OnModuleInit, OnModuleDestroy {
-  private lastBpm = BASE_BPM;
-  private tick    = 0;
   private intervalId: ReturnType<typeof setInterval> | undefined;
   private readonly sleepMock = buildSleepMock();
 
-  constructor(@Inject(HEALTH_PUB_SUB) private readonly pubSub: PubSub) {}
+  constructor(
+    @Inject(HEALTH_PUB_SUB) private readonly pubSub: PubSub,
+    private readonly telemetryReadRepository: TelemetryReadRepository,
+  ) {}
 
   onModuleInit(): void {
-    this.intervalId = setInterval(() => {
-      this.tick++;
-      this.lastBpm = nextBpm(this.lastBpm, this.tick);
-      this.pubSub.publish(HEART_RATE_UPDATED, {
-        heartRate: { timestamp: new Date().toISOString(), bpm: this.lastBpm },
-      });
+    // La subscription live heartRate est alimentée par les dernières mesures DB.
+    // Cadence 1s — même fréquence que le simulateur ingest.
+    this.intervalId = setInterval(async () => {
+      // TODO: remplacer par un consumer Redis Streams quand la couche subscription sera câblée.
+      // Pour l'instant on lit la dernière mesure en DB pour alimenter la subscription.
+      const rows = await this.telemetryReadRepository.findRecentForDevice('sim-001', 1);
+      const latest = rows[0];
+      if (latest?.heartRate != null) {
+        this.pubSub.publish(HEART_RATE_UPDATED, {
+          heartRate: { timestamp: latest.recordedAt.toISOString(), bpm: latest.heartRate },
+        });
+      }
     }, 1000);
   }
 
-  // Génère `last` points historiques pour pré-remplir la sliding window frontend
-  getHeartRateSeries(last: number): HeartRatePoint[] {
-    const points: HeartRatePoint[] = [];
-    let bpm = BASE_BPM;
-    const now = Date.now();
-    for (let i = last - 1; i >= 0; i--) {
-      bpm = nextBpm(bpm, i);
-      points.push({ timestamp: new Date(now - i * 1000).toISOString(), bpm });
-    }
-    return points;
+  /**
+   * Dernières `last` mesures de fréquence cardiaque depuis TimescaleDB.
+   * Retourne un tableau vide si le device n'a pas encore envoyé de données.
+   */
+  async getHeartRateSeries(deviceId: string, last: number): Promise<HeartRatePoint[]> {
+    const rows = await this.telemetryReadRepository.findRecentForDevice(deviceId, last);
+    return rows
+      .filter((r) => r.heartRate != null)
+      .map((r) => ({ timestamp: r.recordedAt.toISOString(), bpm: r.heartRate! }));
   }
 
   getSleepSeries(last: number): SleepPoint[] {
     return this.sleepMock.slice(-last);
   }
 
-  // dogId réservé pour le filtrage multi-chiens
   liveIterator(_dogId: string): AsyncIterableIterator<{ heartRate: HeartRatePoint }> {
     return this.pubSub.asyncIterableIterator<{ heartRate: HeartRatePoint }>(HEART_RATE_UPDATED);
   }

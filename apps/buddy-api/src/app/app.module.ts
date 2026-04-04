@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { TelemetryMonitoringDataAccessModule } from '@buddy/telemetry-monitoring-data-access';
 import { DogModule } from './modules/dog/dog.module';
 import { HealthModule } from './modules/health/health.module';
 import { LocationModule } from './modules/location/location.module';
@@ -33,6 +34,13 @@ const schemaPaths = isProd
         ? join(__dirname, '../buddy-frontend/browser')
         : join(process.cwd(), 'dist/apps/buddy-frontend/browser'),
       exclude: ['/graphql{,/**}'],
+    }),
+    TelemetryMonitoringDataAccessModule.forRoot({
+      host:     process.env['DB_HOST']     ?? 'localhost',
+      port:     parseInt(process.env['DB_PORT'] ?? '5432', 10),
+      database: process.env['DB_NAME']     ?? 'buddy',
+      user:     process.env['DB_USER']     ?? 'buddy',
+      password: process.env['DB_PASSWORD'] ?? 'buddy_dev',
     }),
     DogModule,
     HealthModule,

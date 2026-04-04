@@ -29,7 +29,9 @@
       "@buddy/telemetry-events": ["libs/telemetry-events/src/index.ts"],
       "@buddy/notification-contracts": ["libs/notification-contracts/src/index.ts"],
       "@buddy/event-bus": ["libs/event-bus/src/index.ts"],
+      "@buddy/telemetry-types": ["libs/telemetry-types/src/index.ts"],
       "@buddy/telemetry-data-access": ["libs/telemetry-data-access/src/index.ts"],
+      "@buddy/telemetry-monitoring-data-access": ["libs/telemetry-monitoring-data-access/src/index.ts"],
       "@buddy/rules-engine": ["libs/rules-engine/src/index.ts"]
     }
   }

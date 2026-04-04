@@ -1,0 +1,80 @@
+services:
+  # ── TimescaleDB ─────────────────────────────────────────────────────────────
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: buddy-timescaledb
+    environment:
+      POSTGRES_DB: buddy
+      POSTGRES_USER: buddy
+      POSTGRES_PASSWORD: buddy_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+      - ./services/timescaledb/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./services/timescaledb/02-continuous-aggregates.sql:/docker-entrypoint-initdb.d/02-continuous-aggregates.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U buddy"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Redis (Event Bus) ────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: buddy-redis
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./services/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── EMQX (MQTT Broker) ──────────────────────────────────────────────────────
+  emqx:
+    image: emqx:5
+    container_name: buddy-emqx
+    environment:
+      EMQX_NAME: buddy-emqx
+      EMQX_HOST: 127.0.0.1
+    ports:
+      - "1883:1883"    # MQTT
+      - "8883:8883"    # MQTT TLS
+      - "18083:18083"  # Dashboard web (admin/public)
+    volumes:
+      - emqx_data:/opt/emqx/data
+      - ./services/emqx/emqx.conf:/opt/emqx/etc/emqx.conf
+    healthcheck:
+      test: ["CMD", "/opt/emqx/bin/emqx", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  # ── Outils de debug (profil tools) ──────────────────────────────────────────
+  adminer:
+    image: adminer:latest
+    container_name: buddy-adminer
+    profiles: [tools]
+    ports:
+      - "8080:8080"
+    depends_on:
+      - timescaledb
+
+  redis-insight:
+    image: redis/redisinsight:latest
+    container_name: buddy-redis-insight
+    profiles: [tools]
+    ports:
+      - "5540:5540"
+    depends_on:
+      - redis
+
+volumes:
+  timescaledb_data:
+  redis_data:
+  emqx_data:

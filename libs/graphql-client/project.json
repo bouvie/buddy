@@ -1,10 +1,10 @@
 {
-  "name": "data-access",
+  "name": "graphql-client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/data-access/src",
+  "sourceRoot": "libs/graphql-client/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:data-access", "scope:buddy"],
+  "tags": ["type:graphql-client", "scope:monitoring"],
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint"

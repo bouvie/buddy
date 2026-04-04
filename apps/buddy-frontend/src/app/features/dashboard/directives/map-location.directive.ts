@@ -4,7 +4,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
 import { filter, map, take } from 'rxjs/operators';
 import { MapComponent } from '@buddy/ui';
-import { DogService } from '@buddy/data-access';
+import { DogService } from '@buddy/graphql-client';
 
 @Directive({
   selector: 'k10-map[appMapLocation]',

@@ -20,24 +20,28 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "type:app",
-                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "scope:shared"]
+                "sourceTag": "scope:monitoring",
+                "onlyDependOnLibsWithTags": ["scope:monitoring"]
               },
               {
-                "sourceTag": "type:app-api",
-                "onlyDependOnLibsWithTags": ["scope:shared"]
+                "sourceTag": "scope:acquisition",
+                "onlyDependOnLibsWithTags": ["scope:acquisition", "scope:events"]
               },
               {
-                "sourceTag": "type:data-access",
-                "onlyDependOnLibsWithTags": ["scope:shared"]
+                "sourceTag": "scope:events",
+                "onlyDependOnLibsWithTags": ["scope:events"]
+              },
+              {
+                "sourceTag": "scope:analysis",
+                "onlyDependOnLibsWithTags": ["scope:analysis", "scope:events"]
+              },
+              {
+                "sourceTag": "type:graphql-client",
+                "onlyDependOnLibsWithTags": ["scope:monitoring"]
               },
               {
                 "sourceTag": "type:ui",
-                "onlyDependOnLibsWithTags": ["scope:shared"]
-              },
-              {
-                "sourceTag": "scope:shared",
-                "onlyDependOnLibsWithTags": ["scope:shared"]
+                "onlyDependOnLibsWithTags": ["scope:monitoring"]
               }
             ]
           }

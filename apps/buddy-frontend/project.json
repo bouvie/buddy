@@ -4,7 +4,7 @@
   "projectType": "application",
   "sourceRoot": "apps/buddy-frontend/src",
   "prefix": "app",
-  "tags": ["type:app", "scope:buddy"],
+  "tags": ["type:app-frontend", "scope:monitoring"],
   "implicitDependencies": ["ui"],
   "targets": {
     "build": {

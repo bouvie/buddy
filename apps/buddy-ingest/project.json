@@ -1,0 +1,51 @@
+{
+  "name": "buddy-ingest",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/buddy-ingest/src",
+  "projectType": "application",
+  "tags": ["type:app-ingest", "scope:acquisition"],
+  "implicitDependencies": ["device-contracts", "event-bus", "telemetry-events", "telemetry-data-access"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "webpack-cli build",
+        "args": ["--node-env=production"],
+        "cwd": "apps/buddy-ingest"
+      },
+      "configurations": {
+        "development": {
+          "args": ["--node-env=development"]
+        }
+      }
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "buddy-ingest:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": { "buildTarget": "buddy-ingest:build:development" },
+        "production":  { "buildTarget": "buddy-ingest:build:production" }
+      }
+    },
+    "docker:up": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker/docker-compose.yml up -d",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "docker:down": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker/docker-compose.yml down",
+        "cwd": "{workspaceRoot}"
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { toObservable, toSignal, takeUntilDestroyed } from '@angular/core/rxjs-i
 import { filter, map, startWith, take } from 'rxjs/operators';
 import type { ChartCardData, ChartDataPoint } from '@buddy/ui';
 import { ChartCardComponent } from '@buddy/ui';
-import { DogService } from '@buddy/data-access';
+import { DogService } from '@buddy/graphql-client';
 
 /** Converts an ISO date string to a short French weekday label (e.g. "2024-04-01" → "Lun") */
 function formatSleepDate(isoDate: string): string {

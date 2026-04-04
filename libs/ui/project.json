@@ -4,7 +4,7 @@
   "projectType": "library",
   "sourceRoot": "libs/ui/src",
   "prefix": "k10",
-  "tags": ["type:ui", "scope:shared"],
+  "tags": ["type:ui", "scope:monitoring"],
   "targets": {
     "build": {
       "executor": "@nx/angular:ng-packagr-lite",

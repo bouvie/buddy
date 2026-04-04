@@ -61,6 +61,6 @@
       }
     }
   },
-  "tags": ["type:app-api", "scope:buddy"],
-  "implicitDependencies": ["shared"]
+  "tags": ["type:app-api", "scope:monitoring"],
+  "implicitDependencies": ["reading-contracts"]
 }

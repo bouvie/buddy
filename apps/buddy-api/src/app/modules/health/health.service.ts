@@ -1,6 +1,6 @@
 import { Inject, Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { PubSub } from 'graphql-subscriptions';
-import { HeartRatePoint, SleepPoint } from '@buddy/shared';
+import { HeartRatePoint, SleepPoint } from '@buddy/reading-contracts';
 import { HEALTH_PUB_SUB } from './health.tokens';
 
 const HEART_RATE_UPDATED = 'HEART_RATE_UPDATED';

@@ -20,7 +20,7 @@ module.exports = {
         // SDL copié dans dist/apps/buddy-api/graphql/ pour que typePaths fonctionne en prod
         {
           glob: '**/*.graphql',
-          input: '../../libs/shared/src/lib/graphql',
+          input: '../../libs/reading-contracts/src/lib/graphql',
           output: 'graphql',
         },
       ],

@@ -1,0 +1,18 @@
+{
+  "name": "device-contracts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/device-contracts/src",
+  "projectType": "library",
+  "tags": ["type:shared", "scope:acquisition"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/device-contracts",
+        "main": "libs/device-contracts/src/index.ts",
+        "tsConfig": "libs/device-contracts/tsconfig.lib.json"
+      }
+    }
+  }
+}

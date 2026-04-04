@@ -1,0 +1,19 @@
+{
+  "name": "reading-contracts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/reading-contracts/src",
+  "projectType": "library",
+  "tags": ["type:shared", "scope:monitoring"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/reading-contracts",
+        "main": "libs/reading-contracts/src/index.ts",
+        "tsConfig": "libs/reading-contracts/tsconfig.lib.json",
+        "assets": ["libs/reading-contracts/*.md"]
+      }
+    }
+  }
+}

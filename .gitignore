@@ -16,6 +16,11 @@ dist/
 out-tsc/
 storybook-static/
 
+# pgTyped — fichiers générés au build (non commités, regénérés via nx run telemetry-data-access:pgtyped)
+# Le stub libs/telemetry-data-access/src/lib/queries/__generated__/telemetry.queries.ts est commité
+# comme fallback IDE. pgTyped l'écrase avec les types exacts inférés de la DB réelle.
+# Pour regénérer : docker compose -f docker/docker-compose.yml up -d && nx run telemetry-data-access:pgtyped
+
 # Angular
 .angular/
 

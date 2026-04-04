@@ -1,5 +1,5 @@
 import { Resolver, Query, Args, ResolveField, Parent } from '@nestjs/graphql';
-import { Dog, HeartRatePoint, SleepPoint, LocationPoint } from '@buddy/shared';
+import { Dog, HeartRatePoint, SleepPoint, LocationPoint } from '@buddy/reading-contracts';
 import { DogService } from './dog.service';
 import { HealthService } from '../health/health.service';
 import { LocationService } from '../location/location.service';

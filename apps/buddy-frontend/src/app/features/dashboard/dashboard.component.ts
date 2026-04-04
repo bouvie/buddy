@@ -10,7 +10,7 @@ import {
   InputComponent,
   ButtonComponent,
 } from '@buddy/ui';
-import { DogService } from '@buddy/data-access';
+import { DogService } from '@buddy/graphql-client';
 import { HeartRateChartDirective } from './directives/heart-rate-chart.directive';
 import { SleepTimeChartDirective } from './directives/sleep-time-chart.directive';
 import { MapLocationDirective } from './directives/map-location.directive';

@@ -13,7 +13,7 @@ const isProd = process.env['NODE_ENV'] === 'production';
 // Prod : __dirname = dist/apps/buddy-api, SDL copié par webpack dans graphql/
 const schemaPaths = isProd
   ? [join(__dirname, 'graphql/**/*.graphql')]
-  : [join(process.cwd(), 'libs/shared/src/lib/graphql/**/*.graphql')];
+  : [join(process.cwd(), 'libs/reading-contracts/src/lib/graphql/**/*.graphql')];
 
 @Module({
   imports: [

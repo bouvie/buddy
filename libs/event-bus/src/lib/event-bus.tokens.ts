@@ -1,0 +1,1 @@
+export const EVENT_BUS_CLIENT = 'EVENT_BUS_CLIENT';

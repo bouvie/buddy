@@ -3,7 +3,7 @@ import { toObservable, toSignal, takeUntilDestroyed } from '@angular/core/rxjs-i
 import { filter, map, scan, startWith, switchMap, take } from 'rxjs/operators';
 import type { ChartCardData, ChartDataPoint } from '@buddy/ui';
 import { ChartCardComponent } from '@buddy/ui';
-import { DogService } from '@buddy/data-access';
+import { DogService } from '@buddy/graphql-client';
 
 const WINDOW_SIZE = 30;
 

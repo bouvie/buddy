@@ -4,7 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideApollo } from 'apollo-angular';
 import { routes } from './app.routes';
 import { GOOGLE_MAPS_API_KEY } from '@buddy/ui';
-import { createApolloOptions } from '@buddy/data-access';
+import { createApolloOptions } from '@buddy/graphql-client';
 import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {

@@ -23,8 +23,14 @@
     "isolatedModules": true,
     "paths": {
       "@buddy/ui": ["libs/ui/src/index.ts"],
-      "@buddy/data-access": ["libs/data-access/src/index.ts"],
-      "@buddy/shared": ["libs/shared/src/index.ts"]
+      "@buddy/graphql-client": ["libs/graphql-client/src/index.ts"],
+      "@buddy/reading-contracts": ["libs/reading-contracts/src/index.ts"],
+      "@buddy/device-contracts": ["libs/device-contracts/src/index.ts"],
+      "@buddy/telemetry-events": ["libs/telemetry-events/src/index.ts"],
+      "@buddy/notification-contracts": ["libs/notification-contracts/src/index.ts"],
+      "@buddy/event-bus": ["libs/event-bus/src/index.ts"],
+      "@buddy/telemetry-data-access": ["libs/telemetry-data-access/src/index.ts"],
+      "@buddy/rules-engine": ["libs/rules-engine/src/index.ts"]
     }
   }
 }

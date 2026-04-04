@@ -1,0 +1,35 @@
+{
+  "name": "telemetry-data-access",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/telemetry-data-access/src",
+  "projectType": "library",
+  "tags": ["type:data-access", "scope:events"],
+  "targets": {
+    "pgtyped": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/src/lib/queries/**/*.sql",
+        "{workspaceRoot}/docker/services/timescaledb/01-schema.sql",
+        "{workspaceRoot}/docker/services/timescaledb/02-continuous-aggregates.sql"
+      ],
+      "outputs": [
+        "{projectRoot}/src/lib/queries/__generated__"
+      ],
+      "options": {
+        "command": "pgtyped -c pgtyped.config.js",
+        "cwd": "libs/telemetry-data-access"
+      }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "dependsOn": ["pgtyped"],
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/telemetry-data-access",
+        "main": "libs/telemetry-data-access/src/index.ts",
+        "tsConfig": "libs/telemetry-data-access/tsconfig.lib.json"
+      }
+    }
+  }
+}

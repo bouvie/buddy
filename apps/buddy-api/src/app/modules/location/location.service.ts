@@ -1,6 +1,6 @@
 import { Inject, Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { PubSub } from 'graphql-subscriptions';
-import { LocationPoint } from '@buddy/shared';
+import { LocationPoint } from '@buddy/reading-contracts';
 import { LOCATION_PUB_SUB } from './location.tokens';
 
 const LOCATION_UPDATED = 'LOCATION_UPDATED';

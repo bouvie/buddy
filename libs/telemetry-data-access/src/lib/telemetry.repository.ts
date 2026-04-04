@@ -49,11 +49,11 @@ export class TelemetryRepository {
         deviceIds:   rows.map((r) => r.deviceId),
         recordedAts: rows.map((r) => r.recordedAt),
         receivedAts: rows.map((r) => r.receivedAt),
-        latitudes:   rows.map((r) => r.latitude   ?? null),
-        longitudes:  rows.map((r) => r.longitude  ?? null),
-        heartRates:  rows.map((r) => r.heartRate  ?? null),
-        accelerations: rows.map((r) => r.acceleration ?? null),
-        batteries:   rows.map((r) => r.battery    ?? null),
+        latitudes:   rows.map((r) => r.latitude   ?? null) as number[],
+        longitudes:  rows.map((r) => r.longitude  ?? null) as number[],
+        heartRates:  rows.map((r) => r.heartRate  ?? null) as number[],
+        accelerations: rows.map((r) => r.acceleration ?? null) as number[],
+        batteries:   rows.map((r) => r.battery    ?? null) as number[],
       },
       this.pool,
     );
@@ -85,8 +85,8 @@ export class TelemetryRepository {
     const rows = await findHourlyBaseline.run({ deviceId, hours }, this.pool);
 
     return rows.map((r) => ({
-      deviceId:        r.device_id,
-      bucket:          r.bucket,
+      deviceId:        r.device_id ?? '',
+      bucket:          r.bucket ?? new Date(),
       avgHeartRate:    r.avg_heart_rate   ?? null,
       maxHeartRate:    r.max_heart_rate   ?? null,
       avgAcceleration: r.avg_acceleration ?? null,

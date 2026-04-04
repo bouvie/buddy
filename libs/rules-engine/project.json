@@ -6,12 +6,11 @@
   "tags": ["type:domain", "scope:analysis"],
   "targets": {
     "build": {
-      "executor": "@nx/js:tsc",
-      "outputs": ["{options.outputPath}"],
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/rules-engine"],
       "options": {
-        "outputPath": "dist/libs/rules-engine",
-        "main": "libs/rules-engine/src/index.ts",
-        "tsConfig": "libs/rules-engine/tsconfig.lib.json"
+        "command": "tsc --project libs/rules-engine/tsconfig.lib.json",
+        "cwd": "{workspaceRoot}"
       }
     }
   }

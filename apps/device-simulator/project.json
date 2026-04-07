@@ -1,17 +1,17 @@
 {
-  "name": "buddy-analysis",
+  "name": "device-simulator",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/buddy-analysis/src",
+  "sourceRoot": "apps/device-simulator/src",
   "projectType": "application",
-  "tags": ["type:app-analysis", "scope:analysis"],
-  "implicitDependencies": ["rules-engine", "event-bus", "telemetry-events", "notification-contracts", "telemetry-data-access"],
+  "tags": ["type:app-simulator", "scope:acquisition"],
+  "implicitDependencies": ["device-contracts"],
   "targets": {
     "build": {
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
         "args": ["--node-env=production"],
-        "cwd": "apps/buddy-analysis"
+        "cwd": "apps/device-simulator"
       },
       "configurations": {
         "development": {
@@ -25,13 +25,13 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "buddy-analysis:build",
+        "buildTarget": "device-simulator:build",
         "runBuildTargetDependencies": false,
-        "port": 9231
+        "port": 9232
       },
       "configurations": {
-        "development": { "buildTarget": "buddy-analysis:build:development" },
-        "production":  { "buildTarget": "buddy-analysis:build:production", "inspect": false }
+        "development": { "buildTarget": "device-simulator:build:development" },
+        "production":  { "buildTarget": "device-simulator:build:production", "inspect": false }
       }
     }
   }

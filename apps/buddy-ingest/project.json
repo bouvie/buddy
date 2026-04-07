@@ -26,11 +26,12 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "buddy-ingest:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": false,
+        "port": 9230
       },
       "configurations": {
         "development": { "buildTarget": "buddy-ingest:build:development" },
-        "production":  { "buildTarget": "buddy-ingest:build:production" }
+        "production":  { "buildTarget": "buddy-ingest:build:production", "inspect": false }
       }
     },
     "docker:up": {

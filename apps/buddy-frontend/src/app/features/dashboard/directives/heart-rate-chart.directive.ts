@@ -26,18 +26,23 @@ export class HeartRateChartDirective implements OnInit {
     runInInjectionContext(this.injector, () => {
       const dashboard = this.dogService.watchDashboard(this.appHeartRateChart);
 
-      // Pre-fill: map heartRateSeries to FIXED_LABELS positions
-      const initialPoints$ = toObservable(dashboard).pipe(
-        map((s) => s.data?.heartRateSeries ?? null),
-        filter((series): series is NonNullable<typeof series> => !!series?.length),
+      // Pre-fill: attend la première réponse (vide ou non) pour démarrer la subscription live.
+      // Le filter accepte null mais rejette le state loading (data === null) pour ne pas
+      // ouvrir le WS avant que la query initiale ait répondu.
+      const initial$ = toObservable(dashboard).pipe(
+        filter((s) => !s.loading),
         take(1),
-        map((series): ChartDataPoint[] =>
-          series.map((p, i) => ({ label: FIXED_LABELS[i] as string, value: p.bpm })),
-        ),
+        map((s): ChartDataPoint[] => {
+          const series = (s.data?.heartRateSeries ?? []).slice(-WINDOW_SIZE);
+          return Array.from({ length: WINDOW_SIZE }, (_, i) => {
+            const histIdx = i - (WINDOW_SIZE - series.length);
+            return { label: FIXED_LABELS[i] as string, value: histIdx >= 0 ? (series[histIdx]?.bpm ?? 0) : 0 };
+          });
+        }),
       );
 
       // Pre-fill → live sliding window
-      const chartData$ = initialPoints$.pipe(
+      const chartData$ = initial$.pipe(
         switchMap((initial) =>
           this.dogService.heartRateLive$(this.appHeartRateChart).pipe(
             scan(

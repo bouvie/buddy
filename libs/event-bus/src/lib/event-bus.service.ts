@@ -1,4 +1,4 @@
-import { Injectable, Inject, OnModuleDestroy, Logger } from '@nestjs/common';
+import { Injectable, Inject, OnModuleDestroy, OnModuleInit, Logger } from '@nestjs/common';
 import { createClient, RedisClientType } from 'redis';
 
 /**
@@ -8,11 +8,15 @@ import { createClient, RedisClientType } from 'redis';
  * et notification-contracts.
  */
 @Injectable()
-export class EventBusService implements OnModuleDestroy {
+export class EventBusService implements OnModuleInit, OnModuleDestroy {
   private readonly logger = new Logger(EventBusService.name);
   private client!: RedisClientType;
 
   constructor(@Inject('EVENT_BUS_OPTIONS') private readonly options: { host: string; port: number }) {}
+
+  async onModuleInit(): Promise<void> {
+    await this.connect();
+  }
 
   async connect(): Promise<void> {
     this.client = createClient({

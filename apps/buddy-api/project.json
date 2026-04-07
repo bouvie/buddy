@@ -49,14 +49,16 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "buddy-api:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": false,
+        "port": 9229
       },
       "configurations": {
         "development": {
           "buildTarget": "buddy-api:build:development"
         },
         "production": {
-          "buildTarget": "buddy-api:build:production"
+          "buildTarget": "buddy-api:build:production",
+          "inspect": false
         }
       }
     }

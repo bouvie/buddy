@@ -4,7 +4,6 @@ import { TelemetryDataAccessModule } from '@buddy/telemetry-data-access';
 import { MqttModule } from './modules/mqtt/mqtt.module';
 import { IngestModule } from './modules/ingest/ingest.module';
 import { DeviceAuthModule } from './modules/device-auth/device-auth.module';
-import { SimulatorModule } from './modules/simulator/simulator.module';
 
 @Module({
   imports: [
@@ -22,7 +21,6 @@ import { SimulatorModule } from './modules/simulator/simulator.module';
     DeviceAuthModule,
     MqttModule,
     IngestModule,
-    SimulatorModule,
   ],
 })
 export class AppModule {}

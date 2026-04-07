@@ -4,11 +4,10 @@ import { DeviceBatch } from '@buddy/device-contracts';
 
 /**
  * Simule un bracelet IoT publiant des mesures sur MQTT.
- * Actif uniquement quand SIMULATE_DEVICE=true (ou en l'absence de variable explicite en dev).
  *
  * Le device simulé `sim-001` publie un DeviceBatch toutes les secondes :
  *  - Fréquence cardiaque : oscillation sinusoïdale + bruit aléatoire (réaliste canin 70–100 bpm)
- *  - GPS : marche aléatoire autour de Marseille
+ *  - GPS : marche aléatoire autour de Bergen
  *  - Accélération : corrélée à la FC (chien actif = FC haute = acc haute)
  *  - Batterie : décharge lente, remise à 100 % si < 20 %
  */
@@ -18,7 +17,7 @@ export class SimulatorService implements OnModuleInit, OnModuleDestroy {
   private client!: mqtt.MqttClient;
   private intervalId: ReturnType<typeof setInterval> | undefined;
 
-  private readonly deviceId = 'sim-001';
+  private readonly deviceId = process.env['DEVICE_ID'] ?? 'sim-001';
   private readonly brokerUrl = process.env['MQTT_BROKER_URL'] ?? 'mqtt://localhost:1883';
 
   // État interne du device simulé
@@ -28,16 +27,9 @@ export class SimulatorService implements OnModuleInit, OnModuleDestroy {
   private lng = 5.426638;
   private battery = 100;
 
-  private readonly enabled = process.env['SIMULATE_DEVICE'] !== 'false';
-
   onModuleInit(): void {
-    if (!this.enabled) {
-      this.logger.log('Device simulator disabled (SIMULATE_DEVICE=false)');
-      return;
-    }
-
     this.client = mqtt.connect(this.brokerUrl, {
-      clientId: `buddy-simulator-${Date.now()}`,
+      clientId: `buddy-simulator-${this.deviceId}-${Date.now()}`,
       clean: true,
       reconnectPeriod: 5000,
     });
